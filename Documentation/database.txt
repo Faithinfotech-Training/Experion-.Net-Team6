@@ -1,0 +1,111 @@
+CLINICAL MANAGEMENT SYSTEM
+
+
+CREATE DATABASE ClinicManagementSystemDB;
+
+CREATE TABLE TblRole(
+RoleId INT IDENTITY(1,1) PRIMARY KEY,
+RoleName VARCHAR(50),
+IsActive BIT)
+
+CREATE TABLE TblUser(
+UserId int IDENTITY(1,1) PRIMARY KEY,
+UserName VARCHAR(50),
+Password VARCHAR(50),
+RoleId INT FOREIGN KEY REFERENCES TblRole(RoleId) ,
+IsActive BIT)
+
+
+CREATE TABLE TblStaff(
+StaffId INT IDENTITY(1,1) PRIMARY KEY,
+StaffName VARCHAR(50) ,
+RoleId INT FOREIGN KEY REFERENCES TblRole(RoleId),
+StaffAge INT,
+StaffGender VARCHAR(20),
+StaffDateofBirth DATE,
+StaffContactNo VARCHAR(50),
+StaffLocation VARCHAR(50),
+IsActive BIT)
+
+CREATE TABLE TblSpecialization(
+SpecializationId INT IDENTITY(1,1) PRIMARY KEY,
+SpecializationName VARCHAR(50))
+
+CREATE TABLE TblDoctor(
+DoctorId INT IDENTITY(1,1) PRIMARY KEY,
+DoctorName VARCHAR(50),
+DoctorSpecializationId INT FOREIGN KEY REFERENCES TblSpecialization(SpecializationId) ,
+DoctorQualification VARCHAR(50),
+DoctorAge INT,
+DoctorGender VARCHAR(20) ,
+DoctorDateofBirth DATE,
+DoctorContactNo VARCHAR(50) ,
+DoctorLocation VARCHAR(50),
+IsActive BIT)
+
+CREATE TABLE TblPatient(
+PatientId INT IDENTITY(1,1) PRIMARY KEY,
+PatientName VARCHAR(50),
+Age INT,
+Gender VARCHAR(20) ,
+Location VARCHAR(50) ,
+ContactNo VARCHAR(50),
+EmergencyContact VARCHAR(50),
+IsActive BIT)
+
+CREATE TABLE TblAppointment(
+AppointmentId INT IDENTITY(1,1) PRIMARY KEY,
+PatientId INT FOREIGN KEY REFERENCES TblPatient(PatientId),
+DoctorId INT FOREIGN KEY REFERENCES TblDoctor(DoctorId),
+DateofAppointment Date,
+IsActive bit)
+
+CREATE TABLE TblMasterMedicine(
+MedicineId INT IDENTITY(1,1) PRIMARY KEY,
+MedicineName VARCHAR(50),
+IsActive BIT)
+
+CREATE TABLE TblMasterLabTest(
+TestId INT IDENTITY(1,1) PRIMARY KEY,
+TestName VARCHAR(50),
+NormalRange VARCHAR(50),
+isActive BIT)
+
+CREATE TABLE TblPatientLog(
+LogId INT IDENTITY(1,1) PRIMARY KEY,
+PatientId INT FOREIGN KEY REFERENCES TblPatient(PatientId) ,
+DoctorId INT FOREIGN KEY REFERENCES TblDoctor(DoctorId),
+AppointmentId INT FOREIGN KEY REFERENCES TblAppointment(AppointmentId) ,
+IsActive BIT)
+
+CREATE TABLE TblPrescriptionMedicine(
+PrescriptionMedicineId INT PRIMARY KEY IDENTITY(1,1),
+LogId INT FOREIGN KEY REFERENCES TblPatientLog(LogId),
+MedicineId INT FOREIGN KEY REFERENCES TblMasterMedicine(MedicineId),
+IsActive BIT
+)
+
+CREATE TABLE TblPrescriptionTest(
+PrescriptionTestId INT PRIMARY KEY IDENTITY(1,1),
+LogId INT FOREIGN KEY REFERENCES TblPatientLog(LogId),
+TestId INt FOREIGN KEY REFERENCES TblMasterLabTest(TestId),
+IisActive BIT
+)
+
+CREATE TABLE TblLabReport(
+LabReportId INT PRIMARY KEY IDENTITY(1,1),
+PatientId INT FOREIGN KEY REFERENCES TblPatient(PatientId),
+StaffId INT FOREIGN KEY REFERENCES TblStaff(StaffId),
+LogId INT FOREIGN KEY REFERENCES TblPatientLog(LogId),
+TestId INt FOREIGN KEY REFERENCES TblMasterLabTest(TestId),
+ObservedResult VARCHAR(30),
+isActive BIT
+)
+
+CREATE TABLE TblPayment(
+PaymentId INT PRIMARY KEY IDENTITY(1,1),
+PaymentDate Date,
+LogId INT FOREIGN KEY REFERENCES TblPatientLog(LogId),
+Amount VARCHAR(30),
+isActive BIT
+)
