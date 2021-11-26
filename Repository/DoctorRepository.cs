@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace cmsRestApi.Repository
 {
-    interface LoginRepository
+    public class DoctorRepository
     {
-        //helloo
     }
 }
