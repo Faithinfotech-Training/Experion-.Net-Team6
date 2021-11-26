@@ -34,7 +34,6 @@ E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\staticwebassets\cmsRestApi.StaticWebAs
 E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\staticwebassets\cmsRestApi.StaticWebAssets.xml
 E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\cmsRestApi.styles.css
 E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.RazorTargetAssemblyInfo.cache
-E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.csproj.CopyComplete
 E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.dll
 E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.pdb
 E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.genruntimeconfig.cache

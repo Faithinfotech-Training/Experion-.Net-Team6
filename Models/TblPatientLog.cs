@@ -18,6 +18,8 @@ namespace cmsRestApi.Models
         public int? DoctorId { get; set; }
         public int? AppointmentId { get; set; }
         public bool? IsActive { get; set; }
+        public string Notes { get; set; }
+        public string Observations { get; set; }
 
         public virtual TblAppointment Appointment { get; set; }
         public virtual TblDoctor Doctor { get; set; }
