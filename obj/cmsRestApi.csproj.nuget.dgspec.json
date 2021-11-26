@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CMS\\Experion-.Net-Team6\\cmsRestApi.csproj": {}
+    "E:\\CMS\\cmsRestApi\\cmsRestApi.csproj": {}
   },
   "projects": {
-    "E:\\CMS\\Experion-.Net-Team6\\cmsRestApi.csproj": {
+    "E:\\CMS\\cmsRestApi\\cmsRestApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CMS\\Experion-.Net-Team6\\cmsRestApi.csproj",
+        "projectUniqueName": "E:\\CMS\\cmsRestApi\\cmsRestApi.csproj",
         "projectName": "cmsRestApi",
-        "projectPath": "E:\\CMS\\Experion-.Net-Team6\\cmsRestApi.csproj",
-        "packagesPath": "C:\\Users\\mohammed.ab\\.nuget\\packages\\",
-        "outputPath": "E:\\CMS\\Experion-.Net-Team6\\obj\\",
+        "projectPath": "E:\\CMS\\cmsRestApi\\cmsRestApi.csproj",
+        "packagesPath": "C:\\Users\\ashika.hussain\\.nuget\\packages\\",
+        "outputPath": "E:\\CMS\\cmsRestApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mohammed.ab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ashika.hussain\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
