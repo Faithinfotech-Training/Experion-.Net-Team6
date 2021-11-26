@@ -179,6 +179,16 @@ namespace cmsRestApi.Models
                 entity.HasKey(e => e.LogId)
                     .HasName("PK__TblPatie__5E54864837B9F3E2");
 
+                entity.Property(e => e.Notes)
+                    .HasColumnName("NOTES")
+                    .HasMaxLength(80)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Observations)
+                    .HasColumnName("OBSERVATIONS")
+                    .HasMaxLength(80)
+                    .IsUnicode(false);
+
                 entity.HasOne(d => d.Appointment)
                     .WithMany(p => p.TblPatientLog)
                     .HasForeignKey(d => d.AppointmentId)
