@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CMS\\Experion-.Net-Team6\\cmsRestApi.csproj": {}
+    "C:\\Experion-.Net-Team6\\cmsRestApi.csproj": {}
   },
   "projects": {
-    "E:\\CMS\\Experion-.Net-Team6\\cmsRestApi.csproj": {
+    "C:\\Experion-.Net-Team6\\cmsRestApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CMS\\Experion-.Net-Team6\\cmsRestApi.csproj",
+        "projectUniqueName": "C:\\Experion-.Net-Team6\\cmsRestApi.csproj",
         "projectName": "cmsRestApi",
-        "projectPath": "E:\\CMS\\Experion-.Net-Team6\\cmsRestApi.csproj",
-        "packagesPath": "C:\\Users\\mohammed.ab\\.nuget\\packages\\",
-        "outputPath": "E:\\CMS\\Experion-.Net-Team6\\obj\\",
+        "projectPath": "C:\\Experion-.Net-Team6\\cmsRestApi.csproj",
+        "packagesPath": "C:\\Users\\Akhil\\.nuget\\packages\\",
+        "outputPath": "C:\\Experion-.Net-Team6\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mohammed.ab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Akhil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -69,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
