@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tBNgsDeC2wU+7mceXHI1VaBrWT5fu/1Nj68RPvlgQ65rb5BqBns9hT+BykTHThg1ARnZwa0ydy2sz7+CgFGpMg==",
+  "dgSpecHash": "MCUqyPvtfM7zxhegwzEAUiieM4LwrOdRK+7HZzqpphiXAYfHeKT2ZVHR/bTsrl/VXboQu0Z0u00oaW5h+xyzIA==",
   "success": true,
-  "projectFilePath": "E:\\CMS\\cmsRestApi\\cmsRestApi.csproj",
+  "projectFilePath": "D:\\Project\\RestApi\\Experion-.Net-Team6\\cmsRestApi.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

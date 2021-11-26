@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\ashika.hussain\\.nuget\\packages\\": {}
+    "C:\\Users\\sujith.kumar\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\CMS\\cmsRestApi\\cmsRestApi.csproj",
+      "projectUniqueName": "D:\\Project\\RestApi\\Experion-.Net-Team6\\cmsRestApi.csproj",
       "projectName": "cmsRestApi",
-      "projectPath": "E:\\CMS\\cmsRestApi\\cmsRestApi.csproj",
-      "packagesPath": "C:\\Users\\ashika.hussain\\.nuget\\packages\\",
-      "outputPath": "E:\\CMS\\cmsRestApi\\obj\\",
+      "projectPath": "D:\\Project\\RestApi\\Experion-.Net-Team6\\cmsRestApi.csproj",
+      "packagesPath": "C:\\Users\\sujith.kumar\\.nuget\\packages\\",
+      "outputPath": "D:\\Project\\RestApi\\Experion-.Net-Team6\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ashika.hussain\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sujith.kumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
