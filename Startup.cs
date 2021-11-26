@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using cmsRestApi.Models;
+using cmsRestApi.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +30,8 @@ namespace cmsRestApi
         {
             services.AddControllers();
             services.AddDbContext<ClinicManagementSystemDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
+            services.AddScoped<IPatientRepo, PatientRepo>();
+            services.AddScoped<IMedicineRepo, MedicineRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
