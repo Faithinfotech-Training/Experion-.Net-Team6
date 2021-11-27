@@ -5877,19 +5877,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Akhil\\.nuget\\packages\\": {}
+    "C:\\Users\\mohammed.ab\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Experion-.Net-Team6\\cmsRestApi.csproj",
+      "projectUniqueName": "E:\\CMS\\Experion-.Net-Team6\\cmsRestApi.csproj",
       "projectName": "cmsRestApi",
-      "projectPath": "C:\\Experion-.Net-Team6\\cmsRestApi.csproj",
-      "packagesPath": "C:\\Users\\Akhil\\.nuget\\packages\\",
-      "outputPath": "C:\\Experion-.Net-Team6\\obj\\",
+      "projectPath": "E:\\CMS\\Experion-.Net-Team6\\cmsRestApi.csproj",
+      "packagesPath": "C:\\Users\\mohammed.ab\\.nuget\\packages\\",
+      "outputPath": "E:\\CMS\\Experion-.Net-Team6\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Akhil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mohammed.ab\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5952,7 +5952,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
