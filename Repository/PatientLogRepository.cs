@@ -72,9 +72,14 @@ namespace cmsRestApi.Repository
                               where doctor.DoctorSpecializationId == spec.SpecializationId
                               where log.AppointmentId == appointment.AppointmentId
                               where medicine.LogId == log.LogId
-                              where medicineName.MedicineId == medicine.MedicineId
+                              where medicineName.MedicineId == medicine.MedicineOneId
+                              where medicineName.MedicineId == medicine.MedicineTwoId
+                              where medicineName.MedicineId == medicine.MedicineThreeId
+                              where medicineName.MedicineId == medicine.MedicineFourId
                               where test.LogId == log.LogId
-                              where testName.TestId == test.TestId
+                              where testName.TestId == test.TestOneId
+                              where testName.TestId == test.TestTwoId
+                              where testName.TestId == test.TestThreeId
                               select new PatientLogViewModel
                               {
                                   PatientId = patient.PatientId,
@@ -90,8 +95,17 @@ namespace cmsRestApi.Repository
                                   DateofAppointment = appointment.DateofAppointment,
                                   Notes = log.Notes,
                                   Observations = log.Observations,
-                                  MedicineName = medicineName.MedicineName,
-                                  TestName =new TestView() { test1= testName.TestName,test2=testName.TestName ,test3=testName.TestName}
+                                  MedicineOne = medicineName.MedicineName,
+                                  MedicineTwo = medicineName.MedicineName,
+                                  MedicineThree = medicineName.MedicineName,
+                                  MedicineFour = medicineName.MedicineName,
+                                  MedicineOneDosage=medicine.MedicineOneDosage,
+                                  MedicineTwoDosage=medicine.MedicineTwoDosage,
+                                  MedicineThreeDosage=medicine.MedicineThreeDosage,
+                                  MedicineFourDosage=medicine.MedicineFourDosage,
+                                  LabTestOne =testName.TestName,
+                                  LabTestTwo = testName.TestName,
+                                  LabTestThree = testName.TestName,
 
                               }
                               ).ToListAsync();
@@ -101,5 +115,6 @@ namespace cmsRestApi.Repository
 
         }
 
+        
     }
 }

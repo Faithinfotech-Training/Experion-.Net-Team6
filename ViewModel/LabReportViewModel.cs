@@ -21,12 +21,16 @@ namespace cmsRestApi.ViewModel
 
         public DateTime? DateOfAppointment { get; set; }
 
-        public int TestId { get; set; }
+       
 
-        public string TestName { get; set; }
-
+        public string TestOneName { get; set; }
+        public string ObservedResultOne { get; set; }
+        public string TestTwoName { get; set; }
+        public string ObservedResultTwo { get; set; }
+        public string TestThreeName { get; set; }
+        public string ObservedResultThree { get; set; }
         public string NormalRange { get; set; }
 
-        public string ObservedResult { get; set; }
+       
     }
 }

@@ -30,7 +30,7 @@ namespace cmsRestApi.Models
         public virtual DbSet<TblStaff> TblStaff { get; set; }
         public virtual DbSet<TblUser> TblUser { get; set; }
 
-      /*  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
@@ -95,31 +95,57 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblLabReport>(entity =>
             {
                 entity.HasKey(e => e.LabReportId)
-                    .HasName("PK__TblLabRe__971DB70D5F1CA94A");
+                    .HasName("PK__TblLabRe__971DB70DAADB45FF");
 
-                entity.Property(e => e.ObservedResult)
+                entity.Property(e => e.IsActive).HasColumnName("isActive");
+
+                entity.Property(e => e.ObservedResultOne)
                     .HasMaxLength(30)
                     .IsUnicode(false);
+
+                entity.Property(e => e.ObservedResultThree)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ObservedResultTwo)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TestOneId).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.TestThreeId).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.TestTwoId).HasDefaultValueSql("((1))");
 
                 entity.HasOne(d => d.Log)
                     .WithMany(p => p.TblLabReport)
                     .HasForeignKey(d => d.LogId)
-                    .HasConstraintName("FK__TblLabRep__LogId__75A278F5");
+                    .HasConstraintName("FK__TblLabRep__LogId__236943A5");
 
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.TblLabReport)
                     .HasForeignKey(d => d.PatientId)
-                    .HasConstraintName("FK__TblLabRep__Patie__73BA3083");
+                    .HasConstraintName("FK__TblLabRep__Patie__2180FB33");
 
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.TblLabReport)
                     .HasForeignKey(d => d.StaffId)
-                    .HasConstraintName("FK__TblLabRep__Staff__74AE54BC");
+                    .HasConstraintName("FK__TblLabRep__Staff__22751F6C");
 
-                entity.HasOne(d => d.Test)
-                    .WithMany(p => p.TblLabReport)
-                    .HasForeignKey(d => d.TestId)
-                    .HasConstraintName("FK__TblLabRep__TestI__76969D2E");
+                entity.HasOne(d => d.TestOne)
+                    .WithMany(p => p.TblLabReportTestOne)
+                    .HasForeignKey(d => d.TestOneId)
+                    .HasConstraintName("FK__TblLabRep__TestO__245D67DE");
+
+                entity.HasOne(d => d.TestThree)
+                    .WithMany(p => p.TblLabReportTestThree)
+                    .HasForeignKey(d => d.TestThreeId)
+                    .HasConstraintName("FK__TblLabRep__TestT__282DF8C2");
+
+                entity.HasOne(d => d.TestTwo)
+                    .WithMany(p => p.TblLabReportTestTwo)
+                    .HasForeignKey(d => d.TestTwoId)
+                    .HasConstraintName("FK__TblLabRep__TestT__2645B050");
             });
 
             modelBuilder.Entity<TblMasterLabTest>(entity =>
@@ -208,52 +234,120 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblPayment>(entity =>
             {
                 entity.HasKey(e => e.PaymentId)
-                    .HasName("PK__TblPayme__9B556A38449BC1A6");
+                    .HasName("PK__TblPayme__9B556A3850D4C483");
 
                 entity.Property(e => e.Amount)
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.IsActive).HasColumnName("isActive");
-
                 entity.Property(e => e.PaymentDate).HasColumnType("date");
 
-                entity.HasOne(d => d.Log)
+                entity.HasOne(d => d.Appointment)
                     .WithMany(p => p.TblPayment)
-                    .HasForeignKey(d => d.LogId)
-                    .HasConstraintName("FK__TblPaymen__LogId__5FB337D6");
+                    .HasForeignKey(d => d.AppointmentId)
+                    .HasConstraintName("FK__TblPaymen__Appoi__114A936A");
             });
 
             modelBuilder.Entity<TblPrescriptionMedicine>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionMedicineId)
-                    .HasName("PK__TblPresc__2C5AC236EA4FA83A");
+                    .HasName("PK__TblPresc__2C5AC23606C3AB94");
+
+                entity.Property(e => e.MedicineFiveDosage)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MedicineFiveId).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.MedicineFourDosage)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MedicineFourId).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.MedicineOneDosage)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MedicineOneId).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.MedicineThreeDosage)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MedicineThreeId).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.MedicineTwoDosage)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MedicineTwoId).HasDefaultValueSql("((1))");
 
                 entity.HasOne(d => d.Log)
                     .WithMany(p => p.TblPrescriptionMedicine)
                     .HasForeignKey(d => d.LogId)
-                    .HasConstraintName("FK__TblPrescr__LogId__5165187F");
+                    .HasConstraintName("FK__TblPrescr__LogId__2BFE89A6");
 
-                entity.HasOne(d => d.Medicine)
-                    .WithMany(p => p.TblPrescriptionMedicine)
-                    .HasForeignKey(d => d.MedicineId)
-                    .HasConstraintName("FK__TblPrescr__Medic__52593CB8");
+                entity.HasOne(d => d.MedicineFive)
+                    .WithMany(p => p.TblPrescriptionMedicineMedicineFive)
+                    .HasForeignKey(d => d.MedicineFiveId)
+                    .HasConstraintName("FK__TblPrescr__Medic__3493CFA7");
+
+                entity.HasOne(d => d.MedicineFour)
+                    .WithMany(p => p.TblPrescriptionMedicineMedicineFour)
+                    .HasForeignKey(d => d.MedicineFourId)
+                    .HasConstraintName("FK__TblPrescr__Medic__32AB8735");
+
+                entity.HasOne(d => d.MedicineOne)
+                    .WithMany(p => p.TblPrescriptionMedicineMedicineOne)
+                    .HasForeignKey(d => d.MedicineOneId)
+                    .HasConstraintName("FK__TblPrescr__Medic__2CF2ADDF");
+
+                entity.HasOne(d => d.MedicineThree)
+                    .WithMany(p => p.TblPrescriptionMedicineMedicineThree)
+                    .HasForeignKey(d => d.MedicineThreeId)
+                    .HasConstraintName("FK__TblPrescr__Medic__30C33EC3");
+
+                entity.HasOne(d => d.MedicineTwo)
+                    .WithMany(p => p.TblPrescriptionMedicineMedicineTwo)
+                    .HasForeignKey(d => d.MedicineTwoId)
+                    .HasConstraintName("FK__TblPrescr__Medic__2EDAF651");
             });
 
             modelBuilder.Entity<TblPrescriptionTest>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionTestId)
-                    .HasName("PK__TblPresc__0554749055B613EB");
+                    .HasName("PK__TblPresc__0554749054B6C339");
+
+                entity.Property(e => e.Status)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TestOneId).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.TestThreeId).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.TestTwoId).HasDefaultValueSql("((1))");
 
                 entity.HasOne(d => d.Log)
                     .WithMany(p => p.TblPrescriptionTest)
                     .HasForeignKey(d => d.LogId)
-                    .HasConstraintName("FK__TblPrescr__LogId__6FE99F9F");
+                    .HasConstraintName("FK__TblPrescr__LogId__3864608B");
 
-                entity.HasOne(d => d.Test)
-                    .WithMany(p => p.TblPrescriptionTest)
-                    .HasForeignKey(d => d.TestId)
-                    .HasConstraintName("FK__TblPrescr__TestI__70DDC3D8");
+                entity.HasOne(d => d.TestOne)
+                    .WithMany(p => p.TblPrescriptionTestTestOne)
+                    .HasForeignKey(d => d.TestOneId)
+                    .HasConstraintName("FK__TblPrescr__TestO__395884C4");
+
+                entity.HasOne(d => d.TestThree)
+                    .WithMany(p => p.TblPrescriptionTestTestThree)
+                    .HasForeignKey(d => d.TestThreeId)
+                    .HasConstraintName("FK__TblPrescr__TestT__3D2915A8");
+
+                entity.HasOne(d => d.TestTwo)
+                    .WithMany(p => p.TblPrescriptionTestTestTwo)
+                    .HasForeignKey(d => d.TestTwoId)
+                    .HasConstraintName("FK__TblPrescr__TestT__3B40CD36");
             });
 
             modelBuilder.Entity<TblRole>(entity =>

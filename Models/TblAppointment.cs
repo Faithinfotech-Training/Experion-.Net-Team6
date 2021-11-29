@@ -8,6 +8,7 @@ namespace cmsRestApi.Models
         public TblAppointment()
         {
             TblPatientLog = new HashSet<TblPatientLog>();
+            TblPayment = new HashSet<TblPayment>();
         }
 
         public int AppointmentId { get; set; }
@@ -19,5 +20,6 @@ namespace cmsRestApi.Models
         public virtual TblDoctor Doctor { get; set; }
         public virtual TblPatient Patient { get; set; }
         public virtual ICollection<TblPatientLog> TblPatientLog { get; set; }
+        public virtual ICollection<TblPayment> TblPayment { get; set; }
     }
 }

@@ -7,8 +7,12 @@ namespace cmsRestApi.Models
     {
         public TblMasterLabTest()
         {
-            TblLabReport = new HashSet<TblLabReport>();
-            TblPrescriptionTest = new HashSet<TblPrescriptionTest>();
+            TblLabReportTestOne = new HashSet<TblLabReport>();
+            TblLabReportTestThree = new HashSet<TblLabReport>();
+            TblLabReportTestTwo = new HashSet<TblLabReport>();
+            TblPrescriptionTestTestOne = new HashSet<TblPrescriptionTest>();
+            TblPrescriptionTestTestThree = new HashSet<TblPrescriptionTest>();
+            TblPrescriptionTestTestTwo = new HashSet<TblPrescriptionTest>();
         }
 
         public int TestId { get; set; }
@@ -16,7 +20,11 @@ namespace cmsRestApi.Models
         public string NormalRange { get; set; }
         public bool? IsActive { get; set; }
 
-        public virtual ICollection<TblLabReport> TblLabReport { get; set; }
-        public virtual ICollection<TblPrescriptionTest> TblPrescriptionTest { get; set; }
+        public virtual ICollection<TblLabReport> TblLabReportTestOne { get; set; }
+        public virtual ICollection<TblLabReport> TblLabReportTestThree { get; set; }
+        public virtual ICollection<TblLabReport> TblLabReportTestTwo { get; set; }
+        public virtual ICollection<TblPrescriptionTest> TblPrescriptionTestTestOne { get; set; }
+        public virtual ICollection<TblPrescriptionTest> TblPrescriptionTestTestThree { get; set; }
+        public virtual ICollection<TblPrescriptionTest> TblPrescriptionTestTestTwo { get; set; }
     }
 }

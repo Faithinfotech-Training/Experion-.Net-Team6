@@ -24,25 +24,23 @@ namespace cmsRestApi.Repository
         {
             if (db != null)
             {
-                return await (from report in db.TblLabReport
-                              join
-                               patient in db.TblPatient on
-                               report.PatientId equals patient.PatientId
-                              join
-                              staff in db.TblStaff on
-                              report.StaffId equals staff.StaffId
-                              join
-                              test in db.TblMasterLabTest on
-                              report.TestId equals test.TestId
-                              join
-                              log in db.TblPatientLog on
-                              report.LogId equals log.LogId
-                              join
-                              doctor in db.TblDoctor on
-                              log.DoctorId equals doctor.DoctorId
-                              join
-                              apoointment in db.TblAppointment on
-                              log.AppointmentId equals apoointment.AppointmentId
+                return await (from patient in db.TblPatient
+                              from doctor in db.TblDoctor
+                              from appointment in db.TblAppointment
+                              from log in db.TblPatientLog
+                              from test in db.TblPrescriptionTest
+                              from testName in db.TblMasterLabTest
+                              from report in db.TblLabReport
+                              from staff in db.TblStaff
+                              where appointment.PatientId == patient.PatientId
+                              where appointment.DoctorId == doctor.DoctorId
+                              where log.AppointmentId == appointment.AppointmentId
+                            
+                              where test.LogId == log.LogId
+                              where testName.TestId == test.TestOneId
+                              where testName.TestId == test.TestTwoId
+                              where testName.TestId == test.TestThreeId
+                          
                               select new LabReportViewModel
                               {
                                   LabReportId = report.LabReportId,
@@ -51,11 +49,15 @@ namespace cmsRestApi.Repository
                                   StaffId = staff.StaffId,
                                   StaffName = staff.StaffName,
                                   DoctorName = doctor.DoctorName,
-                                  DateOfAppointment = apoointment.DateofAppointment,
-                                  TestId = test.TestId,
-                                  TestName = test.TestName,
-                                  NormalRange = test.NormalRange,
-                                  ObservedResult = report.ObservedResult
+                                  DateOfAppointment = appointment.DateofAppointment,
+                                  TestOneName = testName.TestName,
+                                  TestTwoName=testName.TestName,
+                                  TestThreeName=testName.TestName,
+                                  ObservedResultOne=report.ObservedResultOne,
+                                  ObservedResultThree=report.ObservedResultThree,
+                                  ObservedResultTwo=report.ObservedResultTwo
+                                  
+                                  
                               }
                                 ).ToListAsync();
             }
@@ -71,38 +73,22 @@ namespace cmsRestApi.Repository
             if (db != null)
             {
                 return await (from report in db.TblLabReport
-                              join
-                               patient in db.TblPatient on
-                               report.PatientId equals patient.PatientId
-                              join
-                              staff in db.TblStaff on
-                              report.StaffId equals staff.StaffId
-                              join
-                              test in db.TblMasterLabTest on
-                              report.TestId equals test.TestId
-                              join
-                              log in db.TblPatientLog on
-                              report.LogId equals log.LogId
-                              join
-                              doctor in db.TblDoctor on
-                              log.DoctorId equals doctor.DoctorId
-                              join
-                              apoointment in db.TblAppointment on
-                              log.AppointmentId equals apoointment.AppointmentId
-                              where report.LabReportId == id
+                              from testname in db.TblMasterLabTest
+                              from patient in db.TblPatient
+                              from doctor in db.TblDoctor 
+                              from date in db.TblAppointment
+                              where testname.TestId==report.TestOneId
+                              where testname.TestId==report.TestTwoId
+                              where testname.TestId==report.TestTwoId
+                              where report.PatientId == id
                               select new LabReportViewModel
                               {
                                   LabReportId = report.LabReportId,
                                   PatientId = patient.PatientId,
-                                  PatientName = patient.PatientName,
-                                  StaffId = staff.StaffId,
-                                  StaffName = staff.StaffName,
-                                  DoctorName = doctor.DoctorName,
-                                  DateOfAppointment = apoointment.DateofAppointment,
-                                  TestId = test.TestId,
-                                  TestName = test.TestName,
-                                  NormalRange = test.NormalRange,
-                                  ObservedResult = report.ObservedResult
+                                  PatientName= patient.PatientName,
+                                  DoctorName= doctor.DoctorName,
+                                 
+
                               }
                                 ).ToListAsync();
             }
