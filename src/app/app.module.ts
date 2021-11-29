@@ -19,6 +19,7 @@ import { PatientlistComponent } from './frontoffice/patientlist/patientlist.comp
 import { AppointmentComponent } from './frontoffice/appointment/appointment.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
+import { AdminService } from './shared/admin.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import { LoginComponent } from './login/login.component';
     Ng2SearchPipeModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AdminService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
