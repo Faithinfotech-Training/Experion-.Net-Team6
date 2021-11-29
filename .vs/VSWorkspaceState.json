@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Models"
+    "\\Models",
+    "\\Repository"
   ],
   "SelectedNode": "\\cmsRestApi.sln",
   "PreviewInSolutionExplorer": false

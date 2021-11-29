@@ -1,4 +1,5 @@
-﻿using cmsRestApi.Repository;
+﻿using cmsRestApi.Models;
+using cmsRestApi.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -31,12 +32,59 @@ namespace cmsRestApi.Controllers
                 {
                     return Ok(log);
                 }
-                return null;
+                return NotFound();
             }
             catch (Exception)
             {
                 return BadRequest();
             }
+        }
+
+        [HttpGet("log/{id}")]
+        public async Task<IActionResult> GetPatientLogViewModel(int id)
+        {
+            try
+            {
+                var logview = await repo.GetPatientLogViewModel(id);
+                if (logview != null)
+                {
+                    return Ok(logview);
+
+                }
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddPatientLog([FromBody] TblPatientLog log)
+        {
+            //check the validation of the body
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var id = await repo.AddPatientLog(log);
+                    if (id > 0)
+                    {
+                        return Ok(id);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+
+            return BadRequest();
         }
     }
 }

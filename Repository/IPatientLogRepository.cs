@@ -1,4 +1,5 @@
 ﻿using cmsRestApi.Models;
+using cmsRestApi.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,12 @@ namespace cmsRestApi.Repository
     {
         //Operations on Patient Log
 
-        //get all users
+        //get all Log
         Task<List<TblPatientLog>> GetPatientLog(int id);
+
+        Task<List<PatientLogViewModel>> GetPatientLogViewModel(int id);
+
+        Task<int> AddPatientLog(TblPatientLog log);
+
     }
 }
