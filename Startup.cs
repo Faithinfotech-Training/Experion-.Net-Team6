@@ -29,7 +29,8 @@ namespace cmsRestApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ClinicManagementSystemDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
+            services.AddDbContext<ClinicManagementSystemDBContext>
+            (item => item.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
             services.AddScoped<IDoctorRepository, DoctorRepository>();
             services.AddScoped<IPaymentRepo, PaymentRepo>();
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
