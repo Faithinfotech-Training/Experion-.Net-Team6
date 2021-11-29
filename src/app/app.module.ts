@@ -11,6 +11,8 @@ import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 import { PatientComponent } from './frontoffice/patient/patient.component';
 import { PatientlistComponent } from './frontoffice/patientlist/patientlist.component';
 import { AppointmentComponent } from './frontoffice/appointment/appointment.component';
+import { LoginComponent } from './login/login.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 @NgModule({
   declarations: [

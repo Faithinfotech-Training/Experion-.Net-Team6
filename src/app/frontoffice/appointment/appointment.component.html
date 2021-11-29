@@ -1,14 +1,14 @@
 
 <form name="appform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit()">
   <div class="form-control"> 
-  <div class="form-control"> 
+  <div class="container mt-3" style="width: 30em;"> 
     <!--Appointment id-->
     <input type="hidden" name="AppointmentId" />
 
     <!--Patient Name-->
     <div class="form-group">
 
-        <label class="col-md-4">Patient Name</label>
+        <label class="col-md-4">Patient Name<br></label>
         
         <select name="PatientId"  class="form-control">
             <option value="0" disabled>Choose Patient</option>
@@ -22,7 +22,7 @@
    <!--Doctor Name-->
    <div class="form-group" >
 
-    <label class="col-md-4">Doctor Name</label>
+    <label class="col-md-4"><br>Doctor Name</label>
     
     <select name="DoctorId"  class="form-control">
         <option value="0" disabled>Choose Doctor</option>
@@ -36,7 +36,7 @@
     <!--Date of Appointment-->
     <div class="form-group">
 
-        <label>Date Of Appointment</label>
+        <label><br>Date Of Appointment</label>
         <input type="date" name="DateOfJoining" id="DateOfJoining" 
             class="form-control" required
              />
@@ -46,7 +46,7 @@
 
     <!--Is Active-->
     <div class="form-group">
-        <div class="form-check">
+        <div class="form-check"><br>
             <label class="form-check-label">Is active </label>
             <input type="checkbox" name="IsActive" id="IsActive" 
                class="form-check-input">
