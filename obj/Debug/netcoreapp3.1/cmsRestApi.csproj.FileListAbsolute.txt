@@ -84,3 +84,6 @@ D:\Project\RestApi\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.RazorT
 D:\Project\RestApi\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.dll
 D:\Project\RestApi\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.pdb
 D:\Project\RestApi\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.genruntimeconfig.cache
+D:\Project\RestApi\Experion-.Net-Team6\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\Project\RestApi\Experion-.Net-Team6\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Project\RestApi\Experion-.Net-Team6\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
