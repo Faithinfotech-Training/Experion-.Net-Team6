@@ -2,11 +2,10 @@ import { Role } from "./role";
 
 export class User {
     UserId:number;
-    UserName:number;
-    Password:number;
+    UserName:String;
+    Password:string;
     RoleId:number;
 
     Role:Role
     IsActive:boolean;
-
 }

@@ -11,11 +11,11 @@ import { JwtResponse } from '../shared/jwt-response';
 })
 export class LoginComponent implements OnInit {
 
+  //declaring variables
   loginForm!: FormGroup;
   isSubmitted = false;
   error = '';
   jwtResponse: any = new JwtResponse();
-
 
 
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group(
       {
         UserName: ['', [Validators.required, Validators.minLength(2)]],
-        UserPassword: ['', [Validators.required]]
+        Password: ['', [Validators.required]]
       }
     );
   }
@@ -47,9 +47,10 @@ export class LoginComponent implements OnInit {
     }
 
     //valid
-    if (this.loginForm.invalid) {
+    if (this.loginForm.valid) {
       //calling method from AuthService
-      this.authService.loginVerify(this.loginForm.value).subscribe(data => {
+      this.authService.loginVerify(this.loginForm.value)
+      .subscribe(data => {
         console.log(data);
         //storing recieved data to jwtresponse variable
         this.jwtResponse = data;
@@ -86,7 +87,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("ACCESS_ROLE", this.jwtResponse.RoleId.toString())
           this.router.navigateByUrl('lab');
         }
-        else if (this.jwtResponse.RoleId === 2) {
+        else if (this.jwtResponse.RoleId === 4) {
           console.log("Front Office");
 
           //storing in localstorage/sessionStorage

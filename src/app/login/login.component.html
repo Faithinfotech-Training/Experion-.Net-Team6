@@ -22,7 +22,7 @@
 
                 <!--Password-->
                 <div>
-                    <input type="password" placeholder="Enter Password" formControlName="UserPassword" autocomplete="off"
+                    <input type="password" placeholder="Enter Password" formControlName="Password" autocomplete="off"
                         required />
 
                 </div>
@@ -34,7 +34,7 @@
                 </div>
 
                 <br>
-                <button class="btn btn-md btn-primary" >
+                <button class="btn btn-md btn-primary" (click)="loginCredentials()" >
                     <i class="fa fa-sign-in"></i>
                     Login
                 </button>
