@@ -95,7 +95,16 @@ IsActive BIT)
 CREATE TABLE TblPrescriptionMedicine(
 PrescriptionMedicineId INT PRIMARY KEY IDENTITY(1,1),
 LogId INT FOREIGN KEY REFERENCES TblPatientLog(LogId),
-MedicineId INT FOREIGN KEY REFERENCES TblMasterMedicine(MedicineId),
+MedicineOneId INT FOREIGN KEY REFERENCES TblMasterMedicine(MedicineId),
+MedicineOneDosage varchar(40),
+MedicineTwoId INT FOREIGN KEY REFERENCES TblMasterMedicine(MedicineId),
+MedicineTwoDosage varchar(40),
+MedicineThreeId INT FOREIGN KEY REFERENCES TblMasterMedicine(MedicineId),
+MedicineThreeDosage varchar(40),
+MedicineFourId INT FOREIGN KEY REFERENCES TblMasterMedicine(MedicineId),
+MedicineFourDosage varchar(40),
+MedicineFiveId INT FOREIGN KEY REFERENCES TblMasterMedicine(MedicineId),
+MedicineFiveDosage varchar(40),
 IsActive BIT
 )
 
@@ -103,8 +112,11 @@ IsActive BIT
 CREATE TABLE TblPrescriptionTest(
 PrescriptionTestId INT PRIMARY KEY IDENTITY(1,1),
 LogId INT FOREIGN KEY REFERENCES TblPatientLog(LogId),
-TestId INt FOREIGN KEY REFERENCES TblMasterLabTest(TestId),
-IisActive BIT
+TestOneId INt FOREIGN KEY REFERENCES TblMasterLabTest(TestId),
+TestTwoId INt FOREIGN KEY REFERENCES TblMasterLabTest(TestId),
+TestThreeId INt FOREIGN KEY REFERENCES TblMasterLabTest(TestId),
+Status varchar(40),
+IsActive BIT
 )
 
 
@@ -113,8 +125,12 @@ LabReportId INT PRIMARY KEY IDENTITY(1,1),
 PatientId INT FOREIGN KEY REFERENCES TblPatient(PatientId),
 StaffId INT FOREIGN KEY REFERENCES TblStaff(StaffId),
 LogId INT FOREIGN KEY REFERENCES TblPatientLog(LogId),
-TestId INt FOREIGN KEY REFERENCES TblMasterLabTest(TestId),
-ObservedResult VARCHAR(30),
+TestOneId INt FOREIGN KEY REFERENCES TblMasterLabTest(TestId),
+TestTwoId INt FOREIGN KEY REFERENCES TblMasterLabTest(TestId),
+TestThreeId INt FOREIGN KEY REFERENCES TblMasterLabTest(TestId),
+ObservedResultOne VARCHAR(30),
+ObservedResultTwo VARCHAR(30),
+ObservedResultThree VARCHAR(30),
 isActive BIT
 )
 
@@ -122,7 +138,7 @@ isActive BIT
 CREATE TABLE TblPayment(
 PaymentId INT PRIMARY KEY IDENTITY(1,1),
 PaymentDate Date,
-LogId INT FOREIGN KEY REFERENCES TblPatientLog(LogId),
+AppointmentId INT FOREIGN KEY REFERENCES TblAppointment(AppointmentId),
 Amount VARCHAR(30),
-isActive BIT
+IsActive BIT
 )
