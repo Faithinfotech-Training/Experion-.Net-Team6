@@ -30,21 +30,20 @@ namespace cmsRestApi.Models
         public virtual DbSet<TblStaff> TblStaff { get; set; }
         public virtual DbSet<TblUser> TblUser { get; set; }
 
-       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=ASHIKAHUSSAIN\\SQLEXPRESS; Initial Catalog=ClinicManagementSystemDB; Integrated security=True");
+                optionsBuilder.UseSqlServer("DbConnection");
             }
-        }*/
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TblAppointment>(entity =>
             {
                 entity.HasKey(e => e.AppointmentId)
-                    .HasName("PK__TblAppoi__8ECDFCC28239C024");
+                    .HasName("PK__TblAppoi__8ECDFCC2CD08ADC1");
 
                 entity.Property(e => e.DateofAppointment).HasColumnType("date");
 
@@ -62,7 +61,7 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblDoctor>(entity =>
             {
                 entity.HasKey(e => e.DoctorId)
-                    .HasName("PK__TblDocto__2DC00EBF84A467FF");
+                    .HasName("PK__TblDocto__2DC00EBF60553208");
 
                 entity.Property(e => e.DoctorContactNo)
                     .HasMaxLength(50)
@@ -95,7 +94,7 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblLabReport>(entity =>
             {
                 entity.HasKey(e => e.LabReportId)
-                    .HasName("PK__TblLabRe__971DB70DAADB45FF");
+                    .HasName("PK__TblLabRe__971DB70DDB083FEA");
 
                 entity.Property(e => e.IsActive).HasColumnName("isActive");
 
@@ -111,47 +110,38 @@ namespace cmsRestApi.Models
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TestOneId).HasDefaultValueSql("((1))");
+                entity.Property(e => e.TestOne)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.TestThreeId).HasDefaultValueSql("((1))");
+                entity.Property(e => e.TestThree)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.TestTwoId).HasDefaultValueSql("((1))");
+                entity.Property(e => e.TestTwo)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Log)
                     .WithMany(p => p.TblLabReport)
                     .HasForeignKey(d => d.LogId)
-                    .HasConstraintName("FK__TblLabRep__LogId__236943A5");
+                    .HasConstraintName("FK__TblLabRep__LogId__59C55456");
 
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.TblLabReport)
                     .HasForeignKey(d => d.PatientId)
-                    .HasConstraintName("FK__TblLabRep__Patie__2180FB33");
+                    .HasConstraintName("FK__TblLabRep__Patie__57DD0BE4");
 
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.TblLabReport)
                     .HasForeignKey(d => d.StaffId)
-                    .HasConstraintName("FK__TblLabRep__Staff__22751F6C");
-
-                entity.HasOne(d => d.TestOne)
-                    .WithMany(p => p.TblLabReportTestOne)
-                    .HasForeignKey(d => d.TestOneId)
-                    .HasConstraintName("FK__TblLabRep__TestO__245D67DE");
-
-                entity.HasOne(d => d.TestThree)
-                    .WithMany(p => p.TblLabReportTestThree)
-                    .HasForeignKey(d => d.TestThreeId)
-                    .HasConstraintName("FK__TblLabRep__TestT__282DF8C2");
-
-                entity.HasOne(d => d.TestTwo)
-                    .WithMany(p => p.TblLabReportTestTwo)
-                    .HasForeignKey(d => d.TestTwoId)
-                    .HasConstraintName("FK__TblLabRep__TestT__2645B050");
+                    .HasConstraintName("FK__TblLabRep__Staff__58D1301D");
             });
 
             modelBuilder.Entity<TblMasterLabTest>(entity =>
             {
                 entity.HasKey(e => e.TestId)
-                    .HasName("PK__TblMaste__8CC33160291CF070");
+                    .HasName("PK__TblMaste__8CC3316038B68C76");
 
                 entity.Property(e => e.IsActive).HasColumnName("isActive");
 
@@ -167,7 +157,7 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblMasterMedicine>(entity =>
             {
                 entity.HasKey(e => e.MedicineId)
-                    .HasName("PK__TblMaste__4F212890C8B1D82C");
+                    .HasName("PK__TblMaste__4F212890A6952B12");
 
                 entity.Property(e => e.MedicineName)
                     .HasMaxLength(50)
@@ -177,7 +167,7 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblPatient>(entity =>
             {
                 entity.HasKey(e => e.PatientId)
-                    .HasName("PK__TblPatie__970EC366F24EDA4C");
+                    .HasName("PK__TblPatie__970EC366B300C67A");
 
                 entity.Property(e => e.ContactNo)
                     .HasMaxLength(50)
@@ -203,7 +193,7 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblPatientLog>(entity =>
             {
                 entity.HasKey(e => e.LogId)
-                    .HasName("PK__TblPatie__5E54864837B9F3E2");
+                    .HasName("PK__TblPatie__5E54864804E5C086");
 
                 entity.Property(e => e.Notes)
                     .HasColumnName("NOTES")
@@ -234,7 +224,7 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblPayment>(entity =>
             {
                 entity.HasKey(e => e.PaymentId)
-                    .HasName("PK__TblPayme__9B556A3850D4C483");
+                    .HasName("PK__TblPayme__9B556A385D7AA16F");
 
                 entity.Property(e => e.Amount)
                     .HasMaxLength(30)
@@ -245,115 +235,91 @@ namespace cmsRestApi.Models
                 entity.HasOne(d => d.Appointment)
                     .WithMany(p => p.TblPayment)
                     .HasForeignKey(d => d.AppointmentId)
-                    .HasConstraintName("FK__TblPaymen__Appoi__114A936A");
+                    .HasConstraintName("FK__TblPaymen__Appoi__02FC7413");
             });
 
             modelBuilder.Entity<TblPrescriptionMedicine>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionMedicineId)
-                    .HasName("PK__TblPresc__2C5AC23606C3AB94");
+                    .HasName("PK__TblPresc__2C5AC236EC3BCCBA");
+
+                entity.Property(e => e.MedicineFive)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.MedicineFiveDosage)
                     .HasMaxLength(40)
                     .IsUnicode(false);
 
-                entity.Property(e => e.MedicineFiveId).HasDefaultValueSql("((1))");
+                entity.Property(e => e.MedicineFour)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.MedicineFourDosage)
                     .HasMaxLength(40)
                     .IsUnicode(false);
 
-                entity.Property(e => e.MedicineFourId).HasDefaultValueSql("((1))");
-
                 entity.Property(e => e.MedicineOneDosage)
                     .HasMaxLength(40)
                     .IsUnicode(false);
 
-                entity.Property(e => e.MedicineOneId).HasDefaultValueSql("((1))");
+                entity.Property(e => e.MedicineOneId)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MedicineThree)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.MedicineThreeDosage)
                     .HasMaxLength(40)
                     .IsUnicode(false);
 
-                entity.Property(e => e.MedicineThreeId).HasDefaultValueSql("((1))");
+                entity.Property(e => e.MedicineTwo)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.MedicineTwoDosage)
                     .HasMaxLength(40)
                     .IsUnicode(false);
 
-                entity.Property(e => e.MedicineTwoId).HasDefaultValueSql("((1))");
-
                 entity.HasOne(d => d.Log)
                     .WithMany(p => p.TblPrescriptionMedicine)
                     .HasForeignKey(d => d.LogId)
-                    .HasConstraintName("FK__TblPrescr__LogId__2BFE89A6");
-
-                entity.HasOne(d => d.MedicineFive)
-                    .WithMany(p => p.TblPrescriptionMedicineMedicineFive)
-                    .HasForeignKey(d => d.MedicineFiveId)
-                    .HasConstraintName("FK__TblPrescr__Medic__3493CFA7");
-
-                entity.HasOne(d => d.MedicineFour)
-                    .WithMany(p => p.TblPrescriptionMedicineMedicineFour)
-                    .HasForeignKey(d => d.MedicineFourId)
-                    .HasConstraintName("FK__TblPrescr__Medic__32AB8735");
-
-                entity.HasOne(d => d.MedicineOne)
-                    .WithMany(p => p.TblPrescriptionMedicineMedicineOne)
-                    .HasForeignKey(d => d.MedicineOneId)
-                    .HasConstraintName("FK__TblPrescr__Medic__2CF2ADDF");
-
-                entity.HasOne(d => d.MedicineThree)
-                    .WithMany(p => p.TblPrescriptionMedicineMedicineThree)
-                    .HasForeignKey(d => d.MedicineThreeId)
-                    .HasConstraintName("FK__TblPrescr__Medic__30C33EC3");
-
-                entity.HasOne(d => d.MedicineTwo)
-                    .WithMany(p => p.TblPrescriptionMedicineMedicineTwo)
-                    .HasForeignKey(d => d.MedicineTwoId)
-                    .HasConstraintName("FK__TblPrescr__Medic__2EDAF651");
+                    .HasConstraintName("FK__TblPrescr__LogId__5224328E");
             });
 
             modelBuilder.Entity<TblPrescriptionTest>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionTestId)
-                    .HasName("PK__TblPresc__0554749054B6C339");
+                    .HasName("PK__TblPresc__0554749078382320");
 
                 entity.Property(e => e.Status)
                     .HasMaxLength(40)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TestOneId).HasDefaultValueSql("((1))");
+                entity.Property(e => e.TestOne)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.TestThreeId).HasDefaultValueSql("((1))");
+                entity.Property(e => e.TestThree)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.TestTwoId).HasDefaultValueSql("((1))");
+                entity.Property(e => e.TestTwo)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Log)
                     .WithMany(p => p.TblPrescriptionTest)
                     .HasForeignKey(d => d.LogId)
-                    .HasConstraintName("FK__TblPrescr__LogId__3864608B");
-
-                entity.HasOne(d => d.TestOne)
-                    .WithMany(p => p.TblPrescriptionTestTestOne)
-                    .HasForeignKey(d => d.TestOneId)
-                    .HasConstraintName("FK__TblPrescr__TestO__395884C4");
-
-                entity.HasOne(d => d.TestThree)
-                    .WithMany(p => p.TblPrescriptionTestTestThree)
-                    .HasForeignKey(d => d.TestThreeId)
-                    .HasConstraintName("FK__TblPrescr__TestT__3D2915A8");
-
-                entity.HasOne(d => d.TestTwo)
-                    .WithMany(p => p.TblPrescriptionTestTestTwo)
-                    .HasForeignKey(d => d.TestTwoId)
-                    .HasConstraintName("FK__TblPrescr__TestT__3B40CD36");
+                    .HasConstraintName("FK__TblPrescr__LogId__55009F39");
             });
 
             modelBuilder.Entity<TblRole>(entity =>
             {
                 entity.HasKey(e => e.RoleId)
-                    .HasName("PK__TblRole__8AFACE1A1749BC11");
+                    .HasName("PK__TblRole__8AFACE1AE0A9260C");
 
                 entity.Property(e => e.RoleName)
                     .HasMaxLength(50)
@@ -363,7 +329,7 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblSpecialization>(entity =>
             {
                 entity.HasKey(e => e.SpecializationId)
-                    .HasName("PK__TblSpeci__5809D86F790FE33A");
+                    .HasName("PK__TblSpeci__5809D86F6C680AF4");
 
                 entity.Property(e => e.SpecializationName)
                     .HasMaxLength(50)
@@ -373,7 +339,7 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblStaff>(entity =>
             {
                 entity.HasKey(e => e.StaffId)
-                    .HasName("PK__TblStaff__96D4AB17325A9675");
+                    .HasName("PK__TblStaff__96D4AB17892FD2D8");
 
                 entity.Property(e => e.StaffContactNo)
                     .HasMaxLength(50)
@@ -402,7 +368,7 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblUser>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__TblUser__1788CC4C96963063");
+                    .HasName("PK__TblUser__1788CC4C82CBAB99");
 
                 entity.Property(e => e.Password)
                     .HasMaxLength(50)

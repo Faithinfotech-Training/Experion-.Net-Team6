@@ -62,9 +62,7 @@ namespace cmsRestApi.Repository
                               from appointment in db.TblAppointment
                               from log in db.TblPatientLog
                               from medicine in db.TblPrescriptionMedicine
-                              from medicineName in db.TblMasterMedicine
                               from test in db.TblPrescriptionTest
-                              from testName in db.TblMasterLabTest
                               from spec in db.TblSpecialization
                               where patient.PatientId == id
                               where appointment.PatientId == patient.PatientId
@@ -72,14 +70,7 @@ namespace cmsRestApi.Repository
                               where doctor.DoctorSpecializationId == spec.SpecializationId
                               where log.AppointmentId == appointment.AppointmentId
                               where medicine.LogId == log.LogId
-                              where medicineName.MedicineId == medicine.MedicineOneId
-                              where medicineName.MedicineId == medicine.MedicineTwoId
-                              where medicineName.MedicineId == medicine.MedicineThreeId
-                              where medicineName.MedicineId == medicine.MedicineFourId
                               where test.LogId == log.LogId
-                              where testName.TestId == test.TestOneId
-                              where testName.TestId == test.TestTwoId
-                              where testName.TestId == test.TestThreeId
                               select new PatientLogViewModel
                               {
                                   PatientId = patient.PatientId,
@@ -95,17 +86,17 @@ namespace cmsRestApi.Repository
                                   DateofAppointment = appointment.DateofAppointment,
                                   Notes = log.Notes,
                                   Observations = log.Observations,
-                                  MedicineOne = medicineName.MedicineName,
-                                  MedicineTwo = medicineName.MedicineName,
-                                  MedicineThree = medicineName.MedicineName,
-                                  MedicineFour = medicineName.MedicineName,
+                                  MedicineOne = medicine.MedicineOneId,
+                                  MedicineTwo = medicine.MedicineTwo,
+                                  MedicineThree = medicine.MedicineThree,
+                                  MedicineFour = medicine.MedicineFour,
                                   MedicineOneDosage=medicine.MedicineOneDosage,
                                   MedicineTwoDosage=medicine.MedicineTwoDosage,
                                   MedicineThreeDosage=medicine.MedicineThreeDosage,
                                   MedicineFourDosage=medicine.MedicineFourDosage,
-                                  LabTestOne =testName.TestName,
-                                  LabTestTwo = testName.TestName,
-                                  LabTestThree = testName.TestName,
+                                  LabTestOne =test.TestOne,
+                                  LabTestTwo = test.TestTwo,
+                                  LabTestThree = test.TestThree
 
                               }
                               ).ToListAsync();
