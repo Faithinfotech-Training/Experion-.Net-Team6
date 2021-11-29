@@ -1,0 +1,17 @@
+header{
+    background-color:#f1f3f3 ;
+}
+
+.header-line hr{
+    background-color:#2297a6 ;
+    height: 20px;
+    opacity: 1;
+    border: 1px solid #2297a6;
+}
+
+.footer{
+    text-align: center;
+}
+
+
+
