@@ -9,12 +9,20 @@ import { LabTechnicianComponent } from './lab-technician/lab-technician.componen
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LabReportComponent } from './lab-report/lab-report.component';
+import { FrontofficeComponent } from './frontoffice/frontoffice.component';
+import { PatientComponent } from './frontoffice/patient/patient.component';
+import { PatientlistComponent } from './frontoffice/patientlist/patientlist.component';
+import { AppointmentComponent } from './frontoffice/appointment/appointment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LabTechnicianComponent,
-    LabReportComponent
+    LabReportComponent,
+    FrontofficeComponent,
+    PatientComponent,
+    PatientlistComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,

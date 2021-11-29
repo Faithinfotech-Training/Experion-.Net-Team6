@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="header">
+        <h5 class="text-center">
+             Patient List
+        </h5>
+        <!--Search Patient-->
+        <div class="form-group">
+            <input class="form-control" type ="text"
+            placeholder="search here..."
+            [(ngModel)] ="filter">
+        </div>
+        <a [routerLink]="['/patient']" class="btn btn-primary" style="float:right;margin-bottom: 10px;">Add Patient</a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    PatientId
+                </th>
+                <th>
+                    PatientName
+                </th>
+                <th>
+                    Age
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>
+                    Location
+                </th>
+                <th>
+                    ContactNo
+                </th>
+                <th>
+                    EmergencyContact
+                </th>
+                <th>
+                    Action
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr  >
+                <td ></td>
+                <td ></td>
+                <td></td>
+                <td ></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                
+                <td>
+
+                    <a [routerLink]="['/patient']" class="btn btn-sm btn-outline-danger style=margin-left:10px">Edit</a>&nbsp;
+                    <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" style="margin-left:10px">Add Appointment</a>
+                </td>
+
+            </tr>
+        </tbody>
+
+
+
+    </table>
+    <div class="footer">
+        <!--pagination-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+
+    </div>
+</div>
+
