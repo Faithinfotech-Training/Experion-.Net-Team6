@@ -1,0 +1,150 @@
+<form name="doctorform"  autocomplete="off">
+
+    <!--Staff ID-->
+    <input type="number" name="DoctorId">
+    
+    <!--Staff Name-->
+    <div class="form-gorup">
+        <label>Full Name of Doctor</label>
+        <input name="DoctorName" 
+        class="form-control" placeholder="Enter Full Name"
+        minlength="06" maxlength="40" required
+        
+        />
+        <div class="validation-error"  >
+            <div>Full Name is Required</div>
+        </div>
+    </div>
+
+    <!--Doctor Specialization-->
+    <div class="form-group">
+        <label class="col-md-4">Role</label>
+        <select name="DoctorSpecializationId" id="DoctorSpecializationId" class="form-control"  required
+            >
+            <option value=0 disabled>Select Specialization for the doctor</option>
+            <option  value="loop">looping!!</option>
+            
+    
+    
+        </select>
+        <div class="validation-error">
+            <div > Specify specialization
+    
+            </div>
+        </div>
+    </div>
+
+        <!--Qualification of doctor-->
+        <div class="form-group">
+            <label>Qualification</label>
+            <input type="text" name="DoctorQualification"  
+                class="form-control" placeholder="Mention Qualification of the assigned doctor" required
+                 />
+            <div class="validation-error" >
+                <div > Specify qualification
+    
+                </div>
+            </div>
+        </div>
+
+        <!--Age of doctor-->
+        <div class="form-group">
+            <label>Age</label>
+            <input type="text" name="DoctorAge"  
+                class="form-control" placeholder="Enter age of the assigned doctor" required
+                 />
+            <div class="validation-error" >
+                <div > Doctor Age is required
+    
+                </div>
+            </div>
+        </div>
+
+        <!--Gender-->
+        <div class="form-group">
+            <label class="col-md-4">Gender</label>
+            <select name="DeptId" id="Gender" class="form-control"  required
+                >
+                <option value=0 disabled>Select Gender</option>
+                <option  value=1>Male</option>
+                <option  value=1>Female</option>
+                <option  value=1>Others</option>
+                
+        
+        
+            </select>
+            <div class="validation-error">
+                <div > please select gender.
+        
+                </div>
+            </div>
+        </div>
+
+         <!--Date of Birth-->
+        <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" name="DoctorDateofBirth" 
+                class="form-control" placeholder="Enter Date Of Birth" required
+                >
+            <div class="validation-error" >
+                <div > Date Of Birth is required
+
+                </div>
+            </div>
+        </div>
+
+        <!--Contact No of doctor-->
+        <div class="form-group">
+            <label>Contact No.</label>
+            <input type="text" name="StaffContactNo"  
+                class="form-control" placeholder="Enter contact number of the assigned doctor" required
+                 />
+            <div class="validation-error" >
+                <div> Contact number is required
+    
+                </div>
+            </div>
+        </div>
+
+        <!--Staff Name-->
+    <div class="form-gorup">
+        <label>Location</label>
+        <input name="DoctorLocation" 
+        class="form-control" placeholder="Enter Location"
+        minlength="06" maxlength="40" required
+        
+        />
+        <div class="validation-error"  >
+            <div>Location is Required</div>
+        </div>
+    </div>
+
+       
+
+        <!--IsActive-->
+        <br>
+        <div class="form-group">
+            <div class="form-check">
+                <label class="form-check-label">IsActive</label>
+                <input type="checkbox" name="IsActive" id="IsActive" 
+                     class="form-check-input">
+
+            </div>
+
+        </div>
+        <br>
+
+         <!--Submit Button-->
+         <br>
+        <div class="form-group">
+            <button type="submit"
+            class="btn btn-lg btn-primary form-control">Submit</button>
+
+        </div>
+
+
+
+</form>
+
+
+
