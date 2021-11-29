@@ -31,6 +31,9 @@ namespace cmsRestApi
             services.AddControllers();
             services.AddDbContext<ClinicManagementSystemDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
             services.AddScoped<IDoctorRepository, DoctorRepository>();
+            services.AddScoped<IMasterLabTest, MasterLabTest>();
+            services.AddScoped<IStaffRepository, StaffRepository>();
+            services.AddScoped<ILabTestRepository, LabTestRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
