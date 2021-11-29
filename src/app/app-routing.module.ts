@@ -10,6 +10,8 @@ import { PatientComponent } from './frontoffice/patient/patient.component';
 import { PatientlistComponent } from './frontoffice/patientlist/patientlist.component';
 import { LabReportComponent } from './lab-report/lab-report.component';
 import { LabTechnicianComponent } from './lab-technician/lab-technician.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -26,7 +28,7 @@ const routes: Routes = [
   {path: 'doctor-list', component: DoctorListComponent},
   {path: 'add-doctor', component: AdddoctorComponent}
 
-
+]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
