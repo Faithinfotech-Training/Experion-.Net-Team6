@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path:'doctor',component:DoctorComponent},
   {path:'lab',component:LabTechnicianComponent},
   {path:'report',component:LabReportComponent},

@@ -25,17 +25,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let d of adminService.doctors">
-                <td>{{data.id}</td>
-                <td>{{data.name}</td>
-                <td>{{data.roid}</td>
-                <td>{{data.age}</td>
-                <td>{{data.gender}</td>
-                <td>{{data.dob}</td>
-                <td>{{data.con}</td>
-                <td>{{data.loc}</td>
-                <td>{{data.act}</td>
-                <td>{{data.act}</td>
+            <tr *ngFor="let data of this.adminService.doctors">
+                <td>{{data.doctorId}}</td>
+                <td>{{data.doctorName}}</td>
+                <td>{{data.doctorSpecializationId}}</td>
+                <td>{{data.doctorQualification}}</td>
+                <td>{{data.doctorAge}}</td>
+                <td>{{data.doctorGender}}</td>
+                <td>{{data.doctorDateofBirth}}</td>
+                <td>{{data.contactNo}}</td>
+                <td>{{data.doctorLocation}}</td>
+                <td>{{data.isActive}}</td>
                 <td style="width: 6em;">
                     <button class="btn btn-outline-danger" style="width: 100%;">Edit</button>
                 </td>

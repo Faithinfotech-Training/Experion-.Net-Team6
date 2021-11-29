@@ -1,15 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Doctor } from 'src/app/shared/doctor';
-import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Doctor } from './doctor';
+import { Staff } from './staff';
+import { environment } from "src/environments/environment"
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
+  //creating instance
   formData: Doctor = new Doctor();
+  staff: Staff[];
   doctors: Doctor[];
 
   constructor(
@@ -20,7 +22,17 @@ export class AdminService {
   getalldoctor() {
     this.httpClient.get(environment.apiUrl + "api/doctor/getalldoctor")
       .toPromise().then(
-        response => this.doctors = response as Doctor[]
+          result => this.doctors = result as Doctor[]
+      )
+      console.log(this.doctors);
+  }
+
+  getallStaff() {
+    this.httpClient.get(environment.apiUrl + "api/staff/getallstaff")
+      .toPromise().then(
+        response => this.staff = response as Staff[]
       )
   }
+
 }
+

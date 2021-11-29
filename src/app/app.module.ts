@@ -20,6 +20,7 @@ import { AppointmentComponent } from './frontoffice/appointment/appointment.comp
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { AdminService } from './shared/admin.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AdminService } from './shared/admin.service';
     FormsModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     AdminService
