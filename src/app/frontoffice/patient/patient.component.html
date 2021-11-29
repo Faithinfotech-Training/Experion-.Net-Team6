@@ -1,0 +1,71 @@
+<form name="patform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit()">
+   <div class="form-control">
+    <div class="form-control">
+         <!--Patient id-->
+    <input type="hidden" name="PatientId" />
+
+    <!--Patient Name-->
+    <div class="form-group">
+        <label>Full Name</label>
+        <input name="PatientName" class="form-control" placeholder="Enter full name" minlength="1" maxlength="25"
+            required />
+        <div class="validation-error">
+
+
+        </div>
+    </div>
+    <!--Age-->
+    <div class="form-group">
+        <label>Age</label>
+        <input name="Age" type="number" class="form-control" placeholder="Enter Age" minlength="1" maxlength="4"
+            required />
+        <div class="validation-error">
+
+
+        </div>
+    </div>
+    <!--ContactNo-->
+    <div class="form-group">
+        <label>Contact Number</label>
+        <input name="ContactNo" type="number" class="form-control" placeholder="Enter ContactNo" minlength="10" maxlength="10"
+            required />
+        <div class="validation-error">
+        </div>
+    </div>
+    <!--location-->
+    <div class="form-group">
+        <label>Location</label>
+        <input name="Location" type="text" class="form-control" placeholder="Enter Location" minlength="1" maxlength="100"
+            required />
+        <div class="validation-error">
+        </div>
+    </div>
+    <!--EmergencyContact-->
+    <div class="form-group">
+        <label>Emergency Contact Number</label>
+        <input name="EmergencyContact" type="number" class="form-control" placeholder="Enter EmergencyContact" minlength="10" maxlength="10"
+            required />
+        <div class="validation-error">
+        </div>
+    </div>
+    
+    <!--Is Active-->
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label">Is active </label>
+            <input type="checkbox" name="IsActive" id="IsActive" class="form-check-input">
+        </div>
+    </div>
+
+    <!--submit button-->
+    <br>
+    <div class="form-group">
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-primary form-control">Add Patient</button>
+    </div>
+
+
+</div>
+</div>
+</form>
+

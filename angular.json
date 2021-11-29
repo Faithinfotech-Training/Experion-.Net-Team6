@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cmsui"
+    }
+  },
+  "defaultProject": "cmsui",
+  "cli": {
+    "analytics": false
+  }
 }

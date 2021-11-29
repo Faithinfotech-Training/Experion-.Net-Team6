@@ -1,0 +1,42 @@
+<div class="container mt-3">
+    <h5>Welcome! Lab Technician name</h5>
+</div>
+<br>
+<hr>
+
+<div class="container">
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Search here..." style="width: 300px;">
+        <button style="width: 200px; float: right;" class="btn btn-primary form-control">Generated Results</button>
+        <br>
+    </div>
+    <br>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Patiet Name</th>
+                <th>Doctor Name</th>
+                <th>Date</th>
+                <th>Prescribed Test</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of dummy |filter:filter | paginate:{itemsPerPage:5,currentPage:page }">
+                <td>Koman</td>
+                <td>Sujith</td>
+                <td>12/12/2021</td>
+                <td>Sugar test</td>
+                <td>
+                    <button routerLink='/report' class="btn btn-sm btn-primary">Lab Report</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <!--Pagination-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.login .card{
+margin: 4em;
+width: 50%;
+display: flex;
+}
+.login .login-content{
+    margin: 3em;
+}
+.login form{
+    margin: 4em;
+}
+
+form input{
+    height: 50px;
+    width: 15rem;
+}

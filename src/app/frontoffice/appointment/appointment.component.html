@@ -1,0 +1,66 @@
+
+<form name="appform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit()">
+  <div class="form-control"> 
+  <div class="form-control"> 
+    <!--Appointment id-->
+    <input type="hidden" name="AppointmentId" />
+
+    <!--Patient Name-->
+    <div class="form-group">
+
+        <label class="col-md-4">Patient Name</label>
+        
+        <select name="PatientId"  class="form-control">
+            <option value="0" disabled>Choose Patient</option>
+            <option value ="1">Peter</option>
+            <option value="2">Albert</option>
+        </select>
+        <div class="validation-error" >
+           
+        </div>
+    </div>
+   <!--Doctor Name-->
+   <div class="form-group" >
+
+    <label class="col-md-4">Doctor Name</label>
+    
+    <select name="DoctorId"  class="form-control">
+        <option value="0" disabled>Choose Doctor</option>
+        <option value ="1">Angelina</option>
+        <option value="2">Shelton</option>
+    </select>
+    <div class="validation-error" >
+       
+    </div>
+</div>
+    <!--Date of Appointment-->
+    <div class="form-group">
+
+        <label>Date Of Appointment</label>
+        <input type="date" name="DateOfJoining" id="DateOfJoining" 
+            class="form-control" required
+             />
+        <div class="validation-error" >
+        </div>
+    </div>
+
+    <!--Is Active-->
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label">Is active </label>
+            <input type="checkbox" name="IsActive" id="IsActive" 
+               class="form-check-input">
+        </div>
+    </div>
+
+    <!--submit button-->
+    <br>
+    <div class="form-group">
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-primary form-control">Add Appointment</button>
+    </div>
+
+
+</div>
+</div>
+</form>
