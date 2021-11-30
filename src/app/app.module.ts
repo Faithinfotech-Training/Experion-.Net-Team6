@@ -19,6 +19,9 @@ import { PatientlistComponent } from './frontoffice/patientlist/patientlist.comp
 import { AppointmentComponent } from './frontoffice/appointment/appointment.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { PatientLogComponent } from './patient-log/patient-log.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { LoginComponent } from './login/login.component';
     FrontofficeComponent,
     PatientComponent,
     PatientlistComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    AppointmentListComponent,
+    PatientLogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

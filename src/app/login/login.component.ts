@@ -15,11 +15,7 @@ export class LoginComponent implements OnInit {
   isSubmitted = false;
   error = '';
   jwtResponse: any = new JwtResponse();
-
-
-
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
-
   ngOnInit(): void {
 
     //form Group
@@ -47,7 +43,7 @@ export class LoginComponent implements OnInit {
     }
 
     //valid
-    if (this.loginForm.invalid) {
+    if (this.loginForm.valid) {
       //calling method from AuthService
       this.authService.loginVerify(this.loginForm.value).subscribe(data => {
         console.log(data);
