@@ -14,6 +14,8 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 import { AuthGuard } from './shared/auth.guard';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { PatientLogComponent } from './patient-log/patient-log.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},

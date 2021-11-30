@@ -33,12 +33,10 @@ export class PatientService {
   //insert a patient
   insertPatient(patient: Patient): Observable<any> {
     return this.httpClient.post(environment.apiUrl + "api/patient/AddPatient", patient);
-<<<<<<< HEAD
-=======
+
   }
   updatePatient(patient: Patient): Observable<any> {
     return this.httpClient.put(environment.apiUrl + "api/patient/updatepatient", patient);
->>>>>>> d9811acf27413af982c9de9be4a171d861689fe8
   }
   //get particular patient
   getPatientById(patientId: number): Observable<any> {

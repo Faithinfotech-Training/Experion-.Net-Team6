@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './shared/auth.service';
 import { AdminService } from './shared/admin.service';
 import {AuthGuard} from './shared/auth.guard';
+import { AppointmentListComponent } from "./appointment-list/appointment-list.component";
+import { PatientLogComponent } from "./patient-log/patient-log.component";
 
 @NgModule({
   declarations: [
