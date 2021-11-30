@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import {PatientLogVM} from '../shared/patientlogvm';
+import {PatientLog} from '../shared/patientlog';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +18,8 @@ export class PatientlogService {
     .toPromise().then(
       response => this.patientlog = response as PatientLogVM[])
   }
+  AddLog(log: PatientLog): Observable<any> {
+    return this.httpClient.post(environment.apiUrl + '/api/patientlog', log)
+  }
+  
 }

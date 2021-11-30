@@ -21,5 +21,9 @@ export class AppointmentListComponent implements OnInit {
     console.log(patientid);
     this.router.navigate(['patientlog',patientid])
   }
+addpatientlog(patientid:number){
+  console.log(patientid);
+  this.router.navigate(['patientlogform',patientid])
 
+}
 }

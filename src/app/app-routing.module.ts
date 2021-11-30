@@ -13,24 +13,26 @@ import { LabTechnicianComponent } from './lab-technician/lab-technician.componen
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
-import {PatientLogComponent} from './patient-log/patient-log.component';
+import { PatientLogComponent } from './patient-log/patient-log.component';
+import { PatientRecordFormComponent } from './patient-record-form/patient-record-form.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'login',component:LoginComponent},
-  {path:'doctor',component:DoctorComponent},
-  {path:'lab',component:LabTechnicianComponent},
-  {path:'report',component:LabReportComponent},
-  {path:'appointment',component:AppointmentComponent},
-  {path:'frontoffice',component:PatientlistComponent},
-  {path:'addpatient',component:PatientComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'staff-list', component: StaffListComponent},
-  {path: 'add-staff', component: AddstaffComponent},
-  {path: 'doctor-list', component: DoctorListComponent},
-  {path: 'add-doctor', component: AdddoctorComponent},
- {path:'appointmentlist',component:AppointmentListComponent},
- {path:'patientlog/:PatientId',component:PatientLogComponent}
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'doctor', component: DoctorComponent },
+  { path: 'lab', component: LabTechnicianComponent },
+  { path: 'report', component: LabReportComponent },
+  { path: 'appointment', component: AppointmentComponent },
+  { path: 'frontoffice', component: PatientlistComponent },
+  { path: 'addpatient', component: PatientComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'staff-list', component: StaffListComponent },
+  { path: 'add-staff', component: AddstaffComponent },
+  { path: 'doctor-list', component: DoctorListComponent },
+  { path: 'add-doctor', component: AdddoctorComponent },
+  { path: 'appointmentlist', component: AppointmentListComponent },
+  { path: 'patientlog/:PatientId', component: PatientLogComponent },
+  { path: 'patientlogform/:PatientId', component: PatientRecordFormComponent }
 
 ]
 @NgModule({
