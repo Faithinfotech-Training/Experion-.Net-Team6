@@ -24,16 +24,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let data of data">
-                <td>{{data.id}}</td>
-                <td>{{data.name}}</td>
-                <td>{{data.roid}}</td>
-                <td>{{data.age}}</td>
-                <td>{{data.gender}}</td>
-                <td>{{data.dob}}</td>
-                <td>{{data.con}}</td>
-                <td>{{data.loc}}</td>
-                <td>{{data.act}}</td>
+            <tr *ngFor="let data of this.adminService.staff">
+                <td>{{data.staffId}}</td>
+                <td>{{data.staffName}}</td>
+                <td>{{data.roleId}}</td>
+                <td>{{data.staffAge}}</td>
+                <td>{{data.staffGender}}</td>
+                <td>{{data.staffDateofBirth}}</td>
+                <td>{{data.staffContactNo}}</td>
+                <td>{{data.staffLocation}}</td>
+                <td>{{data.isActive}}</td>
                 <td style="width: 6em;">
                     <button class="btn btn-outline-danger" style="width: 100%;">Edit</button>
                 </td>

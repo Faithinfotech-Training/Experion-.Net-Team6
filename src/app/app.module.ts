@@ -8,7 +8,6 @@ import { StaffListComponent } from './admin/staff-list/staff-list.component';
 import { AddstaffComponent } from './admin/addstaff/addstaff.component';
 import { DoctorListComponent } from './admin/doctor-list/doctor-list.component';
 import { AdddoctorComponent } from './admin/adddoctor/adddoctor.component';
-//import { NgSearchFilterModule } from 'ng-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LabTechnicianComponent } from './lab-technician/lab-technician.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +19,7 @@ import { PatientlistComponent } from './frontoffice/patientlist/patientlist.comp
 import { AppointmentComponent } from './frontoffice/appointment/appointment.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
+import { AdminService } from './shared/admin.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -43,14 +43,15 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    //NgSearchFilterModule,
     FormsModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AdminService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
