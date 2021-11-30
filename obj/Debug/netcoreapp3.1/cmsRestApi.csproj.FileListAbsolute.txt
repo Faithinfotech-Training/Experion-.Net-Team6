@@ -142,5 +142,4 @@ E:\CMS\cmsRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 E:\CMS\cmsRestApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 E:\CMS\cmsRestApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 E:\CMS\cmsRestApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
-E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.csproj.AssemblyReference.cache
 E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.csproj.CopyComplete

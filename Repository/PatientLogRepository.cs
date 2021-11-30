@@ -57,8 +57,13 @@ namespace cmsRestApi.Repository
             if (db != null)
             {
                 //joining and getting 
-                return await (from patient in db.TblPatient
-                              from doctor in db.TblDoctor
+                return await (from log in db.TblPatientLog
+                              join patient in db.TblPatient on log.PatientId equals patient.PatientId
+                              join medicine in db.TblPrescriptionMedicine on log.LogId equals medicine.LogId
+                              join master in db.TblMasterMedicine on medicine.m
+                            
+                              
+                             /* from doctor in db.TblDoctor
                               from appointment in db.TblAppointment
                               from log in db.TblPatientLog
                               from medicine in db.TblPrescriptionMedicine
@@ -79,7 +84,7 @@ namespace cmsRestApi.Repository
                               where test.LogId == log.LogId
                               where testName.TestId == test.TestOneId
                               where testName.TestId == test.TestTwoId
-                              where testName.TestId == test.TestThreeId
+                              where testName.TestId == test.TestThreeId*/
                               select new PatientLogViewModel
                               {
                                   PatientId = patient.PatientId,
@@ -95,7 +100,7 @@ namespace cmsRestApi.Repository
                                   DateofAppointment = appointment.DateofAppointment,
                                   Notes = log.Notes,
                                   Observations = log.Observations,
-                                  MedicineOne = medicineName.MedicineName,
+                                 /* MedicineOne = medicineName.MedicineName,
                                   MedicineTwo = medicineName.MedicineName,
                                   MedicineThree = medicineName.MedicineName,
                                   MedicineFour = medicineName.MedicineName,
@@ -105,7 +110,7 @@ namespace cmsRestApi.Repository
                                   MedicineFourDosage=medicine.MedicineFourDosage,
                                   LabTestOne =testName.TestName,
                                   LabTestTwo = testName.TestName,
-                                  LabTestThree = testName.TestName,
+                                  LabTestThree = testName.TestName,*/
 
                               }
                               ).ToListAsync();

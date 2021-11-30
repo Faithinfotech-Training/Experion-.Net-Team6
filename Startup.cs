@@ -34,6 +34,7 @@ namespace cmsRestApi
             services.AddScoped<IPaymentRepo, PaymentRepo>();
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<IPatientLogRepository, PatientLogRepository>();
+            services.AddScoped<IStaffRepository, StaffRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
