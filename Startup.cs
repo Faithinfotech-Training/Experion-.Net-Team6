@@ -40,6 +40,7 @@ namespace cmsRestApi
             //Add dependency injection for repository
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IPatientLogRepository, PatientLogRepository>();
+            services.AddScoped<IPatientRepo, PatientRepo>();
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<ILabTestRepository, LabTestRepository>();
             services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();

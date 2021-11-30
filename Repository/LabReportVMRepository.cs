@@ -31,9 +31,10 @@ namespace cmsRestApi.Repository
                               from testName in db.TblPrescriptionTest
                               from report in db.TblLabReport
                               from staff in db.TblStaff
-                              where appointment.PatientId == patient.PatientId
-                              where appointment.DoctorId == doctor.DoctorId
-                              where log.AppointmentId == appointment.AppointmentId                          
+                              where report.PatientId == patient.PatientId
+                              where log.DoctorId == doctor.DoctorId
+                              where log.AppointmentId == appointment.AppointmentId
+                              where report.LogId==log.LogId
                               where testName.LogId == log.LogId
                           
                               select new LabReportViewModel
