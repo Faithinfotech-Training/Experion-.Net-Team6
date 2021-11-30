@@ -41,6 +41,7 @@ namespace cmsRestApi.Repository
                               where log.AppointmentId == appointment.AppointmentId
                               select new LabViewForLabTechnician
                               {
+                                  LogId=log.LogId,
                                   PatientName = patient.PatientName,
                                   DoctorName = doctor.DoctorName,
                                   Test1 = test.TestOne,
@@ -67,7 +68,7 @@ namespace cmsRestApi.Repository
 
         public async Task<TblPrescriptionTest> GetPrescriptionTestbyId(int id)
         {
-            var prescriptiontest = await db.TblPrescriptionTest.FirstOrDefaultAsync(p => p.PrescriptionTestId == id);
+            var prescriptiontest = await db.TblPrescriptionTest.FirstOrDefaultAsync(p => p.LogId == id);
             if (prescriptiontest == null)
             {
                 return null;
