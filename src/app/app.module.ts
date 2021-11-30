@@ -21,6 +21,8 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './shared/auth.service';
+import { AdminService } from './shared/admin.service';
+import {AuthGuard} from './shared/auth.guard';
 
 @NgModule({
   declarations: [
@@ -51,10 +53,7 @@ import { AuthService } from './shared/auth.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [
-    AdminService
-  ],
-  providers: [AuthService],
+  providers: [AuthService,AdminService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

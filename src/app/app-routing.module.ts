@@ -13,17 +13,19 @@ import { LabTechnicianComponent } from './lab-technician/lab-technician.componen
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path: 'login', component: LoginComponent},
   {path:'doctor',component:DoctorComponent},
-  {path:'lab',component:LabTechnicianComponent},
-  {path:'report',component:LabReportComponent},
-  {path:'appointment',component:AppointmentComponent},
-  {path:'frontoffice',component:PatientlistComponent},
+  {path:'lab',component:LabTechnicianComponent,canActivate:[AuthGuard],data:{role:'3'} },
+  {path:'report',component:LabReportComponent,canActivate:[AuthGuard],data:{role:'3'} },
+  {path:'report/:LogId',component:LabReportComponent,canActivate:[AuthGuard],data:{role:'3'} },
+  {path:'appointment',component:AppointmentComponent,canActivate:[AuthGuard],data:{role:'2'} },
+  {path:'frontoffice',component:PatientlistComponent,canActivate:[AuthGuard],data:{role:'2'} },
   {path:'addpatient',component:PatientComponent},
-  {path: 'admin', component: AdminComponent},
+  {path: 'admin', component: AdminComponent,canActivate:[AuthGuard],data:{role:'1'} },
   {path: 'staff-list', component: StaffListComponent},
   {path: 'add-staff', component: AddstaffComponent},
   {path: 'doctor-list', component: DoctorListComponent},
