@@ -34,7 +34,7 @@ namespace cmsRestApi.Controllers
 
         [HttpGet()]
         [Route("GetADoctor/{id}")]
-        public async Task<IActionResult> GetEmployee(int id)
+        public async Task<IActionResult> GetADoctor(int id)
         {
             try
             {
