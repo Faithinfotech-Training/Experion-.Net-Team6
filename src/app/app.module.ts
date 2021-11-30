@@ -19,8 +19,8 @@ import { PatientlistComponent } from './frontoffice/patientlist/patientlist.comp
 import { AppointmentComponent } from './frontoffice/appointment/appointment.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
-import { AdminService } from './shared/admin.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -37,13 +37,15 @@ import { HttpClientModule } from '@angular/common/http';
     FrontofficeComponent,
     PatientComponent,
     PatientlistComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    HttpClientModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
     ReactiveFormsModule,
@@ -52,6 +54,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     AdminService
   ],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
