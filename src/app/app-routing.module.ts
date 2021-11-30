@@ -12,20 +12,23 @@ import { LabReportComponent } from './lab-report/lab-report.component';
 import { LabTechnicianComponent } from './lab-technician/lab-technician.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
+import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path:'doctor',component:DoctorComponent},
   {path:'lab',component:LabTechnicianComponent},
   {path:'report',component:LabReportComponent},
   {path:'appointment',component:AppointmentComponent},
   {path:'frontoffice',component:PatientlistComponent},
-  {path:'patient',component:PatientComponent},
+  {path:'addpatient',component:PatientComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'staff-list', component: StaffListComponent},
   {path: 'add-staff', component: AddstaffComponent},
   {path: 'doctor-list', component: DoctorListComponent},
-  {path: 'add-doctor', component: AdddoctorComponent}
+  {path: 'add-doctor', component: AdddoctorComponent},
+  {path: 'test', component: FrontofficeComponent}
 
 ]
 @NgModule({

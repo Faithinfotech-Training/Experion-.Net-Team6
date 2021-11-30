@@ -48,7 +48,11 @@ import { AuthService } from './shared/auth.service';
     HttpClientModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [
+    AdminService
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/shared/admin.service';
 
 @Component({
   selector: 'app-staff-list',
@@ -33,9 +34,13 @@ export class StaffListComponent implements OnInit {
   ]
 
 
-  constructor() { }
+  constructor(
+    public adminService: AdminService
+  ) { }
 
   ngOnInit(): void {
+    this.adminService.getallStaff();
+    console.log(this.adminService.staff);
   }
 
 }

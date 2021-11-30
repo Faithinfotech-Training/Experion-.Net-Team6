@@ -9,7 +9,7 @@
             placeholder="search here..."
             [(ngModel)] ="filter">
         </div>
-        <a [routerLink]="['/patient']" class="btn btn-primary" style="float:right;margin-bottom: 10px;">Add Patient</a>
+        <a [routerLink]="['/addpatient']" class="btn btn-primary" style="float:right;margin-bottom: 10px;">Add Patient</a>
     </div>
     <table class="table table-bordered table-striped">
         <thead>
@@ -42,19 +42,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr  >
-                <td ></td>
-                <td ></td>
-                <td></td>
-                <td ></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
+            <tr *ngFor="let pat of this.patientService.patients | filter: filter | paginate: {itemsPerPage: 5, currentPage:page} "  >
+                <td (click)="populateForm(pat)">{{pat.patientId}}</td>
+                <td (click)="populateForm(pat)">{{pat.patientName}}</td>
+                <td (click)="populateForm(pat)">{{pat.age}}</td>
+                <td (click)="populateForm(pat)">{{pat.gender}}</td>
+                <td (click)="populateForm(pat)">{{pat.location}}</td>
+                <td (click)="populateForm(pat)">{{pat.contactNo}}</td>
+                <td (click)="populateForm(pat)">{{pat.emergencyContact}}</td>
                 <td>
 
-                    <a [routerLink]="['/patient']" class="btn btn-sm btn-outline-danger style=margin-left:10px">Edit</a>&nbsp;
-                    <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" style="margin-left:10px">Add Appointment</a>
+                    <a [routerLink]="['/addpatient']" click="populateForm(form)" class="btn btn-sm btn-outline-danger style=margin-left:10px">Edit</a>&nbsp;
+                    <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" (click)="updatePatient(pat.patientId)" style="margin-left:10px">Add Appointment</a>
                 </td>
 
             </tr>
