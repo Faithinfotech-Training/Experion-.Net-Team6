@@ -142,7 +142,6 @@ E:\CMS\cmsRestApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 E:\CMS\cmsRestApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 E:\CMS\cmsRestApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 E:\CMS\cmsRestApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
-E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.csproj.CopyComplete
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\bin\Debug\netcoreapp3.1\cmsRestApi.exe
@@ -193,3 +192,4 @@ D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.dll
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.pdb
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.genruntimeconfig.cache
+E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.csproj.CopyComplete

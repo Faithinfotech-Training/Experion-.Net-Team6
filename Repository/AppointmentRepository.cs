@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using cmsRestApi.Models;
+using cmsRestApi.ViewModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace cmsRestApi.Repository
@@ -74,6 +75,30 @@ namespace cmsRestApi.Repository
                               }
                               ).ToListAsync();
 
+            }
+            return null;
+        }
+
+        public async Task<List<AppointmentViewModel>> GetAppointmentyViewModel()
+        {
+            if (db != null)
+            {
+                return await (from app in db.TblAppointment
+                              join p in db.TblPatient on app.PatientId equals p.PatientId
+                              join d in db.TblDoctor on app.DoctorId equals d.DoctorId
+                              select new AppointmentViewModel
+                              {
+                                  AppointmentId=app.AppointmentId,
+                                  PatientId=app.PatientId,
+                                  DoctorId=app.DoctorId,
+                                  PatientName=p.PatientName,
+                                  DateofAppointment = app.DateofAppointment,
+                                  Age = p.Age,
+                                  Gender = p.Gender,
+                                  DoctorName =d.DoctorName,
+                                  
+                              }
+                    ).ToListAsync();
             }
             return null;
         }
