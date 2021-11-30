@@ -28,18 +28,13 @@ namespace cmsRestApi.Repository
                               from doctor in db.TblDoctor
                               from appointment in db.TblAppointment
                               from log in db.TblPatientLog
-                              from test in db.TblPrescriptionTest
-                              from testName in db.TblMasterLabTest
+                              from testName in db.TblPrescriptionTest
                               from report in db.TblLabReport
                               from staff in db.TblStaff
                               where appointment.PatientId == patient.PatientId
                               where appointment.DoctorId == doctor.DoctorId
-                              where log.AppointmentId == appointment.AppointmentId
-                            
-                              where test.LogId == log.LogId
-                              where testName.TestId == test.TestOneId
-                              where testName.TestId == test.TestTwoId
-                              where testName.TestId == test.TestThreeId
+                              where log.AppointmentId == appointment.AppointmentId                          
+                              where testName.LogId == log.LogId
                           
                               select new LabReportViewModel
                               {
@@ -50,9 +45,9 @@ namespace cmsRestApi.Repository
                                   StaffName = staff.StaffName,
                                   DoctorName = doctor.DoctorName,
                                   DateOfAppointment = appointment.DateofAppointment,
-                                  TestOneName = testName.TestName,
-                                  TestTwoName=testName.TestName,
-                                  TestThreeName=testName.TestName,
+                                  TestOneName = testName.TestOne,
+                                  TestTwoName=testName.TestTwo,
+                                  TestThreeName=testName.TestThree,
                                   ObservedResultOne=report.ObservedResultOne,
                                   ObservedResultThree=report.ObservedResultThree,
                                   ObservedResultTwo=report.ObservedResultTwo
@@ -77,9 +72,6 @@ namespace cmsRestApi.Repository
                               from patient in db.TblPatient
                               from doctor in db.TblDoctor 
                               from date in db.TblAppointment
-                              where testname.TestId==report.TestOneId
-                              where testname.TestId==report.TestTwoId
-                              where testname.TestId==report.TestTwoId
                               where report.PatientId == id
                               select new LabReportViewModel
                               {
@@ -87,8 +79,6 @@ namespace cmsRestApi.Repository
                                   PatientId = patient.PatientId,
                                   PatientName= patient.PatientName,
                                   DoctorName= doctor.DoctorName,
-                                 
-
                               }
                                 ).ToListAsync();
             }

@@ -57,19 +57,12 @@ namespace cmsRestApi.Repository
             if (db != null)
             {
                 //joining and getting 
-                return await (from log in db.TblPatientLog
-                              join patient in db.TblPatient on log.PatientId equals patient.PatientId
-                              join medicine in db.TblPrescriptionMedicine on log.LogId equals medicine.LogId
-                              join master in db.TblMasterMedicine on medicine.m
-                            
-                              
-                             /* from doctor in db.TblDoctor
+                return await (from patient in db.TblPatient
+                              from doctor in db.TblDoctor
                               from appointment in db.TblAppointment
                               from log in db.TblPatientLog
                               from medicine in db.TblPrescriptionMedicine
-                              from medicineName in db.TblMasterMedicine
                               from test in db.TblPrescriptionTest
-                              from testName in db.TblMasterLabTest
                               from spec in db.TblSpecialization
                               where patient.PatientId == id
                               where appointment.PatientId == patient.PatientId
@@ -77,14 +70,7 @@ namespace cmsRestApi.Repository
                               where doctor.DoctorSpecializationId == spec.SpecializationId
                               where log.AppointmentId == appointment.AppointmentId
                               where medicine.LogId == log.LogId
-                              where medicineName.MedicineId == medicine.MedicineOneId
-                              where medicineName.MedicineId == medicine.MedicineTwoId
-                              where medicineName.MedicineId == medicine.MedicineThreeId
-                              where medicineName.MedicineId == medicine.MedicineFourId
                               where test.LogId == log.LogId
-                              where testName.TestId == test.TestOneId
-                              where testName.TestId == test.TestTwoId
-                              where testName.TestId == test.TestThreeId*/
                               select new PatientLogViewModel
                               {
                                   PatientId = patient.PatientId,
@@ -100,17 +86,17 @@ namespace cmsRestApi.Repository
                                   DateofAppointment = appointment.DateofAppointment,
                                   Notes = log.Notes,
                                   Observations = log.Observations,
-                                 /* MedicineOne = medicineName.MedicineName,
-                                  MedicineTwo = medicineName.MedicineName,
-                                  MedicineThree = medicineName.MedicineName,
-                                  MedicineFour = medicineName.MedicineName,
+                                  MedicineOne = medicine.MedicineOneId,
+                                  MedicineTwo = medicine.MedicineTwo,
+                                  MedicineThree = medicine.MedicineThree,
+                                  MedicineFour = medicine.MedicineFour,
                                   MedicineOneDosage=medicine.MedicineOneDosage,
                                   MedicineTwoDosage=medicine.MedicineTwoDosage,
                                   MedicineThreeDosage=medicine.MedicineThreeDosage,
                                   MedicineFourDosage=medicine.MedicineFourDosage,
-                                  LabTestOne =testName.TestName,
-                                  LabTestTwo = testName.TestName,
-                                  LabTestThree = testName.TestName,*/
+                                  LabTestOne =test.TestOne,
+                                  LabTestTwo = test.TestTwo,
+                                  LabTestThree = test.TestThree
 
                               }
                               ).ToListAsync();

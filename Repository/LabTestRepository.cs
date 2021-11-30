@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using cmsRestApi.Models;
+using cmsRestApi.ViewModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace cmsRestApi.Repository
@@ -21,6 +22,35 @@ namespace cmsRestApi.Repository
             if (db != null)
             {
                 return await db.TblPrescriptionTest.ToListAsync();
+            }
+            return null;
+        }
+
+        public async Task<List<LabViewForLabTechnician>> GetLabTestView()
+        {
+            if (db != null)
+            {
+                return await (from log in db.TblPatientLog
+                              from patient in db.TblPatient
+                              from doctor in db.TblDoctor
+                              from test in db.TblPrescriptionTest
+                              from appointment in db.TblAppointment
+                              where log.PatientId == patient.PatientId
+                              where log.DoctorId == doctor.DoctorId
+                              where log.LogId == test.LogId
+                              where log.AppointmentId == appointment.AppointmentId
+                              select new LabViewForLabTechnician
+                              {
+                                  PatientName = patient.PatientName,
+                                  DoctorName = doctor.DoctorName,
+                                  Test1 = test.TestOne,
+                                  Test2 = test.TestTwo,
+                                  Test3 = test.TestThree,
+                                  Date = appointment.DateofAppointment,
+                                  Status=test.Status
+                              }
+
+                              ).ToListAsync();
             }
             return null;
         }
