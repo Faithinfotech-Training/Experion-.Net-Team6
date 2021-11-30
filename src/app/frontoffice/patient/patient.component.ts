@@ -44,7 +44,7 @@ export class PatientComponent implements OnInit {
   }
 
   insertPatient(form: NgForm) {
-   
+    //console.log(form.value);
     this.patientService.insertPatient(form.value).subscribe(
 
       (result) => {

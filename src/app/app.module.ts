@@ -20,13 +20,8 @@ import { AppointmentComponent } from './frontoffice/appointment/appointment.comp
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
-import { AuthService } from './shared/auth.service';
-import { AdminService } from './shared/admin.service';
-=======
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
->>>>>>> 3a0171b268e559ef43452e740a616e40798791a2
 
 @NgModule({
   declarations: [
