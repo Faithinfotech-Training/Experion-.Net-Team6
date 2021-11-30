@@ -35,7 +35,8 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<IMedicineRepo, MedicineRepo>();
             services.AddScoped<IPatientRepo, PatientRepo>();
-
+            services.AddScoped<IPaymentRepo, PaymentRepo>();
+            services.AddScoped<IPatientLogRepository, PatientLogRepository>();
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
         }
 
