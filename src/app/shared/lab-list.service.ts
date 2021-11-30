@@ -21,4 +21,8 @@ export class LabListService {
     )
   }
   
+  //get prescribed test by LogId
+  getLabTest(LogId:number){
+    return this.httpClient.get(environment.apiUrl+"/api/labtest/"+LogId);
+  }
 }

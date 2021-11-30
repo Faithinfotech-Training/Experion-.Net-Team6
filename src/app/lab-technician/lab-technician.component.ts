@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'; 
+import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
 import {LabListService} from '../shared/lab-list.service';
 
@@ -15,7 +16,7 @@ export class LabTechnicianComponent implements OnInit {
 
   loggedUser=sessionStorage.getItem('userName')
 
-  constructor(public labListService:LabListService,public authService:AuthService) { }
+  constructor(public labListService:LabListService,public authService:AuthService,public router:Router) { }
 
   ngOnInit(): void {
     //get all lab list
@@ -23,8 +24,12 @@ export class LabTechnicianComponent implements OnInit {
   }
 
   logOut(){
-    this.authService.logOut();
-    
+    this.authService.logOut();   
+  }
+
+  labReport(LogId:number){
+    console.log(LogId);
+    this.router.navigate(['report',LogId]);
   }
 
 }

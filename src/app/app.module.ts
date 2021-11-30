@@ -20,8 +20,9 @@ import { AppointmentComponent } from './frontoffice/appointment/appointment.comp
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AppointmentListComponent } from './appointment-list/appointment-list.component';
-import { PatientLogComponent } from './patient-log/patient-log.component';
+import { AuthService } from './shared/auth.service';
+import { AdminService } from './shared/admin.service';
+import {AuthGuard} from './shared/auth.guard';
 
 @NgModule({
   declarations: [
@@ -53,8 +54,7 @@ import { PatientLogComponent } from './patient-log/patient-log.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [
-  ],
+  providers: [AuthService,AdminService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
