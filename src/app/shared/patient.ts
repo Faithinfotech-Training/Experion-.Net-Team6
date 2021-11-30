@@ -1,10 +1,10 @@
 export class Patient {
-    PatientId : number ;
-    PatientName : string;
-    Age : number;
-    Gender : string;
-    Location : string;
-    ContactNo : string;
-    EmergencyContact : string;
-    IsActive : boolean;
+    patientId : number  ;
+    patientName : string;
+    age : number;
+    gender : string;
+    location : string;
+    contactNo : string;
+    emergencyContact : string;
+    isActive : boolean;
 }

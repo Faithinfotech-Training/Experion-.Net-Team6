@@ -20,6 +20,7 @@ import { PatientlistComponent } from './frontoffice/patientlist/patientlist.comp
 import { AppointmentComponent } from './frontoffice/appointment/appointment.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

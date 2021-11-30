@@ -1,71 +1,98 @@
-<form name="patform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit()">
-   <div class="form-control">
-    <div class="container mt-3" style="width: 30em;">
-         <!--Patient id-->
-    <input type="hidden" name="PatientId" />
+<form name="patform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+    <div class="form-control">
+        <div class="container mt-3" style="width: 30em;">
+            <!--Patient id-->
+            <input type="hidden" name="PatientId" [ngModel]="patientService.formData.patientId" />
 
-    <!--Patient Name-->
-    <div class="form-group">
-        <label>Full Name</label>
-        <input name="PatientName" class="form-control" placeholder="Enter full name" minlength="1" maxlength="25"
-            required />
-        <div class="validation-error">
+            <!--Patient Name-->
+            <div class="form-group">
+                <label>Full Name</label>
+                <input name="patientName" class="form-control" #patientName="ngModel"
+                    [ngModel]="patientService.formData.patientName" placeholder="Enter full name" minlength="1"
+                    maxlength="25" required [ngClass]="{'is-invalid':patientName.touched && patientName.invalid}" />
+                <div class="validation-error" *ngIf="patientName.touched && patientName.invalid">
+
+                    <div *ngIf="patientName.errors.required">
+                        Patient Name is required</div>
+                </div>
+            </div>
+            <!--Age-->
+            <div class="form-group">
+                <label>Age</label>
+                <input type= "number" name="age" class="form-control" #age="ngModel"
+                    [ngModel]="patientService.formData.age" placeholder="Enter Age" minlength="1"
+                    maxlength="3" required [ngClass]="{'is-invalid':age.touched && age.invalid}" />
+                <div class="validation-error" *ngIf="age.touched && age.invalid">
+
+                    <div *ngIf="age.errors.required">
+                        Age is required</div>
+                </div>
+            </div>
+            
+            <!--Location-->
+            <div class="form-group">
+                <label>Location</label>
+                <input name="location" class="form-control" #location="ngModel"
+                    [ngModel]="patientService.formData.location" placeholder="Enter Location" minlength="1"
+                    maxlength="25" required [ngClass]="{'is-invalid':location.touched && location.invalid}" />
+                <div class="validation-error" *ngIf="location.touched && location.invalid">
+
+                    <div *ngIf="location.errors.required">
+                        Location is required</div>
+                </div>
+            </div>
+             <!--Gender-->
+        <div class="form-group">
+            <p>
+                <label for="gender">Gender</label>&nbsp;
+                <input type="radio" id="gender" name="gender" value="Male"
+                    class="form-check-input">Male
+                <input type="radio" id="gender" name="gender" value="female" 
+                    class="form-check-input">Female
+
+            </p>
+        </div>
+
+             <!--Contact-->
+             <div class="form-group">
+                <label>Contact</label>
+                <input type= "number" name="contactNo" class="form-control" #contactNo="ngModel"
+                    [ngModel]="patientService.formData.contactNo" placeholder="Enter ContactNo" minlength="10"
+                    maxlength="10" required [ngClass]="{'is-invalid':contactNo.touched && contactNo.invalid}" />
+                <div class="validation-error" *ngIf="contactNo.touched && contactNo.invalid">
+
+                    <div *ngIf="contactNo.errors.required">
+                        ContactNo is required</div>
+                </div>
+            </div>
+            <!--EmergencyContact-->
+            <div class="form-group">
+                <label>Emergency Contact</label>
+                <input type= "number" name="emergencyContact" class="form-control" #emergencyContact="ngModel"
+                    [ngModel]="patientService.formData.emergencyContact" placeholder="Enter Emergency Contact" minlength="10"
+                    maxlength="10" required [ngClass]="{'is-invalid':emergencyContact.touched && emergencyContact.invalid}" />
+                <div class="validation-error" *ngIf="emergencyContact.touched && emergencyContact.invalid">
+
+                    <div *ngIf="emergencyContact.errors.required">
+                        Emergency Contact is required</div>
+                </div>
+            </div>
+            <!--Is Active-->
+            <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label">Is active </label>
+                    <input type="checkbox" name="IsActive" id="isActive" class="form-check-input">
+                </div>
+            </div>
+
+            <!--submit button-->
+            <br>
+            <div class="form-group">
+                <button type="submit" [disabled]="!(form.valid && form.dirty)"
+                    class="btn btn-lg btn-primary form-control">Add Patient</button>
+            </div>
 
 
         </div>
     </div>
-    <!--Age-->
-    <div class="form-group">
-        <label>Age</label>
-        <input name="Age" type="number" class="form-control" placeholder="Enter Age" minlength="1" maxlength="4"
-            required />
-        <div class="validation-error">
-
-
-        </div>
-    </div>
-    <!--ContactNo-->
-    <div class="form-group">
-        <label>Contact Number</label>
-        <input name="ContactNo" type="number" class="form-control" placeholder="Enter ContactNo" minlength="10" maxlength="10"
-            required />
-        <div class="validation-error">
-        </div>
-    </div>
-    <!--location-->
-    <div class="form-group">
-        <label>Location</label>
-        <input name="Location" type="text" class="form-control" placeholder="Enter Location" minlength="1" maxlength="100"
-            required />
-        <div class="validation-error">
-        </div>
-    </div>
-    <!--EmergencyContact-->
-    <div class="form-group">
-        <label>Emergency Contact Number</label>
-        <input name="EmergencyContact" type="number" class="form-control" placeholder="Enter EmergencyContact" minlength="10" maxlength="10"
-            required />
-        <div class="validation-error">
-        </div>
-    </div>
-    
-    <!--Is Active-->
-    <div class="form-group">
-        <div class="form-check">
-            <label class="form-check-label">Is active </label>
-            <input type="checkbox" name="IsActive" id="IsActive" class="form-check-input">
-        </div>
-    </div>
-
-    <!--submit button-->
-    <br>
-    <div class="form-group">
-        <button type="submit" [disabled]="!(form.valid && form.dirty)"
-            class="btn btn-lg btn-primary form-control">Add Patient</button>
-    </div>
-
-
-</div>
-</div>
 </form>
-

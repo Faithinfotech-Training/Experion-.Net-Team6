@@ -9,11 +9,10 @@ import { AppointmentComponent } from './frontoffice/appointment/appointment.comp
 import { PatientComponent } from './frontoffice/patient/patient.component';
 import { PatientlistComponent } from './frontoffice/patientlist/patientlist.component';
 import { LabReportComponent } from './lab-report/lab-report.component';
-import { LoginComponent } from './login/login.component';
-import { DoctorComponent } from './doctor/doctor.component';
 import { LabTechnicianComponent } from './lab-technician/lab-technician.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
+import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -23,12 +22,13 @@ const routes: Routes = [
   {path:'report',component:LabReportComponent},
   {path:'appointment',component:AppointmentComponent},
   {path:'frontoffice',component:PatientlistComponent},
-  {path:'patient',component:PatientComponent},
+  {path:'addpatient',component:PatientComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'staff-list', component: StaffListComponent},
   {path: 'add-staff', component: AddstaffComponent},
   {path: 'doctor-list', component: DoctorListComponent},
-  {path: 'add-doctor', component: AdddoctorComponent}
+  {path: 'add-doctor', component: AdddoctorComponent},
+  {path: 'test', component: FrontofficeComponent}
 
 ]
 @NgModule({
