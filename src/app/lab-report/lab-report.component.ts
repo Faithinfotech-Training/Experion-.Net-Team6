@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-lab-report',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabReportComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService:AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  logOut(){
+    this.authService.logOut();
+    
   }
 
 }

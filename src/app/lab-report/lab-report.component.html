@@ -1,4 +1,6 @@
 
+<button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
+    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button>
 <div class="container mt-3" style="width: 30em;">
     <h2>Generate Lab Report</h2>
     <hr>
@@ -8,9 +10,9 @@
             <label>Patient Name</label>
             <input type="text" class="form-control">
         </div>
-        <!--Doctor Name-->
+        <!--StaffId-->
         <div class="form-group mt-2">
-            <label>Doctor Name</label>
+            <label>Staff Id</label>
             <input type="text" class="form-control">
         </div>
         <!--Date-->
@@ -18,25 +20,30 @@
             <label>Date</label>
             <input type="date" class="form-control">
         </div>
+        <hr>
+        <h5 style="text-align: center;">Test Results</h5>
         <!--Test1-->
         <div class="form-group mt-2">
-            <label>Test1 observed result</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" placeholder="Enter Test Name" >
+            <input type="text" class="form-control mt-2" placeholder="Enter Observed Result">
         </div>
+        <hr>
         <!--Test2-->
         <div class="form-group mt-2">
-            <label>Test1 observed result</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" placeholder="Enter Test Name">
+            <input type="text" class="form-control mt-2" placeholder="Enter Observed Result">
         </div>
+        <hr>
         <!--Test3-->
         <div class="form-group mt-2">
-            <label>Test1 observed result</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" placeholder="Enter Test Name">
+            <input type="text" class="form-control mt-2" placeholder="Enter Observed Result">
         </div>
+        <hr>
         <!--Generate report-->
         <div class="form-group mt-4">
             <button type="submit" class="btn btn-secondary form-control" style="width: 16em;">
-                Generate Lab Report
+                Update Lab Report
             </button>
         </div>
     </form>

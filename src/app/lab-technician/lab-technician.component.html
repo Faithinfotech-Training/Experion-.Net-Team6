@@ -1,6 +1,9 @@
-<div class="container mt-3">
-    <h5>Welcome! Lab Technician name</h5>
+<div class="container mt-3"> 
+    <h5>Welcome! {{loggedUser}}</h5>
 </div>
+<button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
+    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button>
+<br>
 <br>
 <hr>
 
@@ -14,25 +17,37 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
+                <th>Log Id:</th>
                 <th>Patiet Name</th>
                 <th>Doctor Name</th>
                 <th>Date</th>
-                <th>Prescribed Test</th>
+                <th>Prescribed Tests</th>
                 <th></th>
 
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let u of dummy |filter:filter | paginate:{itemsPerPage:5,currentPage:page }">
-                <td>Koman</td>
-                <td>Sujith</td>
-                <td>12/12/2021</td>
-                <td>Sugar test</td>
+            <tr  *ngFor="let l of labListService.labList |filter:filter | paginate:{itemsPerPage:5,currentPage:page }"
+                   >
+                <ng-template [ngIf]="l.Status==null">
+                <td>{{l.LogId}}</td>
+                <td>{{l.PatientName}}</td>
+                <td>{{l.DoctorName}}</td>
+                <td>{{l.Date}}</td>
+                <td>
+                    <ul>
+                        <li *ngIf=l.Test1>{{l.Test1}}</li>
+                        <li *ngIf=l.Test2>{{l.Test2}}</li>
+                        <li *ngIf=l.Test3>{{l.Test3}}</li>
+                    </ul>
+                </td>
+
                 <td>
                     <button routerLink='/report' class="btn btn-sm btn-primary">Lab Report</button>
                 </td>
-
+            </ng-template>
             </tr>
+
         </tbody>
     </table>
     <div>
