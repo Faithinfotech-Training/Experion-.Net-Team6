@@ -55,8 +55,7 @@ import { PatientRecordFormComponent } from './patient-record-form/patient-record
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [
-  ],
+  providers: [AuthService,AdminService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

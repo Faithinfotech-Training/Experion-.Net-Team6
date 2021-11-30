@@ -25,7 +25,7 @@ export class PatientlistComponent implements OnInit {
   updatePatient(patientId: number){
 
       console.log(patientId);
-      this.router.navigate(['addpatient',patientId])
+      this.router.navigate(['addPatient',patientId])
     }
   
 }
