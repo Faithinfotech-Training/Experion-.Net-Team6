@@ -7,10 +7,10 @@ namespace cmsRestApi.Models
     {
         public int PaymentId { get; set; }
         public DateTime? PaymentDate { get; set; }
-        public int? LogId { get; set; }
+        public int? AppointmentId { get; set; }
         public string Amount { get; set; }
         public bool? IsActive { get; set; }
 
-        public virtual TblPatientLog Log { get; set; }
+        public virtual TblAppointment Appointment { get; set; }
     }
 }

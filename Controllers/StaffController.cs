@@ -22,6 +22,7 @@ namespace cmsRestApi.Controllers
 
         //Get all Staffs
         [HttpGet]
+        [Route("GetAllStaff")]
         public async Task<IActionResult> GetStaffs()
         {
             try
@@ -56,6 +57,7 @@ namespace cmsRestApi.Controllers
         }
         //Add a Staff 
         [HttpPost]
+        [Route("Addstaff")]
         public async Task<IActionResult> AddStaff([FromBody] TblStaff staff)
         {
             if (ModelState.IsValid)
@@ -84,7 +86,7 @@ namespace cmsRestApi.Controllers
 
         //Update Staff 
         [HttpPut]
-
+        [Route("putstaff")]
         public async Task<IActionResult> UpdateStaff([FromBody] TblStaff staff)
         {
             if (ModelState.IsValid)

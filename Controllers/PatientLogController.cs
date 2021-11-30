@@ -59,7 +59,7 @@ namespace cmsRestApi.Controllers
             }
         }
 
-
+        
         [HttpPost]
         public async Task<IActionResult> AddPatientLog([FromBody] TblPatientLog log)
         {

@@ -62,6 +62,27 @@ namespace cmsRestApi.Controllers
 
         #endregion
 
+        #region Lab Test view For Lab Technician
+        [HttpGet("labtech")]
+        public async Task<IActionResult> GetLabTestView()
+        {
+            try
+            {
+                var labtests = await labTestRepository.GetLabTestView();
+                if (labtests == null)
+                {
+                    return NotFound();
+                }
+                return Ok(labtests);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
+        }
+        #endregion
+
         //Add a Staff 
         [HttpPost]
         public async Task<IActionResult> AddPrescriptionLabTest([FromBody] TblPrescriptionTest test)

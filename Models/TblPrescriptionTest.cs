@@ -7,10 +7,12 @@ namespace cmsRestApi.Models
     {
         public int PrescriptionTestId { get; set; }
         public int? LogId { get; set; }
-        public int? TestId { get; set; }
+        public string TestOne { get; set; }
+        public string TestTwo { get; set; }
+        public string TestThree { get; set; }
+        public string Status { get; set; }
         public bool? IsActive { get; set; }
 
         public virtual TblPatientLog Log { get; set; }
-        public virtual TblMasterLabTest Test { get; set; }
     }
 }
