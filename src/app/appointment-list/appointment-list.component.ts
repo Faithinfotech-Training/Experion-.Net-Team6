@@ -17,9 +17,9 @@ export class AppointmentListComponent implements OnInit {
     this.appservice.GetAppointmentbyVM();
   }
 
-  patientlog(id:number){
-    console.log(id);
-    this.router.navigate(['patientlog',id])
+  patientlog(patientid:number){
+    console.log(patientid);
+    this.router.navigate(['patientlog',patientid])
   }
 
 }
