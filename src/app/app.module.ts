@@ -19,8 +19,10 @@ import { PatientlistComponent } from './frontoffice/patientlist/patientlist.comp
 import { AppointmentComponent } from './frontoffice/appointment/appointment.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
-import { AdminService } from './shared/admin.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './shared/auth.service';
+import { AdminService } from './shared/admin.service';
+import {AuthGuard} from './shared/auth.guard';
 
 @NgModule({
   declarations: [
@@ -37,21 +39,22 @@ import { HttpClientModule } from '@angular/common/http';
     FrontofficeComponent,
     PatientComponent,
     PatientlistComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    AppointmentListComponent,
+    PatientLogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    HttpClientModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [
-    AdminService
-  ],
+  providers: [AuthService,AdminService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

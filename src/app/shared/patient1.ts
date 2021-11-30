@@ -1,5 +1,5 @@
-export class Patient {
-    PatientId : number;
+export class Patient1 {
+    PatientId : number  ;
     PatientName : string;
     Age : number;
     Gender : string;
