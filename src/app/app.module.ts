@@ -47,12 +47,14 @@ import { PatientLogComponent } from './patient-log/patient-log.component';
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    HttpClientModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -29,5 +29,6 @@ export class AuthService {
   public logOut(){
     localStorage.clear();
     sessionStorage.clear();
+    this.router.navigateByUrl('');
   }
 }

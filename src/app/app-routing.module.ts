@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'report',component:LabReportComponent},
   {path:'appointment',component:AppointmentComponent},
   {path:'frontoffice',component:PatientlistComponent},
-  {path:'patient',component:PatientComponent},
+  {path:'addpatient',component:PatientComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'staff-list', component: StaffListComponent},
   {path: 'add-staff', component: AddstaffComponent},
