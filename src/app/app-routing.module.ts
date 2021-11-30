@@ -25,6 +25,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'staff-list', component: StaffListComponent},
   {path: 'add-staff', component: AddstaffComponent},
+  {path: 'add-staff/:Id', component: AddstaffComponent},
   {path: 'doctor-list', component: DoctorListComponent},
   {path: 'add-doctor', component: AdddoctorComponent}
 

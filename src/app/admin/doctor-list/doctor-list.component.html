@@ -14,28 +14,24 @@
             <tr>
                 <th>Doctor ID</th>
                 <th>Doctor Name</th>
-                <th>Doctor Specialization Id</th>
                 <th>Doctor Qualification</th>
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Date of Birth</th>
                 <th>Contact No</th>
                 <th>Location</th>
-                <th>IsActive</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let data of this.adminService.doctors">
-                <td>{{data.doctorId}}</td>
-                <td>{{data.doctorName}}</td>
-                <td>{{data.doctorSpecializationId}}</td>
-                <td>{{data.doctorQualification}}</td>
-                <td>{{data.doctorAge}}</td>
-                <td>{{data.doctorGender}}</td>
-                <td>{{data.doctorDateofBirth}}</td>
-                <td>{{data.contactNo}}</td>
-                <td>{{data.doctorLocation}}</td>
-                <td>{{data.isActive}}</td>
+                <td>{{data.DoctorId}}</td>
+                <td>{{data.DoctorName}}</td>
+                <td>{{data.DoctorQualification}}</td>
+                <td>{{data.DoctorAge}}</td>
+                <td>{{data.DoctorGender}}</td>
+                <td>{{data.DoctorDateofBirth}}</td>
+                <td>{{data.DoctorContactNo}}</td>
+                <td>{{data.DoctorLocation}}</td>
                 <td style="width: 6em;">
                     <button class="btn btn-outline-danger" style="width: 100%;">Edit</button>
                 </td>

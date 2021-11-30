@@ -22,10 +22,11 @@ export class AdddoctorComponent implements OnInit {
   onSubmit(form?: NgForm)
   {
     console.log(form.value);
-    let Id= this.adminService.formData.doctorId;
+    let Id= this.adminService.formData.DoctorId;
 
     if(Id==0 || Id==null){
       console.log("inserting record...");
+      console.log(form.value);
       this.insertdoctor(form);
     }
     else{
@@ -43,14 +44,14 @@ export class AdddoctorComponent implements OnInit {
 
   insertdoctor(form: NgForm){
     console.log("50%");
+    console.log(form.value);
     this.adminService.insertdoctor(form.value).subscribe(
-      
       (result) => {
         console.log(result);
-        this.resetForm(form);
+        //this.resetForm(form);
       }
     )
-    window.location.reload();
+    //window.location.reload();
   }
 
   updatedoctor(form: NgForm) {
@@ -58,10 +59,10 @@ export class AdddoctorComponent implements OnInit {
     this.adminService.updatedoctor(form.value).subscribe(
       (result) => {
         console.log(result);
-        this.resetForm(form);
+        //this.resetForm(form);
       }
     )
-    window.location.reload();
+    //window.location.reload();
   }
 
 }
