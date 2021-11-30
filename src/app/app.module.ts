@@ -40,7 +40,8 @@ import {AuthGuard} from './shared/auth.guard';
     PatientComponent,
     PatientlistComponent,
     AppointmentComponent,
-    LoginComponent
+    AppointmentListComponent,
+    PatientLogComponent
   ],
   imports: [
     BrowserModule,

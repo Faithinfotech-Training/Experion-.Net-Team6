@@ -16,8 +16,8 @@ import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
-  {path: 'login', component: LoginComponent},
+  {path:'',redirectTo:'login',pathMatch:'full'},
+  {path:'login',component:LoginComponent},
   {path:'doctor',component:DoctorComponent},
   {path:'lab',component:LabTechnicianComponent,canActivate:[AuthGuard],data:{role:'3'} },
   {path:'report',component:LabReportComponent,canActivate:[AuthGuard],data:{role:'3'} },
@@ -30,7 +30,8 @@ const routes: Routes = [
   {path: 'add-staff', component: AddstaffComponent},
   {path: 'doctor-list', component: DoctorListComponent},
   {path: 'add-doctor', component: AdddoctorComponent},
-  {path: 'test', component: FrontofficeComponent}
+ {path:'appointmentlist',component:AppointmentListComponent},
+ {path:'patientlog/:PatientId',component:PatientLogComponent}
 
 ]
 @NgModule({
