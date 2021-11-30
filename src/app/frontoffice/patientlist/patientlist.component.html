@@ -52,8 +52,8 @@
                 <td (click)="populateForm(pat)">{{pat.emergencyContact}}</td>
                 <td>
 
-                    <a [routerLink]="['/addpatient']" click="populateForm(form)" class="btn btn-sm btn-outline-danger style=margin-left:10px">Edit</a>&nbsp;
-                    <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" (click)="updatePatient(pat.patientId)" style="margin-left:10px">Add Appointment</a>
+                    <button  (click)="updatePatient(pat.patientId)" (click)="populateForm(pat)" class="btn btn-sm btn-outline-danger" style="margin-left:10px">Edit</button>
+                    <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" style="margin-left:10px">Add Appointment</a>
                 </td>
 
             </tr>

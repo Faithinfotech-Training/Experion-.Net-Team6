@@ -2,29 +2,29 @@
     <div class="form-control">
         <div class="container mt-3" style="width: 30em;">
             <!--Patient id-->
-            <input type="hidden" name="PatientId" [ngModel]="patientService.formData.patientId" />
+            <input type="hidden" name="PatientId" [ngModel]="patientService.formData.PatientId" />
 
             <!--Patient Name-->
             <div class="form-group">
                 <label>Full Name</label>
-                <input name="patientName" class="form-control" #patientName="ngModel"
-                    [ngModel]="patientService.formData.patientName" placeholder="Enter full name" minlength="1"
-                    maxlength="25" required [ngClass]="{'is-invalid':patientName.touched && patientName.invalid}" />
-                <div class="validation-error" *ngIf="patientName.touched && patientName.invalid">
+                <input name="PatientName" class="form-control" #PatientName="ngModel"
+                    [ngModel]="patientService.formData.PatientName" placeholder="Enter full name" minlength="1"
+                    maxlength="25" required [ngClass]="{'is-invalid':PatientName.touched && PatientName.invalid}" />
+                <div class="validation-error" *ngIf="PatientName.touched && PatientName.invalid">
 
-                    <div *ngIf="patientName.errors.required">
+                    <div *ngIf="PatientName.errors.required">
                         Patient Name is required</div>
                 </div>
             </div>
             <!--Age-->
             <div class="form-group">
                 <label>Age</label>
-                <input type= "number" name="age" class="form-control" #age="ngModel"
-                    [ngModel]="patientService.formData.age" placeholder="Enter Age" minlength="1"
-                    maxlength="3" required [ngClass]="{'is-invalid':age.touched && age.invalid}" />
-                <div class="validation-error" *ngIf="age.touched && age.invalid">
+                <input type= "number" name="Age" class="form-control" #Age="ngModel"
+                    [ngModel]="patientService.formData.Age" placeholder="Enter Age" minlength="1"
+                    maxlength="3" required [ngClass]="{'is-invalid':Age.touched && Age.invalid}" />
+                <div class="validation-error" *ngIf="Age.touched && Age.invalid">
 
-                    <div *ngIf="age.errors.required">
+                    <div *ngIf="Age.errors.required">
                         Age is required</div>
                 </div>
             </div>
@@ -32,48 +32,56 @@
             <!--Location-->
             <div class="form-group">
                 <label>Location</label>
-                <input name="location" class="form-control" #location="ngModel"
-                    [ngModel]="patientService.formData.location" placeholder="Enter Location" minlength="1"
-                    maxlength="25" required [ngClass]="{'is-invalid':location.touched && location.invalid}" />
-                <div class="validation-error" *ngIf="location.touched && location.invalid">
+                <input name="Location" class="form-control" #Location="ngModel"
+                    [ngModel]="patientService.formData.Location" placeholder="Enter Location" minlength="1"
+                    maxlength="25" required [ngClass]="{'is-invalid':Location.touched && Location.invalid}" />
+                <div class="validation-error" *ngIf="Location.touched && Location.invalid">
 
-                    <div *ngIf="location.errors.required">
+                    <div *ngIf="Location.errors.required">
                         Location is required</div>
                 </div>
             </div>
              <!--Gender-->
-        <div class="form-group">
-            <p>
-                <label for="gender">Gender</label>&nbsp;
-                <input type="radio" id="gender" name="gender" value="Male"
-                    class="form-check-input">Male
-                <input type="radio" id="gender" name="gender" value="female" 
-                    class="form-check-input">Female
-
-            </p>
-        </div>
+             <div class="form-group">
+                <label class="col-md-4">Gender</label>
+                <select name="Gender" id="Gender" #Gender [(ngModel)]="patientService.formData.Gender"
+                    class="form-control" required [ngClass]="{ 'is-invalid' : Gender.touched && Gender.invalid }">
+                    
+                    <option value="Male" selected >Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+    
+    
+    
+                </select>
+                <div class="validation-error" *ngIf="Gender.touched && Gender.invalid">
+                    <div *ngIf="Gender.touched && Gender.invalid"> please select gender.
+    
+                    </div>
+                </div>
+            </div>
 
              <!--Contact-->
              <div class="form-group">
                 <label>Contact</label>
-                <input type= "number" name="contactNo" class="form-control" #contactNo="ngModel"
-                    [ngModel]="patientService.formData.contactNo" placeholder="Enter ContactNo" minlength="10"
-                    maxlength="10" required [ngClass]="{'is-invalid':contactNo.touched && contactNo.invalid}" />
-                <div class="validation-error" *ngIf="contactNo.touched && contactNo.invalid">
+                <input type= "number" name="ContactNo" class="form-control" #ContactNo="ngModel"
+                    [ngModel]="patientService.formData.ContactNo" placeholder="Enter ContactNo" minlength="10"
+                    maxlength="10" required [ngClass]="{'is-invalid':ContactNo.touched && ContactNo.invalid}" />
+                <div class="validation-error" *ngIf="ContactNo.touched && ContactNo.invalid">
 
-                    <div *ngIf="contactNo.errors.required">
+                    <div *ngIf="ContactNo.errors.required">
                         ContactNo is required</div>
                 </div>
             </div>
             <!--EmergencyContact-->
             <div class="form-group">
                 <label>Emergency Contact</label>
-                <input type= "number" name="emergencyContact" class="form-control" #emergencyContact="ngModel"
-                    [ngModel]="patientService.formData.emergencyContact" placeholder="Enter Emergency Contact" minlength="10"
-                    maxlength="10" required [ngClass]="{'is-invalid':emergencyContact.touched && emergencyContact.invalid}" />
-                <div class="validation-error" *ngIf="emergencyContact.touched && emergencyContact.invalid">
+                <input type= "number" name="EmergencyContact" class="form-control" #EmergencyContact="ngModel"
+                    [ngModel]="patientService.formData.EmergencyContact" placeholder="Enter Emergency Contact" minlength="10"
+                    maxlength="10" required [ngClass]="{'is-invalid':EmergencyContact.touched && EmergencyContact.invalid}" />
+                <div class="validation-error" *ngIf="EmergencyContact.touched && EmergencyContact.invalid">
 
-                    <div *ngIf="emergencyContact.errors.required">
+                    <div *ngIf="EmergencyContact.errors.required">
                         Emergency Contact is required</div>
                 </div>
             </div>
@@ -81,7 +89,7 @@
             <div class="form-group">
                 <div class="form-check">
                     <label class="form-check-label">Is active </label>
-                    <input type="checkbox" name="IsActive" id="isActive" class="form-check-input">
+                    <input type="checkbox" name="IsActive" id="IsActive" class="form-check-input">
                 </div>
             </div>
 

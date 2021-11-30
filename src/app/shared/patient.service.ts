@@ -19,8 +19,8 @@ export class PatientService {
       .then((response) => (this.patients = response as Patient[]));
   } 
   //insert a patient
-  insertPatient(patient: Patient):Observable<any> {
-    return this.httpClient.post(environment.apiUrl+"api/patient/AddPatient",patient);
+  insertPatient(patient: Patient): Observable<any> {
+    return this.httpClient.post(environment.apiUrl + "api/patient/AddPatient", patient);
   }
   updatePatient(patient: Patient):Observable<any> {
     return this.httpClient.put(environment.apiUrl+"api/patient/updatepatient",patient);
