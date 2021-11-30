@@ -21,6 +21,7 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './shared/auth.service';
+import { AdminService } from './shared/admin.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,6 @@ import { AuthService } from './shared/auth.service';
   providers: [
     AdminService
   ],
-  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
