@@ -36,9 +36,9 @@
                 <th>
                     EmergencyContact
                 </th>
-                <!--<th>
+                <th>
                     Action
-                </th>-->
+                </th>
 
             </tr>
         </thead>
@@ -51,12 +51,12 @@
                 <td (click)="populateForm(pat)">{{pat.location}}</td>
                 <td (click)="populateForm(pat)">{{pat.contactNo}}</td>
                 <td (click)="populateForm(pat)">{{pat.emergencyContact}}</td>
-               <!-- <td>
+                <td>
 
 
-                    <button (click)="updatePatient(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+                    <button (click)="onclick(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
 
-                </td>-->
+                </td>
 
             </tr>
         </tbody>

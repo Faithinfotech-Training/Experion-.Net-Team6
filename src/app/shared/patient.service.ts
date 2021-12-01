@@ -41,5 +41,6 @@ export class PatientService {
   //get particular patient
   getPatientById(patientId: number): Observable<any> {
     return this.httpClient.get(environment.apiUrl + '/api/patient/GetPatientById?id=' + patientId);
+    
   }
 }

@@ -26,7 +26,7 @@ const routes: Routes = [
   {path:'report',component:LabReportComponent},
   {path:'report/:LogId',component:LabReportComponent,canActivate:[AuthGuard],data:{role:'3'} },
   {path:'appointment',component:AppointmentComponent },
-  {path:'frontoffice',component:FrontofficeComponent,canActivate:[AuthGuard],data:{role:'2'}},
+  {path:'frontoffice',component:FrontofficeComponent},
   {path :'addpatient/:patId',component:PatientComponent },
   {path:'addpatient',component:PatientComponent},
   {path: 'admin', component: AdminComponent,canActivate:[AuthGuard],data:{role:'1'} },
