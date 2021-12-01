@@ -7,7 +7,7 @@ import { LabList } from './lab-list';
   providedIn: 'root'
 })
 export class LabListService {
-
+ 
 
   labList:LabList[];
 

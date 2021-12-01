@@ -1,8 +1,18 @@
+import { NgModuleDecorator } from "@angular/core";
+
 export class ReportFormView {
-    LogId:number;
+    LabReportId:number;
     PatientId:number;
     PatientName:string;
-    TestOne:string;
-    TestTwo:string;
-    TestThree:string;
+    StaffId:number;
+    StaffName:string;
+    DoctorName:string;
+    DateOfAppointment:Date;
+    TestOneName:string;
+    TestTwoName:string;
+    TestThreeName:string;
+    ObservedResultOne:string;
+    ObservedResultTwo:string;
+    ObservedResultThree:string;
+
 }
