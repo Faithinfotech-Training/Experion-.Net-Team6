@@ -17,7 +17,7 @@ export class PatientService {
   //get patients for binding
   bindPatient() {
     this.httpClient
-      .get(environment.apiUrl + '/api/patient/getpatients')
+      .get(environment.apiUrl + 'api/patient/getpatients')
       .toPromise()
       .then((response) => (this.patients = response as Patient[]));
     console.log(this.patients);
@@ -25,17 +25,17 @@ export class PatientService {
   //get patients for binding
   bindPatient1() {
     this.httpClient
-      .get(environment.apiUrl + '/api/patient/getpatients')
+      .get(environment.apiUrl + 'api/patient/getpatients')
       .toPromise()
       .then((response) => (this.patients1 = response as Patient1[]));
     console.log(this.patients1);
   }
   //insert a patient
-  insertPatient(patient: Patient): Observable<any> {
+  insertPatient(patient: Patient1): Observable<any> {
     return this.httpClient.post(environment.apiUrl + "api/patient/AddPatient", patient);
 
   }
-  updatePatient(patient: Patient): Observable<any> {
+  updatePatient(patient: Patient1): Observable<any> {
     return this.httpClient.put(environment.apiUrl + "api/patient/updatepatient", patient);
   }
   //get particular patient

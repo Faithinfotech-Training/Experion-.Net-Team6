@@ -1,106 +1,106 @@
 <form name="patform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
-    <div class="form-control">
-        <div class="container mt-3" style="width: 30em;">
-            <!--Patient id-->
-            <input type="hidden"   name="PatientId" [ngModel]="patientService.formData.PatientId" />
+    <div class="container mt-3" style="width: 30em;"> 
+    <!--patient id-->
+    <input type="hidden" name="PatientId" [ngModel]="patientService.formData.PatientId" />
 
-            <!--Patient Name-->
-            <div class="form-group">
-                <label>Full Name</label>
-                <input name="PatientName" class="form-control" #PatientName="ngModel"
-                    [ngModel]="patientService.formData.PatientName" placeholder="Enter full name" minlength="1"
-                    maxlength="25" required [ngClass]="{'is-invalid':PatientName.touched && PatientName.invalid}" />
-                <div class="validation-error" *ngIf="PatientName.touched && PatientName.invalid">
+    <h1 align="center"><b> REGISTER HERE</b></h1>
 
-                    <div *ngIf="PatientName.errors.required">
-                        Patient Name is required</div>
-                </div>
-            </div>
-            <!--Age-->
-            <div class="form-group">
-                <label>Age</label>
-                <input type= "number" name="Age" class="form-control" #Age="ngModel"
-                    [ngModel]="patientService.formData.Age" placeholder="Enter Age" minlength="1"
-                    maxlength="3" required [ngClass]="{'is-invalid':Age.touched && Age.invalid}" />
-                <div class="validation-error" *ngIf="Age.touched && Age.invalid">
+    <!--patient name-->
+    <div class="form-group">
 
-                    <div *ngIf="Age.errors.required">
-                        Age is required</div>
-                </div>
-            </div>
-            
-            <!--Location-->
-            <div class="form-group">
-                <label>Location</label>
-                <input name="Location" class="form-control" #Location="ngModel"
-                    [ngModel]="patientService.formData.Location" placeholder="Enter Location" minlength="1"
-                    maxlength="25" required [ngClass]="{'is-invalid':Location.touched && Location.invalid}" />
-                <div class="validation-error" *ngIf="Location.touched && Location.invalid">
+        <label><b>Full Name</b></label>
+        <input name="PatientName" #PatientName="ngModel" [ngModel]="patientService.formData.PatientName"
+            class="form-control" placeholder="Enter full name" minlength="1" maxlength="25" required
+            [ngClass]="{'is-invalid':PatientName.touched && PatientName.invalid}"  style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
+        <div class="validation-error" *ngIf="PatientName.touched && PatientName.invalid">
 
-                    <div *ngIf="Location.errors.required">
-                        Location is required</div>
-                </div>
-            </div>
-             <!--Gender-->
-             <div class="form-group">
-                <label class="col-md-4">Gender</label>
-                <select name="Gender" id="Gender" #Gender [(ngModel)]="patientService.formData.Gender"
-                    class="form-control" required [ngClass]="{ 'is-invalid' : Gender.touched && Gender.invalid }">
-                    
-                    <option value="Male" selected >Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Others">Others</option>
-    
-    
-    
-                </select>
-                <div class="validation-error" *ngIf="Gender.touched && Gender.invalid">
-                    <div *ngIf="Gender.touched && Gender.invalid"> please select gender.
-    
-                    </div>
-                </div>
-            </div>
-
-             <!--Contact-->
-             <div class="form-group">
-                <label>Contact</label>
-                <input type= "number" name="ContactNo" class="form-control" #ContactNo="ngModel"
-                    [ngModel]="patientService.formData.ContactNo" placeholder="Enter ContactNo" minlength="10"
-                    maxlength="10" required [ngClass]="{'is-invalid':ContactNo.touched && ContactNo.invalid}" />
-                <div class="validation-error" *ngIf="ContactNo.touched && ContactNo.invalid">
-
-                    <div *ngIf="ContactNo.errors.required">
-                        ContactNo is required</div>
-                </div>
-            </div>
-            <!--EmergencyContact-->
-            <div class="form-group">
-                <label>Emergency Contact</label>
-                <input type= "number" name="EmergencyContact" class="form-control" #EmergencyContact="ngModel"
-                    [ngModel]="patientService.formData.EmergencyContact" placeholder="Enter Emergency Contact" minlength="10"
-                    maxlength="10" required [ngClass]="{'is-invalid':EmergencyContact.touched && EmergencyContact.invalid}" />
-                <div class="validation-error" *ngIf="EmergencyContact.touched && EmergencyContact.invalid">
-
-                    <div *ngIf="EmergencyContact.errors.required">
-                        Emergency Contact is required</div>
-                </div>
-            </div>
-            <!--Is Active-->
-            <div class="form-group">
-                <div class="form-check">
-                    <label class="form-check-label">Is active </label>
-                    <input type="checkbox" name="IsActive" id="IsActive" class="form-check-input">
-                </div>
-            </div>
-
-            <!--submit button-->
-            <br>
-            <div class="form-group">
-                <button type="submit" [disabled]="!(form.valid && form.dirty)"
-                    class="btn btn-lg btn-primary form-control">Add Patient</button>
-            </div>
-
-
+            <div *ngIf="PatientName.errors.required">
+                Full Name is required</div>
         </div>
     </div>
+    <br>
+    <!--Age-->
+    <div class="form-group">
+
+        <label><b>Age</b></label>
+        <input type="number" name="Age" #Age="ngModel" [ngModel]="patientService.formData.Age"
+            class="form-control" placeholder="Enter Age" minlength="1" maxlength="3" required
+            [ngClass]="{'is-invalid':Age.touched && Age.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
+        <div class="validation-error" *ngIf="Age.touched && Age.invalid">
+
+            <div *ngIf="Age.errors.required">
+                Age is required</div>
+        </div>
+    </div><br>
+    <!--Location-->
+    <div class="form-group">
+
+        <label><b>Location</b></label>
+        <input type="text" name="Location" #Location="ngModel" [ngModel]="patientService.formData.Location"
+            class="form-control" placeholder="Enter Location" minlength="1" maxlength="25" required
+            [ngClass]="{'is-invalid':Location.touched && Location.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
+        <div class="validation-error" *ngIf="Location.touched && Location.invalid">
+
+            <div *ngIf="Location.errors.required">
+                Location is required</div>
+        </div>
+    </div><br>
+    <!--contact-->
+    <div class="form-group">
+
+        <label><b>Contact</b></label>
+        <input name="ContactNo" #ContactNo="ngModel" [ngModel]="patientService.formData.ContactNo"
+            class="form-control" placeholder="Enter Contact" minlength="10" maxlength="10" required
+            [ngClass]="{'is-invalid':ContactNo.touched && ContactNo.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
+        <div class="validation-error" *ngIf="ContactNo.touched && ContactNo.invalid">
+
+            <div *ngIf="ContactNo.errors.required">
+                Contact is required</div>
+        </div>
+    </div><br>
+     <!--contact-->
+     <div class="form-group">
+
+        <label><b>Emegency Contact</b></label>
+        <input name="EmergencyContact" #EmergencyContact="ngModel" [ngModel]="patientService.formData.EmergencyContact"
+            class="form-control" placeholder="Enter Contact" minlength="10" maxlength="10" required
+            [ngClass]="{'is-invalid':EmergencyContact.touched && EmergencyContact.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
+        <div class="validation-error" *ngIf="EmergencyContact.touched && EmergencyContact.invalid">
+
+            <div *ngIf="EmergencyContact.errors.required">
+                Contact is required</div>
+        </div>
+    </div>
+    <br>
+    <!--Gender-->
+    <div class="form-group">
+        <label><b>Gender</b></label>
+        <input type="radio" value="Male" name="Gender" required #Gender="ngModel" [ngModel]="patientService.formData.Gender" class="form-check-input" style="box-shadow: 2px 1px 1px rgb(152, 173, 212);"> Male
+        <input type="radio" value="Female" name="Gender"required #Gender="ngModel" [ngModel]="patientService.formData.Gender" class="form-check-input" style="box-shadow: 2px 1px 1px rgb(152, 173, 212);"> Female
+        <div *ngIf="Gender.touched && Gender.invalid"> 
+            <div *ngIf="Gender.errors.required">
+                Gender is required
+        </div>
+        </div>  
+    </div>
+    <br>
+    <!--Is Active-->
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label"><b>Is active</b> </label>
+            <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
+                [(ngModel)]="patientService.formData.IsActive" class="form-check-input">
+        </div>
+    </div>
+    <br>
+    <!--submit button-->
+    <br>
+    <div class="form-group" >
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-primary form-control">Submit</button>
+    </div>
+
+
+</div>
+
 </form>
