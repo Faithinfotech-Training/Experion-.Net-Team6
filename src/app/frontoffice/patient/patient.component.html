@@ -10,7 +10,7 @@
 
         <label><b>Full Name</b></label>
         <input name="patientName" #PatientName="ngModel" [ngModel]="patientService.formData.patientName"
-            class="form-control" placeholder="Enter full name" pattern="[A-Za-z]+" minlength="1" maxlength="25" required
+            class="form-control" placeholder="Enter full name" pattern="[a-zA-Z\s]+" minlength="1" maxlength="25" required
             [ngClass]="{'is-invalid':PatientName.touched && PatientName.invalid}"  style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
         <div class="validation-error" *ngIf="PatientName.touched && PatientName.invalid">
 
@@ -97,7 +97,7 @@
     <br>
     <div class="form-group" >
         <button type="submit" [disabled]="!(form.valid && form.dirty)"
-            class="btn btn-lg btn-primary form-control">Submit</button>
+            class="btn btn-lg btn-primary form-control" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">Submit</button>
     </div>
 
 

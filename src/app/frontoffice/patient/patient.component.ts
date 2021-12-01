@@ -79,5 +79,6 @@ export class PatientComponent implements OnInit {
     )
     window.location.reload();
   }
+  
 
 }
