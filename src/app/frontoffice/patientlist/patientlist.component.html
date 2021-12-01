@@ -10,6 +10,7 @@
                 style="text-decoration: crimson; background-color: rgb(226, 233, 247);" [(ngModel)]="filter"><br>
         </div>
         <!--<a [routerLink]="['/addpatient']" class="btn btn-primary" style="float:right;margin-bottom: 10px;">Add Patient</a>-->
+        <a [routerLink]="['/appointment']" class="btn btn-sm btn-primary" style="margin-left:10px ">Add Appointment</a><br><hr>
     </div>
     <table class="table table-bordered table-striped" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
         <thead>
@@ -55,6 +56,9 @@
                 <ng-template [ngIf]="role==4 ">
                     <td>
 
+                    <button (click)="onclick(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+
+                </td>
 
                         <!--- <button (click)="updatePatient(pat.patientId)" class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>-->
                         <a [routerLink]="['/appointment']" class="btn btn-sm btn-primary"
