@@ -14,7 +14,7 @@ export class PatientlistComponent implements OnInit {
   filter : string;
   route: any;
   constructor(public patientService:PatientService,private router:Router) { }
-
+  role=localStorage.getItem('ACCESS_ROLE');
   ngOnInit(): void {
     this.patientService.bindPatient();
 

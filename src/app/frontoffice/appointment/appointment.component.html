@@ -1,4 +1,3 @@
-
 <form name="appform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
   <div class="form-control"> 
   <div class="container mt-3" style="width: 30em;"> 
@@ -15,7 +14,7 @@
             [ngClass]="{'is-invalid':PatientId.touched && PatientId.invalid}"
             style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
             <option value="0" disabled>Choose Patient</option>
-            <option *ngFor="let pat of appoiService.patient" value="{{pat.patientId}}">{{pat.patientName}}</option>
+            <option *ngFor="let pat of appoiService.patient" value="{{pat.PatientId}}">{{pat.PatientName}}</option>
             
     
         </select>
@@ -35,7 +34,7 @@
         [ngClass]="{'is-invalid':DoctorId.touched && DoctorId.invalid}"
         style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
         <option value="0" disabled>Choose Doctor</option>
-        <option *ngFor="let doct of appoiService.doctors" value="{{doct.doctorId}}">{{doct.doctorName}}</option>
+        <option *ngFor="let doct of appoiService.doctors" value="{{doct.DoctorId}}">{{doct.DoctorName}}</option>
         
 
     </select>

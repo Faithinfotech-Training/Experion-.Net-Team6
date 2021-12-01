@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import {Appointment} from './Appointment';
 import { Doctor } from './doctor';
 import { Patient } from './patient';
+import { PatientLog } from './patientlog';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,7 @@ export class AppointmentService {
   appointment:Appointment[];
   patient:Patient[];
   doctors:Doctor[];
+  logForm:PatientLog= new PatientLog();
   bindCmdDoctor(){
     this.httpClient.get(environment.apiUrl+"/api/doctor/getalldoctor")
     .toPromise().then(response=>
@@ -43,6 +45,10 @@ export class AppointmentService {
     this.httpClient.get(environment.apiUrl + '/api/appointment')
     .toPromise().then(
       response => this.appointment = response as Appointment[])
+  }
+
+  GetAppointmentbyId(id:number):Observable<any>{
+    return this.httpClient.get(environment.apiUrl+'/api/appointment/'+id);
   }
   insertAppointment(appointment:Appointment):Observable<any>
   {

@@ -1,8 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/shared/admin.service';
-import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-addstaff',
@@ -31,7 +32,7 @@ export class AddstaffComponent implements OnInit {
           var datePipe = new DatePipe("en-uk");
           let formatedDate: any = datePipe.transform(data.StaffDateofBirth, 'yyyy-MM-dd');
           data.StaffDateofBirth = formatedDate;
-          this.adminService.staffData = data;
+          this.adminService.StaffData = data;
 
         },
         error => console.log(error)
@@ -42,7 +43,7 @@ export class AddstaffComponent implements OnInit {
 
   onSubmit(form?: NgForm) {
     console.log(form.value);
-    let Id = this.adminService.staffData.StaffId;
+    let Id = this.adminService.StaffData.StaffId;
 
     if (Id == 0 || Id == null) {
       console.log("inserting record...");

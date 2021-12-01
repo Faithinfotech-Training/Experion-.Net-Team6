@@ -19,8 +19,8 @@
             <select name="DoctorSpecializationId" id="DoctorSpecializationId" class="form-control"
                 #DoctorSpecializationId="ngModel" [(ngModel)]="adminService.formData.DoctorSpecializationId" required>
                 <option value=0 disabled>Select Specialization for the doctor</option>
-                <option *ngFor="let special of adminService.special" value="{{special.serializationId}}">
-                    {{special.specializationName}}
+                <option *ngFor="let special of adminService.special" value='{{special.SpecializationId}}'>
+                    {{special.SpecializationName}}
 
                 </option>
 
@@ -48,15 +48,35 @@
             </div>
         </div>
 
-        <!--Age of doctor-->
+
+        <!--Age of doctor
         <div class="form-group">
             <label>Age</label>
             <input type="number" name="DoctorAge" #DoctorAge="ngModel" [(ngModel)]="adminService.formData.DoctorAge"
-                class="form-control" placeholder="Enter age of the assigned doctor" required
+                class="form-control" placeholder="Enter age of the assigned doctor" 
+                maxlength=2 required
                 [ngClass]="{ 'is-invalid' : DoctorAge.touched && DoctorAge.invalid }" />
             <div class="validation-error" *ngIf="DoctorAge.touched && DoctorAge.invalid">
                 <div *ngIf="DoctorAge.errors.required"> Doctor Age is required
 
+                </div>
+            </div>
+        </div>
+    -->
+        <!-- input type="text" ng-model="Age" name="Age" required ng-pattern="/^(?:1[8-9]|[2-5][0-9]|60)$/" / -->
+
+        <div class="form-group">
+            <label>Age</label>
+            <input type="text" name="DoctorAge" #DoctorAge="ngModel" pattern="[0-9]+"
+                [(ngModel)]="adminService.formData.DoctorAge" class="form-control"
+                placeholder="Enter age of the assigned doctor" maxlength="2" required
+                [ngClass]="{ 'is-invalid' : DoctorAge.touched && DoctorAge.invalid }" />
+            <div class="validation-error" *ngIf="DoctorAge.touched && DoctorAge.invalid">
+                <div *ngIf="DoctorAge.errors.required"> Doctor Age is required
+
+                </div>
+                <div *ngIf="DoctorAge.errors.pattern">
+                    Wrong age format
                 </div>
             </div>
         </div>
@@ -68,9 +88,9 @@
                 [(ngModel)]="adminService.formData.DoctorGender"
                 [ngClass]="{ 'is-invalid' : DoctorGender.touched && DoctorGender.invalid }">
                 <option value=0 disabled>Select Gender</option>
-                <option value=1>Male</option>
-                <option value=2>Female</option>
-                <option value=3>Others</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
 
 
 
@@ -102,8 +122,7 @@
             <label>Location</label>
             <input type="text" name="DoctorLocation" #DoctorLocation="ngModel"
                 [(ngModel)]="adminService.formData.DoctorLocation" class="form-control" placeholder="Enter Location"
-                 required
-                [ngClass]="{ 'is-invalid' : DoctorLocation.touched && DoctorLocation.invalid }" />
+                required [ngClass]="{ 'is-invalid' : DoctorLocation.touched && DoctorLocation.invalid }" />
             <div class="validation-error" *ngIf="DoctorLocation.touched && DoctorLocation.invalid">
                 <div *ngIf="DoctorLocation.errors.required">Location is Required</div>
             </div>
@@ -139,7 +158,7 @@
         <!--Submit Button-->
         <br>
         <div class="form-group">
-            <button type="submit" class="btn btn-lg btn-primary form-control">Submit</button>
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">Submit</button>
 
         </div>
 
