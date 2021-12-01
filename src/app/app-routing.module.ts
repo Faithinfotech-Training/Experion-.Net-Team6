@@ -16,9 +16,9 @@ import { LoginComponent } from './login/login.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
 import { PatientRecordFormComponent } from './patient-record-form/patient-record-form.component';
 import { AuthGuard } from './shared/auth.guard';
-import {PatientLogComponent} from './patient-log/patient-log.component';
 import {GeneratedReportComponent} from './generated-report/generated-report.component';
 import {LabHomeComponent} from './lab-home/lab-home.component';
+import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},

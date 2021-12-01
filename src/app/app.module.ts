@@ -26,8 +26,6 @@ import { PatientRecordFormComponent } from './patient-record-form/patient-record
 import { AuthService } from './shared/auth.service';
 import { AdminService } from './shared/admin.service';
 import {AuthGuard} from './shared/auth.guard';
-import { AppointmentListComponent } from './appointment-list/appointment-list.component';
-import { PatientLogComponent } from './patient-log/patient-log.component';
 import { GeneratedReportComponent } from './generated-report/generated-report.component';
 import { LabHomeComponent } from './lab-home/lab-home.component';
 
