@@ -1,7 +1,9 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/shared/admin.service';
+
 
 @Component({
   selector: 'app-addstaff',
@@ -9,22 +11,29 @@ import { AdminService } from 'src/app/shared/admin.service';
   styleUrls: ['./addstaff.component.css']
 })
 export class AddstaffComponent implements OnInit {
-Id:number;
+
+  Id: number;
+
   constructor(
-    public adminService: AdminService
+    public adminService: AdminService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    let Id = this.adminService.StaffData.staffId;
+    this.Id = this.route.snapshot.params['Id'];
+
     if (this.Id != 0 || this.Id != null) {
       //getEmployee
       this.adminService.getstaff(this.Id).subscribe(
         data => {
           console.log(data);
+
           var datePipe = new DatePipe("en-uk");
           let formatedDate: any = datePipe.transform(data.StaffDateofBirth, 'yyyy-MM-dd');
           data.StaffDateofBirth = formatedDate;
           this.adminService.StaffData = data;
+
         },
         error => console.log(error)
       );
@@ -32,16 +41,15 @@ Id:number;
   }
 
 
-  onSubmit(form?: NgForm)
-  {
+  onSubmit(form?: NgForm) {
     console.log(form.value);
-    let Id= this.adminService.StaffData.staffId;
+    let Id = this.adminService.StaffData.StaffId;
 
-    if(Id==0 || Id==null){
+    if (Id == 0 || Id == null) {
       console.log("inserting record...");
       this.insertstaff(form);
     }
-    else{
+    else {
       console.log("updating record..");
       this.updatestaff(form);
     }
@@ -54,16 +62,16 @@ Id:number;
     }
   }
 
-  insertstaff(form: NgForm){
+  insertstaff(form: NgForm) {
     console.log("50%");
     this.adminService.insertstaff(form.value).subscribe(
-      
+
       (result) => {
         console.log(result);
-        //this.resetForm(form);
+        this.resetForm(form);
       }
     )
-    //window.location.reload();
+    window.location.reload();
   }
 
   updatestaff(form: NgForm) {

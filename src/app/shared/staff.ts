@@ -1,11 +1,11 @@
 export class Staff{
-    staffId:number;
-    staffName:string;
-    roleId: number;
-    staffAge: number;
-    staffGender: string;
-    staffDateofBirth: Date = new Date();
-    staffContactNo: string;
-    staffLocation: string;
+    StaffId:number;
+    StaffName:string;
+    RoleId: number;
+    StaffAge: number;
+    StaffGender: string;
+    StaffDateofBirth: Date = new Date();
+    StaffContactNo: string;
+    StaffLocation: string;
     IsActive: boolean;
 }

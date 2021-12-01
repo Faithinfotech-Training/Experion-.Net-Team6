@@ -9,18 +9,12 @@ import { AdminService } from 'src/app/shared/admin.service';
 })
 export class StaffListComponent implements OnInit {
 
-  filter:string;
-
-  page: number=1;
-
-
+  filter: string;
+  page: number = 1;
 
   constructor(
-
     public adminService: AdminService,
-
     private router: Router
-
   ) { }
 
 
@@ -34,10 +28,10 @@ export class StaffListComponent implements OnInit {
   }
 
 
-  updateStaff(Id: number){
+ 
 
-    this.router.navigate(['add-staff',Id]);
-
+  updateStaff(Id: number) {
+    this.router.navigate(['add-staff', Id]);
   }
 
 }

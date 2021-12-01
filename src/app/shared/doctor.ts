@@ -1,12 +1,12 @@
 export class Doctor {
-    doctorId: number =0;
-    doctorName: string;
-    doctorSpecializationId: number;
-    doctorQualification: string;
-    doctorAge: number;
-    doctorGender: string;
-    doctorDateofBirth: Date = new Date;
-    doctorContactNo: string;
-    doctorLocation: string;
+    DoctorId: number;
+    DoctorName: string;
+    DoctorSpecializationId: number;
+    DoctorQualification: string;
+    DoctorAge: number;
+    DoctorGender: string;
+    DoctorDateofBirth: Date = new Date;
+    DoctorContactNo: string;
+    DoctorLocation: string;
     IsActive: boolean;
 }

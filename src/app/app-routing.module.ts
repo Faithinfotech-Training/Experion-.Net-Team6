@@ -11,8 +11,8 @@ import { PatientlistComponent } from './frontoffice/patientlist/patientlist.comp
 import { LabReportComponent } from './lab-report/lab-report.component';
 import { LabTechnicianComponent } from './lab-technician/lab-technician.component';
 import { DoctorComponent } from './doctor/doctor.component';
-import { LoginComponent } from './login/login.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { LoginComponent } from './login/login.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
 import { PatientRecordFormComponent } from './patient-record-form/patient-record-form.component';
 import { AuthGuard } from './shared/auth.guard';
