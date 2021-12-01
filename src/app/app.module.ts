@@ -26,7 +26,6 @@ import {AuthGuard} from './shared/auth.guard';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -10,66 +10,60 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./patient.component.css']
 })
 export class PatientComponent implements OnInit {
-  PatientId: number; 
+  PatientId: number;
   patient: Patient = new Patient();
 
   constructor(
     public patientService: PatientService,
     private router: Router,
-    private route: ActivatedRoute)
-   {}
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
- this.PatientId = this.route.snapshot.params['patientId'];
- if (this.PatientId != 0 || this.PatientId != null) {
-   //get patient
-   this.patientService.getPatientById(this.PatientId).subscribe((data) => {
-     console.log(data);
-     this.patientService.formData = Object.assign({}, data);
-     this.patientService.formData = data;
-     this.patientService.formData = Object.assign({}, data);
-   });
- }
+
+
   }
-  onSubmit(form: NgForm) {
+  onSubmit(form?: NgForm) {
     console.log(form.value);
-    let addId = this.patientService.formData.patientId;
-    if (addId == 0 || addId == null) {
-      //Insert
+    let Id = this.patientService.formData1.PatientId;
+
+    if (Id == 0 || Id == null) {
+      console.log("inserting record...");
       this.insertPatient(form);
-    } else {
-      console.log('Updating record...');
-      //Update
+    }
+    else {
+      console.log("updating record..");
       this.updatePatient(form);
     }
   }
-  //Clear all content at Initialization
+
+  //Clear all contents at loading
   resetForm(form?: NgForm) {
     if (form != null) {
       form.resetForm();
     }
   }
-  //Insert
 
-  insertPatient(form?: NgForm) {
-    console.log('Inserting a record...');
+  insertPatient(form: NgForm) {
+    //console.log(form.value);
+    this.patientService.insertPatient(form.value).subscribe(
 
-    this.patientService.insertPatient(form.value).subscribe((result) => {
-      console.log(result);
-
-      this.resetForm(form);
-    });
+      (result) => {
+        console.log(result);
+        this.resetForm(form);
+      }
+    )
+    //window.location.reload();
   }
-  //Update
-  updatePatient(form?: NgForm) {
-    console.log('Updating a record...');
 
-    this.patientService.updatePatient(form.value).subscribe((result) => {
-      console.log(result);
-
-      this.resetForm(form);
-    });
-
-   // window.location.reload();
+  updatePatient(form: NgForm) {
+    
+    this.patientService.updatePatient(form.value).subscribe(
+      (result) => {
+        console.log(result);
+        this.resetForm(form);
+      }
+    )
+    window.location.reload();
   }
+
 }

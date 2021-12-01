@@ -17,15 +17,15 @@ export class PatientlistComponent implements OnInit {
     this.patientService.bindPatient();
   }
   //populate form by clicking the column fields
-  populateForm(patient:Patient){
-    console.log(patient);
-    this.patientService.formData =Object.assign({},patient); 
-  } 
+  populateForm(pat: Patient){
+    console.log(pat);
+    this.patientService.formData=Object.assign({} ,pat);
+ }
   //update a patient through routing
   updatePatient(patientId: number){
 
       console.log(patientId);
-      this.router.navigate(['addpatient',patientId])
+      this.router.navigate(['addPatient',patientId])
     }
   
 }

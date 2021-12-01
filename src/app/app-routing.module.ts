@@ -11,22 +11,23 @@ import { PatientlistComponent } from './frontoffice/patientlist/patientlist.comp
 import { LabReportComponent } from './lab-report/lab-report.component';
 import { LabTechnicianComponent } from './lab-technician/lab-technician.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { LoginComponent } from './login/login.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 import { AuthGuard } from './shared/auth.guard';
-import {AppointmentListComponent} from './appointment-list/appointment-list.component';
 import {PatientLogComponent} from './patient-log/patient-log.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'login',component:LoginComponent},
+  {path:'patientlist',component:PatientlistComponent},
   {path:'doctor',component:DoctorComponent},
   {path:'lab',component:LabTechnicianComponent,canActivate:[AuthGuard],data:{role:'3'} },
-  {path:'report',component:LabReportComponent,canActivate:[AuthGuard],data:{role:'3'} },
+  {path:'report',component:LabReportComponent},
   {path:'report/:LogId',component:LabReportComponent,canActivate:[AuthGuard],data:{role:'3'} },
-  {path:'appointment',component:AppointmentComponent,canActivate:[AuthGuard],data:{role:'2'} },
-  {path:'frontoffice',component:PatientlistComponent,canActivate:[AuthGuard],data:{role:'2'} },
-  {path:'addpatient',component:PatientComponent},
+  {path:'appointment',component:AppointmentComponent },
+  {path:'frontoffice',component:FrontofficeComponent ,canActivate:[AuthGuard],data:{role:'2'} },
+  {path:'addpatient',component:PatientComponent,canActivate:[AuthGuard],data:{role:'2'} },
   {path: 'admin', component: AdminComponent,canActivate:[AuthGuard],data:{role:'1'} },
   {path: 'staff-list', component: StaffListComponent,canActivate:[AuthGuard],data:{role:'1'} },
   {path: 'add-staff', component: AddstaffComponent,canActivate:[AuthGuard],data:{role:'1'} },

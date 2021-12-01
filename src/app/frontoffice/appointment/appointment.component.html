@@ -1,5 +1,5 @@
 
-<form name="appform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit()">
+<form name="appform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
   <div class="form-control"> 
   <div class="container mt-3" style="width: 30em;"> 
     <!--Appointment id-->
@@ -8,42 +8,56 @@
     <!--Patient Name-->
     <div class="form-group">
 
-        <label class="col-md-4">Patient Name<br></label>
+        <label class="col-md-4">Patient Name</label>
         
-        <select name="PatientId"  class="form-control">
+        <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
+            [(ngModel)]="appoiService.formData1.PatientId"
+            [ngClass]="{'is-invalid':PatientId.touched && PatientId.invalid}"
+            style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
             <option value="0" disabled>Choose Patient</option>
-            <option value ="1">Peter</option>
-            <option value="2">Albert</option>
+            <option *ngFor="let pat of appoiService.patient" value="{{pat.patientId}}">{{pat.patientName}}</option>
+            
+    
         </select>
-        <div class="validation-error" >
-           
+        <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
+    
+            <div *ngIf="PatientId.errors.required">
+                Patient is required</div>
         </div>
     </div>
    <!--Doctor Name-->
-   <div class="form-group" >
+   <div class="form-group">
 
-    <label class="col-md-4"><br>Doctor Name</label>
+    <label class="col-md-4">Doctor Name</label>
     
-    <select name="DoctorId"  class="form-control">
+    <select name="DoctorId" id="DoctorId" class="form-control" #DoctorId="ngModel" required
+        [(ngModel)]="appoiService.formData1.DoctorId"
+        [ngClass]="{'is-invalid':DoctorId.touched && DoctorId.invalid}"
+        style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
         <option value="0" disabled>Choose Doctor</option>
-        <option value ="1">Angelina</option>
-        <option value="2">Shelton</option>
+        <option *ngFor="let doct of appoiService.doctors" value="{{doct.doctorId}}">{{doct.doctorName}}</option>
+        
+
     </select>
-    <div class="validation-error" >
-       
+    <div class="validation-error" *ngIf="DoctorId.touched && DoctorId.invalid">
+
+        <div *ngIf="DoctorId.errors.required">
+            Doctor is required</div>
     </div>
 </div>
     <!--Date of Appointment-->
     <div class="form-group">
 
-        <label><br>Date Of Appointment</label>
-        <input type="date" name="DateOfJoining" id="DateOfJoining" 
-            class="form-control" required
-             />
-        <div class="validation-error" >
+        <label>Date Of Appointment</label>
+        <input type="date" name="DateofAppointment" id="DateofAppointment" #DateofAppointment="ngModel"
+            [ngModel]="appoiService.formData1.DateofAppointment" class="form-control" required
+            [ngClass]="{'is-invalid':DateofAppointment.touched && DateofAppointment.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
+        <div class="validation-error" *ngIf="DateofAppointment.touched && DateofAppointment.invalid">
+
+            <div *ngIf="DateofAppointment.errors.required">
+                Date Of Appointment is required</div>
         </div>
     </div>
-
     <!--Is Active-->
     <div class="form-group">
         <div class="form-check"><br>
