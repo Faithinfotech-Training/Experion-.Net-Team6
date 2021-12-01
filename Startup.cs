@@ -35,10 +35,22 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<IMedicineRepo, MedicineRepo>();
             services.AddScoped<IPatientRepo, PatientRepo>();
-            services.AddScoped<IPaymentRepo, PaymentRepo>();
-            services.AddScoped<IPatientLogRepository, PatientLogRepository>();
-            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
-        }
+            services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
+            services.AddScoped<ILabTestRepository, LabTestRepository>();
+            services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();
+
+
+            //adding services
+            services.AddControllers().AddNewtonsoftJson(
+            options =>
+            {
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+
+                options.SerializerSettings.ReferenceLoopHandling =
+                Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            }
+            );
+            services.AddCors();
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

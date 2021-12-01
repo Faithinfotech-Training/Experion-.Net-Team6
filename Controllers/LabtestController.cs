@@ -111,6 +111,33 @@ namespace cmsRestApi.Controllers
         }
 
 
+        #region Lab form view
+        [HttpGet("GetFormView/{LogId}")]
+        public async Task<IActionResult> GetFormView(int LogId)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var PrescriptionTestId = await labTestRepository.GetFormView(LogId);
+                    if (PrescriptionTestId != null)
+                    {
+                        return Ok(PrescriptionTestId);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+
+            }
+            return BadRequest();
+        }
+        #endregion
         //Update Staff 
         [HttpPut]
 
