@@ -35,7 +35,19 @@ namespace cmsRestApi.Repository
             }
             return user;
             }
-        
+
+        public async Task<TblPatient> getPatient(int id)
+        {
+            var user = await _db.TblPatient.SingleOrDefaultAsync(u => u.PatientId == id);
+            if (user == null)
+            {
+                return null;
+            }
+            return user;
+        }
+
+
+
         public async Task<TblPatient> AddPatient(TblPatient patient)
         {
             //--- member function to add patient ---//
@@ -53,6 +65,19 @@ namespace cmsRestApi.Repository
             //member function to update patient
             if (_db != null)
             {
+                _db.TblPatient.Update(patient);
+                await _db.SaveChangesAsync();
+                return patient;
+            }
+            return null;
+        }
+        public async Task<TblPatient> updatePatientByActive(int id)
+        {
+            //member function to delete patient
+            if (_db != null)
+            {
+                TblPatient patient = await _db.TblPatient.FirstOrDefaultAsync(em => em.PatientId == id);
+                patient.IsActive = false;
                 _db.TblPatient.Update(patient);
                 await _db.SaveChangesAsync();
                 return patient;
