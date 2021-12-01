@@ -27,6 +27,11 @@ export class PatientlistComponent implements OnInit {
       console.log(patientId);
       this.router.navigate(['addPatient',patientId])
     }
+
+    patientlog(patientid: number) {
+      console.log(patientid);
+      this.router.navigate(['patientlog', patientid]);
+    }
   
 }
 

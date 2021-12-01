@@ -28,6 +28,11 @@ export class AppointmentListComponent implements OnInit {
   addpatientlog(id: number) {
     console.log(id);
     this.router.navigate(['patientlogform', id]);
-
   }
+
+ 
+
+    
+
+
 }

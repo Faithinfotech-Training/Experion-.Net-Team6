@@ -55,4 +55,8 @@ export class AppointmentService {
     return this.httpClient.post(environment.apiUrl+'/api/appointment',appointment);
   
   }
+
+  deleteappointment(id:number):Observable<any>{
+    return this.httpClient.get(environment.apiUrl+'/api/appointment/deleteappointment/' +id);
+  }
 }
