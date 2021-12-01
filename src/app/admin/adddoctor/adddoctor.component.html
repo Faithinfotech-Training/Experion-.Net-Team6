@@ -67,13 +67,16 @@
 
         <div class="form-group">
             <label>Age</label>
-            <input type="text" name="DoctorAge" #DoctorAge="ngModel" ng-pattern="/^(?:1[8-9]|[2-5][0-9]|60)$/"
+            <input type="text" name="DoctorAge" #DoctorAge="ngModel" pattern="[0-9]+"
                 [(ngModel)]="adminService.formData.DoctorAge" class="form-control"
                 placeholder="Enter age of the assigned doctor" maxlength="2" required
                 [ngClass]="{ 'is-invalid' : DoctorAge.touched && DoctorAge.invalid }" />
             <div class="validation-error" *ngIf="DoctorAge.touched && DoctorAge.invalid">
                 <div *ngIf="DoctorAge.errors.required"> Doctor Age is required
 
+                </div>
+                <div *ngIf="DoctorAge.errors.pattern">
+                    Wrong age format
                 </div>
             </div>
         </div>

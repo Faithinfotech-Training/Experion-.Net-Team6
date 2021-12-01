@@ -26,7 +26,7 @@
                 [(ngModel)]="labReportServices.formData.StaffId"
                 [ngClass]="{'is-invalid':StaffId.touched && StaffId.invalid}">
                 <option disabled>Select Staff</option>
-                    <option *ngFor="let p of adminServices.staff" value="{{p.StaffId}}">{{p.StaffName}}</option>
+                <option *ngFor="let p of adminServices.staff" value="{{p.StaffId}}">{{p.StaffName}}</option>
             </select>
         </div>
         <div class="validation-error" *ngIf="StaffId.touched && StaffId.invalid">
@@ -54,41 +54,63 @@
             <div class="form-group mt-2">
                 <label>Observed Result</label>
                 <input type="text" class="form-control" name="ObservedResultOne" #ObservedResultOne="ngModel"
-                    [(ngModel)]="labReportServices.formData.ObservedResultOne">
+                    [(ngModel)]="labReportServices.formData.ObservedResultOne" required>
             </div>
+            <div class="validation-error" *ngIf="ObservedResultOne.touched && ObservedResultOne.invalid">
+                <div *ngIf="ObservedResultOne.errors.required"> Observed result is required
+
+                </div>
+            </div>
+
         </div>
         <hr>
         <!--Test2-->
-        <div class="form-group mt-2">
+        <ng-template [ngIf]=" labReportServices.formData.TestTwo">
             <div class="form-group mt-2">
-                <label>Test 2</label>
-                <input type="text" class="form-control" name="TestTwo" #TestTwo="ngModel"
-                    [(ngModel)]="labReportServices.formData.TestTwo" disabled>
+                <div class="form-group mt-2">
+                    <label>Test 2</label>
+                    <input type="text" class="form-control" name="TestTwo" #TestTwo="ngModel"
+                        [(ngModel)]="labReportServices.formData.TestTwo" disabled>
+                </div>
+                <div class="form-group mt-2">
+                    <label>Observed Result</label>
+                    <input type="text" class="form-control" name="ObservedResultTwo" #ObservedResultTwo="ngModel"
+                        [(ngModel)]="labReportServices.formData.ObservedResultTwo" required>
+                </div>
+                <div class="validation-error" *ngIf="ObservedResultTwo.touched && ObservedResultTwo.invalid">
+                    <div *ngIf="ObservedResultTwo.errors.required"> Observed result is required
+    
+                    </div>
+                </div>
             </div>
-            <div class="form-group mt-2">
-                <label>Observed Result</label>
-                <input type="text" class="form-control" name="ObservedResultTwo" #ObservedResultTwo="ngModel"
-                    [(ngModel)]="labReportServices.formData.ObservedResultTwo">
-            </div>
-        </div>
-        <hr>
+            <hr>
+        </ng-template>
         <!--Test3-->
-        <div class="form-group mt-2">
+        <ng-template [ngIf]=" labReportServices.formData.TestThree">
             <div class="form-group mt-2">
-                <label>Test 3</label>
-                <input type="text" class="form-control" name="TestThree" #TestThree="ngModel"
-                    [(ngModel)]="labReportServices.formData.TestThree">
+                <div class="form-group mt-2">
+                    <label>Test 3</label>
+                    <input type="text" class="form-control" name="TestThree" #TestThree="ngModel"
+                        [(ngModel)]="labReportServices.formData.TestThree">
+                </div>
+                <div class="form-group mt-2">
+                    <label>Observed Result</label>
+                    <input type="text" class="form-control" name="ObservedResultThree" #ObservedResultThree="ngModel"
+                        [(ngModel)]="labReportServices.formData.ObservedResultThree" required>
+                </div>
+                <div class="validation-error" *ngIf="ObservedResultThree.touched && ObservedResultThree.invalid">
+                    <div *ngIf="ObservedResultThree.errors.required"> Observed result is required
+    
+                    </div>
+                </div>
+                
             </div>
-            <div class="form-group mt-2">
-                <label>Observed Result</label>
-                <input type="text" class="form-control" name="ObservedResultThree" #ObservedResultThree="ngModel"
-                    [(ngModel)]="labReportServices.formData.ObservedResultThree">
-            </div>
-        </div>
-        <hr>
+            <hr>
+        </ng-template>
         <!--Generate report-->
         <div class="form-group mt-4">
-            <button type="submit" class="btn btn-secondary form-control" style="width: 16em;">
+            <button type="submit" class="btn btn-secondary form-control" style="width: 16em;"
+                [disabled]="!(form.valid && form.dirty)">
                 Update Lab Report
             </button>
         </div>

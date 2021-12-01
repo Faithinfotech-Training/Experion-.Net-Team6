@@ -6,11 +6,11 @@
         <!--Staff Name-->
         <div class="form-gorup">
             <label>Full Name of Staff</label>
-            <input name="staffName" #staffName="ngModel" [(ngModel)]="adminService.StaffData.StaffName"
+            <input type="text" name="StaffName" #StaffName="ngModel" [(ngModel)]="adminService.staffData.StaffName"
                 class="form-control" placeholder="Enter Full Name" minlength="06" maxlength="40" required
                 [ngClass]="{ 'is-invalid' : StaffName.touched && StaffName.invalid }" />
             <div class="validation-error" *ngIf="StaffName.touched && StaffName.invalid">
-                <div *ngIf="StaffName.touched && StaffName.invalid">Full Name is Required</div>
+                <div *ngIf="StaffName.errors.required">Full Name is Required</div>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
 
             </select>
             <div class="validation-error" *ngIf="RoleId.touched && RoleId.invalid">
-                <div *ngIf="RoleId.touched && RoleId.invalid"> Appropriate role should be asssigned.
+                <div *ngIf="RoleId.errors.required"> Appropriate role should be asssigned.
 
                 </div>
             </div>
@@ -36,12 +36,16 @@
         <!--Age of staff-->
         <div class="form-group">
             <label>Age</label>
-            <input type="number" name="staffAge" #staffAge="ngModel" [(ngModel)]="adminService.StaffData.staffAge"
-                class="form-control" placeholder="Enter age of the assigned staff" required
+            <input type="text" name="StaffAge" #StaffAge="ngModel" pattern="[0-9]+"
+                [(ngModel)]="adminService.staffData.StaffAge" class="form-control"
+                placeholder="Enter age of the assigned staff" maxlength="2" required
                 [ngClass]="{ 'is-invalid' : StaffAge.touched && StaffAge.invalid }" />
             <div class="validation-error" *ngIf="StaffAge.touched && StaffAge.invalid">
-                <div *ngIf="StaffAge.touched && staffAge.invalid"> Staff Age is required
+                <div *ngIf="StaffAge.errors.required"> Staff Age is required
 
+                </div>
+                <div *ngIf="StaffAge.errors.pattern">
+                    Wrong age format
                 </div>
             </div>
         </div>
@@ -59,7 +63,7 @@
 
             </select>
             <div class="validation-error" *ngIf="StaffGender.touched && StaffGender.invalid">
-                <div *ngIf="StaffGender.touched && StaffGender.invalid"> please select gender.
+                <div *ngIf="StaffGender.errors.required"> please select gender.
 
                 </div>
             </div>
@@ -73,7 +77,7 @@
                 placeholder="Enter Date Of Birth" required
                 [ngClass]="{ 'is-invalid' : StaffDateofBirth.touched && StaffDateofBirth.invalid }">
             <div class="validation-error" *ngIf="StaffDateofBirth.touched && StaffDateofBirth.invalid">
-                <div *ngIf="StaffDateofBirth.touched && StaffDateofBirth.invalid"> Date Of Birth is required
+                <div *ngIf="StaffDateofBirth.errors.required"> Date Of Birth is required
 
                 </div>
             </div>
@@ -87,7 +91,7 @@
                 placeholder="Enter contact number of your staff" required
                 [ngClass]="{ 'is-invalid' : StaffContactNo.touched && StaffContactNo.invalid }" />
             <div class="validation-error" *ngIf="StaffContactNo.touched && StaffContactNo.invalid">
-                <div *ngIf="StaffContactNo.touched && StaffContactNo.invalid"> Contact number is required
+                <div *ngIf="StaffContactNo.errors.required"> Contact number is required
 
                 </div>
             </div>
@@ -100,7 +104,7 @@
                 class="form-control" placeholder="Enter Location" minlength="06" maxlength="40" required
                 [ngClass]="{ 'is-invalid' : StaffLocation.touched && StaffLocation.invalid }" />
             <div class="validation-error" *ngIf="StaffLocation.touched && StaffLocation.invalid">
-                <div *ngIf="StaffLocation.touched && StaffLocation.invalid">Location is Required</div>
+                <div *ngIf="StaffLocation.errors.required">Location is Required</div>
             </div>
         </div>
 
@@ -111,8 +115,9 @@
         <div class="form-group">
             <div class="form-check">
                 <label class="form-check-label">IsActive</label>
-                <input type="checkbox" name="IsActive" id="IsActive" [(ngModel)]="adminService.formData.IsActive" class="form-check-input">
-                
+                <input type="checkbox" name="IsActive" id="IsActive" [(ngModel)]="adminService.formData.IsActive"
+                    class="form-check-input">
+
             </div>
 
         </div>
@@ -121,7 +126,8 @@
         <!--Submit Button-->
         <br>
         <div class="form-group">
-            <button type="submit" [disabled]="!(form.valid && form.dirty)"  class="btn btn-lg btn-primary form-control">Submit</button>
+            <button type="submit" [disabled]="!(form.valid && form.dirty)"
+                class="btn btn-lg btn-primary form-control">Submit</button>
 
         </div>
 
