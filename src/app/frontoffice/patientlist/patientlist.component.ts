@@ -12,7 +12,7 @@ export class PatientlistComponent implements OnInit {
   page:number =1;
   filter : string;
   constructor(public patientService:PatientService,private router:Router) { }
-
+  role=localStorage.getItem('ACCESS_ROLE');
   ngOnInit(): void {
     this.patientService.bindPatient();
   }

@@ -13,7 +13,8 @@ import { LabTechnicianComponent } from './lab-technician/lab-technician.componen
 import { DoctorComponent } from './doctor/doctor.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { LoginComponent } from './login/login.component';
-import { FrontofficeComponent } from './frontoffice/frontoffice.component';
+import { PatientLogComponent } from './patient-log/patient-log.component';
+import { PatientRecordFormComponent } from './patient-record-form/patient-record-form.component';
 import { AuthGuard } from './shared/auth.guard';
 import {PatientLogComponent} from './patient-log/patient-log.component';
 import {GeneratedReportComponent} from './generated-report/generated-report.component';
@@ -26,7 +27,7 @@ const routes: Routes = [
   {path:'doctor',component:DoctorComponent},
   {path:'labhome',component:LabHomeComponent,canActivate:[AuthGuard],data:{role:'3'}},
   {path:'lab',component:LabTechnicianComponent,canActivate:[AuthGuard],data:{role:'3'} },
-  {path:'report',component:LabReportComponent},
+  {path:'report',component:LabReportComponent,canActivate:[AuthGuard],data:{role:'3'} },
   {path:'report/:LogId',component:LabReportComponent,canActivate:[AuthGuard],data:{role:'3'} },
   {path:'generatedReport',component:GeneratedReportComponent},
   {path:'appointment',component:AppointmentComponent },

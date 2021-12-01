@@ -1,0 +1,10 @@
+table{
+    border: 3px solid #5aadb8;
+    border-collapse: collapse;
+    
+}
+
+table thead{
+    background-color: #5aadb8;
+    border: 3px solid #5aadb8;
+}

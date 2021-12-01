@@ -20,7 +20,6 @@ export class AuthService {
 
   //Authorize user
   public loginVerify(user:User){
-
     return this.httpClient.get(environment.apiUrl+"/api/login/"+user.UserName+"/"+user.Password);
 
   }
