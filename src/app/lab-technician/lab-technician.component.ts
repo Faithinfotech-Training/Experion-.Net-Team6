@@ -27,9 +27,8 @@ export class LabTechnicianComponent implements OnInit {
     this.authService.logOut();   
   }
 
-  labReport(LogId:number,PatientId:number){
+  labReport(LogId:number){
     console.log(LogId);
-    sessionStorage.setItem("PatientId", PatientId.toString());
     this.router.navigate(['report',LogId]);
 
   }
