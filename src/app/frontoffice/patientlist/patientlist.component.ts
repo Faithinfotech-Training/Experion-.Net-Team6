@@ -16,19 +16,17 @@ export class PatientlistComponent implements OnInit {
   ngOnInit(): void {
     this.patientService.bindPatient();
   }
-  //populate form by clicking the column fields
   populateForm(pat: Patient){
     console.log(pat);
-    this.patientService.formData=Object.assign({} ,pat);
+    this.patientService.formData1=Object.assign({} ,pat);
  }
-  //update a patient through routing
-  updatePatient(patientId: number){
-
-      console.log(patientId);
-      this.router.navigate(['addPatient',patientId])
-    }
-  
+ //update a patient through routing
+updatePatient(patientId: number){
+ console.log(patientId);
+ this.router.navigate(['addpatient', patientId]);
+ 
+} 
+ 
 }
 
-  
 

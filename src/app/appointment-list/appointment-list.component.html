@@ -21,15 +21,15 @@
         <tbody>
             <tr  *ngFor="let app of appservice.appointment | paginate:{itemsPerPage:4,currentPage:page} ">
                 <!-- <ng-template [ngIf]="emp.IsActive ">  -->
-                <td >{{app.AppointmentId}}</td>
-                <td>{{app.PatientId}}</td>
-                <td >{{app.PatientName}}</td>
-                <td >{{app.DateofAppointment}}</td>
-                <td >{{app.Age}}</td>
-                <td>{{app.Gender}}</td>
+                <td >{{app.appointmentId}}</td>
+                <td>{{app.patientId}}</td>
+                <td >{{app.patientName}}</td>
+                <td >{{app.dateofAppointment}}</td>
+                <td >{{app.age}}</td>
+                <td>{{app.gender}}</td>
                
                 <td >
-                <button class="btn btn-sm btn-outline-danger" (click)="patientlog(app.PatientId)">View PastRecord</button>
+                <button class="btn btn-sm btn-outline-danger" (click)="patientlog(app.patientId)">View PastRecord</button>
                 &nbsp;<button class="btn btn-info" style="margin-left: 10px;">Add Log</button>
                 </td>
              <!-- </ng-template>  -->

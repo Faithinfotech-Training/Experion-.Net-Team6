@@ -16,37 +16,37 @@ export class AppointmentService {
   patient:Patient[];
   doctors:Doctor[];
   bindCmdDoctor(){
-    this.httpClient.get(environment.apiUrl+"api/doctor/getalldoctor")
+    this.httpClient.get(environment.apiUrl+"/api/doctor/getalldoctor")
     .toPromise().then(response=>
       this.doctors=response as Doctor[])
   
   }
   bindCmdPatient(){
-    this.httpClient.get(environment.apiUrl+"api/patient/getpatients")
+    this.httpClient.get(environment.apiUrl+"/api/patient/getpatients")
     .toPromise().then(response=>
       this.patient=response as Patient[])
   
   }
   GetAppointmentsListByDoctorId(){
-    this.httpClient.get(environment.apiUrl + 'api/appointment/getbydoctor/1')
+    this.httpClient.get(environment.apiUrl + '/api/appointment/getbydoctor/1')
     .toPromise().then(
       response => this.appointment = response as Appointment[])
   }
 
   GetAppointmentbyVM(){
-    this.httpClient.get(environment.apiUrl + 'api/appointment/getbyvm')
+    this.httpClient.get(environment.apiUrl + '/api/appointment')
     .toPromise().then(
       response => this.appointment = response as Appointment[])
   }
 
   GetAppointmentList(){
-    this.httpClient.get(environment.apiUrl + 'api/appointment')
+    this.httpClient.get(environment.apiUrl + '/api/appointment')
     .toPromise().then(
       response => this.appointment = response as Appointment[])
   }
   insertAppointment(appointment:Appointment):Observable<any>
   {
-    return this.httpClient.post(environment.apiUrl+'api/appointment',appointment);
+    return this.httpClient.post(environment.apiUrl+'/api/appointment',appointment);
   
   }
 }

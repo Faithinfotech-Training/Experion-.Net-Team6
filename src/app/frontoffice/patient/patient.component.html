@@ -24,7 +24,7 @@
 
         <label><b>Age</b></label>
         <input type="number" name="Age" #Age="ngModel" [ngModel]="patientService.formData.Age"
-            class="form-control" placeholder="Enter Age" minlength="1" maxlength="3" required
+            class="form-control" placeholder="Enter Age" ng-pattern="/^(?:1[8-9]|[2-5][0-9])$/" minlength="1" maxlength="2"  required
             [ngClass]="{'is-invalid':Age.touched && Age.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
         <div class="validation-error" *ngIf="Age.touched && Age.invalid">
 
@@ -50,7 +50,7 @@
 
         <label><b>Contact</b></label>
         <input name="ContactNo" #ContactNo="ngModel" [ngModel]="patientService.formData.ContactNo"
-            class="form-control" placeholder="Enter Contact" minlength="10" maxlength="10" required
+            class="form-control" placeholder="Enter Contact" ng-pattern="/^(?:1[8-9]|[2-5][0-9]|60)$/"  minlength="10" maxlength="10" required
             [ngClass]="{'is-invalid':ContactNo.touched && ContactNo.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
         <div class="validation-error" *ngIf="ContactNo.touched && ContactNo.invalid">
 
@@ -63,7 +63,7 @@
 
         <label><b>Emegency Contact</b></label>
         <input name="EmergencyContact" #EmergencyContact="ngModel" [ngModel]="patientService.formData.EmergencyContact"
-            class="form-control" placeholder="Enter Contact" minlength="10" maxlength="10" required
+            class="form-control" placeholder="Enter Contact" ng-pattern="/^(?:1[8-9]|[2-5][0-9]|60)$/"  minlength="10" maxlength="10" required
             [ngClass]="{'is-invalid':EmergencyContact.touched && EmergencyContact.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
         <div class="validation-error" *ngIf="EmergencyContact.touched && EmergencyContact.invalid">
 
@@ -74,7 +74,7 @@
     <br>
     <!--Gender-->
     <div class="form-group">
-        <label><b>Gender</b></label>
+        <label><b>Gender&nbsp;</b></label>
         <input type="radio" value="Male" name="Gender" required #Gender="ngModel" [ngModel]="patientService.formData.Gender" class="form-check-input" style="box-shadow: 2px 1px 1px rgb(152, 173, 212);"> Male
         <input type="radio" value="Female" name="Gender"required #Gender="ngModel" [ngModel]="patientService.formData.Gender" class="form-check-input" style="box-shadow: 2px 1px 1px rgb(152, 173, 212);"> Female
         <div *ngIf="Gender.touched && Gender.invalid"> 
