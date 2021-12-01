@@ -36,7 +36,7 @@
         <!--Age of staff-->
         <div class="form-group">
             <label>Age</label>
-            <input type="number" name="StaffAge" #StaffAge="ngModel" [(ngModel)]="adminService.staffData.StaffAge"
+            <input type="text" name="StaffAge" #StaffAge="ngModel" [(ngModel)]="adminService.staffData.StaffAge" ng-pattern="/^(?:1[8-9]|[2-5][0-9]|60)$/"
                 class="form-control" placeholder="Enter age of the assigned staff" required
                 [ngClass]="{ 'is-invalid' : StaffAge.touched && StaffAge.invalid }" />
             <div class="validation-error" *ngIf="StaffAge.touched && StaffAge.invalid">

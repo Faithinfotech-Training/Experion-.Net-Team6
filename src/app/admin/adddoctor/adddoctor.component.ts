@@ -1,6 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/shared/admin.service';
 
 @Component({
@@ -10,14 +11,35 @@ import { AdminService } from 'src/app/shared/admin.service';
 })
 export class AdddoctorComponent implements OnInit {
 
+  Id:number;
+
   constructor(
     public adminService: AdminService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.adminService.getallSpecial();
-    console.log(this.adminService.special);
+
+    this.Id = this.route.snapshot.params['Id'];
+
+    if (this.Id != 0 || this.Id != null) {
+      //getEmployee
+      this.adminService.getdoctor(this.Id).subscribe(
+        data => {
+          console.log(data);
+
+          var datePipe = new DatePipe("en-uk");
+          let formatedDate: any = datePipe.transform(data.DoctorDateofBirth, 'yyyy-MM-dd');
+          data.DoctorDateofBirth = formatedDate;
+
+          this.adminService.formData = data;
+
+        },
+        error => console.log(error)
+      );
+    }
   }
   onSubmit(form?: NgForm)
   {
@@ -48,10 +70,11 @@ export class AdddoctorComponent implements OnInit {
     this.adminService.insertdoctor(form.value).subscribe(
       (result) => {
         console.log(result);
-        //this.resetForm(form);
+        this.resetForm(form);
+        console.log("completed");
       }
     )
-    //window.location.reload();
+    window.location.reload();
   }
 
   updatedoctor(form: NgForm) {
@@ -59,10 +82,11 @@ export class AdddoctorComponent implements OnInit {
     this.adminService.updatedoctor(form.value).subscribe(
       (result) => {
         console.log(result);
-        //this.resetForm(form);
+        this.resetForm(form);
+        console.log("completed");
       }
     )
-    //window.location.reload();
+    window.location.reload();
   }
 
 }

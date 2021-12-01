@@ -33,6 +33,7 @@ const routes: Routes = [
   {path: 'add-staff/:Id', component: AddstaffComponent},
   {path: 'doctor-list', component: DoctorListComponent},
   {path: 'add-doctor', component: AdddoctorComponent},
+  {path: 'add-doctor/:Id', component: AdddoctorComponent},
  {path:'appointmentlist',component:AppointmentListComponent},
  {path:'patientlog/:PatientId',component:PatientLogComponent}
 
