@@ -74,7 +74,7 @@ namespace cmsRestApi.Controllers
         }
         //Add a Staff 
         [HttpPost]
-        public async Task<IActionResult> AddStaff([FromBody] TblAppointment appointment)
+        public async Task<IActionResult> AddAppointment([FromBody] TblAppointment appointment)
         {
             if (ModelState.IsValid)
             {

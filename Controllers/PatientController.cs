@@ -112,5 +112,49 @@ namespace cmsRestApi.Controllers
             return BadRequest();
         }
         #endregion
+        #region Update Patient by Id
+        [HttpPut]
+        // [Authorize]
+        [Route("{id}")]
+        public async Task<IActionResult> getPatient(int id)
+        {
+            try
+            {
+                var exp = await patientRepository.getPatient(id);
+                if (exp == null)
+                {
+                    return NotFound();
+                }
+                return Ok(exp);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
+        }
+        #endregion
+        #region Update IsActive by Id
+        [HttpGet]
+        // [Authorize]
+        [Route("IsActive/{id}")]
+        public async Task<IActionResult> updatePatientByActive(int id)
+        {
+            try
+            {
+                var exp = await patientRepository.updatePatientByActive(id);
+                if (exp == null)
+                {
+                    return NotFound();
+                }
+                return Ok(exp);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
+        }
+        #endregion
     }
 }
