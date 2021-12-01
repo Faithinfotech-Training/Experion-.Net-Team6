@@ -1,11 +1,14 @@
+<div class="container">
+
 <div class="header">
     <h4>Today's Appointments</h4>
    
     <br>
     
     </div>
+    <div class="container">
     <br>
-    <table class=" table table-striped table-bordered table-hover">
+    <table class=" table  table-responsive table-bordered ">
         <thead>
             <tr>
                 <td>ID</td>
@@ -24,18 +27,19 @@
                 <td >{{app.AppointmentId}}</td>
                 <td>{{app.PatientId}}</td>
                 <td >{{app.PatientName}}</td>
-                <td >{{app.DateofAppointment}}</td>
+                <td >{{app.DateofAppointment |date: 'dd-MM-yyyy'}}</td>
                 <td >{{app.Age}}</td>
                 <td>{{app.Gender}}</td>
                
                 <td >
-                <button class="btn btn-sm btn-outline-danger" (click)="patientlog(app.PatientId)">View PastRecord</button>
-                &nbsp;<button class="btn btn-info" style="margin-left: 10px;">Add Log</button>
+                <button class="btn  btn-info" (click)="patientlog(app.PatientId)">View PastRecord</button>
+                &nbsp;<button class="btn btn-info" style="margin-left: 10px;" (click)="addpatientlog(app.AppointmentId)">Add Log</button>
                 </td>
              <!-- </ng-template>  -->
             </tr>
         </tbody>
     </table>
+</div>
     <div class="footer">
         <!-- Pagination -->
         <pagination-controls (pageChange)="page=($event)">
@@ -43,3 +47,4 @@
         </pagination-controls>
     
     </div>
+</div>

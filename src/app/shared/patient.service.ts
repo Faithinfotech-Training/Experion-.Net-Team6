@@ -42,4 +42,11 @@ export class PatientService {
   getPatientById(patientId: number): Observable<any> {
     return this.httpClient.get(environment.apiUrl + '/api/patient/GetPatientById?id=' + patientId);
   }
+
+  GetPatientPastlog(id:number){
+    this.httpClient.get(environment.apiUrl + '/api/patient/GetPatientById?id='+id)
+    .toPromise().then(
+     response => this.patients = response as Patient[])
+ }
+
 }

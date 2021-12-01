@@ -17,10 +17,18 @@ export class StaffListComponent implements OnInit {
     private router: Router
   ) { }
 
+
+
   ngOnInit(): void {
+
     this.adminService.getallStaff();
+
     console.log(this.adminService.staff);
+
   }
+
+
+ 
 
   updateStaff(Id: number) {
     this.router.navigate(['add-staff', Id]);

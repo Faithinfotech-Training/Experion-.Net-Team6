@@ -13,7 +13,7 @@ export class AdminService {
 
   //creating instance
   formData: Doctor = new Doctor();
-  staffData: Staff = new Staff();
+  StaffData: Staff = new Staff();
   staff: Staff[];
   doctors: Doctor[];
   special: Special[];
@@ -29,6 +29,11 @@ export class AdminService {
           result => this.doctors = result as Doctor[]
       )
       console.log(this.doctors);
+  }
+  getstaff(id: number): Observable<any> {
+
+    return this.httpClient.get(environment.apiUrl + "/api/staff/GetStaff/" + id);
+
   }
 
   getallStaff() {
