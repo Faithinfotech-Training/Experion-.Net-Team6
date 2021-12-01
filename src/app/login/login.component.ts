@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("userName", this.jwtResponse.uName);
           sessionStorage.setItem("userName", this.jwtResponse.uName);
           localStorage.setItem("ACCESS_ROLE", this.jwtResponse.RoleId.toString())
-          this.router.navigateByUrl('lab');
+          this.router.navigateByUrl('labhome');
         }
         else if (this.jwtResponse.RoleId === 4) {
           console.log("Front Office");

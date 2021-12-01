@@ -48,7 +48,8 @@ import { LabHomeComponent } from './lab-home/lab-home.component';
     AppointmentListComponent,
     PatientLogComponent,
     GeneratedReportComponent,
-    LabHomeComponent
+    LabHomeComponent,
+    PatientRecordFormComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ import { LabListService } from '../shared/lab-list.service';
 import {LabReportService} from '../shared/lab-report.service';
 import { PatientService } from '../shared/patient.service';
 import {PrescriptionTest} from '../shared/prescription-test';
-import {ReportFormView} from '../shared/report-form-view';
+import {GeneratedFormView} from '../shared/report-form-view';
 
 @Component({
   selector: 'app-lab-report',
@@ -37,8 +37,6 @@ export class LabReportComponent implements OnInit {
         this.labReportServices.formData = Object.assign({}, data);
       }
     )
-    
-    
 
   }
 
@@ -49,21 +47,15 @@ export class LabReportComponent implements OnInit {
 
   onSubmit(form:NgForm){
     console.log(form.value);
+    console.log("before calling");
+    this.updateStatus();
     console.log("Generating report");
     this.labReportServices.addLabReport(form.value).subscribe(
       (result)=>{
-        console.log(result);
-        
-      }
-    )
-    this.labReportServices.getPrescriptionTest(this.LogId).subscribe(
-      data=>{
-        this.testDetails=data;       
+        console.log(result);       
       }
     )
 
-    this.testDetails.Status="Generated!";
-    console.log(this.testDetails);
     this.resetForm(form);
   }
 
@@ -72,6 +64,15 @@ export class LabReportComponent implements OnInit {
       if (form != null) {
         form.resetForm();
       }
+    }
+
+    updateStatus(){
+    this.labReportServices.updatePrescriptionTest(this.LogId).subscribe(
+      (result)=>{
+        console.log(result);
+      }
+    )
+    console.log("updated")
     }
   
 
