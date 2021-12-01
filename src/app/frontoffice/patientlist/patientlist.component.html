@@ -1,27 +1,15 @@
 <div class="container">
     <div class="header">
-<<<<<<< HEAD
-        <h5 class="text-center">
+        <h5 class="text-center"
+            style="color: darkblue; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
             Patient List
         </h5>
         <!--Search Patient-->
         <div class="form-group">
-            <input class="form-control" type="text" placeholder="search here..." [(ngModel)]="filter">
-        </div>
-        <a [routerLink]="['/addpatient']" class="btn btn-primary" style="float:right;margin-bottom: 10px;">Add
-            Patient</a>
-=======
-        <h5 class="text-center" style="color: darkblue; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-             Patient List
-        </h5>
-        <!--Search Patient-->
-        <div class="form-group">
-            <input class="form-control" type ="text"
-            placeholder="search here..." style="text-decoration: crimson; background-color: rgb(226, 233, 247);"
-            [(ngModel)] ="filter"><br>
+            <input class="form-control" type="text" placeholder="search here..."
+                style="text-decoration: crimson; background-color: rgb(226, 233, 247);" [(ngModel)]="filter"><br>
         </div>
         <!--<a [routerLink]="['/addpatient']" class="btn btn-primary" style="float:right;margin-bottom: 10px;">Add Patient</a>-->
->>>>>>> 95d9bfb0f99462e86b1e93021cf1b2dd6148a5a8
     </div>
     <table class="table table-bordered table-striped" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
         <thead>
@@ -64,19 +52,19 @@
                 <td (click)="populateForm(pat)">{{pat.ContactNo}}</td>
                 <!-- <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td> -->
 
-<<<<<<< HEAD
                 <ng-template [ngIf]="role==4 ">
                     <td>
-=======
 
-                   <!--- <button (click)="updatePatient(pat.patientId)" class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>-->
-                    <a [routerLink]="['/appointment']" class="btn btn-sm btn-primary" style="margin-left:10px    ">Add Appointment</a>
-                </td>
->>>>>>> 95d9bfb0f99462e86b1e93021cf1b2dd6148a5a8
 
-                        <!--<button  (click)="updatePatient(pat.patientId)" (click)="populateForm(pat)" class="btn btn-sm btn-outline-danger" style="margin-left:10px">Edit</button>-->
-                        <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" style="margin-left:10px">Add
-                            Appointment</a>
+                        <!--- <button (click)="updatePatient(pat.patientId)" class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>-->
+                        <a [routerLink]="['/appointment']" class="btn btn-sm btn-primary"
+                            style="margin-left:10px    ">Add Appointment</a>
+                    </td>
+
+                    <td>
+                    <!--<button  (click)="updatePatient(pat.patientId)" (click)="populateForm(pat)" class="btn btn-sm btn-outline-danger" style="margin-left:10px">Edit</button>-->
+                    <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" style="margin-left:10px">Add
+                        Appointment</a>
                     </td>
                 </ng-template>
             </tr>
