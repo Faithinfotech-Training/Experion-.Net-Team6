@@ -44,6 +44,7 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<ILabTestRepository, LabTestRepository>();
             services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();
+            services.AddScoped<IStaffRepository, StaffRepository>();
 
 
             //adding services
