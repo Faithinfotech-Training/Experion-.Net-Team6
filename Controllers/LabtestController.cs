@@ -83,7 +83,7 @@ namespace cmsRestApi.Controllers
         }
         #endregion
 
-        //Add a Staff 
+        //Add a Prescription 
         [HttpPost]
         public async Task<IActionResult> AddPrescriptionLabTest([FromBody] TblPrescriptionTest test)
         {
@@ -120,9 +120,10 @@ namespace cmsRestApi.Controllers
                 try
                 {
                     var PrescriptionTestId = await labTestRepository.GetFormView(LogId);
-                    if (PrescriptionTestId != null)
+                    var P = PrescriptionTestId[0];
+                    if (P != null)
                     {
-                        return Ok(PrescriptionTestId);
+                        return Ok(P);
                     }
                     else
                     {
@@ -138,7 +139,7 @@ namespace cmsRestApi.Controllers
             return BadRequest();
         }
         #endregion
-        //Update Staff 
+        //Update Prescription Test 
         [HttpPut]
 
         public async Task<IActionResult> PrescriptionLabTest([FromBody] TblPrescriptionTest test)
@@ -160,6 +161,25 @@ namespace cmsRestApi.Controllers
 
             }
             return BadRequest();
+        }
+
+        [HttpGet("updateStatus/{LogId}")]
+
+        public async Task<IActionResult> updateTestStatus(int LogId)
+        {
+            try
+            {
+                var labTest = await labTestRepository.updateTestStatus(LogId);
+                if (labTest == null)
+                {
+                    return NotFound();
+                }
+                return Ok(labTest);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
 
 

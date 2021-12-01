@@ -17,5 +17,7 @@ namespace cmsRestApi.Repository
         Task<List<LabViewForLabTechnician>> GetLabTestView();
 
         Task<List<ReportFormView>> GetFormView(int LogId);
+
+        Task<TblPrescriptionTest>  updateTestStatus(int LogId);
     }
 }
