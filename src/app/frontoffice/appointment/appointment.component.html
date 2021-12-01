@@ -8,12 +8,12 @@
     <!--Patient Name-->
     <div class="form-group">
 
-        <label class="col-md-4">patient Name</label>
+        <label class="col-md-4">Patient Name</label>
         
         <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
             [(ngModel)]="appoiService.formData1.PatientId"
             [ngClass]="{'is-invalid':PatientId.touched && PatientId.invalid}"
-            >
+            style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
             <option value="0" disabled>Choose Patient</option>
             <option *ngFor="let pat of appoiService.patient" value="{{pat.patientId}}">{{pat.patientName}}</option>
             
@@ -33,7 +33,7 @@
     <select name="DoctorId" id="DoctorId" class="form-control" #DoctorId="ngModel" required
         [(ngModel)]="appoiService.formData1.DoctorId"
         [ngClass]="{'is-invalid':DoctorId.touched && DoctorId.invalid}"
-        >
+        style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
         <option value="0" disabled>Choose Doctor</option>
         <option *ngFor="let doct of appoiService.doctors" value="{{doct.doctorId}}">{{doct.doctorName}}</option>
         
@@ -48,10 +48,10 @@
     <!--Date of Appointment-->
     <div class="form-group">
 
-        <label>Date Of Appointmen</label>
+        <label>Date Of Appointment</label>
         <input type="date" name="DateofAppointment" id="DateofAppointment" #DateofAppointment="ngModel"
             [ngModel]="appoiService.formData1.DateofAppointment" class="form-control" required
-            [ngClass]="{'is-invalid':DateofAppointment.touched && DateofAppointment.invalid}" />
+            [ngClass]="{'is-invalid':DateofAppointment.touched && DateofAppointment.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
         <div class="validation-error" *ngIf="DateofAppointment.touched && DateofAppointment.invalid">
 
             <div *ngIf="DateofAppointment.errors.required">

@@ -24,7 +24,7 @@ export class PatientComponent implements OnInit {
   }
   onSubmit(form?: NgForm) {
     console.log(form.value);
-    let Id = this.patientService.formData.PatientId;
+    let Id = this.patientService.formData1.PatientId;
 
     if (Id == 0 || Id == null) {
       console.log("inserting record...");
@@ -49,7 +49,7 @@ export class PatientComponent implements OnInit {
 
       (result) => {
         console.log(result);
-        //this.resetForm(form);
+        this.resetForm(form);
       }
     )
     //window.location.reload();
