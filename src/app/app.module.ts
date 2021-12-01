@@ -25,11 +25,11 @@ import { PatientLogComponent } from './patient-log/patient-log.component';
 import { PatientRecordFormComponent } from './patient-record-form/patient-record-form.component';
 import { AuthService } from './shared/auth.service';
 import { AdminService } from './shared/admin.service';
-import {AuthGuard} from './shared/auth.guard';
-import { AppointmentListComponent } from './appointment-list/appointment-list.component';
-import { PatientLogComponent } from './patient-log/patient-log.component';
+import { AuthGuard } from './shared/auth.guard';
 import { GeneratedReportComponent } from './generated-report/generated-report.component';
 import { LabHomeComponent } from './lab-home/lab-home.component';
+import { PrescriptionMedicine } from './shared/prescriptionmedicine';
+import { PrescriptionTest } from './shared/prescription-test';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,10 @@ import { LabHomeComponent } from './lab-home/lab-home.component';
     AppointmentListComponent,
     PatientLogComponent,
     GeneratedReportComponent,
-    LabHomeComponent
+    LabHomeComponent,
+    PatientRecordFormComponent,
+    PrescriptionMedicine,
+    PrescriptionTest
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,7 @@ import { LabHomeComponent } from './lab-home/lab-home.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthService,AdminService,AuthGuard],
+  providers: [AuthService, AdminService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
