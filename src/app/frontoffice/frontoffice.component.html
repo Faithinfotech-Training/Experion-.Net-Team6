@@ -2,28 +2,32 @@
 background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;">
-<div class="container dashboard-doctor">
-    <div class="top-section">
-        <h3 style="color: aliceblue;"></h3>
-        <button type="button" class="btn btn-primary logout">
-            <i class="fa fa-sign-in"></i>LogOut
-        </button>
+    <div class="container dashboard-doctor">
+        <div class="top-section">
+            <h3 style="color: aliceblue;"></h3>
+            <button type="button" class="btn btn-primary logout">
+                <i class="fa fa-sign-in"></i>LogOut
+            </button>
+        </div>
+
+        <div class="body">
+            <div class="row" style="margin-top:5em; margin-bottom:5em; text-align: center;">
+                <div class="col">
+                    <button type="button" style="width: 40%; height: 5em; " class="btn btn-primary btn-lg"
+                        [routerLink]="['../appointment']">Add Appointment</button>
+                </div>
+            </div>
+            <div class="row" style="margin-top:5em; margin-bottom:5em;text-align: center;">
+                <div class="col">
+                    <button type="button" style="width: 42%; height: 5em; " class="btn btn-primary btn-lg"
+                        [routerLink]="['../patientlist']">View Patients</button>
+                </div>
+                <div class="col">
+                    <button type="button" style="width: 42%; height: 5em;" class="btn btn-primary btn-lg"
+                        [routerLink]="['../addpatient']">Add Patient</button>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="body">
-        <div class="row" style="margin-top:5em; margin-bottom:5em; text-align: center;">
-            <div class="col">
-        <button type="button" style="width: 40%; height: 5em; " class="btn btn-primary btn-lg" [routerLink]="['../appointment']">Add Appointment</button>
-    </div>
-    </div>
-    <div class="row" style="margin-top:5em; margin-bottom:5em;text-align: center;">
-    <div class="col">
-        <button type="button" style="width: 42%; height: 5em; " class="btn btn-primary btn-lg" [routerLink]="['../patientlist']">View Patients</button>
-    </div>
-    <div class="col">
-        <button type="button" style="width: 42%; height: 5em;" class="btn btn-primary btn-lg" [routerLink]="['../addpatient']">Add Patient</button>
-    </div>
-    </div>
-    </div></div>
 
 </div>
