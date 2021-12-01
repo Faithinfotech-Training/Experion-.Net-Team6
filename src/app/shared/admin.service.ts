@@ -32,7 +32,7 @@ export class AdminService {
   }
 
   getallStaff() {
-    this.httpClient.get(environment.apiUrl + "api/staff/getallstaff")
+    this.httpClient.get(environment.apiUrl + "/api/staff/getallstaff")
       .toPromise().then(
         response => this.staff = response as Staff[]
       )

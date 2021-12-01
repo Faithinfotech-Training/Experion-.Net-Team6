@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { AdminService } from '../shared/admin.service';
 import { AuthService } from '../shared/auth.service';
 import { LabListService } from '../shared/lab-list.service';
 import {LabReportService} from '../shared/lab-report.service';
 import { PatientService } from '../shared/patient.service';
 import {PrescriptionTest} from '../shared/prescription-test';
+import {ReportFormView} from '../shared/report-form-view';
 
 @Component({
   selector: 'app-lab-report',
@@ -20,15 +22,21 @@ export class LabReportComponent implements OnInit {
 
   constructor(public authService:AuthService,public labReportServices:LabReportService,
               public patientService:PatientService,public route:ActivatedRoute,
-              public labListService:LabListService) { }
+              public labListService:LabListService,public adminServices:AdminService) { }
 
   ngOnInit(): void {
     //getting all patient
     this.patientService.bindPatient1();
+    //getting all staffs
+    this.adminServices.getallStaff();
     this.LogId=this.route.snapshot.params['LogId'];
-    this.labReportServices.formData.LogId=this.LogId;
-
-    this.labReportServices.formData.TestOne=this.testDetails.TestOne;
+    //this.labReportServices.formData.LogId=this.LogId;
+    this.labReportServices.getReportFormView(this.LogId).subscribe(
+      data=>{console.log(data);
+        this.labReportServices.formData = Object.assign({}, data);
+      }
+    )
+    //this.labReportServices.formData.TestOne=this.reportFormView.TestOne;
   }
 
   logOut(){

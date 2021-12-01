@@ -14,6 +14,8 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 import { AuthGuard } from './shared/auth.guard';
+import {AppointmentListComponent} from './appointment-list/appointment-list.component';
+import {PatientLogComponent} from './patient-log/patient-log.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -26,12 +28,12 @@ const routes: Routes = [
   {path:'frontoffice',component:PatientlistComponent,canActivate:[AuthGuard],data:{role:'2'} },
   {path:'addpatient',component:PatientComponent},
   {path: 'admin', component: AdminComponent,canActivate:[AuthGuard],data:{role:'1'} },
-  {path: 'staff-list', component: StaffListComponent},
-  {path: 'add-staff', component: AddstaffComponent},
-  {path: 'doctor-list', component: DoctorListComponent},
-  {path: 'add-doctor', component: AdddoctorComponent},
+  {path: 'staff-list', component: StaffListComponent,canActivate:[AuthGuard],data:{role:'1'} },
+  {path: 'add-staff', component: AddstaffComponent,canActivate:[AuthGuard],data:{role:'1'} },
+  {path: 'doctor-list', component: DoctorListComponent,canActivate:[AuthGuard],data:{role:'1'} },
+  {path: 'add-doctor', component: AdddoctorComponent,canActivate:[AuthGuard],data:{role:'1'} },
  {path:'appointmentlist',component:AppointmentListComponent},
- {path:'patientlog/:PatientId',component:PatientLogComponent}
+ {path:'patientlog/:PatientId',component:PatientLogComponent,canActivate:[AuthGuard],data:{role:'2'} }
 
 ]
 @NgModule({
