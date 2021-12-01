@@ -30,11 +30,7 @@ export class AdminService {
       )
       console.log(this.doctors);
   }
-  getstaff(id: number): Observable<any> {
-
-    return this.httpClient.get(environment.apiUrl + "/api/staff/GetStaff/" + id);
-
-  }
+ 
 
   getallStaff() {
     this.httpClient.get(environment.apiUrl + "/api/staff/getallstaff")
