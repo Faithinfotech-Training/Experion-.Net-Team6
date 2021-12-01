@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AdminService } from 'src/app/shared/admin.service';
@@ -8,19 +9,33 @@ import { AdminService } from 'src/app/shared/admin.service';
   styleUrls: ['./addstaff.component.css']
 })
 export class AddstaffComponent implements OnInit {
-
+Id:number;
   constructor(
     public adminService: AdminService
   ) { }
 
   ngOnInit(): void {
+    let Id = this.adminService.StaffData.staffId;
+    if (this.Id != 0 || this.Id != null) {
+      //getEmployee
+      this.adminService.getstaff(this.Id).subscribe(
+        data => {
+          console.log(data);
+          var datePipe = new DatePipe("en-uk");
+          let formatedDate: any = datePipe.transform(data.StaffDateofBirth, 'yyyy-MM-dd');
+          data.StaffDateofBirth = formatedDate;
+          this.adminService.StaffData = data;
+        },
+        error => console.log(error)
+      );
+    }
   }
 
 
   onSubmit(form?: NgForm)
   {
     console.log(form.value);
-    let Id= this.adminService.staffData.staffId;
+    let Id= this.adminService.StaffData.staffId;
 
     if(Id==0 || Id==null){
       console.log("inserting record...");

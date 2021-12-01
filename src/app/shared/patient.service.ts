@@ -32,16 +32,20 @@ export class PatientService {
   }
   //insert a patient
   insertPatient(patient: Patient): Observable<any> {
-    return this.httpClient.post(environment.apiUrl + "api/patient/AddPatient", patient);
-<<<<<<< HEAD
-=======
+    return this.httpClient.post(environment.apiUrl + "/api/patient/AddPatient", patient);
   }
   updatePatient(patient: Patient): Observable<any> {
-    return this.httpClient.put(environment.apiUrl + "api/patient/updatepatient", patient);
->>>>>>> d9811acf27413af982c9de9be4a171d861689fe8
+    return this.httpClient.put(environment.apiUrl + "/api/patient/updatepatient", patient);
   }
   //get particular patient
   getPatientById(patientId: number): Observable<any> {
-    return this.httpClient.get(environment.apiUrl + 'api/patient/GetPatientById?id=' + patientId);
+    return this.httpClient.get(environment.apiUrl + '/api/patient/GetPatientById?id=' + patientId);
   }
+
+  GetPatientPastlog(id:number){
+    this.httpClient.get(environment.apiUrl + '/api/patient/GetPatientById?id='+id)
+    .toPromise().then(
+     response => this.patients = response as Patient[])
+ }
+
 }

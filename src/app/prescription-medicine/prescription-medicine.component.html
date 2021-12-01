@@ -1,0 +1,86 @@
+<div class="container">
+
+  <form name="logform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+
+
+    <div class="form-control">
+      <div class="container mt-3" style="width: 30em;">
+        <h3>Medicine Prescriptions</h3>
+        <div class="form-group">
+          <input type="text" name="LogId" #LogId="ngModel" [(ngModel)]="prescription.medicineform.LogId"
+            class="form-control" placeholder="LogId" minlength="3" maxlength="25" required readonly />
+
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="MedicineOneId" #MedicineOneId="ngModel"
+            [(ngModel)]="prescription.medicineform.MedicineOneId" class="form-control" placeholder="Enter Medicine"
+            minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid': MedicineOneId.touched && MedicineOneId.invalid}" />
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="MedicineOneDosage" #MedicineOneDosage="ngModel"
+            [(ngModel)]="prescription.medicineform.MedicineOneDosage" class="form-control" placeholder="Enter Dosage"
+            minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid': MedicineOneDosage.touched && MedicineOneDosage.invalid}" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="MedicineTwo" #MedicineTwo="ngModel"
+            [(ngModel)]="prescription.medicineform.MedicineTwo" class="form-control" placeholder="Enter Medicine"
+            minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid': MedicineTwo.touched && MedicineTwo.invalid}" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="MedicineTwoDosage" #MedicineTwoDosage="ngModel"
+            [(ngModel)]="prescription.medicineform.MedicineTwoDosage" class="form-control" placeholder="Enter Dosage"
+            minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid': MedicineTwoDosage.touched && MedicineTwoDosage.invalid}" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="MedicineThree" #MedicineThree="ngModel"
+            [(ngModel)]="prescription.medicineform.MedicineThree" class="form-control" placeholder="Enter Medicine"
+            minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid': MedicineThree.touched && MedicineThree.invalid}" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="MedicineThreeDosage" #MedicineThreeDosage="ngModel"
+            [(ngModel)]="prescription.medicineform.MedicineThreeDosage" class="form-control" placeholder="Enter Dosage"
+            minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid': MedicineThreeDosage.touched && MedicineThreeDosage.invalid}" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="MedicineFour" #MedicineFour="ngModel"
+            [(ngModel)]="prescription.medicineform.MedicineFour" class="form-control" placeholder="Enter Medicine"
+            minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid': MedicineFour.touched && MedicineFour.invalid}" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="MedicineFourDosage" #MedicineFourDosage="ngModel"
+            [(ngModel)]="prescription.medicineform.MedicineFourDosage" class="form-control" placeholder="Enter Dosage"
+            minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid': MedicineFourDosage.touched && MedicineFourDosage.invalid}" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="MedicineFive" #MedicineFive="ngModel"
+            [(ngModel)]="prescription.medicineform.MedicineFive" class="form-control" placeholder="Enter Medicine"
+            minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid': MedicineFive.touched && MedicineFive.invalid}" />
+        </div>
+        <div class="form-group">
+          <input type="text" name="MedicineFiveDosage" #MedicineFiveDosage="ngModel"
+            [(ngModel)]="prescription.medicineform.MedicineFiveDosage" class="form-control" placeholder="Enter Dosage"
+            minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid': MedicineFiveDosage.touched && MedicineFiveDosage.invalid}" />
+        </div>
+        <div class="form-group">
+          <button type="submit" style="margin-bottom: 0.4em; width: 30%; height: 3em;"
+            class="btn btn-sm btn-info form-control"><i class="fa fa-check"></i>Done</button>
+          <hr>
+        </div>
+        <br>
+      </div>
+    </div>
+  </form>
+
+</div>

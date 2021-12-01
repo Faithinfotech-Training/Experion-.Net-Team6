@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AppointmentService } from '../shared/appointment.service';
 import { PatientlogService } from '../shared/patientlog.service';
 
 @Component({
@@ -8,11 +10,60 @@ import { PatientlogService } from '../shared/patientlog.service';
   styleUrls: ['./patient-record-form.component.css']
 })
 export class PatientRecordFormComponent implements OnInit {
-patientId:number;
-  constructor(public patientlogservice:PatientlogService,public route:ActivatedRoute) { }
+Id:number;
+logId:number;
+  constructor(public patientlogservice:PatientlogService,public route:ActivatedRoute,public appointmentservice:AppointmentService,
+    public router:Router) { }
 
   ngOnInit(): void {
-    this.patientId= this.route.snapshot.params['PatientId']
+    this.Id= this.route.snapshot.params['AppointmentId'];
+    this.patientlogservice.GetPatientPastlog(this.Id);
+    if(this.Id!=0|| this.Id!=null){
+      this.appointmentservice.GetAppointmentbyId(this.Id).subscribe(
+        data=>{
+          console.log(data);
+          this.appointmentservice.logForm=data;
+          console.log(this.appointmentservice.logForm);
+        }
+  
+  
+      );
+    }
+    
   }
+
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+    this.insertLog(form);
+   console.log(this.logId);
+    //insert
+   
+  }
+
+  populateFormId(id: number) {
+    console.log('POPULATING');
+    this.appointmentservice.logForm.LogId = id;
+  }
+
+  insertLog(form:NgForm){
+    console.log("Inserting a record...");
+    console.log(form.value);
+    this.patientlogservice.AddLog(form.value).subscribe(
+      (result) => {
+        console.log(result);
+        this.logId=result;
+        this.addprescription(result);
+      }
+    );
+   // window.location.reload();
+  }
+
+  addprescription(id:number){
+    console.log("Adding Medicine");
+    console.log(id);
+    this.populateFormId(id);
+    this.router.navigate(['prescriptionmedicine', id]);
+  }
+
 
 }

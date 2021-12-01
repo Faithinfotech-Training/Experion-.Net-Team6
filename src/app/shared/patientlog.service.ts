@@ -9,15 +9,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PatientlogService {
-
+  logForm:PatientLog= new PatientLog();
   patientlog:PatientLogVM[]
   constructor(public httpClient:HttpClient) { }
 
   GetPatientPastlog(id:number){
-    this.httpClient.get(environment.apiUrl + 'api/patientlog/log/'+id)
-    .toPromise().then(
+     this.httpClient.get(environment.apiUrl + '/api/patientlog/log/'+id)
+     .toPromise().then(
       response => this.patientlog = response as PatientLogVM[])
   }
+
   AddLog(log: PatientLog): Observable<any> {
     return this.httpClient.post(environment.apiUrl + '/api/patientlog', log)
   }

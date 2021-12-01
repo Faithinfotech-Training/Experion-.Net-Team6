@@ -27,8 +27,6 @@ export class LabReportComponent implements OnInit {
     this.patientService.bindPatient1();
     this.LogId=this.route.snapshot.params['LogId'];
     this.labReportServices.formData.LogId=this.LogId;
-
-    this.labReportServices.formData.TestOne=this.testDetails.TestOne;
   }
 
   logOut(){

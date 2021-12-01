@@ -1,41 +1,8 @@
 <div class="container">
-    <div class="patientdetails" *ngFor="let patientlog of patientlogservice.patientlog  ">
-
-        <div class="table table-striped personaldetails">
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>{{patientlog.PatientName}}</th>
-                </tr>
-                <tr>
-                    <td>Age</td>
-                    <td>{{patientlog.Age}}</td>
-                </tr>
-                <tr>
-                    <td>Gender</td>
-                    <td>{{patientlog.Gender}}</td>
-                </tr>
-                <tr>
-                    <td>Location</td>
-                    <td>{{patientlog.Location}}</td>
-                </tr>
-                <tr>
-                    <td>Contact No:</td>
-                    <td>{{patientlog.ContactNo}}</td>
-                </tr>
-                <tr>
-                    <td>Emergency Contact</td>
-                    <td>{{patientlog.EmergencyContact}}</td>
-                </tr>
-
-            </table>
-
-
-        </div>
-
+    <div class="patientdetails" *ngFor="let patientlog of this.patientlogservice.patientlog">
         <h3>Medical History</h3>
 
-        <table class="table table-striped table-bordered table-hover">
+        <table class="table table-bordered table-hover">
             <thead>
                 <th>Medicine</th>
                 <th>Dosage</th>
@@ -60,7 +27,7 @@
 
             </tbody>
         </table>
-        <table class="table table-striped table-bordered table-hover">
+        <table class="table table-bordered table-hover">
             <thead>
                 <th>Tests Prescribed</th>
             </thead>
@@ -81,7 +48,7 @@
             <h6>Previous notes and Observations</h6>
             <h6>Note: {{patientlog.Notes}}</h6>
             <h6>Observations: {{patientlog.Observations}}</h6>
-        </div>
+        </div> 
 
 
     </div>

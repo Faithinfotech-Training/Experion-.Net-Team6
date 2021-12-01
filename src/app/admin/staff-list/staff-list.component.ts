@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/shared/admin.service';
 
 @Component({
@@ -8,39 +9,35 @@ import { AdminService } from 'src/app/shared/admin.service';
 })
 export class StaffListComponent implements OnInit {
 
-  data = [
-    {
-      id: 1,
-      name: "afeez",
-      roid: 2,
-      age: 21,
-      gender: "male",
-      dob: "2-2-1990",
-      con: 21212,
-      loc: "rrr",
-      act: true
-    },
-    {
-      id: 1,
-      name: "afeez",
-      roid: 2,
-      age: 21,
-      gender: "male",
-      dob: "2-2-1990",
-      con: 21212,
-      loc: "rrr",
-      act: true
-    },
-  ]
+  filter:string;
+
+  page: number=1;
+
 
 
   constructor(
-    public adminService: AdminService
+
+    public adminService: AdminService,
+
+    private router: Router
+
   ) { }
 
+
+
   ngOnInit(): void {
+
     this.adminService.getallStaff();
+
     console.log(this.adminService.staff);
+
+  }
+
+
+  updateStaff(Id: number){
+
+    this.router.navigate(['add-staff',Id]);
+
   }
 
 }
