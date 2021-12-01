@@ -31,16 +31,19 @@ export class LabReportComponent implements OnInit {
     this.adminServices.getallStaff();
     this.LogId=this.route.snapshot.params['LogId'];
     //this.labReportServices.formData.LogId=this.LogId;
+    //filling the form with test names
     this.labReportServices.getReportFormView(this.LogId).subscribe(
       data=>{console.log(data);
         this.labReportServices.formData = Object.assign({}, data);
       }
     )
-    //this.labReportServices.formData.TestOne=this.reportFormView.TestOne;
+    
+    
+
   }
 
   logOut(){
-    this.authService.logOut();
+    this.authService.logOut(); 
     
   }
 
@@ -50,9 +53,18 @@ export class LabReportComponent implements OnInit {
     this.labReportServices.addLabReport(form.value).subscribe(
       (result)=>{
         console.log(result);
-        this.resetForm(form);
+        
       }
     )
+    this.labReportServices.getPrescriptionTest(this.LogId).subscribe(
+      data=>{
+        this.testDetails=data;       
+      }
+    )
+
+    this.testDetails.Status="Generated!";
+    console.log(this.testDetails);
+    this.resetForm(form);
   }
 
     //Clear all contents at loading

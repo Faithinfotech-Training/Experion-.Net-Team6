@@ -25,7 +25,7 @@ export class PatientService {
   //get patients for binding
   bindPatient1() {
     this.httpClient
-      .get(environment.apiUrl + 'api/patient/getpatients')
+      .get(environment.apiUrl + '/api/patient/getpatients')
       .toPromise()
       .then((response) => (this.patients1 = response as Patient1[]));
     console.log(this.patients1);

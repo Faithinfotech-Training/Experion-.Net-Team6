@@ -1,0 +1,50 @@
+<div class="container dashboard-doctor">
+
+    <div class="row top-section">
+
+        <div class="col-lg-3">
+
+            <h3>Welcome {{loggedUser}}</h3>
+
+        </div>
+
+        <div class="col-lg-7"></div>
+
+        <div class="col-lg-2">
+
+            <button type="button" class="btn btn-primary logout" (click)=logOut()>
+
+                <i class="fa fa-sign-out"></i>LogOut
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="body">
+
+        <div class="row dashboard-row">
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-4">
+
+                <button type="button" class="btn btn-primary btn-md dashboard-button"
+                    [routerLink]="['../lab']"><i class="fa fa-bookmark"
+                        style="font-size: 2em; margin-right: 15px;"></i><br> Today's Reports</button>
+
+            </div>
+            <div class="col-lg-4">
+
+                <button type="button" class="btn btn-primary btn-md dashboard-button" [routerLink]="['../generatedReport']"><i
+                        class="fa fa-flask" style="font-size: 2em; margin-right: 15px;"></i><br>Generated Reports</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</div>

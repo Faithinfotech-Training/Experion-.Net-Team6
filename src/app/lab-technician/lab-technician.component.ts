@@ -8,7 +8,7 @@ import {LabListService} from '../shared/lab-list.service';
   templateUrl: './lab-technician.component.html',
   styleUrls: ['./lab-technician.component.css']
 })
-export class LabTechnicianComponent implements OnInit {
+export class LabTechnicianComponent implements OnInit { 
 
   page:number=1;
   filter:string;
@@ -27,9 +27,11 @@ export class LabTechnicianComponent implements OnInit {
     this.authService.logOut();   
   }
 
-  labReport(LogId:number){
+  labReport(LogId:number,PatientId:number){
     console.log(LogId);
+    sessionStorage.setItem("PatientId", PatientId.toString());
     this.router.navigate(['report',LogId]);
+
   }
 
 }

@@ -25,6 +25,8 @@ import { AdminService } from './shared/admin.service';
 import {AuthGuard} from './shared/auth.guard';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
+import { GeneratedReportComponent } from './generated-report/generated-report.component';
+import { LabHomeComponent } from './lab-home/lab-home.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { PatientLogComponent } from './patient-log/patient-log.component';
     PatientlistComponent,
     AppointmentComponent,
     AppointmentListComponent,
-    PatientLogComponent
+    PatientLogComponent,
+    GeneratedReportComponent,
+    LabHomeComponent
   ],
   imports: [
     BrowserModule,
