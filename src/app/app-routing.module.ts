@@ -31,6 +31,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent,canActivate:[AuthGuard],data:{role:'1'} },
   {path: 'staff-list', component: StaffListComponent},
   {path: 'add-staff', component: AddstaffComponent},
+  {path: 'add-staff/:Id', component: AddstaffComponent},
   {path: 'doctor-list', component: DoctorListComponent},
   {path: 'add-doctor', component: AdddoctorComponent},
  {path:'appointmentlist',component:AppointmentListComponent},

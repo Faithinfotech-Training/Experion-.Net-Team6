@@ -4,7 +4,7 @@
         <!--Search funciotnality-->
         <div class="form-group">
             <input class="form-control" type="text" 
-            placeholder="Search" >
+            placeholder="Search" [(ngModel)] ="filter" >
         </div>
     </div>
     <br>
@@ -14,28 +14,24 @@
             <tr>
                 <th>Staff ID</th>
                 <th>Staff Name</th>
-                <th>Role Id</th>
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Date of Birth</th>
                 <th>Contact Number</th>
                 <th>Location</th>
-                <th>IsActive</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let data of this.adminService.staff">
-                <td>{{data.staffId}}</td>
-                <td>{{data.staffName}}</td>
-                <td>{{data.roleId}}</td>
-                <td>{{data.staffAge}}</td>
-                <td>{{data.staffGender}}</td>
-                <td>{{data.staffDateofBirth}}</td>
-                <td>{{data.staffContactNo}}</td>
-                <td>{{data.staffLocation}}</td>
-                <td>{{data.isActive}}</td>
+            <tr *ngFor="let data of this.adminService.staff | filter: filter | paginate: {itemsPerPage:10, currentPage: page}">
+                <td>{{data.StaffId}}</td>
+                <td>{{data.StaffName}}</td>
+                <td>{{data.StaffAge}}</td>
+                <td>{{data.StaffGender}}</td>
+                <td>{{data.StaffDateofBirth}}</td>
+                <td>{{data.StaffContactNo}}</td>
+                <td>{{data.StaffLocation}}</td>
                 <td style="width: 6em;">
-                    <button class="btn btn-outline-danger" style="width: 100%;">Edit</button>
+                    <button (click)="updateStaff(data.StaffId)" class="btn btn-outline-danger" style="width: 100%;">Edit</button>
                 </td>
             </tr>
         </tbody>
