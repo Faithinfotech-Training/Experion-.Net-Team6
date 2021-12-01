@@ -4,7 +4,7 @@
         <!--Search funciotnality-->
         <div class="form-group">
             <input class="form-control" type="text" 
-            placeholder="Search" >
+            placeholder="Search" [(ngModel)] ="filter" >
         </div>
     </div>
     <br>
@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let data of this.adminService.doctors">
+            <tr *ngFor="let data of this.adminService.doctors | filter: filter | paginate: {itemsPerPage:10, currentPage: page}">
                 <td>{{data.DoctorId}}</td>
                 <td>{{data.DoctorName}}</td>
                 <td>{{data.DoctorQualification}}</td>
@@ -33,13 +33,14 @@
                 <td>{{data.DoctorContactNo}}</td>
                 <td>{{data.DoctorLocation}}</td>
                 <td style="width: 6em;">
-                    <button class="btn btn-outline-danger" style="width: 100%;">Edit</button>
+                    <button (click)="updatedoctor(data.DoctorId)" class="btn btn-outline-danger" style="width: 100%;">Edit</button>
                 </td>
             </tr>
         </tbody>
     </table>
     <div class="footer">
         <!--Pagination should be added here-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
     </div>
 </div>
 

@@ -1,0 +1,57 @@
+<div class="container">
+    <h5>Signed in as: {{loggedUser}}</h5>
+
+</div>
+
+<button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
+    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button>
+<br>
+<br>
+<hr>
+
+<div class="container">
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Search here..." style="width: 300px;" [(ngModel)]="filter">
+        <br>
+    </div>
+    <br>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr >
+                <th>Report ID</th>
+                <th>Patiet Name</th>
+                <th>Doctor Name</th>
+                <th>Staff Name</th>
+                <th>Date</th>
+                <th>Test One</th>
+                <th>Observed Result</th>
+                <th>Test Two</th>
+                <th>Observed Result</th>
+                <th>Test Three</th>
+                <th>Observed Result</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let l of labReportService.generatedResults |filter:filter | paginate:{itemsPerPage:5,currentPage:page }"
+                   >
+                <td>{{l.LabReportId}}</td>
+                <td>{{l.PatientName}}</td>
+                <td>{{l.DoctorName}}</td>
+                <td>{{l.StaffName}}</td>
+                <td>{{l.DateOfAppointment | date:'dd/MM/yyyy'}}</td>
+                <td>{{l.TestOneName}}</td>
+                <td>{{l.ObservedResultOne}}</td>
+                <td >{{l.TestTwoName}}</td>
+                <td >{{l.ObservedResultTwo}}</td>
+                <td >{{l.TestThreeName}}</td>
+                <td >{{l.ObservedResultThree}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div>
+        <!--Pagination-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+</div>

@@ -10,18 +10,22 @@ import { PatientService } from 'src/app/shared/patient.service';
 })
 export class PatientlistComponent implements OnInit {
   page:number =1;
+  Id:number;
   filter : string;
+  route: any;
   constructor(public patientService:PatientService,private router:Router) { }
-
+  role=localStorage.getItem('ACCESS_ROLE');
   ngOnInit(): void {
     this.patientService.bindPatient();
+
+   
   }
-  populateForm(pat: Patient){
+  /*populateForm(pat: Patient){
     console.log(pat);
     this.patientService.formData1=Object.assign({} ,pat);
- }
+ }*/
  //update a patient through routing
-updatePatient(patientId: number){
+onclick(patientId: number){
  console.log(patientId);
  this.router.navigate(['addpatient', patientId]);
  

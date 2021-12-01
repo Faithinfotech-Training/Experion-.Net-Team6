@@ -1,22 +1,26 @@
 <div class="container dashboard-doctor">
-    <div class="top-section">
+    <div class="row top-section">
+        <div class="col-lg-3">
         <h3>Welcome Doctor!</h3>
-        <button type="button" class="btn btn-primary logout">
-            <i class="fa fa-sign-in"></i>LogOut
+    </div>
+    <div class="col-lg-7"></div>
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-primary logout" (click)=logout()>
+            <i class="fa fa-sign-out"></i>LogOut
         </button>
     </div>
+    </div>
     <div class="body">
-        <div class="row" style="margin-top:5em; margin-bottom:5em; text-align: center;">
-            <div class="col">
-        <button type="button" style="width: 40%; height: 5em; " class="btn btn-primary btn-lg" [routerLink]="['../appointmentlist']">Today's Appointments</button>
+        <div class="row dashboard-row" >
+            <div class="col-lg-4">
+        <button type="button" class="btn btn-primary btn-md dashboard-button" [routerLink]="['../appointmentlist']"><i class="fa fa-bookmark" style="font-size: 2em; margin-right: 15px;"></i><br> Today's Appointments</button>
     </div>
+   
+    <div class="col-lg-4">
+        <button type="button"class="btn btn-primary btn-md dashboard-button" [routerLink]="['../employee']"><i class="fa fa-flask" style="font-size: 2em; margin-right: 15px;"></i><br>Lab Results</button>
     </div>
-    <div class="row" style="margin-top:5em; margin-bottom:5em;text-align: center;">
-    <div class="col">
-        <button type="button" style="width: 42%; height: 5em; " class="btn btn-primary btn-lg" [routerLink]="['../employee']">Lab Results</button>
-    </div>
-    <div class="col">
-        <button type="button" style="width: 42%; height: 5em;" class="btn btn-primary btn-lg" [routerLink]="['../employee']">Find Patient</button>
+    <div class="col-lg-4">
+        <button type="button" class="btn btn-primary btn-md dashboard-button" [routerLink]="['../frontoffice']"><i class="fa fa-users" style="font-size: 2em; margin-right: 15px;"></i><br>Find Patient</button>
     </div>
     </div>
     </div>

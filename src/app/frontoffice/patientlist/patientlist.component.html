@@ -1,13 +1,13 @@
 <div class="container">
     <div class="header">
-        <h5 class="text-center" style="color: darkblue; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-             Patient List
+        <h5 class="text-center"
+            style="color: darkblue; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            Patient List
         </h5>
         <!--Search Patient-->
         <div class="form-group">
-            <input class="form-control" type ="text"
-            placeholder="search here..." style="text-decoration: crimson; background-color: rgb(226, 233, 247);"
-            [(ngModel)] ="filter"><br>
+            <input class="form-control" type="text" placeholder="search here..."
+                style="text-decoration: crimson; background-color: rgb(226, 233, 247);" [(ngModel)]="filter"><br>
         </div>
         <!--<a [routerLink]="['/addpatient']" class="btn btn-primary" style="float:right;margin-bottom: 10px;">Add Patient</a>-->
         <a [routerLink]="['/appointment']" class="btn btn-sm btn-primary" style="margin-left:10px ">Add Appointment</a><br><hr>
@@ -33,31 +33,44 @@
                 <th>
                     ContactNo
                 </th>
-                <th>
+                <!-- <th>
                     EmergencyContact
-                </th>
-                <!--<th>
+                </th> -->
+                <th>
                     Action
-                </th>-->
+                </th>
 
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let pat of this.patientService.patients | filter: filter | paginate: {itemsPerPage: 5, currentPage:page} "  >
-                <td (click)="populateForm(pat)">{{pat.patientId}}</td>
-                <td (click)="populateForm(pat)">{{pat.patientName}}</td>
-                <td (click)="populateForm(pat)">{{pat.age}}</td>
-                <td (click)="populateForm(pat)">{{pat.gender}}</td>
-                <td (click)="populateForm(pat)">{{pat.location}}</td>
-                <td (click)="populateForm(pat)">{{pat.contactNo}}</td>
-                <td (click)="populateForm(pat)">{{pat.emergencyContact}}</td>
-               <!-- <td>
+            <tr
+                *ngFor="let pat of this.patientService.patients | filter: filter | paginate: {itemsPerPage: 5, currentPage:page} ">
+                <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
+                <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
+                <td (click)="populateForm(pat)">{{pat.Age}}</td>
+                <td (click)="populateForm(pat)">{{pat.Gender}}</td>
+                <td (click)="populateForm(pat)">{{pat.Location}}</td>
+                <td (click)="populateForm(pat)">{{pat.ContactNo}}</td>
+                <!-- <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td> -->
 
+                <ng-template [ngIf]="role==4 ">
+                    <td>
 
-                    <button (click)="updatePatient(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+                    <button (click)="onclick(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
 
-                </td>-->
+                </td>
 
+                        <!--- <button (click)="updatePatient(pat.patientId)" class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>-->
+                        <a [routerLink]="['/appointment']" class="btn btn-sm btn-primary"
+                            style="margin-left:10px    ">Add Appointment</a>
+                    </td>
+
+                    <td>
+                    <!--<button  (click)="updatePatient(pat.patientId)" (click)="populateForm(pat)" class="btn btn-sm btn-outline-danger" style="margin-left:10px">Edit</button>-->
+                    <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" style="margin-left:10px">Add
+                        Appointment</a>
+                    </td>
+                </ng-template>
             </tr>
         </tbody>
 
@@ -70,4 +83,3 @@
 
     </div>
 </div>
-
