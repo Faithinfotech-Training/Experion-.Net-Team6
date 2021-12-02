@@ -76,6 +76,29 @@ namespace cmsRestApi.Repository
             return prescriptiontest;
         }
 
+        public async Task<TblPrescriptionTest> updateTestStatus(int LogId)
+        {
+            if (db != null)
+            {
+                TblPrescriptionTest test = await db.TblPrescriptionTest.FirstOrDefaultAsync(t => t.LogId == LogId);
+                try
+                {
+                    test.Status = "Generated";
+                    db.TblPrescriptionTest.Update(test);
+                    await db.SaveChangesAsync();
+                    return test;
+
+                }
+                catch (Exception)
+                {
+                    return null;
+
+                }
+
+            }
+            return null;
+        }
+
         public async Task<List<ReportFormView>> GetFormView(int LogId)
         {
             if (db != null)
