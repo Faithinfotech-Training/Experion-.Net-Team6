@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using cmsRestApi.Models;
 using cmsRestApi.Repository;
+using cmsRestApi.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,13 +57,31 @@ namespace cmsRestApi.Controllers
         }
 
         //Get Staff by Id
-        [HttpGet]
-        [Route("GetbyDoctor")]
+        [HttpGet("GetbyDoctor/{id}")]
+        
 
         public async Task<List<TblAppointment>> GetAppointmentbyDoctorId(int id)
         {
 
             var result = await appointmentRepository.GetAppointmentbyDoctorId(id);
+
+            if (result == null)
+            {
+                return null;
+            }
+            return result;
+
+
+        }
+
+        //Get by view model
+        [HttpGet("Getbyvm")]
+
+
+        public async Task<List<AppointmentViewModel>> GetAppointmentbyViewModel()
+        {
+
+            var result = await appointmentRepository.GetAppointmentyViewModel();
 
             if (result == null)
             {
@@ -112,6 +131,26 @@ namespace cmsRestApi.Controllers
                     await appointmentRepository.UpdateAppointment(appointment);
 
                     return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+
+            }
+            return BadRequest();
+        }
+        [HttpGet("deleteappointment/{id}")]
+
+        public async Task<IActionResult> DeleteAppointment( int id)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await appointmentRepository.DeleteAppointment(id);
+
+                    return Ok();
 
 
                 }
@@ -123,5 +162,7 @@ namespace cmsRestApi.Controllers
             }
             return BadRequest();
         }
-        }
+
+
+    }
 }

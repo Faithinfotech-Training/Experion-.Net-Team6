@@ -39,9 +39,13 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<ILabTestRepository, LabTestRepository>();
             services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();
-            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
-            services.AddScoped<ILoginRepository, LoginRepository>();
 
+=======
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IDoctorRepository, DoctorRepository>();
+            services.AddScoped<IStaffRepository, StaffRepository>();
+            services.AddScoped<IPaymentRepo, PaymentRepo>();
+>>>>>>> 0186099df2a4910e268bcd1c47c918f3e83518ab
 
             //adding services
             services.AddControllers().AddNewtonsoftJson(
@@ -54,18 +58,18 @@ namespace cmsRestApi
             }
             );
             services.AddCors();
-        }
-            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-            {
-                app.UseCors(options =>
-                options.WithOrigins("http://localhost:4200", "https://b674-103-151-188-91.ngrok.io")
-                .AllowAnyMethod().AllowAnyHeader().AllowCredentials());
 
-                if (env.IsDevelopment())
-                {
-                    app.UseDeveloperExceptionPage();
-                }
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            app.UseCors(options =>
+            options.WithOrigins("http://localhost:4200", "https://b674-103-151-188-91.ngrok.io")
+            .AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
                 app.UseHttpsRedirection();
 
@@ -73,11 +77,10 @@ namespace cmsRestApi
 
                 app.UseAuthorization();
 
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                });
-            }
-        
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+        }
     }
 }
