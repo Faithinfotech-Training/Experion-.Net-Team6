@@ -14,9 +14,9 @@ namespace cmsRestApi.Controllers
     [ApiController]
     public class LabReportController : ControllerBase
     {
-        LabReportVMRepository repository;
+        ILabReportVMRepository repository;
 
-        public LabReportController(LabReportVMRepository _repo)
+        public LabReportController(ILabReportVMRepository _repo)
         {
             repository = _repo;
         }
