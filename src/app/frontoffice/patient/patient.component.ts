@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Patient } from 'src/app/shared/patient';
 import { NgForm } from '@angular/forms';
@@ -38,7 +39,7 @@ export class PatientComponent implements OnInit {
   }
   onSubmit(form?: NgForm) {
     console.log(form.value);
-    let Id = this.patientService.formData.patientId;
+    let Id = this.patientService.formData.PatientId;
 
     if (Id == 0 || Id == null) {
       console.log("inserting record...");

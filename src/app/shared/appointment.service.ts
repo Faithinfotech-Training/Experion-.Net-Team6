@@ -55,4 +55,9 @@ export class AppointmentService {
     return this.httpClient.post(environment.apiUrl+'/api/appointment',appointment);
   
   }
+  addAppointment(appointment:Appointment):Observable<any>
+  {
+    return this.httpClient.post(environment.apiUrl+'/api/appointment',appointment);
+  
+  }
 }

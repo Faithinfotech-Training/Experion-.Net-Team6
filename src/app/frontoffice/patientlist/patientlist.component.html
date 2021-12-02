@@ -47,22 +47,22 @@
             
             <tr
                 *ngFor="let pat of this.patientService.patients | filter: filter | paginate: {itemsPerPage: 6, currentPage:page} ">
-                <ng-template [ngIf]="pat.isActive==true">
-                <td (click)="populateForm(pat)">{{pat.patientId}}</td>
-                <td (click)="populateForm(pat)">{{pat.patientName}}</td>
-                <td (click)="populateForm(pat)">{{pat.age}}</td>
-                <td (click)="populateForm(pat)">{{pat.gender}}</td>
-                <td (click)="populateForm(pat)">{{pat.location}}</td>
-                <td (click)="populateForm(pat)">{{pat.contactNo}}</td>
+                <ng-template [ngIf]="pat.IsActive==true">
+                <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
+                <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
+                <td (click)="populateForm(pat)">{{pat.Age}}</td>
+                <td (click)="populateForm(pat)">{{pat.Gender}}</td>
+                <td (click)="populateForm(pat)">{{pat.Location}}</td>
+                <td (click)="populateForm(pat)">{{pat.ContactNo}}</td>
                 <!-- <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td> -->
 
                 <td>
-
-                    <button (click)="updateStatus(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Delete</button>
-                <button (click)="onclick(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+                  
+                    <button (click)="updateStatus(pat.PatientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Delete</button>
+                <button (click)="onclick(pat.PatientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
 
                 </td>
-            </ng-template> 
+           </ng-template> 
             </tr>
           
         </tbody>

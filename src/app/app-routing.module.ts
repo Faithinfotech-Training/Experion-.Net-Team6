@@ -30,17 +30,17 @@ const routes: Routes = [
   {path:'report',component:LabReportComponent,canActivate:[AuthGuard],data:{role:'3'} },
   {path:'report/:LogId',component:LabReportComponent,canActivate:[AuthGuard],data:{role:'3'} },
   {path:'generatedReport',component:GeneratedReportComponent},
-  {path:'appointment',component:AppointmentComponent },
-  {path:'frontoffice',component:FrontofficeComponent},
-  {path :'addpatient/:patId',component:PatientComponent },
-  {path:'addpatient',component:PatientComponent},
+  {path:'appointment',component:AppointmentComponent ,canActivate:[AuthGuard],data:{role:'4'}},
+  {path:'frontoffice',component:FrontofficeComponent,canActivate:[AuthGuard],data:{role:'4'}},
+  {path :'addpatient/:patId',component:PatientComponent ,canActivate:[AuthGuard],data:{role:'4'}},
+  {path:'addpatient',component:PatientComponent,canActivate:[AuthGuard],data:{role:'4'}},
   {path: 'admin', component: AdminComponent,canActivate:[AuthGuard],data:{role:'1'} },
   {path: 'staff-list', component: StaffListComponent,canActivate:[AuthGuard],data:{role:'1'} },
   {path: 'add-staff', component: AddstaffComponent,canActivate:[AuthGuard],data:{role:'1'} },
   {path: 'doctor-list', component: DoctorListComponent,canActivate:[AuthGuard],data:{role:'1'} },
   {path: 'add-doctor', component: AdddoctorComponent,canActivate:[AuthGuard],data:{role:'1'} },
  {path:'appointmentlist',component:AppointmentListComponent},
- {path:'patientlog/:PatientId',component:PatientLogComponent,canActivate:[AuthGuard],data:{role:'2'} }
+ {path:'patientlog/:PatientId',component:PatientLogComponent }
 
 ]
 @NgModule({
