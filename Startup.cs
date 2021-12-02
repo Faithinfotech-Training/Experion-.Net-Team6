@@ -39,10 +39,17 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<ILabTestRepository, LabTestRepository>();
             services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();
+<<<<<<< HEAD
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             services.AddScoped<IStaffRepository, StaffRepository>();
 
+=======
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IDoctorRepository, DoctorRepository>();
+            services.AddScoped<IStaffRepository, StaffRepository>();
+            services.AddScoped<IPaymentRepo, PaymentRepo>();
+>>>>>>> 0186099df2a4910e268bcd1c47c918f3e83518ab
 
             //adding services
             services.AddControllers().AddNewtonsoftJson(
