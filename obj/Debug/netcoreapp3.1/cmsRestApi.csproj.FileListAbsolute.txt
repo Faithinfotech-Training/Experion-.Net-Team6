@@ -232,3 +232,6 @@ D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.pdb
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.genruntimeconfig.cache
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.csproj.AssemblyReference.cache
+C:\Experion-.Net-Team6\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Experion-.Net-Team6\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Experion-.Net-Team6\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

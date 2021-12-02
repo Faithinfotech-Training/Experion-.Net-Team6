@@ -39,6 +39,8 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<ILabTestRepository, LabTestRepository>();
             services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
 
 
             //adding services
@@ -52,7 +54,7 @@ namespace cmsRestApi
             }
             );
             services.AddCors();
-
+        }
             // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
             {
@@ -65,7 +67,6 @@ namespace cmsRestApi
                     app.UseDeveloperExceptionPage();
                 }
 
-
                 app.UseHttpsRedirection();
 
                 app.UseRouting();
@@ -77,5 +78,6 @@ namespace cmsRestApi
                     endpoints.MapControllers();
                 });
             }
-        }   } 
+        
+    }
 }
