@@ -96,9 +96,23 @@ namespace cmsRestApi.Repository
                                   Age = p.Age,
                                   Gender = p.Gender,
                                   DoctorName =d.DoctorName,
+                                  IsActive=app.IsActive
                                   
                               }
                     ).ToListAsync();
+            }
+            return null;
+        }
+
+        public async Task<TblAppointment> DeleteAppointment(int id)
+        {
+            if (db != null)
+            {
+                TblAppointment appointment = await db.TblAppointment.FirstOrDefaultAsync(em => em.AppointmentId == id);
+                appointment.IsActive = false;
+                db.TblAppointment.Update(appointment);
+                await db.SaveChangesAsync();
+                return appointment;
             }
             return null;
         }

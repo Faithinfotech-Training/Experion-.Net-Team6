@@ -142,5 +142,29 @@ namespace cmsRestApi.Controllers
             }
             return BadRequest();
         }
+        [HttpGet("deleteappointment/{id}")]
+
+        public async Task<IActionResult> DeleteAppointment( int id)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await appointmentRepository.DeleteAppointment(id);
+
+                    return Ok();
+
+
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+
+            }
+            return BadRequest();
         }
+
+
+    }
 }

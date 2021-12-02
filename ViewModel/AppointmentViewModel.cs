@@ -11,6 +11,7 @@ namespace cmsRestApi.ViewModel
         public int? PatientId { get; set; }
         public int? DoctorId { get; set; }
         public DateTime? DateofAppointment { get; set; }
+        public bool? IsActive { get; set; }
         public string DoctorName { get; set; }
         public string PatientName { get; set; }
         public int? Age { get; set; }

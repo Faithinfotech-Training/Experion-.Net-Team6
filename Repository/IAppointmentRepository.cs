@@ -15,5 +15,7 @@ namespace cmsRestApi.Repository
         Task<List<AppointmentViewModel>> GetAppointmentyViewModel();
         Task<int> AddAppointment(TblAppointment appointment);
         Task<int> UpdateAppointment(TblAppointment appointment);
+
+        Task<TblAppointment> DeleteAppointment(int id);
     }
 }

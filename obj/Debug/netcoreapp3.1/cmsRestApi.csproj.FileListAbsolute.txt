@@ -193,3 +193,4 @@ D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.pdb
 D:\Project\RestApi\Experion-.Net-Team6\Experion-.Net-Team6\obj\Debug\netcoreapp3.1\cmsRestApi.genruntimeconfig.cache
 E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.csproj.CopyComplete
+E:\CMS\cmsRestApi\obj\Debug\netcoreapp3.1\cmsRestApi.csproj.AssemblyReference.cache
