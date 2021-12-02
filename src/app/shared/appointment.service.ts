@@ -36,7 +36,7 @@ export class AppointmentService {
   }
 
   GetAppointmentbyVM(){
-    this.httpClient.get(environment.apiUrl + '/api/appointment/getbym')
+    this.httpClient.get(environment.apiUrl + '/api/appointment/getbyvm')
     .toPromise().then(
       response => this.appointment = response as Appointment[])
   }
@@ -54,5 +54,9 @@ export class AppointmentService {
   {
     return this.httpClient.post(environment.apiUrl+'/api/appointment',appointment);
   
+  }
+
+  deleteappointment(id:number):Observable<any>{
+    return this.httpClient.get(environment.apiUrl+'/api/appointment/deleteappointment/' +id);
   }
 }

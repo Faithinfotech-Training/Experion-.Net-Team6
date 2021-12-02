@@ -47,7 +47,7 @@
                     placeholder="Enter the total payment" required
                     [ngClass]="{ 'is-invalid' : Amount.touched && Amount.invalid }" />
                 <div class="validation-error" *ngIf="Amount.touched && Amount.invalid">
-                    <div *ngIf="Amount.errors.required"> Specfy the amount
+                    <div *ngIf="Amount.errors.required"> Specify the amount
 
                     </div>
                     <div *ngIf="Amount.errors.pattern">

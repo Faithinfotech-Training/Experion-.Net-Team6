@@ -4,10 +4,10 @@ export class Appointment{
     PatientId:number;
     DoctorId:number;
     DateofAppointment:number;
+    IsActive:boolean;
     PatientName :string;
     DoctorName:string;
     Age:number;
     Gender:string;
-    IsActive: boolean;
 
 }
