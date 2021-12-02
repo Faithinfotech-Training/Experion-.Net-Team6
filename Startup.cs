@@ -47,6 +47,7 @@ namespace cmsRestApi
             services.AddScoped<IStaffRepository, StaffRepository>();
             services.AddScoped<IPaymentRepo, PaymentRepo>();
             services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
 
             //adding services
             services.AddControllers().AddNewtonsoftJson(
