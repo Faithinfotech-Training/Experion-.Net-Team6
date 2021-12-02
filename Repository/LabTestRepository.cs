@@ -41,6 +41,7 @@ namespace cmsRestApi.Repository
                               where log.AppointmentId == appointment.AppointmentId
                               select new LabViewForLabTechnician
                               {
+                                  LogId=log.LogId,
                                   PatientName = patient.PatientName,
                                   DoctorName = doctor.DoctorName,
                                   Test1 = test.TestOne,
@@ -67,7 +68,7 @@ namespace cmsRestApi.Repository
 
         public async Task<TblPrescriptionTest> GetPrescriptionTestbyId(int id)
         {
-            var prescriptiontest = await db.TblPrescriptionTest.FirstOrDefaultAsync(p => p.PrescriptionTestId == id);
+            var prescriptiontest = await db.TblPrescriptionTest.FirstOrDefaultAsync(p => p.LogId == id);
             if (prescriptiontest == null)
             {
                 return null;
@@ -75,7 +76,52 @@ namespace cmsRestApi.Repository
             return prescriptiontest;
         }
 
-      
+        public async Task<TblPrescriptionTest> updateTestStatus(int LogId)
+        {
+            if (db != null)
+            {
+                TblPrescriptionTest test = await db.TblPrescriptionTest.FirstOrDefaultAsync(t => t.LogId == LogId);
+                try
+                {
+                    test.Status = "Generated";
+                    db.TblPrescriptionTest.Update(test);
+                    await db.SaveChangesAsync();
+                    return test;
+
+                }
+                catch (Exception)
+                {
+                    return null;
+
+                }
+
+            }
+            return null;
+        }
+
+        public async Task<List<ReportFormView>> GetFormView(int LogId)
+        {
+            if (db != null)
+            {
+                return await (from log in db.TblPatientLog
+                              from test in db.TblPrescriptionTest
+                              from patient in db.TblPatient
+                              where log.LogId == LogId
+                              where log.PatientId == patient.PatientId
+                              where test.LogId == log.LogId
+                              select new ReportFormView
+                              {
+                                  LogId = log.LogId,
+                                  PatientId = patient.PatientId,
+                                  PatientName = patient.PatientName,
+                                  TestOne = test.TestOne,
+                                  TestTwo = test.TestTwo,
+                                  TestThree = test.TestThree
+                              }
+                              ).ToListAsync();
+            }
+            return null;
+        }
 
         public async Task<int> UpdatePrescriptionTest(TblPrescriptionTest test)
         {

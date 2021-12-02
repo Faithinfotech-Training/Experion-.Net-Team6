@@ -14,9 +14,9 @@ namespace cmsRestApi.Controllers
     [ApiController]
     public class LabReportController : ControllerBase
     {
-        LabReportVMRepository repository;
+        ILabReportVMRepository repository;
 
-        public LabReportController(LabReportVMRepository _repo)
+        public LabReportController(ILabReportVMRepository _repo)
         {
             repository = _repo;
         }
@@ -33,8 +33,8 @@ namespace cmsRestApi.Controllers
 
         #region get a lab report
 
-        [HttpGet()]
-        [Route("GetLabReport/{id}")]
+        [HttpGet("{id}")]
+        //[Route("GetLabReport/{id}")]
         public async Task<IActionResult> GetLabReport(int id)
         {
             try

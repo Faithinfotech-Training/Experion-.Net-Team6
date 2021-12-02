@@ -10,6 +10,8 @@ namespace cmsRestApi.Repository
     {
         //--- get patient by id ---//
         Task<TblPatient> GetPatientById(int id);
+        //--- get patient  ---//
+        Task<TblPatient> getPatient(int id);
         //--- get patients ---//
         Task<List<TblPatient>> GetPatients();
         //--- add Patient ---//
@@ -17,5 +19,6 @@ namespace cmsRestApi.Repository
 
         //--- update Patient ---//
         Task<TblPatient> UpdatePatient(TblPatient patient);
+        Task<TblPatient> updatePatientByActive(int id);
     }
 }
