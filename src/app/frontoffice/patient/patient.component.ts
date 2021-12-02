@@ -67,7 +67,7 @@ export class PatientComponent implements OnInit {
         this.resetForm(form);
       }
     )
-    //window.location.reload();
+    window.location.reload();
   }
 
   updatePatient(form: NgForm) {

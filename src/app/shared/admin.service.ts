@@ -30,6 +30,8 @@ export class AdminService {
       )
       console.log(this.doctors);
   }
+ 
+
   getallStaff() {
     this.httpClient.get(environment.apiUrl + "/api/staff/getallstaff")
       .toPromise().then(
@@ -63,13 +65,19 @@ export class AdminService {
   }
 
   getstaff(id: number): Observable<any> {
-    return this.httpClient.get(environment.apiUrl + "/api/staff/GetStaff/" + id);
+   return this.httpClient.get(environment.apiUrl + "/api/staff/GetStaff/" + id);
   }
   getdoctor(id: number): Observable<any> {
 
     return this.httpClient.get(environment.apiUrl + "/api/doctor/GetADoctor/" + id);
 
   }
+
+  getdoctor(id: number): Observable<any> {
+    return this.httpClient.get(environment.apiUrl + "/api/doctor/GetADoctor/" + id);
+  }
+
+
 
 }
 

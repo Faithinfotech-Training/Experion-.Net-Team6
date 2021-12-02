@@ -20,14 +20,18 @@ import { AppointmentComponent } from './frontoffice/appointment/appointment.comp
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AppointmentListComponent } from './appointment-list/appointment-list.component';
-import { PatientLogComponent } from './patient-log/patient-log.component';
 import { PatientRecordFormComponent } from './patient-record-form/patient-record-form.component';
 import { AuthService } from './shared/auth.service';
 import { AdminService } from './shared/admin.service';
 import {AuthGuard} from './shared/auth.guard';
 import { GeneratedReportComponent } from './generated-report/generated-report.component';
 import { LabHomeComponent } from './lab-home/lab-home.component';
+import { PrescriptionMedicineComponent } from '../app/prescription-medicine/prescription-medicine.component';
+import { PrescriptiontestComponent } from '../app/prescriptiontest/prescriptiontest.component';
+import { PaymentComponent } from './frontoffice/payment/payment.component';
+import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { PatientLogComponent } from './patient-log/patient-log.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,12 @@ import { LabHomeComponent } from './lab-home/lab-home.component';
     PatientLogComponent,
     GeneratedReportComponent,
     LabHomeComponent,
-    PatientRecordFormComponent
+    PatientRecordFormComponent,
+    PrescriptionMedicineComponent,
+    PrescriptiontestComponent,
+    FrontofficeComponent,
+    PaymentComponent,
+    ViewpaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -60,9 +69,8 @@ import { LabHomeComponent } from './lab-home/lab-home.component';
     NgxPaginationModule,
     Ng2SearchPipeModule,
     ReactiveFormsModule,
-    HttpClientModule
   ],
-  providers: [AuthService,AdminService,AuthGuard],
+  providers: [AuthService, AdminService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

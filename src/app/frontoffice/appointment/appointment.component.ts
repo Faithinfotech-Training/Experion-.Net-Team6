@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppointmentService } from 'src/app/shared/appointment.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { AppointmentService } from 'src/app/shared/appointment.service';
 })
 export class AppointmentComponent implements OnInit {
 
-  constructor(private router: Router,public appoiService: AppointmentService,) { }
+  constructor(private router: Router,public appoiService: AppointmentService,public route: ActivatedRoute) { }
 
   ngOnInit(): void {
     
@@ -47,10 +47,11 @@ insertAppointment(form?:NgForm)
     {
       console.log("result"+result);
       this.resetform(form);
+      this.router.navigate(['payment',result]);
       
     }
   );
-  window.location.reload();
+  //window.location.reload();
 }
 
 }

@@ -9,7 +9,7 @@
     <div class="form-group">
 
         <label><b>Full Name</b></label>
-        <input name="PatientName" #PatientName="ngModel" [ngModel]="patientService.formData.PatientName"
+        <input name="patientName" #PatientName="ngModel" [ngModel]="patientService.formData.PatientName"
             class="form-control" placeholder="Enter full name" pattern="[a-zA-Z\s]+" minlength="1" maxlength="25" required
             [ngClass]="{'is-invalid':PatientName.touched && PatientName.invalid}"  style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
         <div class="validation-error" *ngIf="PatientName.touched && PatientName.invalid">
@@ -57,6 +57,12 @@
             <div *ngIf="ContactNo.errors.required">
                 Contact is required</div>
         </div>
+        <div *ngIf="ContactNo.errors.pattern">
+            Wrong Contact Number format
+        </div>
+        <div *ngIf="ContactNo.errors.minlength">
+            Contact Number is Incomplete
+        </div>
     </div><br>
      <!--contact-->
      <div class="form-group">
@@ -69,6 +75,12 @@
 
             <div *ngIf="EmergencyContact.errors.required">
                 Contact is required</div>
+        </div>
+        <div *ngIf="EmergencyContact.errors.pattern">
+            Wrong Contact Number format
+        </div>
+        <div *ngIf="EmergencyContact.errors.minlength">
+            Contact Number is Incomplete
         </div>
     </div>
     <br>

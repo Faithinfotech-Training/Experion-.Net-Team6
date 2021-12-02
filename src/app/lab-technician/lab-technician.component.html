@@ -1,19 +1,19 @@
-<div class="container mt-3"> 
+<div class="container mt-3">
     <h5>Signed in as: {{loggedUser}}</h5>
 </div>
 <button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
     <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button>
-<br>
-<br>
-<hr>
+
 
 <div class="container">
     <div class="form-group">
         <input class="form-control" type="text" placeholder="Search here..." style="width: 300px;" [(ngModel)]="filter">
-        <button routerLink='/generatedReport' style="width: 200px; float: right;" class="btn btn-primary form-control">Generated Results</button>
+        <button routerLink='/generatedReport' style="width: 200px; float: right;"
+            class="btn btn-primary form-control">Generated Results</button>
         <br>
     </div>
     <br>
+
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -27,29 +27,29 @@
             </tr>
         </thead>
         <tbody>
-            <tr  *ngFor="let l of labListService.labList |filter:filter | paginate:{itemsPerPage:5,currentPage:page }"
-                   >
-                   <ng-template [ngIf]="l.Status==null ">
-                <td>{{l.LogId}}</td>
-                <td>{{l.PatientName}}</td>
-                <td>{{l.DoctorName}}</td>
-                <td>{{l.Date | date:'dd/MM/yyyy'}}</td>
-                <td>
-                    <ul>
-                        <li *ngIf=l.Test1>{{l.Test1}}</li>
-                        <li *ngIf=l.Test2>{{l.Test2}}</li>
-                        <li *ngIf=l.Test3>{{l.Test3}}</li>
-                    </ul>
-                </td>
-                </ng-template>
-                <td>
-                    <button (click)="labReport(l.LogId,l.PatientId)" class="btn btn-sm btn-primary">Lab Report</button>
-                </td>
-          
-            </tr>
+            <tr *ngFor="let l of labListService.labList |filter:filter | paginate:{itemsPerPage:5,currentPage:page }">
+                <ng-template [ngIf]="l.Status==null ">
+                    <td>{{l.LogId}}</td>
+                    <td>{{l.PatientName}}</td>
+                    <td>{{l.DoctorName}}</td>
+                    <td>{{l.Date | date:'dd/MM/yyyy'}}</td>
+                    <td>
+                        <ul>
+                            <li *ngIf=l.Test1> {{l.Test1}}</li>
+                            <li *ngIf=l.Test2>{{l.Test2}}</li>
+                            <li *ngIf=l.Test3>{{l.Test3}}</li>
+                        </ul>
+                    </td>
 
+                    <td>
+                        <button (click)="labReport(l.LogId,l.PatientId)" class="btn btn-sm btn-primary">Lab
+                            Report</button>
+                    </td>
+            </ng-template>
+            </tr>
         </tbody>
     </table>
+
     <div>
         <!--Pagination-->
         <pagination-controls (pageChange)="page=($event)"></pagination-controls>
