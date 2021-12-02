@@ -30,6 +30,13 @@ export class AdminService {
       )
       console.log(this.doctors);
   }
+
+  getdoctor(id: number): Observable<any> {
+
+    return this.httpClient.get(environment.apiUrl + "/api/doctor/GetADoctor/" + id);
+
+  }
+  
   getstaff(id: number): Observable<any> {
 
     return this.httpClient.get(environment.apiUrl + "/api/staff/GetStaff/" + id);
@@ -66,10 +73,6 @@ export class AdminService {
 
   updatestaff(staff: Staff): Observable<any> {
     return this.httpClient.put(environment.apiUrl + "/api/staff/putstaff", staff);
-  }
-
-  getstaff(id: number): Observable<any> {
-    return this.httpClient.get(environment.apiUrl + "/api/staff/GetStaff/" + id);
   }
 
 }
