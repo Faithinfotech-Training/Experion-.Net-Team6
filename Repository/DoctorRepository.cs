@@ -89,11 +89,11 @@ namespace cmsRestApi.Repository
                 doct.DoctorQualification = doctor.DoctorQualification;
                 doct.DoctorAge = doctor.DoctorAge;
                 doct.DoctorGender = doctor.DoctorGender;
-                doctor.DoctorDateofBirth = doctor.DoctorDateofBirth;
-                doctor.DoctorContactNo = doctor.DoctorContactNo;
-                doctor.DoctorLocation = doctor.DoctorLocation;
-                doctor.IsActive = doctor.IsActive;
-
+                doct.DoctorDateofBirth = doctor.DoctorDateofBirth;
+                doct.DoctorContactNo = doctor.DoctorContactNo;
+                doct.DoctorLocation = doctor.DoctorLocation;
+                doct.IsActive = doctor.IsActive;
+                await db.SaveChangesAsync();
                 return await db.TblDoctor.ToListAsync();
             }
             return null;

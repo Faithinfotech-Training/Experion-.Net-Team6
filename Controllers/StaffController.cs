@@ -40,8 +40,8 @@ namespace cmsRestApi.Controllers
             }
         }
         //Get Staff by Id
-        [HttpGet("{id}")]
-
+        [HttpGet]
+        [Route("GetStaff/{id}")]
         public async Task<ActionResult<TblStaff>> GetEmployeebyId(int id)
         {
 
