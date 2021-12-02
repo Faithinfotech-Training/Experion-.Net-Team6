@@ -9,4 +9,5 @@ export class LabReport {
     ObservedResultOne:string;
     ObservedResultTwo:string;
     ObservedResultThree:string;
+    IsActive:boolean;
 }
