@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PatientComponent implements OnInit {
   PatientId: number;
   patient: Patient = new Patient();
+  Id: number;
 
   constructor(
     public patientService: PatientService,
@@ -19,12 +20,25 @@ export class PatientComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.Id = this.route.snapshot.params['patId'];
+    if (this.Id != 0 || this.Id != null) {
+      
+      this.patientService.getPatientById(this.Id).subscribe(
+        data => {
+          console.log(data);
+          this.patientService.formData = data;
+        },
+        error => console.log(error)
+
+      );
+
+    }
 
 
   }
   onSubmit(form?: NgForm) {
     console.log(form.value);
-    let Id = this.patientService.formData1.PatientId;
+    let Id = this.patientService.formData.patientId;
 
     if (Id == 0 || Id == null) {
       console.log("inserting record...");
@@ -65,5 +79,6 @@ export class PatientComponent implements OnInit {
     )
     window.location.reload();
   }
+  
 
 }

@@ -9,6 +9,5 @@ export class Appointment{
     DoctorName:string;
     Age:number;
     Gender:string;
-    
 
 }

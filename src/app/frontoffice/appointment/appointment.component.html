@@ -59,10 +59,10 @@
     </div>
     <!--Is Active-->
     <div class="form-group">
-        <div class="form-check"><br>
-            <label class="form-check-label">Is active</label>
-            <input type="checkbox" name="IsActive" id="IsActive" 
-               class="form-check-input">
+        <div class="form-check">
+            <label class="form-check-label"><b>Is active</b> </label>
+            <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
+                [(ngModel)]="appoiService.formData1.IsActive" class="form-check-input">
         </div>
     </div>
 

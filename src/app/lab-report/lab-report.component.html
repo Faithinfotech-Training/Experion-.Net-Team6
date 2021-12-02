@@ -20,7 +20,7 @@
         </div>
         <!--StaffId-->
         <div class="form-group mt-2">
-            <label>Staff Id</label>
+            <label>Staff </label>
 
             <select name="StaffId" id="StaffId" class="form-control" #StaffId="ngModel" required
                 [(ngModel)]="labReportServices.formData.StaffId"
@@ -91,7 +91,7 @@
                 <div class="form-group mt-2">
                     <label>Test 3</label>
                     <input type="text" class="form-control" name="TestThree" #TestThree="ngModel"
-                        [(ngModel)]="labReportServices.formData.TestThree">
+                        [(ngModel)]="labReportServices.formData.TestThree" disabled>
                 </div>
                 <div class="form-group mt-2">
                     <label>Observed Result</label>
@@ -110,8 +110,8 @@
         <!--Generate report-->
         <div class="form-group mt-4">
             <button type="submit" class="btn btn-secondary form-control" style="width: 16em;"
-                [disabled]="!(form.valid && form.dirty)">
-                Update Lab Report
+                [disabled]="!(form.valid && form.dirty) " >
+                UploadLab Report
             </button>
         </div>
     </form>

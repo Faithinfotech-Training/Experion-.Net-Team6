@@ -14,8 +14,8 @@ export class PatientlogService {
   constructor(public httpClient:HttpClient) { }
 
   GetPatientPastlog(id:number){
-     this.httpClient.get(environment.apiUrl + '/api/patientlog/log/'+id)
-     .toPromise().then(
+    this.httpClient.get(environment.apiUrl + '/api/patientlog/log/'+id)
+    .toPromise().then(
       response => this.patientlog = response as PatientLogVM[])
   }
 

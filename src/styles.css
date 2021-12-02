@@ -49,3 +49,9 @@ div.validation-error{
     color: red;
 
 }
+.ng-invalid:not(form){
+    border-left: 5px solid red;
+  }
+  .ng-valid[required],.ng-valid.required{
+    border-left: 5px solid rgb(10, 207, 20);
+  }

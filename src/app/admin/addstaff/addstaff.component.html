@@ -16,7 +16,7 @@
 
         <div class="form-group">
             <label class="col-md-4">Role</label>
-            <select name="RoleId" id="RoleId" #RoleId="ngModel" [(ngModel)]="adminService.StaffData.RoleId"
+            <select name="roleId" id="RoleId" #RoleId="ngModel" [(ngModel)]="adminService.StaffData.RoleId"
                 class="form-control" required [ngClass]="{ 'is-invalid' : RoleId.touched && RoleId.invalid }">
                 <option value=0 disabled>Select Role for the staff</option>
                 <option value=1>Admin</option>
@@ -52,7 +52,7 @@
 
         <div class="form-group">
             <label class="col-md-4">Gender</label>
-            <select name="StaffGender" id="StaffGender" #StaffGender [(ngModel)]="adminService.StaffData.StaffGender"
+            <select name="StaffGender" id="StaffGender" #StaffGender="ngModel" [(ngModel)]="adminService.StaffData.StaffGender"
                 class="form-control" required [ngClass]="{ 'is-invalid' : StaffGender.touched && StaffGender.invalid }">
                 <option value=0 disabled>Select Gender</option>
                 <option value="Male">Male</option>
@@ -130,7 +130,5 @@
                 class="btn btn-lg btn-primary form-control">Submit</button>
 
         </div>
-
-
     </div>
 </form>
