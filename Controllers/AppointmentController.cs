@@ -112,8 +112,6 @@ namespace cmsRestApi.Controllers
                     await appointmentRepository.UpdateAppointment(appointment);
 
                     return Ok();
-
-
                 }
                 catch (Exception)
                 {
