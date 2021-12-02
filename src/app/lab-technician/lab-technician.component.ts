@@ -12,7 +12,6 @@ export class LabTechnicianComponent implements OnInit {
 
   page:number=1;
   filter:string;
-  dummy:number[]=[1,2,3,4,5,6];
 
   loggedUser=sessionStorage.getItem('userName')
 
@@ -29,7 +28,6 @@ export class LabTechnicianComponent implements OnInit {
 
   labReport(LogId:number,PatientId:number){
     console.log(LogId);
-    sessionStorage.setItem("PatientId", PatientId.toString());
     this.router.navigate(['report',LogId]);
 
   }
