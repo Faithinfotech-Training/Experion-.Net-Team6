@@ -33,8 +33,8 @@ namespace cmsRestApi.Controllers
 
         #region get a lab report
 
-        [HttpGet()]
-        [Route("GetLabReport/{id}")]
+        [HttpGet("{id}")]
+        //[Route("GetLabReport/{id}")]
         public async Task<IActionResult> GetLabReport(int id)
         {
             try
