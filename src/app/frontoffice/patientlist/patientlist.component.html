@@ -1,17 +1,5 @@
 <div class="container">
     <div class="header">
-<<<<<<< HEAD
-        <h5 class="text-center" style="color: darkblue; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-             Patient List
-        </h5>
-        <!--Search Patient-->
-        <div class="form-group">
-            <input class="form-control" type ="text"
-            placeholder="search here..." style="text-decoration: crimson; background-color: rgb(226, 233, 247);"
-            [(ngModel)] ="filter"><br>
-        </div>
-        <!--<a [routerLink]="['/addpatient']" class="btn btn-primary" style="float:right;margin-bottom: 10px;">Add Patient</a>-->
-=======
         <h5 class="text-center"
             style="color: darkblue; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
             Patient List
@@ -21,9 +9,8 @@
             <input class="form-control" type="text" placeholder="search here..."
                 style="text-decoration: crimson; background-color: rgb(226, 233, 247);" [(ngModel)]="filter" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"><br>
         </div>
-        <!--<a [routerLink]="['/addpatient']" class="btn btn-primary" style="float:right;margin-bottom: 10px;">Add Patient</a>-->
         <a [routerLink]="['/appointment']" class="btn btn-sm btn-primary" style="margin-left:10px " style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">Add Appointment</a><br><hr>
->>>>>>> 8890f54dcaf24e3d683bc35a97ea2c6079b9a58e
+       
     </div>
     <table class="table table-bordered table-striped" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
         <thead>
@@ -60,13 +47,13 @@
             
             <tr
                 *ngFor="let pat of this.patientService.patients | filter: filter | paginate: {itemsPerPage: 6, currentPage:page} ">
-                <ng-template [ngIf]="pat.isActive==true">
-                <td (click)="populateForm(pat)">{{pat.patientId}}</td>
-                <td (click)="populateForm(pat)">{{pat.patientName}}</td>
-                <td (click)="populateForm(pat)">{{pat.age}}</td>
-                <td (click)="populateForm(pat)">{{pat.gender}}</td>
-                <td (click)="populateForm(pat)">{{pat.location}}</td>
-                <td (click)="populateForm(pat)">{{pat.contactNo}}</td>
+                <ng-template [ngIf]="pat.IsActive==true">
+                <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
+                <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
+                <td (click)="populateForm(pat)">{{pat.Age}}</td>
+                <td (click)="populateForm(pat)">{{pat.Gender}}</td>
+                <td (click)="populateForm(pat)">{{pat.Location}}</td>
+                <td (click)="populateForm(pat)">{{pat.ContactNo}}</td>
                 <!-- <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td> -->
 
                 <ng-template [ngIf]="role==2">
@@ -75,27 +62,23 @@
 
                 <ng-template [ngIf]="role==4 ">
                     <td>
-
                         <!--<button  (click)="updatePatient(pat.patientId)" (click)="populateForm(pat)" class="btn btn-sm btn-outline-danger" style="margin-left:10px">Edit</button>-->
                         <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" style="margin-left:10px">Add
                             Appointment</a>
                     </td>
-                </ng-template>
+               
                 <td>
 
                     <button (click)="updateStatus(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Delete</button>
                 <button (click)="onclick(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
 
                 </td>
+            </ng-template>
             </ng-template> 
             </tr>
           
         </tbody>
-    
-
-
-
-    </table>
+       </table>
     <div class="footer">
         <!--pagination-->
         <pagination-controls (pageChange)="page=($event)"></pagination-controls>

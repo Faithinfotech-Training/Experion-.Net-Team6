@@ -1,51 +1,53 @@
 <div class="container">
 
-<div class="header">
-    <h4>Today's Appointments</h4>
-   
-    <br>
-    
+    <div class="header">
+        <h4>Today's Appointments</h4>
+
+        <br>
+
     </div>
     <div class="container">
-    <br>
-    <table class=" table  table-responsive table-bordered ">
-        <thead>
-            <tr>
-                <td>ID</td>
-                <td>PatientId</td>
-                <td>Patient Name</td>
-                <td>Date of Appointment</td>
-                <td>Age</td>
-                <td>Gender</td>
-                <td>Action</td>
-            </tr>
-    
-        </thead>
-        <tbody>
-            <tr  *ngFor="let app of appservice.appointment | paginate:{itemsPerPage:4,currentPage:page} ">
-                <ng-template [ngIf]="app.IsActive">  
-                <td >{{app.AppointmentId}}</td>
-                <td>{{app.PatientId}}</td>
-                <td >{{app.PatientName}}</td>
-                <td >{{app.DateofAppointment |date: 'dd-MM-yyyy'}}</td>
-                <td >{{app.Age}}</td>
-                <td>{{app.Gender}}</td>
-                <td>{{app.IsActive}}</td>
-               
-                <td >
-                <button class="btn btn-sm btn-outline-danger" (click)="patientlog(app.patientId)">View PastRecord</button>
-                &nbsp;<button class="btn btn-info" style="margin-left: 10px;">Add Log</button>
-                </td>
-             </ng-template> 
-            </tr>
-        </tbody>
-    </table>
-</div>
+        <br>
+        <table class=" table  table-responsive table-bordered ">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>PatientId</td>
+                    <td>Patient Name</td>
+                    <td>Date of Appointment</td>
+                    <td>Age</td>
+                    <td>Gender</td>
+                    <td>IsActive</td>
+                    <td>Action</td>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let app of appservice.appointment | paginate:{itemsPerPage:4,currentPage:page} ">
+                    <ng-template [ngIf]="app.IsActive">
+                        <td>{{app.AppointmentId}}</td>
+                        <td>{{app.PatientId}}</td>
+                        <td>{{app.PatientName}}</td>
+                        <td>{{app.DateofAppointment |date: 'dd-MM-yyyy'}}</td>
+                        <td>{{app.Age}}</td>
+                        <td>{{app.Gender}}</td>
+                        <td>{{app.IsActive}}</td>
+
+                        <td>
+                            <button class="btn btn-sm btn-outline-danger" (click)="patientlog(app.PatientId)">View
+                                PastRecord</button>
+                            &nbsp;<button class="btn btn-info" style="margin-left: 10px;"  (click)="addpatientlog(app.AppointmentId)">Add Log</button>
+                        </td>
+                    </ng-template>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="footer">
         <!-- Pagination -->
         <pagination-controls (pageChange)="page=($event)">
-    
+
         </pagination-controls>
-    
+
     </div>
 </div>
