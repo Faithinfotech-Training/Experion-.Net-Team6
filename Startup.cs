@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using cmsRestApi.Models;
 using cmsRestApi.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
 
 namespace cmsRestApi
@@ -39,17 +42,11 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<ILabTestRepository, LabTestRepository>();
             services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();
-<<<<<<< HEAD
-            services.AddScoped<ILoginRepository, LoginRepository>();
-            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
-            services.AddScoped<IStaffRepository, StaffRepository>();
-
-=======
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             services.AddScoped<IDoctorRepository, DoctorRepository>();
             services.AddScoped<IStaffRepository, StaffRepository>();
             services.AddScoped<IPaymentRepo, PaymentRepo>();
->>>>>>> 0186099df2a4910e268bcd1c47c918f3e83518ab
+            services.AddScoped<ILoginRepository, LoginRepository>();
 
             //adding services
             services.AddControllers().AddNewtonsoftJson(
@@ -62,6 +59,27 @@ namespace cmsRestApi
             }
             );
             services.AddCors();
+            //register a JWT authentication schema
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(
+                options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        //Configure authentication schema with JWT bearer
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidAudience = Configuration["Jwt:Issuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+
+                    };
+
+                });
+
+            services.AddMvc();
         }
 
             // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

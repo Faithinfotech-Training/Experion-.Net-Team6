@@ -21,12 +21,31 @@ namespace cmsRestApi.Controllers
             repository = _repo;
         }
 
-
-        #region get all lab report
+        #region get all report
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<LabReportViewModel>>> GetAllLabReport()
+        public async Task<IActionResult> GetAllLabReport()
         {
-            return await repository.GetAllLabReport();
+            try
+            {
+                var labtests = await repository.GetAllLabReport();
+                if (labtests == null)
+                {
+                    return NotFound();
+                }
+                return Ok(labtests);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
+
+        #region get all lab report VM
+        [HttpGet("VM")]
+        public async Task<ActionResult<IEnumerable<LabReportViewModel>>> GetAllLabReportVM()
+        {
+            return await repository.GetAllLabReportVM();
         }
 
         #endregion

@@ -20,6 +20,7 @@ namespace cmsRestApi.Models
         public string ContactNo { get; set; }
         public string EmergencyContact { get; set; }
         public bool? IsActive { get; set; }
+        public string EmailId { get; set; }
 
         public virtual ICollection<TblAppointment> TblAppointment { get; set; }
         public virtual ICollection<TblLabReport> TblLabReport { get; set; }
