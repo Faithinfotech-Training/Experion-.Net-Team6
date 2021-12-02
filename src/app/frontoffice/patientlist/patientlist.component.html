@@ -61,16 +61,16 @@
                 </ng-template>
 
                 <ng-template [ngIf]="role==4 ">
-                    <td>
+                    <!-- <td> -->
                         <!--<button  (click)="updatePatient(pat.patientId)" (click)="populateForm(pat)" class="btn btn-sm btn-outline-danger" style="margin-left:10px">Edit</button>-->
-                        <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" style="margin-left:10px">Add
-                            Appointment</a>
-                    </td>
+                        <!-- <a [routerLink]="['/appointment']" class="btn btn-sm btn-info" style="margin-left:10px">Add
+                            Appointment</a> -->
+                    <!-- </td> -->
                
                 <td>
 
-                    <button (click)="updateStatus(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Delete</button>
-                <button (click)="onclick(pat.patientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+                    <button (click)="updateStatus(pat.PatientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Delete</button>
+                <button (click)="onclick(pat.PatientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
 
                 </td>
             </ng-template>

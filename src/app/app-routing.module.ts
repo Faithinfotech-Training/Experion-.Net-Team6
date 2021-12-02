@@ -38,6 +38,7 @@ const routes: Routes = [
   { path: 'appointment', component: AppointmentComponent },
   { path: 'frontoffice', component: FrontofficeComponent, canActivate: [AuthGuard], data: { role: '4' } },
   { path: 'addpatient', component: PatientComponent, canActivate: [AuthGuard], data: { role: '4' } },
+  { path: 'addpatient/:patId', component: PatientComponent, canActivate: [AuthGuard], data: { role: '4' } },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'staff-list', component: StaffListComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'add-staff', component: AddstaffComponent, canActivate: [AuthGuard], data: { role: '1' } },
