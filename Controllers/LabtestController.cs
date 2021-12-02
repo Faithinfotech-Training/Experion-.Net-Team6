@@ -83,7 +83,7 @@ namespace cmsRestApi.Controllers
         }
         #endregion
 
-        //Add a Staff 
+        //Add a Prescription 
         [HttpPost]
         public async Task<IActionResult> AddPrescriptionLabTest([FromBody] TblPrescriptionTest test)
         {
@@ -111,7 +111,35 @@ namespace cmsRestApi.Controllers
         }
 
 
-        //Update Staff 
+        #region Lab form view
+        [HttpGet("GetFormView/{LogId}")]
+        public async Task<IActionResult> GetFormView(int LogId)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var PrescriptionTestId = await labTestRepository.GetFormView(LogId);
+                    var P = PrescriptionTestId[0];
+                    if (P != null)
+                    {
+                        return Ok(P);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+
+            }
+            return BadRequest();
+        }
+        #endregion
+        //Update Prescription Test 
         [HttpPut]
 
         public async Task<IActionResult> PrescriptionLabTest([FromBody] TblPrescriptionTest test)
@@ -133,6 +161,25 @@ namespace cmsRestApi.Controllers
 
             }
             return BadRequest();
+        }
+
+        [HttpGet("updateStatus/{LogId}")]
+
+        public async Task<IActionResult> updateTestStatus(int LogId)
+        {
+            try
+            {
+                var labTest = await labTestRepository.updateTestStatus(LogId);
+                if (labTest == null)
+                {
+                    return NotFound();
+                }
+                return Ok(labTest);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
 
 

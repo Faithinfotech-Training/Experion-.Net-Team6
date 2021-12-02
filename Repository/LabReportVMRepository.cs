@@ -36,6 +36,7 @@ namespace cmsRestApi.Repository
                               where log.AppointmentId == appointment.AppointmentId
                               where report.LogId==log.LogId
                               where testName.LogId == log.LogId
+                              where report.StaffId==staff.StaffId
                           
                               select new LabReportViewModel
                               {
