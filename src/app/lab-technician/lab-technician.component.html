@@ -28,8 +28,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let l of labListService.labList |filter:filter | paginate:{itemsPerPage:5,currentPage:page }"
-                ng-template [ngIf]="l.Status==null ">
+            <tr *ngFor="let l of labListService.labList |filter:filter | paginate:{itemsPerPage:5,currentPage:page }">
+                <ng-template [ngIf]="l.Status==null ">
                 <td>{{l.LogId}}</td>
                 <td>{{l.PatientName}}</td>
                 <td>{{l.DoctorName}}</td>
@@ -45,7 +45,7 @@
                 <td>
                     <button (click)="labReport(l.LogId,l.PatientId)" class="btn btn-sm btn-primary">Lab Report</button>
                 </td>
-          
+                </ng-template>
             </tr>
 
         </tbody>
