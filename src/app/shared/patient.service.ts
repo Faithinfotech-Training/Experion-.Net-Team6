@@ -49,5 +49,8 @@ export class PatientService {
     .toPromise().then(
      response => this.patients = response as Patient[])
  }
+ updatePatientByActive(id:number): Observable<any> {
+  return this.httpClient.get(environment.apiUrl + "/api/patient/isactive/" +id);
+ }
 
 }
