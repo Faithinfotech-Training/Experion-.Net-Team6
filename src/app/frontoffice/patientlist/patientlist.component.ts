@@ -10,6 +10,7 @@ import { PatientService } from 'src/app/shared/patient.service';
 })
 export class PatientlistComponent implements OnInit {
   page:number =1;
+  PatientId: number;
   Id:number;
   filter : string;
   route: any;
@@ -30,6 +31,19 @@ onclick(patientId: number){
  this.router.navigate(['addpatient', patientId]);
  
 } 
+updateStatus(PatientId: number){
+
+    this.patientService.updatePatientByActive(PatientId).subscribe(
+
+      (result)=>{
+
+        console.log(result);
+
+      }
+
+    )
+   window.location.reload();
+  }
  
 }
 

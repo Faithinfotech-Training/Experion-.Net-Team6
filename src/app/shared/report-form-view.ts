@@ -1,6 +1,6 @@
 import { NgModuleDecorator } from "@angular/core";
 
-export class ReportFormView {
+export class GeneratedFormView {
     LabReportId:number;
     PatientId:number;
     PatientName:string;

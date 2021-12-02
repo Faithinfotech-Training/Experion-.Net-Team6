@@ -7,7 +7,7 @@
     <!--Patient Name-->
     <div class="form-group">
 
-        <label class="col-md-4">Patient Name</label>
+        <label class="col-md-4"><b>Patient Name</b></label>
         
         <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
             [(ngModel)]="appoiService.formData1.PatientId"
@@ -23,11 +23,11 @@
             <div *ngIf="PatientId.errors.required">
                 Patient is required</div>
         </div>
-    </div>
+    </div><br>
    <!--Doctor Name-->
    <div class="form-group">
 
-    <label class="col-md-4">Doctor Name</label>
+    <label class="col-md-4"><b>Doctor Name</b></label>
     
     <select name="DoctorId" id="DoctorId" class="form-control" #DoctorId="ngModel" required
         [(ngModel)]="appoiService.formData1.DoctorId"
@@ -43,11 +43,11 @@
         <div *ngIf="DoctorId.errors.required">
             Doctor is required</div>
     </div>
-</div>
+</div><br>
     <!--Date of Appointment-->
     <div class="form-group">
 
-        <label>Date Of Appointment</label>
+        <label><b>Date Of Appointment</b></label>
         <input type="date" name="DateofAppointment" id="DateofAppointment" #DateofAppointment="ngModel"
             [ngModel]="appoiService.formData1.DateofAppointment" class="form-control" required
             [ngClass]="{'is-invalid':DateofAppointment.touched && DateofAppointment.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
@@ -56,7 +56,7 @@
             <div *ngIf="DateofAppointment.errors.required">
                 Date Of Appointment is required</div>
         </div>
-    </div>
+    </div><br>
     <!--Is Active-->
     <div class="form-group">
         <div class="form-check">
@@ -65,12 +65,12 @@
                 [(ngModel)]="appoiService.formData1.IsActive" class="form-check-input">
         </div>
     </div>
-
+<br>
     <!--submit button-->
     <br>
     <div class="form-group">
         <button type="submit" [disabled]="!(form.valid && form.dirty)"
-            class="btn btn-lg btn-primary form-control">Add Appointment</button>
+            class="btn btn-lg btn-primary form-control" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">Add Appointment</button>
     </div>
 
 
