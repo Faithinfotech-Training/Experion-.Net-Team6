@@ -106,8 +106,8 @@
         <div class="form-group">
             <label>Date of Birth</label>
             <input type="date" name="DoctorDateofBirth" #DoctorDateofBirth="ngModel"
-                [(ngModel)]="adminService.formData.DoctorDateofBirth" class="form-control" max="2003-01-01"
-                placeholder="Enter Date Of Birth" required
+                [(ngModel)]="adminService.formData.DoctorDateofBirth" class="form-control"
+                placeholder="Enter Date Of Birth" required max="1999-01-01"
                 [ngClass]="{ 'is-invalid' : DoctorDateofBirth.touched && DoctorDateofBirth.invalid }">
             <div class="validation-error" *ngIf="DoctorDateofBirth.touched && DoctorDateofBirth.invalid">
                 <div *ngIf="DoctorDateofBirth.errors.required"> Date Of Birth is required
@@ -131,8 +131,9 @@
         <!--Contact No of doctor-->
         <div class="form-group">
             <label>Contact No.</label>
-            <input type="text" name="DoctorContactNo" #DoctorContactNo="ngModel" pattern="[0-9]+"
-                [(ngModel)]="adminService.formData.DoctorContactNo" class="form-control" minlength="10" maxlength="10"
+            <input type="text" name="DoctorContactNo" #DoctorContactNo="ngModel"
+            pattern="[0-9]+"   minlength="10" maxlength="10"
+                [(ngModel)]="adminService.formData.DoctorContactNo" class="form-control"
                 placeholder="Enter contact number of the assigned doctor" required
                 [ngClass]="{ 'is-invalid' : DoctorContactNo.touched && DoctorContactNo.invalid }">
             <div class="validation-error" *ngIf="DoctorContactNo.touched && DoctorContactNo.invalid">

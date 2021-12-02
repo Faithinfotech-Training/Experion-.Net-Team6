@@ -88,11 +88,17 @@
             <label>Contact No.</label>
             <input type="text" name="StaffContactNo" #StaffContactNo="ngModel" pattern="[0-9]+"
                 [(ngModel)]="adminService.StaffData.StaffContactNo" class="form-control"
-                placeholder="Enter contact number of your staff" required minlength="10"
+                placeholder="Enter contact number of your staff" required pattern="[0-9]+"
+                minlength="10" maxlength="10"
                 [ngClass]="{ 'is-invalid' : StaffContactNo.touched && StaffContactNo.invalid }" />
             <div class="validation-error" *ngIf="StaffContactNo.touched && StaffContactNo.invalid">
                 <div *ngIf="StaffContactNo.errors.required"> Contact number is required
-
+                </div>
+                <div *ngIf="StaffContactNo.errors.pattern">
+                    Wrong Contact Number format
+                </div>
+                <div *ngIf="StaffContactNo.errors.minlength">
+                    Contact Number is Incomplete
                 </div>
                 <div *ngIf="StaffContactNo.errors.pattern">
                     Wrong Contact Number format
@@ -107,7 +113,7 @@
         <div class="form-gorup">
             <label>Location</label>
             <input name="StaffLocation" #StaffLocation="ngModel" [(ngModel)]="adminService.StaffData.StaffLocation"
-                class="form-control" placeholder="Enter Location"  maxlength="40" required
+                class="form-control" placeholder="Enter Location" minlength="3" maxlength="40" required
                 [ngClass]="{ 'is-invalid' : StaffLocation.touched && StaffLocation.invalid }" />
             <div class="validation-error" *ngIf="StaffLocation.touched && StaffLocation.invalid">
                 <div *ngIf="StaffLocation.errors.required">Location is Required</div>
@@ -136,7 +142,5 @@
                 class="btn btn-lg btn-primary form-control">Submit</button>
 
         </div>
-
-
     </div>
 </form>

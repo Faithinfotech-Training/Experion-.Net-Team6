@@ -2,7 +2,7 @@
     <div class="header">
         <h5 class="text-center"
             style="color: darkblue; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-            Patient List
+            Payment Data
         </h5>
         <!--Search Patient-->
         <div class="form-group">
@@ -38,7 +38,7 @@
             <tr
                 *ngFor="let pay of this.paymentService.payment | filter: filter | paginate: {itemsPerPage: 5, currentPage:page} ">
                 <td (click)="populateForm(pat)">{{pay.PaymentId}}</td>
-                <td (click)="populateForm(pat)">{{pay.PaymentDate}}</td>
+                <td (click)="populateForm(pat)">{{pay.PaymentDate | date:'dd-MM-yyyy'}}</td>
                 <td (click)="populateForm(pat)">{{pay.AppointmentId}}</td>
                 <td (click)="populateForm(pat)">{{pay.Amount}}</td>
                 <!-- <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td> -->

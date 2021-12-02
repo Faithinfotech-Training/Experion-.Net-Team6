@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../shared/admin.service';
 import { AuthService } from '../shared/auth.service';
 import { LabListService } from '../shared/lab-list.service';
@@ -22,7 +22,7 @@ export class LabReportComponent implements OnInit {
 
   constructor(public authService:AuthService,public labReportServices:LabReportService,
               public patientService:PatientService,public route:ActivatedRoute,
-              public labListService:LabListService,public adminServices:AdminService) { }
+              public labListService:LabListService,public adminServices:AdminService,public router:Router) { }
 
   ngOnInit(): void {
     //getting all patient
@@ -54,9 +54,10 @@ export class LabReportComponent implements OnInit {
       (result)=>{
         console.log(result);       
       }
+     
     )
-
     this.resetForm(form);
+    this.router.navigate(['/lab']);
   }
 
     //Clear all contents at loading

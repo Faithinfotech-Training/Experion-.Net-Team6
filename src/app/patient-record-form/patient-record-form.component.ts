@@ -17,7 +17,6 @@ logId:number;
 
   ngOnInit(): void {
     this.Id= this.route.snapshot.params['AppointmentId'];
-    this.patientlogservice.GetPatientPastlog(this.Id);
     if(this.Id!=0|| this.Id!=null){
       this.appointmentservice.GetAppointmentbyId(this.Id).subscribe(
         data=>{
@@ -52,6 +51,7 @@ logId:number;
       (result) => {
         console.log(result);
         this.logId=result;
+        this.removeappointment();
         this.addprescription(result);
       }
     );
@@ -65,5 +65,15 @@ logId:number;
     this.router.navigate(['prescriptionmedicine', id]);
   }
 
+  removeappointment(){
 
+    this.appointmentservice.deleteappointment(this.Id).subscribe(
+
+      (result)=>{
+
+        console.log(result);
+
+      }
+    );
+  }
 }

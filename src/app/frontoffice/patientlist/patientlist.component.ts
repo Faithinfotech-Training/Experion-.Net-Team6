@@ -14,13 +14,18 @@ export class PatientlistComponent implements OnInit {
   Id:number;
   filter : string;
   route: any;
+
   constructor(public patientService:PatientService,private router:Router) { }
   role=localStorage.getItem('ACCESS_ROLE');
   ngOnInit(): void {
-    this.patientService.bindPatient();
-
    
-  }
+    this.patientService.bindPatient();
+    }
+
+    patientlog(patientid: number) {
+      console.log(patientid);
+      this.router.navigate(['patientlog', patientid]);
+    }
   /*populateForm(pat: Patient){
     console.log(pat);
     this.patientService.formData1=Object.assign({} ,pat);

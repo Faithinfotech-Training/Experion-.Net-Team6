@@ -20,8 +20,6 @@ import { AppointmentComponent } from './frontoffice/appointment/appointment.comp
 import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AppointmentListComponent } from './appointment-list/appointment-list.component';
-import { PatientLogComponent } from './patient-log/patient-log.component';
 import { PatientRecordFormComponent } from './patient-record-form/patient-record-form.component';
 import { AuthService } from './shared/auth.service';
 import { AdminService } from './shared/admin.service';
@@ -31,7 +29,9 @@ import { LabHomeComponent } from './lab-home/lab-home.component';
 import { PrescriptionMedicineComponent } from '../app/prescription-medicine/prescription-medicine.component';
 import { PrescriptiontestComponent } from '../app/prescriptiontest/prescriptiontest.component';
 import { PaymentComponent } from './frontoffice/payment/payment.component';
-import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component'
+import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { PatientLogComponent } from './patient-log/patient-log.component';
 
 @NgModule({
   declarations: [
