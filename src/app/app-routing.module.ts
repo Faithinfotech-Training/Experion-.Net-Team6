@@ -13,14 +13,17 @@ import { LabTechnicianComponent } from './lab-technician/lab-technician.componen
 import { DoctorComponent } from './doctor/doctor.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { LoginComponent } from './login/login.component';
-import { PatientLogComponent } from './patient-log/patient-log.component';
+//import { PatientLogComponent } from './patient-log/patient-log.component';
 import { PatientRecordFormComponent } from './patient-record-form/patient-record-form.component';
 import { AuthGuard } from './shared/auth.guard';
-import { GeneratedReportComponent } from './generated-report/generated-report.component';
-import { LabHomeComponent } from './lab-home/lab-home.component';
+import { PrescriptionMedicineComponent } from '../app/prescription-medicine/prescription-medicine.component';
+import { PrescriptiontestComponent } from '../app/prescriptiontest/prescriptiontest.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
-import { PrescriptionMedicineComponent } from './prescription-medicine/prescription-medicine.component';
-import { PrescriptiontestComponent } from './prescriptiontest/prescriptiontest.component';
+import { LabHomeComponent } from './lab-home/lab-home.component';
+import { GeneratedReportComponent } from './generated-report/generated-report.component';
+import { PatientLogComponent } from './patient-log/patient-log.component';
+import { PaymentComponent } from './frontoffice/payment/payment.component';
+import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -41,10 +44,20 @@ const routes: Routes = [
   { path: 'doctor-list', component: DoctorListComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'add-doctor', component: AdddoctorComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'appointmentlist', component: AppointmentListComponent },
-  { path: 'patientlogform/:AppointmentId', component: PatientRecordFormComponent },
+  { path: 'patientrecordform/:PatientId', component: PatientRecordFormComponent },
   { path: 'patientlog/:PatientId', component: PatientLogComponent, canActivate: [AuthGuard], data: { role: '2' } },
+  { path: 'add-staff/:Id', component: AddstaffComponent },
+  { path: 'add-doctor/:Id', component: AdddoctorComponent, canActivate: [AuthGuard], data: { role: '1' } },
+  { path: 'patientlogform/:AppointmentId', component: PatientRecordFormComponent },
   { path: 'prescriptionmedicine/:LogId', component: PrescriptionMedicineComponent },
-  { path: 'prescriptiontest/:LogId', component: PrescriptiontestComponent }
+  { path: 'prescriptiontest/:LogId', component: PrescriptiontestComponent },
+  { path: 'payment/:AId', component: PaymentComponent },
+  { path: 'payment-list', component: ViewpaymentComponent }
+
+
+
+
+
 
 ]
 @NgModule({
@@ -52,3 +65,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+

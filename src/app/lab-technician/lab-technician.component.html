@@ -13,6 +13,7 @@
         <br>
     </div>
     <br>
+
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -48,6 +49,9 @@
             </tr>
         </tbody>
     </table>
-    <!--Pagination-->
-    <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+
+    <div>
+        <!--Pagination-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
 </div>
