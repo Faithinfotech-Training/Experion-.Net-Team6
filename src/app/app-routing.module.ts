@@ -22,6 +22,8 @@ import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 import { LabHomeComponent } from './lab-home/lab-home.component';
 import { GeneratedReportComponent } from './generated-report/generated-report.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
+import { PaymentComponent } from './frontoffice/payment/payment.component';
+import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -48,7 +50,10 @@ const routes: Routes = [
   { path: 'add-doctor/:Id', component: AdddoctorComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'patientlogform/:AppointmentId', component: PatientRecordFormComponent },
   { path: 'prescriptionmedicine/:LogId', component: PrescriptionMedicineComponent },
-  { path: 'prescriptiontest/:LogId', component: PrescriptiontestComponent }
+  { path: 'prescriptiontest/:LogId', component: PrescriptiontestComponent },
+  { path: 'payment/:AId', component: PaymentComponent },
+  { path: 'payment-list', component: ViewpaymentComponent }
+
 
 
 

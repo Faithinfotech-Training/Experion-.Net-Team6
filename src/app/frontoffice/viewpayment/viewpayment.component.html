@@ -16,41 +16,31 @@
         <thead>
             <tr>
                 <th>
-                    PatientId
+                    PaymentId
                 </th>
                 <th>
-                    PatientName
+                    PaymentDate
                 </th>
                 <th>
-                    Age
+                    AppointmentId
                 </th>
                 <th>
-                    Gender
+                    Amount
                 </th>
-                <th>
-                    Location
-                </th>
-                <th>
-                    ContactNo
-                </th>
+                
                 <!-- <th>
-                    EmergencyContact
-                </th> -->
-                <th>
                     Action
-                </th>
+                </th> -->
 
             </tr>
         </thead>
         <tbody>
             <tr
-                *ngFor="let pat of this.patientService.patients | filter: filter | paginate: {itemsPerPage: 5, currentPage:page} ">
-                <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
-                <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
-                <td (click)="populateForm(pat)">{{pat.Age}}</td>
-                <td (click)="populateForm(pat)">{{pat.Gender}}</td>
-                <td (click)="populateForm(pat)">{{pat.Location}}</td>
-                <td (click)="populateForm(pat)">{{pat.ContactNo}}</td>
+                *ngFor="let pay of this.paymentService.payment | filter: filter | paginate: {itemsPerPage: 5, currentPage:page} ">
+                <td (click)="populateForm(pat)">{{pay.PaymentId}}</td>
+                <td (click)="populateForm(pat)">{{pay.PaymentDate}}</td>
+                <td (click)="populateForm(pat)">{{pay.AppointmentId}}</td>
+                <td (click)="populateForm(pat)">{{pay.Amount}}</td>
                 <!-- <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td> -->
 
                 <ng-template [ngIf]="role==4 ">
