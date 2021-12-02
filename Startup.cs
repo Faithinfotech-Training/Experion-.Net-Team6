@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 
 namespace cmsRestApi
 {
@@ -31,6 +32,7 @@ namespace cmsRestApi
             services.AddControllers();
             services.AddDbContext<ClinicManagementSystemDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
             services.AddScoped<IDoctorRepository, DoctorRepository>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IPaymentRepo, PaymentRepo>();
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<IMedicineRepo, MedicineRepo>();
@@ -42,6 +44,7 @@ namespace cmsRestApi
             services.AddScoped<IDoctorRepository, DoctorRepository>();
             services.AddScoped<IStaffRepository, StaffRepository>();
             services.AddScoped<IPaymentRepo, PaymentRepo>();
+            services.AddScoped<IPatientLogRepository, PatientLogRepository>();
 
             //adding services
             services.AddControllers().AddNewtonsoftJson(
@@ -54,7 +57,7 @@ namespace cmsRestApi
             }
             );
             services.AddCors();
-
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
