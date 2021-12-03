@@ -9,5 +9,6 @@ namespace cmsRestApi.Models
         public DateTime? AnnouncementDate { get; set; }
         public string Subject { get; set; }
         public string Announcement { get; set; }
+        public bool? IsActive { get; set; }
     }
 }

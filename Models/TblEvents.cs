@@ -9,5 +9,6 @@ namespace cmsRestApi.Models
         public string EventName { get; set; }
         public DateTime? EventDate { get; set; }
         public string EventDecription { get; set; }
+        public bool? IsActive { get; set; }
     }
 }

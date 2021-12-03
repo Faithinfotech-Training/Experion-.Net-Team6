@@ -35,7 +35,6 @@ namespace cmsRestApi
             services.AddControllers();
             services.AddDbContext<ClinicManagementSystemDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
             services.AddScoped<IDoctorRepository, DoctorRepository>();
-            services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IPaymentRepo, PaymentRepo>();
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<IMedicineRepo, MedicineRepo>();
@@ -43,14 +42,21 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<ILabTestRepository, LabTestRepository>();
             services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();
+
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IEventRepo, EventRepo>();
+            services.AddScoped<IAnnouncementRepo, AnnouncementRepo>();
             services.AddScoped<IStaffRepository, StaffRepository>();
+
+
+
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             services.AddScoped<IDoctorRepository, DoctorRepository>();
             services.AddScoped<IStaffRepository, StaffRepository>();
             services.AddScoped<IPaymentRepo, PaymentRepo>();
-            services.AddScoped<IPatientLogRepository, PatientLogRepository>();
+
+
 
             //adding services
             services.AddControllers().AddNewtonsoftJson(
@@ -92,12 +98,10 @@ namespace cmsRestApi
             options.WithOrigins("http://localhost:4200", "https://b674-103-151-188-91.ngrok.io")
             .AllowAnyMethod().AllowAnyHeader().AllowCredentials());
 
-                if (env.IsDevelopment())
-                {
-                    app.UseDeveloperExceptionPage();
-                }
-                //Authentication : make authentication services available to the application
-                app.UseAuthentication();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
                 app.UseHttpsRedirection();
 
@@ -105,11 +109,10 @@ namespace cmsRestApi
 
                 app.UseAuthorization();
 
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                });
-            }
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
-
+}
