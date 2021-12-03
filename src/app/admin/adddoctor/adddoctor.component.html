@@ -1,7 +1,9 @@
+
+<div class="container">
 <form name="doctorform" autocomplete="off" #form="ngForm" (ngSubmit)="onSubmit(form)">
-    <div class="form-control">
+    <div class="form-control" style="width: 40em;">
         <!--Staff ID-->
-        <input type="number" name="DoctorId" [(ngModel)]="adminService.formData.DoctorId">
+        <input type="number" hidden name="DoctorId" [(ngModel)]="adminService.formData.DoctorId">
         <!--Staff Name-->
         <div class="form-gorup">
             <label>Full Name of Doctor</label>
@@ -172,3 +174,4 @@
 
     </div>
 </form>
+</div>

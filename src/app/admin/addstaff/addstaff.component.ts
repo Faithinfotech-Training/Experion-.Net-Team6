@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/shared/admin.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class AddstaffComponent implements OnInit {
   constructor(
     public adminService: AdminService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toasterService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -53,6 +55,7 @@ export class AddstaffComponent implements OnInit {
       console.log("updating record..");
       this.updatestaff(form);
     }
+  // this.router.navigateByUrl('staff-list');
   }
 
   //Clear all contents at loading
@@ -69,9 +72,11 @@ export class AddstaffComponent implements OnInit {
       (result) => {
         console.log(result);
         this.resetForm(form);
+        this.toasterService.success('Staff Added successfully');
+
       }
     )
-    window.location.reload();
+    //window.location.reload();
   }
 
   updatestaff(form: NgForm) {
@@ -80,9 +85,10 @@ export class AddstaffComponent implements OnInit {
       (result) => {
         console.log(result);
         this.resetForm(form);
+        this.toasterService.success('Staff Updated successfully');
       }
     )
-    window.location.reload();
+  //  window.location.reload();
   }
 
 }

@@ -9,9 +9,9 @@
             <input class="form-control" type="text" placeholder="search here..."
                 style="text-decoration: crimson; background-color: rgb(226, 233, 247);" [(ngModel)]="filter" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"><br>
         </div>
-        <a [routerLink]="['/appointment']" class="btn icon-btn btn-primary fa fa-plus" style="margin-left:15px " style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
-            Add Appointment</a><br><hr>
-       
+        <div *ngIf="role=='4'">
+        <a [routerLink]="['/appointment']" class="btn btn-sm btn-primary" style="margin-left:10px " style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">Add Appointment</a><br><hr>
+    </div>
     </div>
     <table class="table table-bordered table-striped" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
         <thead>
@@ -58,7 +58,7 @@
                 <!-- <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td> -->
 
                 <ng-template [ngIf]="role==2">
-                    <button class="btn  btn-info" (click)="patientlog(pat.PatientId)">View PastRecord</button>
+                    <button class="btn btn-sm" (click)="patientlog(pat.PatientId)">View PastRecord</button>
                 </ng-template>
 
                 <ng-template [ngIf]="role==4 ">

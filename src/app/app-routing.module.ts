@@ -26,10 +26,10 @@ import { PaymentComponent } from './frontoffice/payment/payment.component';
 import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component'
 import { EventlistComponent } from './events/eventlist/eventlist.component';
 import { EventComponent } from './events/event/event.component';
-import { AppointmentService } from './shared/appointment.service';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'patientlist', component: PatientlistComponent },
   { path: 'doctor', component: DoctorComponent },
@@ -61,8 +61,8 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'addevent', component: EventComponent },
   { path: 'events', component: EventlistComponent },
-  { path: 'payment-list', component: ViewpaymentComponent }
-
+  { path: 'payment-list', component: ViewpaymentComponent },
+{ path: 'home', component: HomeComponent }
 
 
 

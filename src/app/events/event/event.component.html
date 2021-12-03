@@ -24,7 +24,7 @@
 
         <label><b>Event Date</b></label>
         <input type="date" name="EventDate" id="EventDate" #EventDate="ngModel"
-            [ngModel]="eventService.formData.EventDate" class="form-control" required min="2021-12-03" max="2022-12-02"
+            [ngModel]="eventService.formData.EventDate" class="form-control" 
             [ngClass]="{'is-invalid':EventDate.touched && EventDate.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
         <div class="validation-error" *ngIf="EventDate.touched && EventDate.invalid">
 
@@ -37,7 +37,7 @@
 
     <label><b>Event Description</b></label>
     <textarea rows="4" cols="80" name="EventDecription" #EventDecription="ngModel" [ngModel]="eventService.formData.EventDecription"
-        class="form-control" placeholder="Enter Event Description" pattern="[a-zA-Z\s]+" minlength="1" maxlength="1000" required
+        class="form-control" placeholder="Enter Event Description"  minlength="1" maxlength="1000" required
         [ngClass]="{'is-invalid':EventDecription.touched && EventDecription.invalid}"  style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"></textarea>
     <div class="validation-error" *ngIf="EventDecription.touched && EventDecription.invalid">
 

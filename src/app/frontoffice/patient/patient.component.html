@@ -1,21 +1,23 @@
 <form name="patform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
-    <div class="container mt-3" style="width: 30em;"> 
-    <!--patient id-->
-    <input type="hidden" name="PatientId" [ngModel]="patientService.formData.PatientId" />
+    <div class="container mt-3" style="width: 30em;">
+        <!--patient id-->
+        <input type="hidden" name="PatientId" [ngModel]="patientService.formData.PatientId" />
 
     <h1 align="center"><b></b></h1>
 
-    <!--patient name-->
-    <div class="form-group">
+        <!--patient name-->
+        <div class="form-group">
 
-        <label><b>Full Name</b></label>
-        <input name="patientName" #PatientName="ngModel" [ngModel]="patientService.formData.PatientName"
-            class="form-control" placeholder="Enter full name" pattern="[a-zA-Z\s]+" minlength="1" maxlength="25" required
-            [ngClass]="{'is-invalid':PatientName.touched && PatientName.invalid}"  style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
-        <div class="validation-error" *ngIf="PatientName.touched && PatientName.invalid">
+            <label><b>Full Name</b></label>
+            <input name="patientName" #PatientName="ngModel" [ngModel]="patientService.formData.PatientName"
+                class="form-control" placeholder="Enter full name" pattern="[a-zA-Z\s]+" minlength="1" maxlength="25"
+                required [ngClass]="{'is-invalid':PatientName.touched && PatientName.invalid}"
+                style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
+            <div class="validation-error" *ngIf="PatientName.touched && PatientName.invalid">
 
-            <div *ngIf="PatientName.errors.required">
-                Full Name is required</div>
+                <div *ngIf="PatientName.errors.required">
+                    Full Name is required</div>
+            </div>
         </div>
     </div>
     <br>
@@ -78,59 +80,65 @@
                 <div *ngIf="ContactNo.errors.minlength">
                     Contact Number is Incomplete
                 </div>
-        </div>
-        
-    </div><br>
-     <!--contact-->
-     <div class="form-group">
+            </div>
 
-        <label><b>Emegency Contact</b></label>
-        <input name="EmergencyContact" #EmergencyContact="ngModel" [ngModel]="patientService.formData.EmergencyContact"
-            class="form-control" placeholder="Enter Contact" pattern="[0-9]+"  minlength="10" maxlength="10" required
-            [ngClass]="{'is-invalid':EmergencyContact.touched && EmergencyContact.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
-        <div class="validation-error" *ngIf="EmergencyContact.touched && EmergencyContact.invalid">
+        </div><br>
+        <!--contact-->
+        <div class="form-group">
 
-            <div *ngIf="EmergencyContact.errors.required">
-                Contact is required</div>
+            <label><b>Emegency Contact</b></label>
+            <input name="EmergencyContact" #EmergencyContact="ngModel"
+                [ngModel]="patientService.formData.EmergencyContact" class="form-control" placeholder="Enter Contact"
+                pattern="[0-9]+" minlength="10" maxlength="10" required
+                [ngClass]="{'is-invalid':EmergencyContact.touched && EmergencyContact.invalid}"
+                style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
+            <div class="validation-error" *ngIf="EmergencyContact.touched && EmergencyContact.invalid">
+
+                <div *ngIf="EmergencyContact.errors.required">
+                    Contact is required</div>
                 <div *ngIf="EmergencyContact.errors.pattern">
                     Wrong Contact Number format
                 </div>
                 <div *ngIf="EmergencyContact.errors.minlength">
                     Contact Number is Incomplete
                 </div>
+            </div>
+
         </div>
-       
-    </div>
-    <br>
-    <!--Gender-->
-    <div class="form-group">
-        <label><b>Gender&nbsp;</b></label>
-        <input type="radio" value="Male" name="Gender" required #Gender="ngModel" [ngModel]="patientService.formData.Gender" class="form-check-input" style="box-shadow: 2px 1px 1px rgb(152, 173, 212);"> Male
-        <input type="radio" value="Female" name="Gender"required #Gender="ngModel" [ngModel]="patientService.formData.Gender" class="form-check-input" style="box-shadow: 2px 1px 1px rgb(152, 173, 212);"> Female
-        <div *ngIf="Gender.touched && Gender.invalid"> 
-            <div *ngIf="Gender.errors.required">
-                Gender is required
+        <br>
+        <!--Gender-->
+        <div class="form-group">
+            <label><b>Gender&nbsp;</b></label>
+            <input type="radio" value="Male" name="Gender" required #Gender="ngModel"
+                [ngModel]="patientService.formData.Gender" class="form-check-input"
+                style="box-shadow: 2px 1px 1px rgb(152, 173, 212);"> Male
+            <input type="radio" value="Female" name="Gender" required #Gender="ngModel"
+                [ngModel]="patientService.formData.Gender" class="form-check-input"
+                style="box-shadow: 2px 1px 1px rgb(152, 173, 212);"> Female
+            <div *ngIf="Gender.touched && Gender.invalid">
+                <div *ngIf="Gender.errors.required">
+                    Gender is required
+                </div>
+            </div>
         </div>
-        </div>  
-    </div>
-    <br>
-    <!--Is Active-->
-    <div class="form-group">
-        <div class="form-check">
-            <label class="form-check-label"><b>Is active</b> </label>
-            <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
-                [(ngModel)]="patientService.formData.IsActive" class="form-check-input">
+        <br>
+        <!--Is Active-->
+        <div class="form-group">
+            <div class="form-check">
+                <label class="form-check-label"><b>Is active</b> </label>
+                <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
+                    [(ngModel)]="patientService.formData.IsActive" class="form-check-input">
+            </div>
         </div>
-    </div>
-    <br>
-    <!--submit button-->
-    <br>
-    <div class="form-group" >
-        <button type="submit" [disabled]="!(form.valid && form.dirty)"
-            class="btn btn-lg btn-primary form-control" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">Submit</button>
-    </div>
+        <br>
+        <!--submit button-->
+        <br>
+        <div class="form-group">
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control"
+                style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">Submit</button>
+        </div>
 
 
-</div>
+    </div>
 
 </form>

@@ -1,24 +1,35 @@
-<div class="container mt-3"> 
+<div class="container mt-3">
     <h5>Welcome! {{loggedUser}}</h5>
 </div>
 <div class="container">
-<button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
-    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button>
-<br>
-<br>
-<hr>
-<div class="row">
-    <div class="col-lg-3">
-<button type="button" routerLink="/staff-list"  class="btn btn-primary btn-md dashboard-button"><i class="fa fa-list" style="font-size: 5em; margin-right: 5px;"></i><br>Manage Staff</button>
-</div>
-<div class="col-lg-3">
-<button type="button" routerLink="/add-staff" class="btn btn-primary btn-md dashboard-button"><i class="fa fa-users" style="font-size: 5em; margin-right: 5px;"></i><br>Add Staff</button>
-</div>
-<div class="col-lg-3">
-<button type="button" routerLink="/doctor-list" class="btn btn-primary btn-md dashboard-button"><i class="fa fa-user-md" style="font-size: 5em; margin-right: 5px;"></i><br>Manage Doctor</button>
-</div>
-<div class="col-lg-3">
-<button type="button" routerLink="/add-doctor" class="btn btn-primary btn-md dashboard-button"><i class="fa fa-ellipsis-v" style="font-size: 5em; margin-right: 5px;"></i><br>Add Doctor</button>
-</div>
-</div>
+    <button style="width: 7em; float: right;" class="btn btn-primary form-control" (click)="logOut()">
+        <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button>
+    <br>
+    <br>
+    <hr>
+    <div class="row dashboard-row">
+        <div class="col-lg-4">
+            <button type="button" routerLink="/staff-list" class="btn btn-primary btn-md dashboard-button"><i
+                    class="fa fa-list" style="font-size: 5em; margin-right: 5px;"></i><br>Manage Staff</button>
+        </div>
+        <div class="col-lg-4">
+            <button type="button" routerLink="/add-staff" class="btn btn-primary btn-md dashboard-button"><i
+                    class="fa fa-users" style="font-size: 5em; margin-right: 5px;"></i><br>Add Staff</button>
+        </div>
+        <div class="col-lg-4">
+            <button type="button" routerLink="/doctor-list" class="btn btn-primary btn-md dashboard-button"><i
+                    class="fa fa-ellipsis-v" style="font-size: 5em; margin-right: 5px;"></i><br>Manage Doctor</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4">
+            <button type="button" routerLink="/add-doctor" class="btn btn-primary btn-md dashboard-button"><i
+                    class="fa fa-user-md" style="font-size: 5em; margin-right: 5px;"></i><br>Add Doctor</button>
+        </div>
+        <div class="col-lg-4">
+            <button type="button" routerLink="/events" class="btn btn-primary btn-md dashboard-button"><i
+                    class="fa fa-calendar" style="font-size: 5em; margin-right: 5px;"></i><br>Events</button>
+        </div>
+    </div>
 </div>

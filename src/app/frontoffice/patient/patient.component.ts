@@ -4,6 +4,7 @@ import { Patient } from 'src/app/shared/patient';
 import { NgForm } from '@angular/forms';
 import { PatientService } from 'src/app/shared/patient.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-patient',
@@ -18,7 +19,8 @@ export class PatientComponent implements OnInit {
   constructor(
     public patientService: PatientService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private toasterService: ToastrService) { }
 
   ngOnInit(): void {
     this.Id = this.route.snapshot.params['patId'];
@@ -65,9 +67,11 @@ export class PatientComponent implements OnInit {
       (result) => {
         console.log(result);
         this.resetForm(form);
+        this.toasterService.success('Patient Added successfully');
+
       }
     )
-    window.location.reload();
+   // window.location.reload();
   }
 
   updatePatient(form: NgForm) {
@@ -76,9 +80,11 @@ export class PatientComponent implements OnInit {
       (result) => {
         console.log(result);
         this.resetForm(form);
+        this.toasterService.success('Patient Updated successfully');
+
       }
     )
-    window.location.reload();
+ //   window.location.reload();
   }
   
 

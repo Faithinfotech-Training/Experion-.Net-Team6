@@ -14,7 +14,7 @@ export class LabReportService {
 
 
   formData: LabReport = new LabReport;
-  generatedResults: GeneratedFormView[];
+  generatedResults: GeneratedFormView[]; 
   testDetails: PrescriptionTest;
 
   constructor(private httpClient: HttpClient, public patientService: PatientService) { }

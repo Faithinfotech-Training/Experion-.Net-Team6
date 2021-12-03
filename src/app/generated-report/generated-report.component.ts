@@ -18,7 +18,7 @@ export class GeneratedReportComponent implements OnInit {
 
   ngOnInit(): void {
     //Get all generated results
-    this.labReportService.getGeneratedReport();
+    this.labReportService.getGeneratedReport(); 
   }
 
   logOut(){
