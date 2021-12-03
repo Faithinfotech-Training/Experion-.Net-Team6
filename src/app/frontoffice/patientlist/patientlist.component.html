@@ -57,7 +57,7 @@
                 <!-- <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td> -->
 
                 <ng-template [ngIf]="role==2">
-                    <button class="btn  btn-info" (click)="patientlog(pat.PatientId)">View PastRecord</button>
+                    <button class="btn btn-sm" (click)="patientlog(pat.PatientId)">View PastRecord</button>
                 </ng-template>
 
                 <ng-template [ngIf]="role==4 ">

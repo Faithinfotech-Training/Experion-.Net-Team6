@@ -32,6 +32,7 @@ import { PaymentComponent } from './frontoffice/payment/payment.component';
 import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { PatientLogComponent } from './patient-log/patient-log.component';
     PrescriptiontestComponent,
     FrontofficeComponent,
     PaymentComponent,
-    ViewpaymentComponent
+    ViewpaymentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,7 @@ import { PatientLogComponent } from './patient-log/patient-log.component';
     HttpClientModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, AdminService, AuthGuard],
   bootstrap: [AppComponent]
