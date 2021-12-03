@@ -24,6 +24,8 @@ import { GeneratedReportComponent } from './generated-report/generated-report.co
 import { PatientLogComponent } from './patient-log/patient-log.component';
 import { PaymentComponent } from './frontoffice/payment/payment.component';
 import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component'
+import { EventlistComponent } from './events/eventlist/eventlist.component';
+import { EventComponent } from './events/event/event.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -53,6 +55,10 @@ const routes: Routes = [
   { path: 'prescriptionmedicine/:LogId', component: PrescriptionMedicineComponent },
   { path: 'prescriptiontest/:LogId', component: PrescriptiontestComponent },
   { path: 'payment/:AId', component: PaymentComponent },
+  { path: 'addevent/:eveId', component: EventComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'addevent', component: EventComponent },
+  { path: 'events', component: EventlistComponent },
   { path: 'payment-list', component: ViewpaymentComponent }
 
 
