@@ -40,6 +40,12 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<ILabTestRepository, LabTestRepository>();
             services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();
+<<<<<<< HEAD
+            services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IStaffRepository, StaffRepository>();
+
+=======
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             services.AddScoped<IDoctorRepository, DoctorRepository>();
             services.AddScoped<IStaffRepository, StaffRepository>();
@@ -65,21 +71,24 @@ namespace cmsRestApi
             options.WithOrigins("http://localhost:4200", "https://b674-103-151-188-91.ngrok.io")
             .AllowAnyMethod().AllowAnyHeader().AllowCredentials());
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
+                if (env.IsDevelopment())
+                {
+                    app.UseDeveloperExceptionPage();
+                }
+                //Authentication : make authentication services available to the application
+                app.UseAuthentication();
+
+                app.UseHttpsRedirection();
+
+                app.UseRouting();
+
+                app.UseAuthorization();
+
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                });
             }
-
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
         }
     }
-}
+
