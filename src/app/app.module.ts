@@ -36,6 +36,7 @@ import { EventsComponent } from './events/events.component';
 import { EventComponent } from './events/event/event.component';
 import { EventlistComponent } from './events/eventlist/eventlist.component';
 import { HomeComponent } from './home/home.component';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +78,7 @@ import { HomeComponent } from './home/home.component';
     Ng2SearchPipeModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, AdminService, AuthGuard],
+  providers: [AuthService, AdminService, AuthGuard,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

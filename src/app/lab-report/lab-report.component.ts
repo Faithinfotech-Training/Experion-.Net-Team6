@@ -19,6 +19,7 @@ export class LabReportComponent implements OnInit {
 
   LogId:number;
   testDetails:PrescriptionTest;
+  loggedUser=localStorage.getItem('userName');
 
   constructor(public authService:AuthService,public labReportServices:LabReportService,
               public patientService:PatientService,public route:ActivatedRoute,
