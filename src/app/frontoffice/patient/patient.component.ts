@@ -71,7 +71,7 @@ export class PatientComponent implements OnInit {
 
       }
     )
-    window.location.reload();
+   // window.location.reload();
   }
 
   updatePatient(form: NgForm) {
@@ -84,7 +84,7 @@ export class PatientComponent implements OnInit {
 
       }
     )
-    window.location.reload();
+ //   window.location.reload();
   }
   
 

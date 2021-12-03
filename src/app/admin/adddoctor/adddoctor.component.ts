@@ -59,7 +59,7 @@ export class AdddoctorComponent implements OnInit {
       console.log("updating record..");
       this.updatedoctor(form);
     }
-    this.router.navigateByUrl('doctor-list');
+   // this.router.navigateByUrl('doctor-list');
   }
 
   //Clear all contents at loading

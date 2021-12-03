@@ -8,13 +8,10 @@
         <a class="nav-link" href="home#about">About Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="home#team">Team</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="home#contact">Contact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
+        <a class="nav-link" [routerLink]="['/login']">Log In</a>
       </li>
     </ul>
   </nav>
@@ -59,38 +56,41 @@
     </div>
 
     <!-- Section: Contact v.3 -->
-<section class="contact-section my-5">
+    <section class="contact-section my-5" *ngFor="let app of eventservice.events">
+      <!-- Form with header -->
+      <div class="card">
+        <!-- Grid row -->
+        <div class="row">
+          <div class="col-lg-4"></div>
+          <!-- Grid column -->
+          <div class="col-lg-4">
+            <div class="card-body contact text-center h-100 white-text">
+              <table>
+                <thead>
+                  <th><i class="fa fa-calendar"></i>{{app.EventName}}</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{app.EventDate| date:'dd-MM-yyyy'}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{app.EventDecription}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-  <!-- Form with header -->
-  <div class="card">
+          </div>
+          <!-- Grid column -->
 
-    <!-- Grid row -->
-    <div class="row">
-
-      <div class="col-lg-2">
         </div>
-      <!-- Grid column -->
-      <div class="col-lg-4">
-
-        <div class="card-body contact text-center h-100 white-text">
-
-      
-        
-            
-
-        </div>
+        <!-- Grid row -->
 
       </div>
-      <!-- Grid column -->
-     
-    </div>
-    <!-- Grid row -->
+      <!-- Form with header -->
 
-  </div>
-  <!-- Form with header -->
-
-</section>
-<!-- Section: Contact v.3 -->
+    </section>
+    <!-- Section: Contact v.3 -->
 
   </section>
   <section class="container contact" id="contact">
@@ -99,66 +99,66 @@
     </div>
 
     <!-- Section: Contact v.3 -->
-<section class="contact-section my-5">
+    <section class="contact-section my-5">
 
-  <!-- Form with header -->
-  <div class="card">
+      <!-- Form with header -->
+      <div class="card contact-details">
 
-    <!-- Grid row -->
-    <div class="row">
+        <!-- Grid row -->
+        <div class="row">
 
-      <div class="col-lg-4">
-        
+          <div class="col-lg-4">
+
+          </div>
+          <!-- Grid column -->
+          <div class="col-lg-4">
+
+            <div class="card-body contact-body text-center h-100 white-text">
+
+
+              <ul class="text-lg-left list-unstyled ml-4">
+                <li>
+                  <p><i class="fa fa-map-marker-alt pr-2"></i>New York, 94126, USA</p>
+                </li>
+                <li>
+                  <p><i class="fa fa-phone pr-4"></i>+ 01 234 567 89</p>
+                </li>
+                <li>
+                  <p><i class="fa fa-envelope pr-2"></i>contact@example.com</p>
+                </li>
+              </ul>
+              <hr class="hr-light my-4">
+              <ul class="list-inline text-center list-unstyled">
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg tw-ic">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg li-ic">
+                    <i class="fa fa-linkedin-in"> </i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg ins-ic">
+                    <i class="fa fa-instagram"> </i>
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
         </div>
-      <!-- Grid column -->
-      <div class="col-lg-4">
-
-        <div class="card-body contact text-center h-100 white-text">
-
-      
-          <ul class="text-lg-left list-unstyled ml-4">
-            <li>
-              <p><i class="fa fa-map-marker-alt pr-2"></i>New York, 94126, USA</p>
-            </li>
-            <li>
-              <p><i class="fa fa-phone pr-4"></i>+ 01 234 567 89</p>
-            </li>
-            <li>
-              <p><i class="fa fa-envelope pr-2"></i>contact@example.com</p>
-            </li>
-          </ul>
-          <hr class="hr-light my-4">
-          <ul class="list-inline text-center list-unstyled">
-            <li class="list-inline-item">
-              <a class="p-2 fa-lg tw-ic">
-                <i class="fa fa-twitter"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="p-2 fa-lg li-ic">
-                <i class="fa fa-linkedin-in"> </i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="p-2 fa-lg ins-ic">
-                <i class="fa fa-instagram"> </i>
-              </a>
-            </li>
-          </ul>
-
-        </div>
+        <!-- Grid row -->
 
       </div>
-      <!-- Grid column -->
-     
-    </div>
-    <!-- Grid row -->
+      <!-- Form with header -->
 
-  </div>
-  <!-- Form with header -->
-
-</section>
-<!-- Section: Contact v.3 -->
+    </section>
+    <!-- Section: Contact v.3 -->
 
   </section>
 </body>
