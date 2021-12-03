@@ -1,7 +1,7 @@
 export class Event {
     EventId : number;
     EventName : string;
-    EventDate :Date=new Date;
+    EventDate :Date;
     EventDecription : String;
     IsActive : boolean;
 }

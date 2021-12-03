@@ -9,8 +9,9 @@
             <input class="form-control" type="text" placeholder="search here..."
                 style="text-decoration: crimson; background-color: rgb(226, 233, 247);" [(ngModel)]="filter" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"><br>
         </div>
+        <div *ngIf="role=='4'">
         <a [routerLink]="['/appointment']" class="btn btn-sm btn-primary" style="margin-left:10px " style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">Add Appointment</a><br><hr>
-       
+    </div>
     </div>
     <table class="table table-bordered table-striped" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
         <thead>

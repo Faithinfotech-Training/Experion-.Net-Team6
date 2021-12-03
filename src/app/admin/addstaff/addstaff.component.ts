@@ -53,7 +53,7 @@ export class AddstaffComponent implements OnInit {
       console.log("updating record..");
       this.updatestaff(form);
     }
-    this.router.navigateByUrl('staff-list');
+  // this.router.navigateByUrl('staff-list');
   }
 
   //Clear all contents at loading

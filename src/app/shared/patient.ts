@@ -7,4 +7,5 @@ export class Patient {
     ContactNo : string;
     EmergencyContact : string;
     IsActive : boolean;
+    EmailId:string;
 }
