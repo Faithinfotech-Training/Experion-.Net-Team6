@@ -56,13 +56,14 @@
 
             <div *ngIf="ContactNo.errors.required">
                 Contact is required</div>
+                <div *ngIf="ContactNo.errors.pattern">
+                    Wrong Contact Number format
+                </div>
+                <div *ngIf="ContactNo.errors.minlength">
+                    Contact Number is Incomplete
+                </div>
         </div>
-        <div *ngIf="ContactNo.errors.pattern">
-            Wrong Contact Number format
-        </div>
-        <div *ngIf="ContactNo.errors.minlength">
-            Contact Number is Incomplete
-        </div>
+        
     </div><br>
      <!--contact-->
      <div class="form-group">
@@ -75,13 +76,14 @@
 
             <div *ngIf="EmergencyContact.errors.required">
                 Contact is required</div>
+                <div *ngIf="EmergencyContact.errors.pattern">
+                    Wrong Contact Number format
+                </div>
+                <div *ngIf="EmergencyContact.errors.minlength">
+                    Contact Number is Incomplete
+                </div>
         </div>
-        <div *ngIf="EmergencyContact.errors.pattern">
-            Wrong Contact Number format
-        </div>
-        <div *ngIf="EmergencyContact.errors.minlength">
-            Contact Number is Incomplete
-        </div>
+      
     </div>
     <br>
     <!--Gender-->

@@ -36,7 +36,7 @@ export class AppointmentService {
   }
 
   GetAppointmentbyVM(){
-    this.httpClient.get(environment.apiUrl + '/api/appointment/getbyvm')
+    this.httpClient.get(environment.apiUrl + '/api/appointment/Getbyvm')
     .toPromise().then(
       response => this.appointment = response as Appointment[])
   }

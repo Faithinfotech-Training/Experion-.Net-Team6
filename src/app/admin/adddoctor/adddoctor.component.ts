@@ -41,6 +41,7 @@ export class AdddoctorComponent implements OnInit {
         error => console.log(error)
       );
     }
+    
   }
   onSubmit(form?: NgForm)
   {
@@ -56,6 +57,7 @@ export class AdddoctorComponent implements OnInit {
       console.log("updating record..");
       this.updatedoctor(form);
     }
+    this.router.navigateByUrl('doctor-list');
   }
 
   //Clear all contents at loading
@@ -75,7 +77,7 @@ export class AdddoctorComponent implements OnInit {
         console.log("completed");
       }
     )
-    window.location.reload();
+    //window.location.reload();
   }
 
   updatedoctor(form: NgForm) {
@@ -87,7 +89,7 @@ export class AdddoctorComponent implements OnInit {
         console.log("completed");
       }
     )
-    window.location.reload();
+  //  window.location.reload();
   }
 
 }

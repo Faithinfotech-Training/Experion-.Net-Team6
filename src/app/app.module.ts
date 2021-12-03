@@ -23,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PatientRecordFormComponent } from './patient-record-form/patient-record-form.component';
 import { AuthService } from './shared/auth.service';
 import { AdminService } from './shared/admin.service';
-import {AuthGuard} from './shared/auth.guard';
+import { AuthGuard } from './shared/auth.guard';
 import { GeneratedReportComponent } from './generated-report/generated-report.component';
 import { LabHomeComponent } from './lab-home/lab-home.component';
 import { PrescriptionMedicineComponent } from '../app/prescription-medicine/prescription-medicine.component';
@@ -32,8 +32,11 @@ import { PaymentComponent } from './frontoffice/payment/payment.component';
 import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
+import { EventsComponent } from './events/events.component';
+import { EventComponent } from './events/event/event.component';
+import { EventlistComponent } from './events/eventlist/eventlist.component';
+import { HomeComponent } from './home/home.component';
 import { DatePipe } from '@angular/common';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +62,11 @@ import { DatePipe } from '@angular/common';
     PrescriptiontestComponent,
     FrontofficeComponent,
     PaymentComponent,
-    ViewpaymentComponent
+    ViewpaymentComponent,
+    EventsComponent,
+    EventComponent,
+    EventlistComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

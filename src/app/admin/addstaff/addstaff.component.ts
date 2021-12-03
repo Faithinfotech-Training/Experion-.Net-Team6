@@ -53,6 +53,7 @@ export class AddstaffComponent implements OnInit {
       console.log("updating record..");
       this.updatestaff(form);
     }
+    this.router.navigateByUrl('staff-list');
   }
 
   //Clear all contents at loading
@@ -71,7 +72,7 @@ export class AddstaffComponent implements OnInit {
         this.resetForm(form);
       }
     )
-    window.location.reload();
+    //window.location.reload();
   }
 
   updatestaff(form: NgForm) {
@@ -82,7 +83,7 @@ export class AddstaffComponent implements OnInit {
         this.resetForm(form);
       }
     )
-    window.location.reload();
+  //  window.location.reload();
   }
 
 }

@@ -15,8 +15,9 @@ patientId:number;
   ngOnInit(): void {
    this.patientId=this.route.snapshot.params['PatientId'];
    this.patientService.GetPatientPastlog(this.patientId);
-   console.log(this.patientService.getPatientById(this.patientId));
+  // console.log(this.patientService.getPatientById(this.patientId));
    this.patientlogservice.GetPatientPastlog(this.patientId);
+   this.patientlogservice.Getlabresults(this.patientId);
   }
 
 }

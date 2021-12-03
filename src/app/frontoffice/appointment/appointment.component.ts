@@ -18,6 +18,7 @@ export class AppointmentComponent implements OnInit {
    
 
   ngOnInit(): void {
+    
     this.appoiService.bindCmdDoctor();
     this.appoiService.bindCmdPatient(); 
     console.log(this.today);

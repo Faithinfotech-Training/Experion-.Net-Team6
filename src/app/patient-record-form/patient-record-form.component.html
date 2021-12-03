@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
 <h2>Patient Log Form</h2>
 </div>
 
@@ -26,15 +26,15 @@
           </div>
           <div class="form-group">
             <input type="text" name="Notes" #Notes="ngModel" [(ngModel)]="appointmentservice.logForm.Notes"
-            class="form-control" placeholder="Notes" minlength="10" maxlength="25" required
+            class="form-control" placeholder="Notes" minlength="10" maxlength="50" required
             [ngClass]="{'is-invalid': Notes.touched && Notes.invalid}" />
           </div>
           <div class="form-group">
             <input type="text" name="Observations" #Observations="ngModel" [(ngModel)]="appointmentservice.logForm.Observations"
-            class="form-control" placeholder="Observations" minlength="10" maxlength="25" required
+            class="form-control" placeholder="Observations" minlength="10" maxlength="50" required
             [ngClass]="{'is-invalid': Observations.touched && Observations.invalid}" />
           </div>
-          <!--Is Active-->
+          Is Active
           <div class="form-group">
               <div class="form-check"><br>
                   <label class="form-check-label">Is active </label>
@@ -43,7 +43,7 @@
               </div>
           </div>
       
-          <!--submit button-->
+          submit button
           <br>
           <div class="form-group">
               <button type="submit" [disabled]="!(form.valid && form.dirty)" style="margin-bottom: 0.4em; width: 30%; height: 3em;"
@@ -56,4 +56,4 @@
       </div>
       </div>
       </form>
-</form>
+</form>-->

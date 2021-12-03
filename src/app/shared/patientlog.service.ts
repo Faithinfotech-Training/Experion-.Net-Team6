@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import {PatientLogVM} from '../shared/patientlogvm';
 import {PatientLog} from '../shared/patientlog';
 import { Observable } from 'rxjs';
+import { GeneratedFormView } from './report-form-view';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 export class PatientlogService {
   logForm:PatientLog= new PatientLog();
   patientlog:PatientLogVM[]
+  labreport:GeneratedFormView[]
   constructor(public httpClient:HttpClient) { }
 
   GetPatientPastlog(id:number){
@@ -21,6 +23,10 @@ export class PatientlogService {
 
   AddLog(log: PatientLog): Observable<any> {
     return this.httpClient.post(environment.apiUrl + '/api/patientlog', log)
+  }
+
+  Getlabresults(id:number){
+    this.httpClient.get(environment.apiUrl + '/api/labreport/'+id).toPromise().then( response => this.labreport = response as GeneratedFormView[]) 
   }
   
 }
