@@ -4,7 +4,7 @@
 <button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
     <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button>
 
-
+<br>
 <div class="container">
     <div class="form-group">
         <input class="form-control" type="text" placeholder="Search here..." style="width: 300px;" [(ngModel)]="filter">
@@ -22,8 +22,7 @@
                 <th>Doctor Name</th>
                 <th>Prescribed Date</th>
                 <th>Prescribed Tests</th>
-                <th></th>
-
+                <th>Generate Report</th>
             </tr>
         </thead>
         <tbody>
@@ -42,7 +41,7 @@
                     </td>
 
                     <td>
-                        <button (click)="labReport(l.LogId,l.PatientId)" class="btn btn-sm btn-primary">Lab
+                        <button (click)="labReport(l.LogId)" class="btn btn-sm btn-primary">Lab
                             Report</button>
                     </td>
             </ng-template>

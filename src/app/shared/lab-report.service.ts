@@ -20,16 +20,15 @@ export class LabReportService {
   constructor(private httpClient: HttpClient, public patientService: PatientService) { }
 
   addLabReport(report: LabReport) {
-    return this.httpClient.post(environment.apiUrl + "/api/labreport/addreport", report);
+    return this.httpClient.post(environment.apiUrl + "/api/labreport/addreport", report)
   }
 
   getReportFormView(LogId: number): Observable<any> {
     return this.httpClient.get(environment.apiUrl + "/api/labtest/GetFormView/" + LogId)
-
-  }
+  } 
 
   getGeneratedReport() {
-    return this.httpClient.get(environment.apiUrl + "/api/labreport")
+    return this.httpClient.get(environment.apiUrl + "/api/labreport/VM")
       .toPromise().then(
         Response => this.generatedResults = Response as GeneratedFormView[]
       )

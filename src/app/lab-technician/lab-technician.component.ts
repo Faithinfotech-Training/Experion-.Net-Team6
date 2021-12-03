@@ -12,11 +12,12 @@ export class LabTechnicianComponent implements OnInit {
 
   page:number=1;
   filter:string;
-  dummy:number[]=[1,2,3,4,5,6];
 
   loggedUser=sessionStorage.getItem('userName')
 
   constructor(public labListService:LabListService,public authService:AuthService,public router:Router) { }
+
+  
 
   ngOnInit(): void {
     //get all lab list
@@ -27,7 +28,7 @@ export class LabTechnicianComponent implements OnInit {
     this.authService.logOut();   
   }
 
-  labReport(LogId:number,PatientId:number){
+  labReport(LogId:number){
     console.log(LogId);
     //sessionStorage.setItem("PatientId", PatientId.toString());
     this.router.navigate(['report',LogId]);
