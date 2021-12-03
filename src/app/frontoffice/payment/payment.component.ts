@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {PaymentService} from "src/app/shared/payment.service"
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-payment',
@@ -16,7 +17,8 @@ export class PaymentComponent implements OnInit {
   constructor(
     private router: Router,
     public paymentService: PaymentService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toasterService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +49,7 @@ export class PaymentComponent implements OnInit {
     this.paymentService.insertPayment(form.value).subscribe(
       (result) => console.log(result)
     )
+    this.toasterService.success('Payment Receipt created successfully');
     this.resetForm(form);
     this.router.navigate(['frontoffice']);
   }

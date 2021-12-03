@@ -20,8 +20,7 @@ id:number;
   onSubmit(form: NgForm) { 
     console.log(form.value);
     this.addTest(form);
-    //insert
-   
+    //insert   
   }
 
   addTest(form:NgForm){
@@ -33,4 +32,5 @@ id:number;
       }
     );
   }
+
 }

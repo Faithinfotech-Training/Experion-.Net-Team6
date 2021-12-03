@@ -37,6 +37,9 @@ import { EventComponent } from './events/event/event.component';
 import { EventlistComponent } from './events/eventlist/eventlist.component';
 import { HomeComponent } from './home/home.component';
 import { DatePipe } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +79,9 @@ import { DatePipe } from '@angular/common';
     HttpClientModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [AuthService, AdminService, AuthGuard,DatePipe],
   bootstrap: [AppComponent]

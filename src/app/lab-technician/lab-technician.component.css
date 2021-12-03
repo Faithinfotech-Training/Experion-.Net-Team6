@@ -25,3 +25,11 @@ table td, table th {
   .form-control{
     box-shadow: 10px 5px 5px rgb(152, 173, 212); 
   }
+
+  #user{
+    background-color: #2297a0;
+    padding: 10px;
+    width: 20%;
+    border-radius: 10px;   
+    margin-left: 2em;
+  }
