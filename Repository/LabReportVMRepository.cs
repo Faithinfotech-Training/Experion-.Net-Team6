@@ -70,21 +70,20 @@ namespace cmsRestApi.Repository
             if (db != null)
             {
                 return await (from report in db.TblLabReport
-                              from patient in db.TblPatient
-                              from date in db.TblAppointment
-                              from staff in db.TblStaff
-                              where report.PatientId == id
-                              where report.StaffId==staff.StaffId
+                              join patient in db.TblPatient on report.PatientId equals patient.PatientId
+                              join log in db.TblPatientLog on report.LogId equals log.LogId
+                              join date in db.TblAppointment on log.AppointmentId equals date.AppointmentId
+                              join testName in db.TblPrescriptionTest on log.LogId equals testName.LogId
+                              where patient.PatientId==id
                               select new LabReportViewModel
                               {
                                   LabReportId = report.LabReportId,
                                   PatientId = patient.PatientId,
                                   PatientName= patient.PatientName,
-                                  StaffName=staff.StaffName,
                                   DateOfAppointment = date.DateofAppointment,
-                                  TestOneName=report.TestOne,
-                                  TestTwoName=report.TestTwo,
-                                  TestThreeName=report.TestThree,
+                                  TestOneName=testName.TestOne,
+                                  TestTwoName=testName.TestTwo,
+                                  TestThreeName=testName.TestThree,
                                   ObservedResultOne=report.ObservedResultOne,
                                   ObservedResultTwo=report.ObservedResultTwo,
                                   ObservedResultThree=report.ObservedResultThree
