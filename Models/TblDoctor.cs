@@ -21,8 +21,10 @@ namespace cmsRestApi.Models
         public string DoctorContactNo { get; set; }
         public string DoctorLocation { get; set; }
         public bool? IsActive { get; set; }
+        public int? UserId { get; set; }
 
         public virtual TblSpecialization DoctorSpecialization { get; set; }
+        public virtual TblUser User { get; set; }
         public virtual ICollection<TblAppointment> TblAppointment { get; set; }
         public virtual ICollection<TblPatientLog> TblPatientLog { get; set; }
     }

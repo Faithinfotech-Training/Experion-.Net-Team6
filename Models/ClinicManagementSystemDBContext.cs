@@ -15,8 +15,10 @@ namespace cmsRestApi.Models
         {
         }
 
+        public virtual DbSet<TblAnnouncements> TblAnnouncements { get; set; }
         public virtual DbSet<TblAppointment> TblAppointment { get; set; }
         public virtual DbSet<TblDoctor> TblDoctor { get; set; }
+        public virtual DbSet<TblEvents> TblEvents { get; set; }
         public virtual DbSet<TblLabReport> TblLabReport { get; set; }
         public virtual DbSet<TblMasterLabTest> TblMasterLabTest { get; set; }
         public virtual DbSet<TblMasterMedicine> TblMasterMedicine { get; set; }
@@ -40,6 +42,20 @@ namespace cmsRestApi.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<TblAnnouncements>(entity =>
+            {
+                entity.HasKey(e => e.AnnouncementId)
+                    .HasName("PK__TblAnnou__9DE445743C898C1E");
+
+                entity.Property(e => e.Announcement).IsUnicode(false);
+
+                entity.Property(e => e.AnnouncementDate).HasColumnType("date");
+
+                entity.Property(e => e.Subject)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<TblAppointment>(entity =>
             {
                 entity.HasKey(e => e.AppointmentId)
@@ -89,6 +105,25 @@ namespace cmsRestApi.Models
                     .WithMany(p => p.TblDoctor)
                     .HasForeignKey(d => d.DoctorSpecializationId)
                     .HasConstraintName("FK__TblDoctor__Docto__403A8C7D");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.TblDoctor)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK__TblDoctor__UserI__6442E2C9");
+            });
+
+            modelBuilder.Entity<TblEvents>(entity =>
+            {
+                entity.HasKey(e => e.EventId)
+                    .HasName("PK__TblEvent__7944C81069EA7910");
+
+                entity.Property(e => e.EventDate).HasColumnType("date");
+
+                entity.Property(e => e.EventDecription).IsUnicode(false);
+
+                entity.Property(e => e.EventName)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TblLabReport>(entity =>
@@ -171,6 +206,10 @@ namespace cmsRestApi.Models
 
                 entity.Property(e => e.ContactNo)
                     .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EmailId)
+                    .HasMaxLength(30)
                     .IsUnicode(false);
 
                 entity.Property(e => e.EmergencyContact)
@@ -292,7 +331,7 @@ namespace cmsRestApi.Models
             modelBuilder.Entity<TblPrescriptionTest>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionTestId)
-                    .HasName("PK__TblPresc__0554749078382320");
+                    .HasName("PK__TblPresc__055474900A69354B");
 
                 entity.Property(e => e.Status)
                     .HasMaxLength(40)
@@ -313,7 +352,7 @@ namespace cmsRestApi.Models
                 entity.HasOne(d => d.Log)
                     .WithMany(p => p.TblPrescriptionTest)
                     .HasForeignKey(d => d.LogId)
-                    .HasConstraintName("FK__TblPrescr__LogId__55009F39");
+                    .HasConstraintName("FK__TblPrescr__LogId__625A9A57");
             });
 
             modelBuilder.Entity<TblRole>(entity =>
@@ -363,6 +402,11 @@ namespace cmsRestApi.Models
                     .WithMany(p => p.TblStaff)
                     .HasForeignKey(d => d.RoleId)
                     .HasConstraintName("FK__TblStaff__RoleId__3B75D760");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.TblStaff)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK__TblStaff__UserId__634EBE90");
             });
 
             modelBuilder.Entity<TblUser>(entity =>

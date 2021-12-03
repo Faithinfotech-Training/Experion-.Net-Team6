@@ -165,6 +165,7 @@ namespace cmsRestApi.Controllers
             return BadRequest();
         }
 
+        //Update status
         [HttpGet("updateStatus/{LogId}")]
 
         public async Task<IActionResult> updateTestStatus(int LogId)

@@ -19,8 +19,10 @@ namespace cmsRestApi.Models
         public string StaffContactNo { get; set; }
         public string StaffLocation { get; set; }
         public bool? IsActive { get; set; }
+        public int? UserId { get; set; }
 
         public virtual TblRole Role { get; set; }
+        public virtual TblUser User { get; set; }
         public virtual ICollection<TblLabReport> TblLabReport { get; set; }
     }
 }
