@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppointmentService } from 'src/app/shared/appointment.service';
 import { Patient } from 'src/app/shared/patient';
 import { PatientService } from 'src/app/shared/patient.service';
 
@@ -49,7 +50,6 @@ updateStatus(PatientId: number){
     )
    window.location.reload();
   }
+  
  
 }
-
-

@@ -14,7 +14,8 @@
             [ngClass]="{'is-invalid':PatientId.touched && PatientId.invalid}"
             style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
             <option value="0" disabled>Choose Patient</option>
-            <option *ngFor="let pat of appoiService.patient" value="{{pat.PatientId}}">{{pat.PatientName}}</option>
+            <option *ngFor="let pat of appoiService.patient" value="{{pat.PatientId}}">
+                <ng-template [ngIf]="pat.IsActive==true">{{pat.PatientName}}</ng-template></option>
             
     
         </select>
@@ -49,7 +50,7 @@
 
         <label><b>Date Of Appointment</b></label>
         <input type="date" name="DateofAppointment" id="DateofAppointment" #DateofAppointment="ngModel"
-            [ngModel]="appoiService.formData1.DateofAppointment" class="form-control" required
+            [ngModel]="appoiService.formData1.DateofAppointment" class="form-control" required min="2021-12-03" max="2022-12-02"
             [ngClass]="{'is-invalid':DateofAppointment.touched && DateofAppointment.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
         <div class="validation-error" *ngIf="DateofAppointment.touched && DateofAppointment.invalid">
 

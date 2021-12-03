@@ -13,6 +13,7 @@ export class AppointmentComponent implements OnInit {
   constructor(private router: Router,public appoiService: AppointmentService,public route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
     this.appoiService.bindCmdDoctor();
     this.appoiService.bindCmdPatient();
   }
