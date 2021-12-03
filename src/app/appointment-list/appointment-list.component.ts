@@ -19,7 +19,7 @@ export class AppointmentListComponent implements OnInit {
   constructor(public appservice: AppointmentService, public router: Router,public datepipe:DatePipe) { }
 
   ngOnInit(): void {
-    this.appservice.GetAppointmentbyVM();
+    this.appservice.GetAppointmentbyVM(); 
     console.log(this.today);
     //console.log(this.appservice.formData1.DateofAppointment);
   }
