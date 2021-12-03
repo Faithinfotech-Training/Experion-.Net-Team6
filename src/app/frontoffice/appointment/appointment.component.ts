@@ -10,11 +10,18 @@ import { AppointmentService } from 'src/app/shared/appointment.service';
 })
 export class AppointmentComponent implements OnInit {
 
+
+
   constructor(private router: Router,public appoiService: AppointmentService,public route: ActivatedRoute) { }
+
+   today = new Date().toLocaleDateString();
+   
 
   ngOnInit(): void {
     this.appoiService.bindCmdDoctor();
-    this.appoiService.bindCmdPatient();
+    this.appoiService.bindCmdPatient(); 
+    console.log(this.today);
+    //this.appoiService.formData1.DateofAppointment=this.today;
   }
   onSubmit(form): void {
     console.log(form.value);

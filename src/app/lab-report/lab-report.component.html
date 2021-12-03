@@ -1,6 +1,8 @@
+<div class="container"><h5> Signed in as :{{loggedUser}}</h5></div>
 <button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
-    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button>
+    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button><br>
 <div class="container mt-3" style="width: 30em;">
+    <br>
     <h2>Generate Lab Report</h2>
     <hr>
     <form class="form" name="reportForm" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
@@ -109,9 +111,9 @@
         </ng-template>
         <!--Generate report-->
         <div class="form-group mt-4">
-            <button type="submit" class="btn btn-secondary form-control" style="width: 16em;"
-                [disabled]="!(form.valid && form.dirty) ">
-                UploadLab Report
+            <button type="submit" class="btn btn-primary form-control" style="width: 16em;"
+                [disabled]="!(form.valid && form.dirty) " ><i class="fa fa-upload fa-1x" style="color: rgb(255, 255, 255);"></i> 
+                Upload Lab Report
             </button>
         </div>
     </form>

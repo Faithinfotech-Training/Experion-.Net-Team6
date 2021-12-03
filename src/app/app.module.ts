@@ -32,6 +32,7 @@ import { PaymentComponent } from './frontoffice/payment/payment.component';
 import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -68,9 +69,9 @@ import { PatientLogComponent } from './patient-log/patient-log.component';
     HttpClientModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
-  providers: [AuthService, AdminService, AuthGuard],
+  providers: [AuthService, AdminService, AuthGuard,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -22,9 +22,10 @@
                 </tr>
 
             </thead>
-            <tbody>
+            <tbody> 
                 <tr *ngFor="let app of appservice.appointment | paginate:{itemsPerPage:4,currentPage:page} ">
                     <ng-template [ngIf]="app.IsActive">
+                        <ng-template [ngIf]="compareDate(app.DateofAppointment)">
                         <td>{{app.AppointmentId}}</td>
                         <td>{{app.PatientId}}</td>
                         <td>{{app.PatientName}}</td>
@@ -39,6 +40,7 @@
                             &nbsp;<button class="btn btn-info" style="margin-left: 10px;"  (click)="addpatientlog(app.AppointmentId)">Add Log</button>
                         </td>
                     </ng-template>
+                </ng-template>
                 </tr>
             </tbody>
         </table>
