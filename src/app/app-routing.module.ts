@@ -26,6 +26,7 @@ import { PaymentComponent } from './frontoffice/payment/payment.component';
 import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component'
 import { EventlistComponent } from './events/eventlist/eventlist.component';
 import { EventComponent } from './events/event/event.component';
+import { AppointmentService } from './shared/appointment.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'appointmentlist', component: AppointmentListComponent },
   { path: 'patientrecordform/:PatientId', component: PatientRecordFormComponent },
   { path: 'patientlog/:PatientId', component: PatientLogComponent, canActivate: [AuthGuard], data: { role: '2' } },
+  { path: 'appointment/:PatientId', component: AppointmentComponent },
   { path: 'add-staff/:Id', component: AddstaffComponent },
   { path: 'add-doctor/:Id', component: AdddoctorComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'patientlogform/:AppointmentId', component: PatientRecordFormComponent },

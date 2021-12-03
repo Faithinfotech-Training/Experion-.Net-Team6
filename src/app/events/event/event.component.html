@@ -3,7 +3,7 @@
     <!--patient id-->
     <input type="hidden" name="EventId" [ngModel]="eventService.formData.EventId" />
 
-    <h1 align="center"><b> REGISTER HERE</b></h1>
+    <h1 align="center"><b></b></h1>
 
     <!--patient name-->
     <div class="form-group">
@@ -23,7 +23,7 @@
     <div class="form-group">
 
         <label><b>Event Date</b></label>
-        <input type="date" name="" id="EventDate" #EventDate="ngModel"
+        <input type="date" name="EventDate" id="EventDate" #EventDate="ngModel"
             [ngModel]="eventService.formData.EventDate" class="form-control" required min="2021-12-03" max="2022-12-02"
             [ngClass]="{'is-invalid':EventDate.touched && EventDate.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
         <div class="validation-error" *ngIf="EventDate.touched && EventDate.invalid">
@@ -50,8 +50,8 @@
     <div class="form-group">
         <div class="form-check">
             <label class="form-check-label"><b>Is active</b> </label>
-            <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
-                [(ngModel)]="eventService.formData.IsActive" class="form-check-input">
+            <input type="checkbox" checked name="IsActive" id="IsActive" #IsActive="ngModel"
+                [(ngModel)]="eventService.formData.IsActive" class="form-check-input" checked="true">
         </div>
     </div>
     <br>

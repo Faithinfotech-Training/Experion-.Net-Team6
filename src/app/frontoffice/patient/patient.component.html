@@ -3,7 +3,7 @@
     <!--patient id-->
     <input type="hidden" name="PatientId" [ngModel]="patientService.formData.PatientId" />
 
-    <h1 align="center"><b> REGISTER HERE</b></h1>
+    <h1 align="center"><b></b></h1>
 
     <!--patient name-->
     <div class="form-group">
@@ -43,6 +43,22 @@
 
             <div *ngIf="Location.errors.required">
                 Location is required</div>
+        </div>
+    </div><br>
+    <!--Email ID-->
+    <div class="form-group">
+
+        <label><b>EmailId</b></label>
+        <input type="email" name="EmailId" #EmailId="ngModel" [ngModel]="patientService.formData.EmailId"
+            class="form-control" placeholder="Enter EmailId" minlength="1" maxlength="25" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  required
+            [ngClass]="{'is-invalid':EmailId.touched && EmailId.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
+        <div class="validation-error" *ngIf="EmailId.touched && EmailId.invalid">
+
+            <div *ngIf="EmailId.errors.required">
+                EmailId is required</div>
+                <div *ngIf="EmailId.errors.pattern">
+                    Wrong EmailId format
+                </div>
         </div>
     </div><br>
     <!--contact-->
