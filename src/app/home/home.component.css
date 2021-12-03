@@ -1,7 +1,7 @@
 nav {
     background-color: #2297a0;
 }
-nav ul li {
+nav ul li a{
     color: rgb(254, 254, 255);
 }
 nav ul .active {
@@ -61,7 +61,21 @@ section p {
 border-width: 0ch;
 
 }
-
+.card-body{
+    background-color: #4f8f92;
+    text-align: center;
+    color: #f4f5f5;
+}
 .card i{
+    color: #2297a0;
+}
+.contact-details{
+background-color: #f4f5f5;
+}
+
+
+
+.contact-body{
+    background-color: #f4f5f5;
     color: #2297a0;
 }
