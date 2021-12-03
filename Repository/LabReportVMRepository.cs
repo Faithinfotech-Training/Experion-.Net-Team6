@@ -17,10 +17,13 @@ namespace cmsRestApi.Repository
             db = _db;
         }
 
+
+
+
         //Crud Operations
         #region get lab report
 
-        public async Task<List<LabReportViewModel>> GetAllLabReport()
+        public async Task<List<LabReportViewModel>> GetAllLabReportVM()
         {
             if (db != null)
             {
@@ -94,6 +97,19 @@ namespace cmsRestApi.Repository
             return null;
         }
 
+        #endregion
+
+        #region get all lab report
+        public async Task<List<TblLabReport>> GetAllLabReport()
+        {
+            if (db != null)
+            {
+                return await db.TblLabReport.ToListAsync();
+
+
+            }
+            return null;
+        }
         #endregion
 
 

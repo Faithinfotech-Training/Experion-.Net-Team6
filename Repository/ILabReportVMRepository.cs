@@ -9,10 +9,12 @@ namespace cmsRestApi.Repository
 {
     public interface ILabReportVMRepository
     {
-        Task<List<LabReportViewModel>> GetAllLabReport();
+        Task<List<LabReportViewModel>> GetAllLabReportVM();
 
         Task<List<LabReportViewModel>> GetLabReport(int id);
 
         Task<int> AddLabReport(TblLabReport report);
+
+        Task<List<TblLabReport>> GetAllLabReport(); 
     }
 }
