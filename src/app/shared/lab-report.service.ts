@@ -44,5 +44,9 @@ export class LabReportService {
     return this.httpClient.get(environment.apiUrl + "/api/labtest/updatestatus/" + LogId)
   }
 
+  updateLabReportTable(LabReportId:number):Observable<any>{
+    return this.httpClient.delete(environment.apiUrl+"/api/labreport/"+LabReportId);
+  }
+
 
 }

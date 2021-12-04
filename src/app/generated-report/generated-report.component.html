@@ -29,13 +29,14 @@
                 <th>Observed Result</th>
                 <th>Test Three</th>
                 <th>Observed Result</th>
+                <th>Action</th>
 
             </tr>
         </thead>
         <tbody>
             <tr  *ngFor="let l of labReportService.generatedResults |filter:filter | paginate:{itemsPerPage:5,currentPage:page }"
                    >
-                <td>{{l.LabReportId}}</td>
+                <td>{{l.LogId}}</td>
                 <td>{{l.PatientName}}</td>
                 <td>{{l.DoctorName}}</td>
                 <td>{{l.StaffName}}</td>
@@ -46,6 +47,9 @@
                 <td >{{l.ObservedResultTwo}}</td>
                 <td >{{l.TestThreeName}}</td>
                 <td >{{l.ObservedResultThree}}</td>
+                <td>
+                                        <button (click)="updateReport(l.LogId,l.LabReportId)" class="btn btn-outline-danger" style="width: 100%;">Edit</button>
+                </td>
             </tr>
 
         </tbody>

@@ -8,6 +8,7 @@ import {LabReportService} from '../shared/lab-report.service';
 import { PatientService } from '../shared/patient.service';
 import {PrescriptionTest} from '../shared/prescription-test';
 import {GeneratedFormView} from '../shared/report-form-view';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-lab-report',
@@ -23,11 +24,12 @@ export class LabReportComponent implements OnInit {
 
   constructor(public authService:AuthService,public labReportServices:LabReportService,
               public patientService:PatientService,public route:ActivatedRoute,
-              public labListService:LabListService,public adminServices:AdminService,public router:Router) { }
+              public labListService:LabListService,public adminServices:AdminService,public router:Router,
+              public toastrService:ToastrService) { }
 
   ngOnInit(): void {
     //getting all patient
-    this.patientService.bindPatient1();
+    this.patientService.bindPatient1(); 
     //getting all staffs
     this.adminServices.getallStaff();
     this.LogId=this.route.snapshot.params['LogId'];
@@ -57,6 +59,7 @@ export class LabReportComponent implements OnInit {
       }
      
     )
+    this.toastrService.success("Report Generated Successfuly!");
     this.resetForm(form);
     this.router.navigate(['/lab']);
   }

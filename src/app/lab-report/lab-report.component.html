@@ -1,4 +1,5 @@
-<div class="container"><h5> Signed in as :{{loggedUser}}</h5></div>
+<div class="container" id="user"><h5> Signed in as : {{loggedUser}}</h5></div>
+
 <button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
     <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button><br>
 <div class="container mt-3" style="width: 30em;">
@@ -49,7 +50,7 @@
         <!--Test1-->
         <div class="form-group mt-2">
             <div class="form-group mt-2">
-                <label>Test 1</label>
+                <label class="test">Test 1</label>
                 <input type="text" class="form-control" name="TestOne" #TestOne="ngModel"
                     [(ngModel)]="labReportServices.formData.TestOne" readonly>
             </div>
@@ -70,7 +71,7 @@
         <ng-template [ngIf]=" labReportServices.formData.TestTwo">
             <div class="form-group mt-2">
                 <div class="form-group mt-2">
-                    <label>Test 2</label>
+                    <label class="test">Test 2</label>
                     <input type="text" class="form-control" name="TestTwo" #TestTwo="ngModel"
                         [(ngModel)]="labReportServices.formData.TestTwo" readonly>
                 </div>
@@ -91,7 +92,7 @@
         <ng-template [ngIf]=" labReportServices.formData.TestThree">
             <div class="form-group mt-2">
                 <div class="form-group mt-2">
-                    <label>Test 3</label>
+                    <label class="test">Test 3</label>
                     <input type="text" class="form-control" name="TestThree" #TestThree="ngModel"
                         [(ngModel)]="labReportServices.formData.TestThree" readonly>
                 </div>
