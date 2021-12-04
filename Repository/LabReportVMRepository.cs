@@ -106,14 +106,22 @@ namespace cmsRestApi.Repository
                               from patient in db.TblPatient
                               from date in db.TblAppointment
                               from staff in db.TblStaff
+                              from log in db.TblPatientLog
+                              from doctor in db.TblDoctor
                               where report.LabReportId == id
+                              where report.PatientId==patient.PatientId
                               where report.StaffId == staff.StaffId
+                              where report.LogId==log.LogId
+                              where log.DoctorId==doctor.DoctorId
+                              where log.AppointmentId==date.AppointmentId
+
                               select new LabReportViewModel
                               {
                                   LabReportId = report.LabReportId,
                                   PatientId = patient.PatientId,
                                   PatientName = patient.PatientName,
                                   StaffName = staff.StaffName,
+                                  DoctorName=doctor.DoctorName,
                                   DateOfAppointment = date.DateofAppointment,
                                   TestOneName = report.TestOne,
                                   TestTwoName = report.TestTwo,
