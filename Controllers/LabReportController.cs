@@ -105,5 +105,28 @@ namespace cmsRestApi.Controllers
         }
 
         #endregion
+
+       
+        #region Delete lab report
+          [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteLabReport(int id)
+        {
+            try
+            {
+                var uId = await repository.DeleteLabReport(id);
+                if (uId == 0)
+                {
+                    return NotFound();
+                }
+                return Ok(uId);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
+
+
     }
 }

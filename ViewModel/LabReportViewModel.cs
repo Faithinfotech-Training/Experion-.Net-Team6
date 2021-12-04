@@ -7,6 +7,7 @@ namespace cmsRestApi.ViewModel
 {
     public class LabReportViewModel
     {
+        public int LogId { get; set; }
         public int LabReportId { get; set; }
 
         public int PatientId { get; set; }

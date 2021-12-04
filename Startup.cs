@@ -42,13 +42,13 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<ILabTestRepository, LabTestRepository>();
             services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();
-
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             services.AddScoped<IEventRepo, EventRepo>();
             services.AddScoped<IAnnouncementRepo, AnnouncementRepo>();
             services.AddScoped<IStaffRepository, StaffRepository>();
-
+            services.AddScoped<IPatientLogRepository, PatientLogRepository>();
+            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
 
 
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();

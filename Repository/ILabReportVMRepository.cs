@@ -15,6 +15,8 @@ namespace cmsRestApi.Repository
 
         Task<int> AddLabReport(TblLabReport report);
 
-        Task<List<TblLabReport>> GetAllLabReport(); 
+        Task<List<TblLabReport>> GetAllLabReport();
+
+        Task<int> DeleteLabReport(int id);
     }
 }
