@@ -69,7 +69,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PaymentComponent,
     ViewpaymentComponent,
     AdduserComponent,
-    UserListComponent
+    UserListComponent,
     EventsComponent,
     EventComponent,
     EventlistComponent,

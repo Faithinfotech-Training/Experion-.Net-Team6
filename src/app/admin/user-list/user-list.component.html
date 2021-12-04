@@ -14,6 +14,7 @@
                 <th>User ID</th>
                 <th>User Name</th>
                 <th>Role Name</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -26,13 +27,12 @@
                     <td *ngIf="data.RoleId==2">Doctor</td>
                     <td *ngIf="data.RoleId==3">Lab Technician</td>
                     <td *ngIf="data.RoleId==4">Front Desk</td>
-                    <td style="width: 6em;">
+                    <td style="width: 14em;">
                         <button (click)="updateUser(data.UserId)" class="btn btn-outline-danger"
-                            style="width: 100%;">Edit</button>
-                    </td>
-                    <td style="width: 6em;">
+                            style="width: 46%;">Edit</button>
+                        &nbsp;
                         <button (click)="deleteUser(data.UserId)" class="btn btn-outline-danger"
-                            style="width: 100%;">Delete</button>
+                            style="width: 46%;">Delete</button>
                     </td>
                 </ng-template>
             </tr>

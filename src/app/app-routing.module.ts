@@ -65,14 +65,13 @@ const routes: Routes = [
   { path: 'payment-list', component: ViewpaymentComponent },
   { path: 'add-user', component: AdduserComponent },
   { path: 'add-user/:userId', component: AdduserComponent },
-  { path: 'user-list', component: UserListComponent }
-
+  { path: 'user-list', component: UserListComponent },
   { path: 'addevent/:eveId', component: EventComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'addevent', component: EventComponent },
   { path: 'events', component: EventlistComponent },
   { path: 'payment-list', component: ViewpaymentComponent },
-{ path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent }
 
 
 
