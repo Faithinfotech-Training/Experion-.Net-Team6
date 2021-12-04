@@ -42,12 +42,21 @@ namespace cmsRestApi
             services.AddScoped<IPrescMedicineRepo, PrescMedicineRepo>();
             services.AddScoped<ILabTestRepository, LabTestRepository>();
             services.AddScoped<ILabReportVMRepository, LabReportVMRepository>();
+
+            services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IEventRepo, EventRepo>();
+            services.AddScoped<IAnnouncementRepo, AnnouncementRepo>();
+            services.AddScoped<IStaffRepository, StaffRepository>();
+
+
+
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             services.AddScoped<IDoctorRepository, DoctorRepository>();
             services.AddScoped<IStaffRepository, StaffRepository>();
             services.AddScoped<IPaymentRepo, PaymentRepo>();
-            services.AddScoped<ILoginRepository, LoginRepository>();
-            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
+
+
 
             //adding services
             services.AddControllers().AddNewtonsoftJson(
@@ -82,20 +91,17 @@ namespace cmsRestApi
 
             services.AddMvc();
         }
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            app.UseCors(options =>
+            options.WithOrigins("http://localhost:4200", "https://b674-103-151-188-91.ngrok.io")
+            .AllowAnyMethod().AllowAnyHeader().AllowCredentials());
 
-            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+            if (env.IsDevelopment())
             {
-                app.UseCors(options =>
-                options.WithOrigins("http://localhost:4200")
-                .AllowAnyMethod().AllowAnyHeader().AllowCredentials());
-
-                if (env.IsDevelopment())
-                {
-                    app.UseDeveloperExceptionPage();
-                }
-                //Authentication : make authentication services available to the application
-                app.UseAuthentication();
+                app.UseDeveloperExceptionPage();
+            }
 
                 app.UseHttpsRedirection();
 
@@ -103,11 +109,10 @@ namespace cmsRestApi
 
                 app.UseAuthorization();
 
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                });
-            }
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
-
+}
