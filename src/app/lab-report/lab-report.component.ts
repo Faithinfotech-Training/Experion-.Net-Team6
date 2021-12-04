@@ -29,7 +29,7 @@ export class LabReportComponent implements OnInit {
 
   ngOnInit(): void {
     //getting all patient
-    this.patientService.bindPatient1();
+    this.patientService.bindPatient1(); 
     //getting all staffs
     this.adminServices.getallStaff();
     this.LogId=this.route.snapshot.params['LogId'];

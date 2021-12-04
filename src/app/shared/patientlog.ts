@@ -5,4 +5,5 @@ export class PatientLog{
     AppointmentId:number;
     Notes:string;
     Observations:string;
+    IsActive:boolean;
 }

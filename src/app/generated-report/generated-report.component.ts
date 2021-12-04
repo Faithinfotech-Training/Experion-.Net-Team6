@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
 import { LabReportService } from '../shared/lab-report.service';
 
@@ -14,7 +15,8 @@ export class GeneratedReportComponent implements OnInit {
   filter:string;
   loggedUser=sessionStorage.getItem('userName')
 
-  constructor(public authService: AuthService, public labReportService: LabReportService) { }
+  constructor(public authService: AuthService, public labReportService: LabReportService,
+    private router:Router) { }
 
   ngOnInit(): void {
     //Get all generated results
@@ -25,4 +27,12 @@ export class GeneratedReportComponent implements OnInit {
     this.authService.logOut();   
   }
 
+  updateReport(LogId:number,LabReportId:number){
+    this.labReportService.updateLabReportTable(LabReportId).subscribe(
+      (result)=>{
+        console.log(result);
+      }
+    )
+    this.router.navigate(['report',LogId])
+  }
 }

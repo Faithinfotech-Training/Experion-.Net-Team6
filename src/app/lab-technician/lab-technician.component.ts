@@ -28,7 +28,7 @@ export class LabTechnicianComponent implements OnInit {
 
   //Function for logging out
   logOut(){
-    this.authService.logOut();   
+    this.authService.logOut();    
   }
 
   //Routing to Lab form

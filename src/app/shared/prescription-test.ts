@@ -5,4 +5,5 @@ export class PrescriptionTest {
     TestTwo:string;
     TestThree:string;
     Status:string;
+    IsActive:boolean;
 }
