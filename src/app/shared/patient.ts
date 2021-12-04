@@ -6,5 +6,6 @@ export class Patient {
     Location : string;
     ContactNo : string;
     EmergencyContact : string;
+    EmailId : string;
     IsActive : boolean;
 }

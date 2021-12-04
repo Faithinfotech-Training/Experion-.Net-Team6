@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="header">
+        <h5 class="text-center"
+            style="color: darkblue; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            Events List
+        </h5>
+        <!--Search Event-->
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="search here..."
+                style="text-decoration: crimson; background-color: rgb(226, 233, 247);" [(ngModel)]="filter" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"><br>
+        </div>
+        <a [routerLink]="['/addevent']" class="btn btn-sm btn-primary" style="margin-left:10px " style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">Add Event</a><br><hr>
+       
+    </div>
+    <table class="table table-bordered table-striped" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
+        <thead>
+            <tr>
+                <th>
+                    Event Id
+                </th>
+                <th>
+                    Event Name
+                </th>
+                <th>
+                    Event Date
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Action
+                </th>
+
+            </tr>
+        </thead>
+        
+        <tbody>
+            
+            <tr
+                *ngFor="let eve of this.eventService.events | filter: filter | paginate: {itemsPerPage: 6, currentPage:page} ">
+                <ng-template [ngIf]="eve.IsActive==true">
+                <td (click)="populateForm(eve)">{{eve.EventId}}</td>
+                <td (click)="populateForm(eve)">{{eve.EventName}}</td>
+                <td (click)="populateForm(eve)">{{eve.EventDate|date: 'dd-MM-yyyy'}}</td>
+                <td (click)="populateForm(eve)">{{eve.EventDecription}}</td>
+               
+                <td>
+                    <button (click)="updateStatus(eve.EventId)"  class="noselect red" style="margin-left:10px">Delete</button>
+                <button (click)="onclick(eve.EventId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+
+                </td>
+          
+            </ng-template> 
+            </tr>
+          
+        </tbody>
+       </table>
+    <div class="footer">
+        <!--pagination-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+
+    </div>
+</div>

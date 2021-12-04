@@ -9,8 +9,9 @@
             <input class="form-control" type="text" placeholder="search here..."
                 style="text-decoration: crimson; background-color: rgb(226, 233, 247);" [(ngModel)]="filter" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"><br>
         </div>
+        <div *ngIf="role=='4'">
         <a [routerLink]="['/appointment']" class="btn btn-sm btn-primary" style="margin-left:10px " style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">Add Appointment</a><br><hr>
-       
+    </div>
     </div>
     <table class="table table-bordered table-striped" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
         <thead>
@@ -46,7 +47,7 @@
         <tbody>
             
             <tr
-                *ngFor="let pat of this.patientService.patients | filter: filter | paginate: {itemsPerPage: 6, currentPage:page} ">
+                *ngFor="let pat of this.patientService.patients | filter: filter ">
                 <ng-template [ngIf]="pat.IsActive==true">
                 <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
                 <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
@@ -57,7 +58,7 @@
                 <!-- <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td> -->
                 
                 <ng-template [ngIf]="role==2">
-                    <button class="btn  btn-info" (click)="patientlog(pat.PatientId)">View PastRecord</button>
+                    <button class="btn btn-sm" (click)="patientlog(pat.PatientId)">View PastRecord</button>
                 </ng-template>
 
                 <ng-template [ngIf]="role==4 ">
@@ -68,10 +69,14 @@
                     <!-- </td> -->
                
                 <td>
-
-                    <button (click)="updateStatus(pat.PatientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Delete</button>
-                <button (click)="onclick(pat.PatientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
-                
+                    
+                    <button (click)="updateStatus(pat.PatientId)"  class="fa fa-trash btn btn-outline-danger" style="margin-left:10px">Delete</button>
+                <button (click)="onclick(pat.PatientId)"  class="fa fa-edit btn btn-primary" style="margin-left:10px">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    <span><strong>Edit</strong></span>   </button>
+                    
+              
+               
                 </td>
                 </ng-template>
                 </ng-template>

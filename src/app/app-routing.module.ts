@@ -26,9 +26,12 @@ import { PaymentComponent } from './frontoffice/payment/payment.component';
 import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component'
 import { AdduserComponent } from './admin/adduser/adduser.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
+import { EventlistComponent } from './events/eventlist/eventlist.component';
+import { EventComponent } from './events/event/event.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'patientlist', component: PatientlistComponent },
   { path: 'doctor', component: DoctorComponent },
@@ -52,6 +55,9 @@ const routes: Routes = [
   { path: 'patientlog/:PatientId', component: PatientLogComponent, canActivate: [AuthGuard], data: { role: '2' } },
   { path: 'add-staff/:Id/:UId', component: AddstaffComponent },
   { path: 'add-doctor/:Id/:UId', component: AdddoctorComponent, canActivate: [AuthGuard], data: { role: '1' } },
+  { path: 'appointment/:PatientId', component: AppointmentComponent },
+  { path: 'add-staff/:Id', component: AddstaffComponent },
+  { path: 'add-doctor/:Id', component: AdddoctorComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'patientlogform/:AppointmentId', component: PatientRecordFormComponent },
   { path: 'prescriptionmedicine/:LogId', component: PrescriptionMedicineComponent },
   { path: 'prescriptiontest/:LogId', component: PrescriptiontestComponent },
@@ -61,6 +67,12 @@ const routes: Routes = [
   { path: 'add-user/:userId', component: AdduserComponent },
   { path: 'user-list', component: UserListComponent }
 
+  { path: 'addevent/:eveId', component: EventComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'addevent', component: EventComponent },
+  { path: 'events', component: EventlistComponent },
+  { path: 'payment-list', component: ViewpaymentComponent },
+{ path: 'home', component: HomeComponent }
 
 
 

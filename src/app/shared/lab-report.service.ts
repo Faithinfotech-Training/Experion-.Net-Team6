@@ -14,22 +14,21 @@ export class LabReportService {
 
 
   formData: LabReport = new LabReport;
-  generatedResults: GeneratedFormView[];
+  generatedResults: GeneratedFormView[]; 
   testDetails: PrescriptionTest;
 
   constructor(private httpClient: HttpClient, public patientService: PatientService) { }
 
   addLabReport(report: LabReport) {
-    return this.httpClient.post(environment.apiUrl + "/api/labreport/addreport", report);
+    return this.httpClient.post(environment.apiUrl + "/api/labreport/addreport", report)
   }
 
   getReportFormView(LogId: number): Observable<any> {
     return this.httpClient.get(environment.apiUrl + "/api/labtest/GetFormView/" + LogId)
-
-  }
+  } 
 
   getGeneratedReport() {
-    return this.httpClient.get(environment.apiUrl + "/api/labreport")
+    return this.httpClient.get(environment.apiUrl + "/api/labreport/VM")
       .toPromise().then(
         Response => this.generatedResults = Response as GeneratedFormView[]
       )
@@ -43,6 +42,10 @@ export class LabReportService {
     //console.log("inside services");
     //console.log(environment.apiUrl + "/api/labtest/" + LogId);
     return this.httpClient.get(environment.apiUrl + "/api/labtest/updatestatus/" + LogId)
+  }
+
+  updateLabReportTable(LabReportId:number):Observable<any>{
+    return this.httpClient.delete(environment.apiUrl+"/api/labreport/"+LabReportId);
   }
 
 

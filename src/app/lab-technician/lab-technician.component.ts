@@ -10,28 +10,32 @@ import {LabListService} from '../shared/lab-list.service';
 })
 export class LabTechnicianComponent implements OnInit { 
 
+  //Declaring variables for pagination and searching
   page:number=1;
   filter:string;
-  dummy:number[]=[1,2,3,4,5,6];
-
+  //initialising variable for disaplaying user name
   loggedUser=sessionStorage.getItem('userName')
 
+  //Dependency injection through constructor
   constructor(public labListService:LabListService,public authService:AuthService,public router:Router) { }
+
+  
 
   ngOnInit(): void {
     //get all lab list
     this.labListService.getAllLabList();
   }
 
+  //Function for logging out
   logOut(){
-    this.authService.logOut();   
+    this.authService.logOut();    
   }
 
-  labReport(LogId:number,PatientId:number){
+  //Routing to Lab form
+  labReport(LogId:number){
     console.log(LogId);
     //sessionStorage.setItem("PatientId", PatientId.toString());
     this.router.navigate(['report',LogId]);
-
   }
 
 }

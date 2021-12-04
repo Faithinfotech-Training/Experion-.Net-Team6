@@ -22,9 +22,8 @@ export class StaffListComponent implements OnInit {
   ngOnInit(): void {
 
     this.adminService.getallStaff();
-
     console.log(this.adminService.staff);
-
+    
   }
 
 

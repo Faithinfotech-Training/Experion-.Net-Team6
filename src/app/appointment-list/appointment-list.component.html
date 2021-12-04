@@ -21,10 +21,12 @@
                     <td>Action</td>
                 </tr>
 
-            </thead>
-            <tbody>
-                <tr *ngFor="let app of appservice.appointment | paginate:{itemsPerPage:4,currentPage:page} ">
+            </thead> 
+            <tbody> 
+                <tr *ngFor="let app of appservice.appointment ">
+                    
                     <ng-template [ngIf]="app.IsActive">
+                        
                         <td>{{app.AppointmentId}}</td>
                         <td>{{app.PatientId}}</td>
                         <td>{{app.PatientName}}</td>
@@ -37,8 +39,10 @@
                             <button class="btn btn-sm btn-outline-danger" (click)="patientlog(app.PatientId)">View
                                 PastRecord</button>
                             &nbsp;<button class="btn btn-info" style="margin-left: 10px;"  (click)="addpatientlog(app.AppointmentId)">Add Log</button>
+                            &nbsp;<button class="btn btn-info" style="margin-left: 10px;"  (click)="addPayment(app.AppointmentId)">Add Bill</button>
                         </td>
-                    </ng-template>
+                    
+                </ng-template>
                 </tr>
             </tbody>
         </table>

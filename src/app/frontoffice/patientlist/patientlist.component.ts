@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppointmentService } from 'src/app/shared/appointment.service';
 import { Patient } from 'src/app/shared/patient';
 import { PatientService } from 'src/app/shared/patient.service';
 
@@ -36,6 +37,7 @@ onclick(patientId: number){
  this.router.navigate(['addpatient', patientId]);
  
 } 
+
 updateStatus(PatientId: number){
 
     this.patientService.updatePatientByActive(PatientId).subscribe(
@@ -49,7 +51,6 @@ updateStatus(PatientId: number){
     )
    window.location.reload();
   }
+  
  
 }
-
-

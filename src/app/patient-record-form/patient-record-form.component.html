@@ -26,24 +26,24 @@
           </div>
           <div class="form-group">
             <input type="text" name="Notes" #Notes="ngModel" [(ngModel)]="appointmentservice.logForm.Notes"
-            class="form-control" placeholder="Notes" minlength="10" maxlength="25" required
+            class="form-control" placeholder="Notes" minlength="10" maxlength="50" required
             [ngClass]="{'is-invalid': Notes.touched && Notes.invalid}" />
           </div>
           <div class="form-group">
-            <input type="text" name="Observations" #Observations="ngModel" [(ngModel)]="appointmentservice.logForm.Observations"
-            class="form-control" placeholder="Observations" minlength="10" maxlength="25" required
-            [ngClass]="{'is-invalid': Observations.touched && Observations.invalid}" />
+            <!-- <input type="textarea" name="Observations" #Observations="ngModel" [(ngModel)]="appointmentservice.logForm.Observations"
+            class="form-control" placeholder="Observations" required
+            [ngClass]="{'is-invalid': Observations.touched && Observations.invalid}"  cols="50" rows="4"/> -->
+            <textarea name="Observations" id="" cols="30" rows="10" #Observations="ngModel" [(ngModel)]="appointmentservice.logForm.Observations"
+            class="form-control" placeholder="Observations" required
+            [ngClass]="{'is-invalid': Observations.touched && Observations.invalid}" ></textarea>
           </div>
-          <!--Is Active-->
           <div class="form-group">
               <div class="form-check"><br>
-                  <label class="form-check-label">Is active </label>
+                  <label class="form-check-label" name="IsActive" #IsActive="ngModel" [(ngModel)]="appointmentservice.logForm.IsActive">Is active </label>
                   <input type="checkbox" name="IsActive" id="IsActive" 
-                     class="form-check-input">
+                     class="form-check-input" checked>
               </div>
           </div>
-      
-          <!--submit button-->
           <br>
           <div class="form-group">
               <button type="submit" [disabled]="!(form.valid && form.dirty)" style="margin-bottom: 0.4em; width: 30%; height: 3em;"

@@ -30,8 +30,8 @@
           <div class="form-group">
               <div class="form-check"><br>
                   <label class="form-check-label">Is active </label>
-                  <input type="checkbox" name="IsActive" id="IsActive" 
-                     class="form-check-input">
+                  <input type="checkbox" name="IsActive" id="IsActive" name="IsActive" #IsActive="ngModel" [(ngModel)]="prescription.testform.IsActive"
+                     class="form-check-input" checked>
               </div>
           </div>
       

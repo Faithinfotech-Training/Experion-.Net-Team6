@@ -51,7 +51,7 @@ logId:number;
       (result) => {
         console.log(result);
         this.logId=result;
-        this.removeappointment();
+        //this.removeappointment();
         this.addprescription(result);
       }
     );
@@ -65,15 +65,15 @@ logId:number;
     this.router.navigate(['prescriptionmedicine', id]);
   }
 
-  removeappointment(){
+ // removeappointment(){
 
-    this.appointmentservice.deleteappointment(this.Id).subscribe(
+  //  this.appointmentservice.deleteappointment(this.Id).subscribe(
 
-      (result)=>{
+     // (result)=>{
 
-        console.log(result);
+       // console.log(result);
 
-      }
-    );
-  }
+     // }
+   // );
+ // }
 }

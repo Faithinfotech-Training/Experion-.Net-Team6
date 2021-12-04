@@ -3,7 +3,7 @@ export class Appointment{
     AppointmentId:number;
     PatientId:number;
     DoctorId:number;
-    DateofAppointment:number;
+    DateofAppointment:string;
     IsActive:boolean;
     PatientName :string;
     DoctorName:string;

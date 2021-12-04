@@ -23,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PatientRecordFormComponent } from './patient-record-form/patient-record-form.component';
 import { AuthService } from './shared/auth.service';
 import { AdminService } from './shared/admin.service';
-import {AuthGuard} from './shared/auth.guard';
+import { AuthGuard } from './shared/auth.guard';
 import { GeneratedReportComponent } from './generated-report/generated-report.component';
 import { LabHomeComponent } from './lab-home/lab-home.component';
 import { PrescriptionMedicineComponent } from '../app/prescription-medicine/prescription-medicine.component';
@@ -34,6 +34,13 @@ import { AppointmentListComponent } from './appointment-list/appointment-list.co
 import { PatientLogComponent } from './patient-log/patient-log.component';
 import { AdduserComponent } from './admin/adduser/adduser.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
+import { EventsComponent } from './events/events.component';
+import { EventComponent } from './events/event/event.component';
+import { EventlistComponent } from './events/eventlist/eventlist.component';
+import { HomeComponent } from './home/home.component';
+import { DatePipe } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -63,6 +70,10 @@ import { UserListComponent } from './admin/user-list/user-list.component';
     ViewpaymentComponent,
     AdduserComponent,
     UserListComponent
+    EventsComponent,
+    EventComponent,
+    EventlistComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -73,8 +84,10 @@ import { UserListComponent } from './admin/user-list/user-list.component';
     NgxPaginationModule,
     Ng2SearchPipeModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [AuthService, AdminService, AuthGuard],
+  providers: [AuthService, AdminService, AuthGuard,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

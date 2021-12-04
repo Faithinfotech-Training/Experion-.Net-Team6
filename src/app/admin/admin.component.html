@@ -2,7 +2,7 @@
     <h5>Welcome! {{loggedUser}}</h5>
 </div>
 <div class="container">
-    <button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
+    <button style="width: 7em; float: right;" class="btn btn-primary form-control" (click)="logOut()">
         <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button>
     <br>
     <br>
@@ -23,6 +23,10 @@
         <div class="col-lg-3">
             <button type="button" routerLink="/user-list" class="btn btn-primary btn-md dashboard-button"><i
                     class="fa fa-ellipsis-v" style="font-size: 5em; margin-right: 5px;"></i><br>Manage User</button>
+        </div>
+        <div class="col-lg-4">
+            <button type="button" routerLink="/events" class="btn btn-primary btn-md dashboard-button"><i
+                    class="fa fa-calendar" style="font-size: 5em; margin-right: 5px;"></i><br>Events</button>
         </div>
     </div>
 </div>

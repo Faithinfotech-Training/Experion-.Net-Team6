@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/shared/admin.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class AdddoctorComponent implements OnInit {
   constructor(
     public adminService: AdminService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toasterService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +49,7 @@ export class AdddoctorComponent implements OnInit {
         error => console.log(error)
       );
     }
+    
   }
 
   onSubmit(form?: NgForm) {
@@ -62,6 +65,7 @@ export class AdddoctorComponent implements OnInit {
       this.updatedoctor(form);
 
     }
+   // this.router.navigateByUrl('doctor-list');
   }
 
   //Clear all contents at loading

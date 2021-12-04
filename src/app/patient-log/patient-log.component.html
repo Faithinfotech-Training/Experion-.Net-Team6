@@ -8,20 +8,20 @@
                 <th>Dosage</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>{{patientlog.MedicineOne}}</td>
+                <tr *ngIf=patientlog.MedicineOne>
+                    <td >{{patientlog.MedicineOne}}</td>
                     <td>{{patientlog.MedicineOneDosage}}</td>
                 </tr>
-                <tr>
-                    <td>{{patientlog.MedicineTwo}}</td>
+                <tr *ngIf=patientlog.MedicineTwo>
+                    <td >{{patientlog.MedicineTwo}}</td>
                     <td>{{patientlog.MedicineTwoDosage}}</td>
                 </tr>
-                <tr>
-                    <td>{{patientlog.MedicineThree}}</td>
+                <tr  *ngIf=patientlog.MedicineThree>
+                    <td >{{patientlog.MedicineThree}}</td>
                     <td>{{patientlog.MedicineThreeDosage}}</td>
                 </tr>
-                <tr>
-                    <td>{{patientlog.MedicineFour}}</td>
+                <tr  *ngIf=patientlog.MedicineFour>
+                    <td >{{patientlog.MedicineFour}}</td>
                     <td>{{patientlog.MedicineThreeDosage}}</td>
                 </tr>
 
@@ -32,13 +32,13 @@
                 <th>Tests Prescribed</th>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngIf=patientlog.LabTestOne>
                     <td>{{patientlog.LabTestOne}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf=patientlog.LabTestTwo>
                     <td>{{patientlog.LabTestTwo}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf=patientlog.LabTestThree>
                     <td>{{patientlog.LabTestThree}}</td>
                 </tr>
 
@@ -51,6 +51,28 @@
         </div> 
 
 
+    </div>
+    <div class="patientdetails" *ngFor="let lab of this.patientlogservice.labreport">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <th>Tests Prescribed</th><th>Results</th>
+            </thead>
+            <tbody>
+                <tr *ngIf=lab.TestOneName>
+                    <td>{{lab.TestOneName}}</td>
+                    <td>{{lab.ObservedResultOne}}</td>
+                </tr>
+                <tr *ngIf=lab.TestTwoName>
+                    <td>{{lab.TestTwoName}}</td>
+                    <td>{{lab.ObservedResultTwo}}</td>
+                </tr>
+                <tr *ngIf=lab.TestThreeName>
+                    <td>{{lab.TestThreeName}}</td>
+                    <td>{{lab.ObservedResultThree}}</td>
+                </tr>
+
+            </tbody>
+            </table>
     </div>
 
 </div>
