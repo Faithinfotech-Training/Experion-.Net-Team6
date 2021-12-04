@@ -1,5 +1,6 @@
 export class Staff{
     StaffId:number;
+    UserId: number;
     StaffName:string;
     RoleId: number;
     StaffAge: number;

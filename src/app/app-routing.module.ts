@@ -24,6 +24,8 @@ import { GeneratedReportComponent } from './generated-report/generated-report.co
 import { PatientLogComponent } from './patient-log/patient-log.component';
 import { PaymentComponent } from './frontoffice/payment/payment.component';
 import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component'
+import { AdduserComponent } from './admin/adduser/adduser.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -41,19 +43,23 @@ const routes: Routes = [
   { path: 'addpatient/:patId', component: PatientComponent, canActivate: [AuthGuard], data: { role: '4' } },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'staff-list', component: StaffListComponent, canActivate: [AuthGuard], data: { role: '1' } },
-  { path: 'add-staff', component: AddstaffComponent, canActivate: [AuthGuard], data: { role: '1' } },
+  //{ path: 'add-staff/:UId', component: AddstaffComponent, canActivate: [AuthGuard], data: { role: '1' } },
+  //{ path: 'add-staff/:Id', component: AddstaffComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'doctor-list', component: DoctorListComponent, canActivate: [AuthGuard], data: { role: '1' } },
-  { path: 'add-doctor', component: AdddoctorComponent, canActivate: [AuthGuard], data: { role: '1' } },
+  { path: 'add-doctor/:UserId', component: AdddoctorComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'appointmentlist', component: AppointmentListComponent },
   { path: 'patientrecordform/:PatientId', component: PatientRecordFormComponent },
   { path: 'patientlog/:PatientId', component: PatientLogComponent, canActivate: [AuthGuard], data: { role: '2' } },
-  { path: 'add-staff/:Id', component: AddstaffComponent },
-  { path: 'add-doctor/:Id', component: AdddoctorComponent, canActivate: [AuthGuard], data: { role: '1' } },
+  { path: 'add-staff/:Id/:UId', component: AddstaffComponent },
+  { path: 'add-doctor/:Id/:UId', component: AdddoctorComponent, canActivate: [AuthGuard], data: { role: '1' } },
   { path: 'patientlogform/:AppointmentId', component: PatientRecordFormComponent },
   { path: 'prescriptionmedicine/:LogId', component: PrescriptionMedicineComponent },
   { path: 'prescriptiontest/:LogId', component: PrescriptiontestComponent },
   { path: 'payment/:AId', component: PaymentComponent },
-  { path: 'payment-list', component: ViewpaymentComponent }
+  { path: 'payment-list', component: ViewpaymentComponent },
+  { path: 'add-user', component: AdduserComponent },
+  { path: 'add-user/:userId', component: AdduserComponent },
+  { path: 'user-list', component: UserListComponent }
 
 
 

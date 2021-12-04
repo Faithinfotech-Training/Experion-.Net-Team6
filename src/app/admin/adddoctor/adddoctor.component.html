@@ -1,174 +1,179 @@
 <form name="doctorform" autocomplete="off" #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="form-control">
-        <!--Staff ID-->
-        <input type="number" name="DoctorId" [(ngModel)]="adminService.formData.DoctorId">
-        <!--Staff Name-->
-        <div class="form-gorup">
-            <label>Full Name of Doctor</label>
-            <input name="DoctorName" #DoctorName="ngModel" [(ngModel)]="adminService.formData.DoctorName"
-                class="form-control" placeholder="Enter Full Name" minlength="06" maxlength="40" required
-                [ngClass]="{ 'is-invalid' : DoctorName.touched && DoctorName.invalid }" />
-            <div class="validation-error" *ngIf="DoctorName.touched && DoctorName.invalid">
-                <div *ngIf="DoctorName.errors.required">Full Name is Required</div>
-            </div>
-        </div>
+        <div class="container mt-3" style="width: 30em;">
+            <!--Staff ID-->
+            <input type="number" name="DoctorId" [(ngModel)]="adminService.formData.DoctorId" hidden>
 
-        <!--Doctor Specialization-->
-        <div class="form-group">
-            <label class="col-md-4">Role</label>
-            <select name="DoctorSpecializationId" id="DoctorSpecializationId" class="form-control"
-                #DoctorSpecializationId="ngModel" [(ngModel)]="adminService.formData.DoctorSpecializationId" required>
-                <option value=0 disabled>Select Specialization for the doctor</option>
-                <option *ngFor="let special of adminService.special" value='{{special.SpecializationId}}'>
-                    {{special.SpecializationName}}
+            <!--User Id-->
+            <div class="form-group">
+                <label>User Id assigned</label>
+                <input type="number" name="UserId" #UserId="ngModel" 
+                    [(ngModel)]="adminService.formData.UserId" class="form-control"
+                    placeholder="User Id of assigned staff is missing" maxlength="2" required readonly
+                    [ngClass]="{ 'is-invalid' : UserId.touched && UserId.invalid }" />
+                <div class="validation-error" *ngIf="UserId.touched && UserId.invalid">
+                    <div *ngIf="UserId.errors.required">
 
-                </option>
-
-
-
-            </select>
-            <div class="validation-error" *ngIf="DoctorSpecializationId.touched && DoctorSpecializationId.invalid">
-                <div *ngIf="DoctorSpecializationId.errors.required"> Specify specialization
-
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!--Qualification of doctor-->
-        <div class="form-group">
-            <label>Qualification</label>
-            <input type="text" name="DoctorQualification" #DoctorQualification="ngModel"
-                [(ngModel)]="adminService.formData.DoctorQualification" class="form-control"
-                placeholder="Mention Qualification of the assigned doctor" required
-                [ngClass]="{ 'is-invalid' : DoctorQualification.touched && DoctorQualification.invalid }" />
-            <div class="validation-error" *ngIf="DoctorQualification.touched && DoctorQualification.invalid">
-                <div *ngIf="DoctorQualification.errors.required"> Specify qualification
-
+            <!--Staff Name-->
+            <div class="form-gorup">
+                <label><b>Full Name of Doctor</b></label>
+                <input type="text" name="DoctorName" #DoctorName="ngModel"
+                    [(ngModel)]="adminService.formData.DoctorName" class="form-control"
+                    placeholder="Enter Full name of the doctor" minlength="04" maxlength="40" required
+                    [ngClass]="{ 'is-invalid' : DoctorName.touched && DoctorName.invalid }" />
+                <div class="validation-error" *ngIf="DoctorName.touched && DoctorName.invalid">
+                    <div *ngIf="DoctorName.errors.required">Full Name is Required</div>
                 </div>
             </div>
-        </div>
+
+            <!--Doctor Specialization-->
+            <div class="form-group">
+                <label class="col-md-4"><b>Specialization</b></label>
+                <select name="DoctorSpecializationId" id="DoctorSpecializationId" class="form-control"
+                    #DoctorSpecializationId="ngModel" [(ngModel)]="adminService.formData.DoctorSpecializationId"
+                    [ngClass]="{ 'is-invalid' : DoctorSpecializationId.touched && DoctorSpecializationId.invalid }"
+                    required>
+                    <option value=0 disabled>Select Specialization for the doctor</option>
+                    <option *ngFor="let special of adminService.special" value='{{special.SpecializationId}}'>
+                        {{special.SpecializationName}}
+
+                    </option>
 
 
-        <!--Age of doctor
-        <div class="form-group">
-            <label>Age</label>
-            <input type="number" name="DoctorAge" #DoctorAge="ngModel" [(ngModel)]="adminService.formData.DoctorAge"
-                class="form-control" placeholder="Enter age of the assigned doctor" 
-                maxlength=2 required
-                [ngClass]="{ 'is-invalid' : DoctorAge.touched && DoctorAge.invalid }" />
-            <div class="validation-error" *ngIf="DoctorAge.touched && DoctorAge.invalid">
-                <div *ngIf="DoctorAge.errors.required"> Doctor Age is required
 
+                </select>
+                <div class="validation-error" *ngIf="DoctorSpecializationId.touched && DoctorSpecializationId.invalid">
+                    <div *ngIf="DoctorSpecializationId.errors.required"> Specify specialization
+
+                    </div>
                 </div>
             </div>
-        </div>
-    -->
-        <!-- input type="text" ng-model="Age" name="Age" required ng-pattern="/^(?:1[8-9]|[2-5][0-9]|60)$/" / -->
 
-        <div class="form-group">
-            <label>Age</label>
-            <input type="text" name="DoctorAge" #DoctorAge="ngModel" pattern="[0-9]+"
-                [(ngModel)]="adminService.formData.DoctorAge" class="form-control"
-                placeholder="Enter age of the assigned doctor" maxlength="2" required
-                [ngClass]="{ 'is-invalid' : DoctorAge.touched && DoctorAge.invalid }" />
-            <div class="validation-error" *ngIf="DoctorAge.touched && DoctorAge.invalid">
-                <div *ngIf="DoctorAge.errors.required"> Doctor Age is required
+            <!--Qualification of doctor-->
+            <div class="form-group">
+                <label><b>Qualification</b></label>
+                <input type="text" name="DoctorQualification" #DoctorQualification="ngModel"
+                    [(ngModel)]="adminService.formData.DoctorQualification" class="form-control"
+                    placeholder="Mention Qualification of the assigned doctor" required
+                    [ngClass]="{ 'is-invalid' : DoctorQualification.touched && DoctorQualification.invalid }" />
+                <div class="validation-error" *ngIf="DoctorQualification.touched && DoctorQualification.invalid">
+                    <div *ngIf="DoctorQualification.errors.required"> Specify qualification
 
-                </div>
-                <div *ngIf="DoctorAge.errors.pattern">
-                    Wrong age format
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!--Gender-->
-        <div class="form-group">
-            <label class="col-md-4">Gender</label>
-            <select name="DoctorGender" id="DoctorGender" class="form-control" required #DoctorGender="ngModel"
-                [(ngModel)]="adminService.formData.DoctorGender"
-                [ngClass]="{ 'is-invalid' : DoctorGender.touched && DoctorGender.invalid }">
-                <option value=0 disabled>Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Others">Others</option>
 
 
+          
 
-            </select>
-            <div class="validation-error" *ngIf="DoctorGender.touched && DoctorGender.invalid">
-                <div *ngIf="DoctorGender.errors.required"> please select gender.
+            <div class="form-group">
+                <label><b>Age</b></label>
+                <input type="text" name="DoctorAge" #DoctorAge="ngModel" pattern="[0-9]+"
+                    [(ngModel)]="adminService.formData.DoctorAge" class="form-control"
+                    placeholder="Enter age of the assigned doctor" maxlength="2" required
+                    [ngClass]="{ 'is-invalid' : DoctorAge.touched && DoctorAge.invalid }" />
+                <div class="validation-error" *ngIf="DoctorAge.touched && DoctorAge.invalid">
+                    <div *ngIf="DoctorAge.errors.required"> Doctor Age is required
 
+                    </div>
+                    <div *ngIf="DoctorAge.errors.pattern">
+                        Wrong age format
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!--Date of Birth-->
-        <div class="form-group">
-            <label>Date of Birth</label>
-            <input type="date" name="DoctorDateofBirth" #DoctorDateofBirth="ngModel"
-                [(ngModel)]="adminService.formData.DoctorDateofBirth" class="form-control"
-                placeholder="Enter Date Of Birth" required max="1999-01-01"
-                [ngClass]="{ 'is-invalid' : DoctorDateofBirth.touched && DoctorDateofBirth.invalid }">
-            <div class="validation-error" *ngIf="DoctorDateofBirth.touched && DoctorDateofBirth.invalid">
-                <div *ngIf="DoctorDateofBirth.errors.required"> Date Of Birth is required
+            <!--Gender-->
+            <div class="form-group">
+                <label class="col-md-4"><b>Gender</b></label>
+                <select name="DoctorGender" id="DoctorGender" class="form-control" required #DoctorGender="ngModel"
+                    [(ngModel)]="adminService.formData.DoctorGender"
+                    [ngClass]="{ 'is-invalid' : DoctorGender.touched && DoctorGender.invalid }">
+                    <option value="" disabled>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
 
+
+
+                </select>
+                <div class="validation-error" *ngIf="DoctorGender.touched && DoctorGender.invalid">
+                    <div *ngIf="DoctorGender.errors.required"> please select gender.
+
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <!--Date of Birth-->
+            <div class="form-group">
+                <label><b>Date of Birth</b></label>
+                <input type="date" name="DoctorDateofBirth" #DoctorDateofBirth="ngModel"
+                    [(ngModel)]="adminService.formData.DoctorDateofBirth" class="form-control"
+                    placeholder="Enter Date Of Birth" required max="1999-01-01"
+                    [ngClass]="{ 'is-invalid' : DoctorDateofBirth.touched && DoctorDateofBirth.invalid }">
+                <div class="validation-error" *ngIf="DoctorDateofBirth.touched && DoctorDateofBirth.invalid">
+                    <div *ngIf="DoctorDateofBirth.errors.required"> Date Of Birth is required
 
-        <!--Staff Name-->
-        <div class="form-gorup">
-            <label>Location</label>
-            <input type="text" name="DoctorLocation" #DoctorLocation="ngModel"
-                [(ngModel)]="adminService.formData.DoctorLocation" class="form-control" placeholder="Enter Location"
-                required [ngClass]="{ 'is-invalid' : DoctorLocation.touched && DoctorLocation.invalid }" />
-            <div class="validation-error" *ngIf="DoctorLocation.touched && DoctorLocation.invalid">
-                <div *ngIf="DoctorLocation.errors.required">Location is Required</div>
-            </div>
-        </div>
-
-        <!--Contact No of doctor-->
-        <div class="form-group">
-            <label>Contact No.</label>
-            <input type="text" name="DoctorContactNo" #DoctorContactNo="ngModel"
-            pattern="[0-9]+"   minlength="10" maxlength="10"
-                [(ngModel)]="adminService.formData.DoctorContactNo" class="form-control"
-                placeholder="Enter contact number of the assigned doctor" required
-                [ngClass]="{ 'is-invalid' : DoctorContactNo.touched && DoctorContactNo.invalid }">
-            <div class="validation-error" *ngIf="DoctorContactNo.touched && DoctorContactNo.invalid">
-                <div *ngIf="DoctorContactNo.errors.required"> Contact number is required
-
-                </div>
-                <div *ngIf="DoctorContactNo.errors.pattern">
-                    Wrong Contact Number format
-                </div>
-                <div *ngIf="DoctorContactNo.errors.minlength">
-                    Contact Number is Incomplete
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!--IsActive-->
-        <br>
-        <div class="form-group">
-            <div class="form-check">
-                <label class="form-check-label">IsActive</label>
-                <input type="checkbox" name="IsActive" id="IsActive" class="form-check-input" #IsActive="ngModel"
-                    [(ngModel)]="adminService.formData.IsActive">
+
+            <!--Staff Name-->
+            <div class="form-gorup">
+                <label><b>Location</b></label>
+                <input type="text" name="DoctorLocation" #DoctorLocation="ngModel"
+                    [(ngModel)]="adminService.formData.DoctorLocation" class="form-control" placeholder="Enter Location"
+                    required [ngClass]="{ 'is-invalid' : DoctorLocation.touched && DoctorLocation.invalid }" />
+                <div class="validation-error" *ngIf="DoctorLocation.touched && DoctorLocation.invalid">
+                    <div *ngIf="DoctorLocation.errors.required">Location is Required</div>
+                </div>
+            </div>
+
+            <!--Contact No of doctor-->
+            <div class="form-group">
+                <label><b>Contact No.</b></label>
+                <input type="text" name="DoctorContactNo" #DoctorContactNo="ngModel" pattern="[0-9]+" minlength="10"
+                    maxlength="10" [(ngModel)]="adminService.formData.DoctorContactNo" class="form-control"
+                    placeholder="Enter contact number of the assigned doctor" required
+                    [ngClass]="{ 'is-invalid' : DoctorContactNo.touched && DoctorContactNo.invalid }">
+                <div class="validation-error" *ngIf="DoctorContactNo.touched && DoctorContactNo.invalid">
+                    <div *ngIf="DoctorContactNo.errors.required"> Contact number is required
+
+                    </div>
+                    <div *ngIf="DoctorContactNo.errors.pattern">
+                        Wrong Contact Number format
+                    </div>
+                    <div *ngIf="DoctorContactNo.errors.minlength">
+                        Contact Number is Incomplete
+                    </div>
+                </div>
+            </div>
+
+            <!--IsActive-->
+            <br>
+            <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label"><b>IsActive</b></label>
+                    <input type="checkbox" name="IsActive" id="IsActive" class="form-check-input" #IsActive="ngModel"
+                        [(ngModel)]="adminService.formData.IsActive" checked>
+
+                </div>
+
+            </div>
+            <br>
+
+            <!--Submit Button-->
+            <br>
+            <div class="form-group">
+                <button type="submit" [disabled]="!(form.valid && form.dirty)"
+                    class="btn btn-lg btn-primary form-control">Submit</button>
 
             </div>
 
         </div>
-        <br>
-
-        <!--Submit Button-->
-        <br>
-        <div class="form-group">
-            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">Submit</button>
-
-        </div>
-
-
     </div>
 </form>

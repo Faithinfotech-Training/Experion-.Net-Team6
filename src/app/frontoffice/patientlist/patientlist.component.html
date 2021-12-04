@@ -55,7 +55,7 @@
                 <td (click)="populateForm(pat)">{{pat.Location}}</td>
                 <td (click)="populateForm(pat)">{{pat.ContactNo}}</td>
                 <!-- <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td> -->
-
+                
                 <ng-template [ngIf]="role==2">
                     <button class="btn  btn-info" (click)="patientlog(pat.PatientId)">View PastRecord</button>
                 </ng-template>
@@ -71,9 +71,10 @@
 
                     <button (click)="updateStatus(pat.PatientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Delete</button>
                 <button (click)="onclick(pat.PatientId)"  class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
-
+                
                 </td>
-            </ng-template> 
+                </ng-template>
+                </ng-template>
             </tr>
           
         </tbody>

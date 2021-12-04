@@ -32,6 +32,8 @@ import { PaymentComponent } from './frontoffice/payment/payment.component';
 import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
+import { AdduserComponent } from './admin/adduser/adduser.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { PatientLogComponent } from './patient-log/patient-log.component';
     PrescriptiontestComponent,
     FrontofficeComponent,
     PaymentComponent,
-    ViewpaymentComponent
+    ViewpaymentComponent,
+    AdduserComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
