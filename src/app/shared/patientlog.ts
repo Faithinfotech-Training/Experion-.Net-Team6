@@ -6,4 +6,5 @@ export class PatientLog{
     Notes:string;
     Observations:string;
     IsActive:boolean;
+    
 }
