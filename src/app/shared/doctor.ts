@@ -9,4 +9,5 @@ export class Doctor {
     DoctorContactNo: string;
     DoctorLocation: string;
     IsActive: boolean;
+    UserId:number;
 }

@@ -37,6 +37,7 @@ onclick(patientId: number){
  this.router.navigate(['addpatient', patientId]);
  
 } 
+
 updateStatus(PatientId: number){
 
     this.patientService.updatePatientByActive(PatientId).subscribe(

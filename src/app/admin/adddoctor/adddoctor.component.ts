@@ -13,7 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AdddoctorComponent implements OnInit {
 
-  Id:number;
+  Id: number;
+  UserId: number;
 
   constructor(
     public adminService: AdminService,
@@ -23,9 +24,14 @@ export class AdddoctorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.Id = +params.get('Id');
+      this.UserId = +params.get('UId');
+    })
+    this.adminService.formData.UserId = this.UserId;
+
     this.adminService.getallSpecial();
 
-    this.Id = this.route.snapshot.params['Id'];
 
     if (this.Id != 0 || this.Id != null) {
       //getEmployee
@@ -45,19 +51,19 @@ export class AdddoctorComponent implements OnInit {
     }
     
   }
-  onSubmit(form?: NgForm)
-  {
-    console.log(form.value);
-    let Id= this.adminService.formData.DoctorId;
 
-    if(Id==0 || Id==null){
+  onSubmit(form?: NgForm) {
+    console.log(form.value);
+    let Id = this.adminService.formData.DoctorId;
+
+    if (Id == 0 || Id == null) {
       console.log("inserting record...");
-      console.log(form.value);
       this.insertdoctor(form);
     }
-    else{
+    else {
       console.log("updating record..");
       this.updatedoctor(form);
+
     }
    // this.router.navigateByUrl('doctor-list');
   }
@@ -69,19 +75,17 @@ export class AdddoctorComponent implements OnInit {
     }
   }
 
-  insertdoctor(form: NgForm){
+  insertdoctor(form: NgForm) {
     console.log("50%");
     console.log(form.value);
     this.adminService.insertdoctor(form.value).subscribe(
       (result) => {
         console.log(result);
         this.resetForm(form);
-        console.log("completed");
-        this.toasterService.success('Doctor Added successfully');
-
       }
     )
-    //window.location.reload();
+    window.location.reload();
+    //his.router.navigate(["/admin"]);
   }
 
   updatedoctor(form: NgForm) {
@@ -90,12 +94,8 @@ export class AdddoctorComponent implements OnInit {
       (result) => {
         console.log(result);
         this.resetForm(form);
-        console.log("completed");
-        this.toasterService.success('Doctor details Updated successfully');
-
       }
     )
-  //  window.location.reload();
   }
 
 }

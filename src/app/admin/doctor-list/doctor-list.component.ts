@@ -23,6 +23,6 @@ export class DoctorListComponent implements OnInit {
   }
 
   updatedoctor(Id: number){
-    this.router.navigate(['add-doctor',Id]);
+    this.router.navigate(['add-doctor',Id, 0]);
   }
 }

@@ -1,3 +1,7 @@
+
+.form-control{
+    box-shadow: 10px 5px 5px rgb(152, 173, 212);
+}
 button{
     width: 7em;
     text-align: center;
