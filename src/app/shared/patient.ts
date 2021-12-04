@@ -8,5 +8,4 @@ export class Patient {
     EmergencyContact : string;
     EmailId : string;
     IsActive : boolean;
-    EmailId:string;
 }

@@ -47,7 +47,7 @@
         <tbody>
             
             <tr
-                *ngFor="let pat of this.patientService.patients | filter: filter | paginate: {itemsPerPage: 6, currentPage:page} ">
+                *ngFor="let pat of this.patientService.patients | filter: filter ">
                 <ng-template [ngIf]="pat.IsActive==true">
                 <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
                 <td (click)="populateForm(pat)">{{pat.PatientName}}</td>

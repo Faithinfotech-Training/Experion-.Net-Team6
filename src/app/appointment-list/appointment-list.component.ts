@@ -35,6 +35,10 @@ export class AppointmentListComponent implements OnInit {
     console.log(id);
     this.router.navigate(['patientlogform', id]);
   }
+  addPayment(id: number) {
+    console.log(id);
+    this.router.navigate(['payment', id]);
+  }
  
   compareDate(date:string){
      var latestDate=this.datepipe.transform(this.today,'yyyy-MM-ddT00:00:00');
