@@ -74,6 +74,28 @@ namespace cmsRestApi.Controllers
 
         #endregion
 
+        #region get Lab report by report Id
+        [HttpGet("labid/{id}")]
+        //[Route("GetLabReport/{id}")]
+        public async Task<IActionResult> GetLabReportByReportId(int id)
+        {
+            try
+            {
+                var report = await repository.GetLabReportByReportId(id);
+                if (report == null)
+                {
+                    return NotFound();
+                }
+                return Ok(report);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
+        }
+        #endregion
+
         #region add a lab report
 
         [HttpPost]
@@ -104,6 +126,26 @@ namespace cmsRestApi.Controllers
             return BadRequest();
         }
 
+        #endregion
+
+        #region Delete lab report
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteLabReport(int id)
+        {
+            try
+            {
+                var uId = await repository.DeleteLabReport(id);
+                if (uId == 0)
+                {
+                    return NotFound();
+                }
+                return Ok(uId);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
         #endregion
     }
 }

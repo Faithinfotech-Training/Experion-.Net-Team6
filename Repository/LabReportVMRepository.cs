@@ -43,6 +43,7 @@ namespace cmsRestApi.Repository
                           
                               select new LabReportViewModel
                               {
+                                  LogId=log.LogId,
                                   LabReportId = report.LabReportId,
                                   PatientId = patient.PatientId,
                                   PatientName = patient.PatientName,
@@ -97,6 +98,38 @@ namespace cmsRestApi.Repository
             return null;
         }
 
+        #endregion  Get Lab report by report Id
+        public async Task<List<LabReportViewModel>> GetLabReportByReportId(int id)
+        {
+            if (db != null)
+            {
+                return await (from report in db.TblLabReport
+                              from patient in db.TblPatient
+                              from date in db.TblAppointment
+                              from staff in db.TblStaff
+                              where report.LabReportId == id
+                              where report.StaffId == staff.StaffId
+                              select new LabReportViewModel
+                              {
+                                  LabReportId = report.LabReportId,
+                                  PatientId = patient.PatientId,
+                                  PatientName = patient.PatientName,
+                                  StaffName = staff.StaffName,
+                                  DateOfAppointment = date.DateofAppointment,
+                                  TestOneName = report.TestOne,
+                                  TestTwoName = report.TestTwo,
+                                  TestThreeName = report.TestThree,
+                                  ObservedResultOne = report.ObservedResultOne,
+                                  ObservedResultTwo = report.ObservedResultTwo,
+                                  ObservedResultThree = report.ObservedResultThree
+                              }
+                                ).ToListAsync();
+            }
+            return null;
+        }
+
+        #region 
+
         #endregion
 
         #region get all lab report
@@ -126,6 +159,25 @@ namespace cmsRestApi.Repository
             return 0;
         }
 
+        #endregion
+
+        #region delete a lab report
+        public async Task<int> DeleteLabReport(int id)
+        {
+            if (db != null)
+            {
+                var itemToRemove = db.TblLabReport.SingleOrDefault(x => x.LabReportId == id); //returns a single item.
+
+                if (itemToRemove != null)
+                {
+                    db.TblLabReport.Remove(itemToRemove);
+                    await db.SaveChangesAsync();
+                    return id;
+                }
+                return 0;
+            }
+            return 0;
+        }
         #endregion
     }
 }
