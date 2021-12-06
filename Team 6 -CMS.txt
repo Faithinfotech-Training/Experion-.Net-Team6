@@ -134,6 +134,19 @@ ObservedResultThree VARCHAR(30),
 isActive BIT
 )
 
+CREATE TABLE TblEvents(
+EventId		INT PRIMARY KEY IDENTITY(1,1),
+EventName	varchar(30),
+EventDate	Date,
+EventDecription	varchar(MAX)
+)
+
+CREATE TABLE TblAnnouncements(
+AnnouncementId		INT PRIMARY KEY IDENTITY(1,1),
+AnnouncementDate	date,
+Subject				varchar(40),
+Announcement		varchar(MAX)
+)
 
 CREATE TABLE TblPayment(
 PaymentId INT PRIMARY KEY IDENTITY(1,1),
@@ -142,3 +155,8 @@ AppointmentId INT FOREIGN KEY REFERENCES TblAppointment(AppointmentId),
 Amount VARCHAR(30),
 IsActive BIT
 )
+
+ALTER TABLE TblPatient ADD EmailId VARCHAR(30)
+ALTER TABLE TblStaff ADD UserId int foreign key references TblUser(UserId)
+ALTER TABLE TblDoctor ADD UserId int foreign key references TblUser(UserId)
+
