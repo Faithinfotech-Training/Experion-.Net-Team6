@@ -1,22 +1,37 @@
-.login .card{
-margin: 4em;
-width: 50%;
-display: flex;
-}
-.login .login-content{
-    margin: 3em;
-}
-.login form{
-    margin: 4em;
-}
-
-form input{
-    height: 50px;
-    width: 15rem;
-}
-
-button{
-    background-color: #2297a0;
-    border: 1px solid rgb(255, 255, 255);
-    font-size: 1.3em;
-}
+body{
+    background: #c9ccd1; 
+    }
+    .form-style input{
+        border:0;
+        height:50px;
+        border-radius:0;
+    border-bottom:1px solid #ebebeb;	
+    }
+    .form-style input:focus{
+    border-bottom:1px solid #007bff;	
+    box-shadow:none;
+    outline:0;
+    background-color:#ebebeb;	
+    }
+    .sideline {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color:#ccc;
+    }
+    button{
+    height:50px;	
+    }
+    .sideline:before,
+    .sideline:after {
+        content: '';
+        border-top: 1px solid #ebebeb;
+        margin: 0 20px 0 0;
+        flex: 1 0 20px;
+    }
+    
+    .sideline:after {
+        margin: 0 0 0 20px;
+    }

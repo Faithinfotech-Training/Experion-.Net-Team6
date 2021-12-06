@@ -1,49 +1,50 @@
-<div class="container login">
-    <div class="container card">
-        <div class="login-content">
-            <h3 style="font-weight: 700; color: #2297a0;">Login</h3>
-            <hr>
-
-            <!-- Login Form -->
-            <form [formGroup]="loginForm" (ngSubmit)="loginCredentials()">
-
-                <!--User Name-->
-                <div>
-                    <input type="text" placeholder="Enter User Name" autocomplete="off"
-                    formControlName="UserName"  required class="form-control" />
-                </div>
-                <div *ngIf="isSubmitted && formControls.UserName.errors">
-                    <div *ngIf="formControls.UserName.errors.required" style="color: red; text-align: left;">
-                        User Name Is required!
-                    </div>
-                </div>
-
-                <br>
-
-                <!--Password-->
-                <div>
-                    <input type="password" placeholder="Enter Password" formControlName="Password" autocomplete="off"
-                        required />
-
-                </div>
-                <div *ngIf="isSubmitted && formControls.Password.errors">
-                    <div *ngIf="formControls.Password.errors.required" style="color: red; text-align: left;">
-                        Password Is required!
-                    </div>
-
-                </div>
-
-                <br>
-                <button class="btn btn-md btn-primary" (click)="loginCredentials()" >
-                    <i class="fa fa-sign-in"></i>
-                    Login
-                </button>
-                <div *ngIf="error" style="text-align: left; color: red;">
-                    {{error}}
-                </div>
-
-            </form>
-        </div>
-
+<script src="https://use.fontawesome.com/f59bcd8580.js"></script>
+<div class="container">
+<div class="row m-5 no-gutters shadow-lg">
+<div class="col-md-6 d-none d-md-block">
+<img src="https://cdn.dribbble.com/users/1731254/screenshots/10955416/media/fa19bcedd2b40512822696fcca53cbc1.png?compress=1&resize=1600x1200" class="img-fluid" style="min-height:100%;" />
+</div>
+<div class="col-md-6 bg-white p-5">
+<h3 class="pb-3">Login</h3>
+<div class="form-style">
+<!-- Login Form -->
+<form [formGroup]="loginForm" (ngSubmit)="loginCredentials()">
+    <div class="form-group pb-3">
+        <input type="text" placeholder="Enter User Name" autocomplete="off"
+        formControlName="UserName"  required class="form-control" />
     </div>
+    <div *ngIf="isSubmitted && formControls.UserName.errors">
+        <div *ngIf="formControls.UserName.errors.required" style="color: red; text-align: left;">
+            User Name Is required!
+        </div>
+    </div>
+
+  <div class="form-group pb-3">   
+   <!--Password-->
+   <div class="form-group pb-3">
+    <input type="password" class="form-control" placeholder="Enter Password" formControlName="Password" autocomplete="off"
+        required />
+
+</div>
+<div *ngIf="isSubmitted && formControls.Password.errors">
+    <div *ngIf="formControls.Password.errors.required" style="color: red; text-align: left;">
+        Password Is required!
+    </div>
+
+</div>
+  </div><br>
+   <div class="pb-2">
+    <button class="btn btn-primary w-100 font-weight-bold mt-2" (click)="loginCredentials()" >
+        <i class="fa fa-sign-in"></i>
+        Login
+    </button>
+    <div *ngIf="error" style="text-align: left; color: red;">
+        {{error}}
+    </div>
+   </div>
+</form>
+</div>
+
+</div>
+</div>
 </div>
