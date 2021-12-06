@@ -3,8 +3,7 @@
         <h3>Doctor List and Information</h3>
         <!--Search funciotnality-->
         <div class="form-group">
-            <input class="form-control" type="text" 
-            placeholder="Search" [(ngModel)] ="filter" >
+            <input class="form-control" type="text" placeholder="Search" [(ngModel)]="filter">
         </div>
     </div>
     <br>
@@ -20,22 +19,28 @@
                 <th>Date of Birth</th>
                 <th>Contact No</th>
                 <th>Location</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let data of this.adminService.doctors | filter: filter | paginate: {itemsPerPage:10, currentPage: page}">
-                <td>{{data.DoctorId}}</td>
-                <td>{{data.DoctorName}}</td>
-                <td>{{data.DoctorQualification}}</td>
-                <td>{{data.DoctorAge}}</td>
-                <td>{{data.DoctorGender}}</td>
-                <td>{{data.DoctorDateofBirth|  date: 'dd-MM-yyyy'}}</td>
-                <td>{{data.DoctorContactNo}}</td>
-                <td>{{data.DoctorLocation}}</td>
-                <td style="width: 6em;">
-                    <button (click)="updatedoctor(data.DoctorId)" class="btn btn-outline-danger" style="width: 100%;">Edit</button>
-                </td>
+            <tr
+                *ngFor="let data of this.adminService.doctors | filter: filter | paginate: {itemsPerPage:10, currentPage: page}">
+                <ng-template [ngIf]="data.IsActive==true">
+                    <td>{{data.DoctorId}}</td>
+                    <td>{{data.DoctorName}}</td>
+                    <td>{{data.DoctorQualification}}</td>
+                    <td>{{data.DoctorAge}}</td>
+                    <td>{{data.DoctorGender}}</td>
+                    <td>{{data.DoctorDateofBirth}}</td>
+                    <td>{{data.DoctorContactNo}}</td>
+                    <td>{{data.DoctorLocation}}</td>
+                    <td style="width: 6em;">
+                        <button (click)="updatedoctor(data.DoctorId)" class="btn btn-outline-danger"
+                            style="width: 100%;">Edit</button>
+                    </td>
+                </ng-template>
             </tr>
+            
         </tbody>
     </table>
     <div class="footer">
@@ -43,5 +48,3 @@
         <pagination-controls (pageChange)="page=($event)"></pagination-controls>
     </div>
 </div>
-
-

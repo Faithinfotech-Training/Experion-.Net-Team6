@@ -30,7 +30,7 @@ export class StaffListComponent implements OnInit {
  
 
   updateStaff(Id: number) {
-    this.router.navigate(['/add-staff', Id]);
+    this.router.navigate(['add-staff', Id, 0]);
   }
 
 }

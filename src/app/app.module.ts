@@ -32,6 +32,8 @@ import { PaymentComponent } from './frontoffice/payment/payment.component';
 import { ViewpaymentComponent } from './frontoffice/viewpayment/viewpayment.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { PatientLogComponent } from './patient-log/patient-log.component';
+import { AdduserComponent } from './admin/adduser/adduser.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
 import { EventsComponent } from './events/events.component';
 import { EventComponent } from './events/event/event.component';
 import { EventlistComponent } from './events/eventlist/eventlist.component';
@@ -66,6 +68,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FrontofficeComponent,
     PaymentComponent,
     ViewpaymentComponent,
+    AdduserComponent,
+    UserListComponent,
     EventsComponent,
     EventComponent,
     EventlistComponent,

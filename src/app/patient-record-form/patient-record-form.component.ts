@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AppointmentService } from '../shared/appointment.service';
 import { PatientlogService } from '../shared/patientlog.service';
 
@@ -13,7 +14,7 @@ export class PatientRecordFormComponent implements OnInit {
 Id:number;
 logId:number;
   constructor(public patientlogservice:PatientlogService,public route:ActivatedRoute,public appointmentservice:AppointmentService,
-    public router:Router) { }
+    public router:Router,private toasterService:ToastrService) { }
 
   ngOnInit(): void {
     this.Id= this.route.snapshot.params['AppointmentId'];
@@ -51,8 +52,10 @@ logId:number;
       (result) => {
         console.log(result);
         this.logId=result;
-        this.removeappointment();
+        //this.removeappointment();
         this.addprescription(result);
+        this.toasterService.success("Notes and Observations Added");
+
       }
     );
    // window.location.reload();
@@ -65,15 +68,15 @@ logId:number;
     this.router.navigate(['prescriptionmedicine', id]);
   }
 
-  removeappointment(){
+ // removeappointment(){
 
-    this.appointmentservice.deleteappointment(this.Id).subscribe(
+  //  this.appointmentservice.deleteappointment(this.Id).subscribe(
 
-      (result)=>{
+     // (result)=>{
 
-        console.log(result);
+       // console.log(result);
 
-      }
-    );
-  }
+     // }
+   // );
+ // }
 }

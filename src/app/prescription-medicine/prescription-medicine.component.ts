@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { PrescriptionService } from '../shared/prescription.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { PrescriptionService } from '../shared/prescription.service';
 })
 export class PrescriptionMedicineComponent implements OnInit {
   id: number;
-  constructor(public route: ActivatedRoute, public prescription: PrescriptionService, public router: Router) { }
+  constructor(public route: ActivatedRoute, public prescription: PrescriptionService, public router: Router,private toasterService:ToastrService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['LogId'];
@@ -37,6 +38,7 @@ export class PrescriptionMedicineComponent implements OnInit {
       (result) => {
         console.log(result);
         this.addTest(this.id);
+        this.toasterService.success("Notes and Observations Added");
       }
     );
   }

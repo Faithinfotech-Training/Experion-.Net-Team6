@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="header">
+        <h3>User Credentials !!</h3>
+        <!--Search funciotnality-->
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search" [(ngModel)]="filter">
+        </div>
+    </div>
+    <br>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Role Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let data of this.adminService.user | filter: filter | paginate: {itemsPerPage:10, currentPage: page}">
+                <ng-template [ngIf]="data.IsActive==true">
+                    <td>{{data.UserId}}</td>
+                    <td>{{data.UserName}}</td>
+                    <td *ngIf="data.RoleId==1">Admin</td>
+                    <td *ngIf="data.RoleId==2">Doctor</td>
+                    <td *ngIf="data.RoleId==3">Lab Technician</td>
+                    <td *ngIf="data.RoleId==4">Front Desk</td>
+                    <td style="width: 14em;">
+                        <button (click)="updateUser(data.UserId)" class="btn btn-outline-danger"
+                            style="width: 46%;">Edit</button>
+                        &nbsp;
+                        <button (click)="deleteUser(data.UserId)" class="btn btn-outline-danger"
+                            style="width: 46%;">Delete</button>
+                    </td>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <!--Pagination should be added here-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+</div>

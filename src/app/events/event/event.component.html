@@ -3,7 +3,7 @@
     <!--patient id-->
     <input type="hidden" name="EventId" [ngModel]="eventService.formData.EventId" />
 
-    <h1 align="center"><b> REGISTER HERE</b></h1>
+    <h1 align="center"><b>Event</b></h1>
 
     <!--patient name-->
     <div class="form-group">
@@ -50,8 +50,8 @@
     <div class="form-group">
         <div class="form-check">
             <label class="form-check-label"><b>Is active</b> </label>
-            <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
-                [(ngModel)]="eventService.formData.IsActive" class="form-check-input">
+            <input type="checkbox" checked name="IsActive" id="IsActive" #IsActive="ngModel"
+                [(ngModel)]="eventService.formData.IsActive" class="form-check-input" checked="true">
         </div>
     </div>
     <br>
