@@ -47,7 +47,7 @@ export class AdduserComponent implements OnInit {
       this.resetForm();
       this.adminService.getUser(this.UId).subscribe(
         (result) => {
-          if (result.RoleId != 3) {
+          if (result.RoleId != 2) {
             console.log("routing");
             console.log(this.UId);
             this.router.navigate(['/add-staff', 0, this.UId]);
@@ -73,7 +73,7 @@ export class AdduserComponent implements OnInit {
         this.adminService.getUser(this.UId).subscribe(
           (result) => {
             console.log(result.RoleId);
-            if (result.RoleId != 3) {
+            if (result.RoleId != 2) {
               console.log("routing");
               console.log(this.UId);
               this.router.navigate(['/add-staff', 0, this.UId]);
