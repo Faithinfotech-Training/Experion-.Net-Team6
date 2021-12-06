@@ -1,9 +1,13 @@
 <div class="container">
-
+    <div class="container" style="margin-right: 5em;">
+        <button style="width: 10em;" class="btn btn-primary form-control" [routerLink]="['/doctor']">
+          <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i>Dashboard</button>
+      </div>
     <div class="header">
         <h4>Today's Appointments</h4>
 
         <br>
+    
 
     </div>
     <div class="container">
@@ -11,8 +15,8 @@
         <table class=" table  table-responsive table-bordered ">
             <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>PatientId</td>
+                    <!-- <td>ID</td> -->
+                    <!-- <td>PatientId</td> -->
                     <td>Patient Name</td>
                     <td>Date of Appointment</td>
                     <td>Age</td>
@@ -27,8 +31,8 @@
                     <ng-template [ngIf]="compareDate(app.DateofAppointment)">
                         <ng-template [ngIf]="app.IsActive">
 
-                            <td>{{app.AppointmentId}}</td>
-                            <td>{{app.PatientId}}</td>
+                            <!-- <td>{{app.AppointmentId}}</td> -->
+                            <!-- <td>{{app.PatientId}}</td> -->
                             <td>{{app.PatientName}}</td>
                             <td>{{app.DateofAppointment |date: 'dd-MM-yyyy'}}</td>
                             <td>{{app.Age}}</td>
@@ -46,10 +50,10 @@
                                 <ng-template [ngIf]="role == '4'">
                                     &nbsp;<button class="btn btn-info" style="margin-left: 10px;"
                                         (click)="addPayment(app.AppointmentId)">Add Bill</button>
-                                    </ng-template>
+                                </ng-template>
                             </td>
-                       
-                    </ng-template>
+
+                        </ng-template>
                     </ng-template>
                 </tr>
             </tbody>
