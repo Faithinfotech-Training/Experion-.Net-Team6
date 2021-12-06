@@ -52,7 +52,7 @@
 
         <label><b>EmailId</b></label>
         <input type="email" name="EmailId" #EmailId="ngModel" [ngModel]="patientService.formData.EmailId"
-            class="form-control" placeholder="Enter EmailId" minlength="1" maxlength="25" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  required
+            class="form-control" placeholder="Enter EmailId" minlength="1" maxlength="35" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  required
             [ngClass]="{'is-invalid':EmailId.touched && EmailId.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
         <div class="validation-error" *ngIf="EmailId.touched && EmailId.invalid">
 

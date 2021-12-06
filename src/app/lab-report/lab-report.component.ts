@@ -22,6 +22,7 @@ export class LabReportComponent implements OnInit {
   testDetails:PrescriptionTest;
   loggedUser=localStorage.getItem('userName');
 
+
   constructor(public authService:AuthService,public labReportServices:LabReportService,
               public patientService:PatientService,public route:ActivatedRoute,
               public labListService:LabListService,public adminServices:AdminService,public router:Router,
@@ -33,13 +34,23 @@ export class LabReportComponent implements OnInit {
     //getting all staffs
     this.adminServices.getallStaff();
     this.LogId=this.route.snapshot.params['LogId'];
-    //this.labReportServices.formData.LogId=this.LogId;
-    //filling the form with test names
+    //get staff Id
+    //var staffId=this.labReportServices.getSyaffId(this.loggedUser);
     this.labReportServices.getReportFormView(this.LogId).subscribe(
       data=>{console.log(data);
         this.labReportServices.formData = Object.assign({}, data);
+        this.labReportServices.getStaffId(this.loggedUser).subscribe(
+          data=>{console.log(data);
+            this.labReportServices.formData.StaffId = data;
+          }
+        )
       }
+      
     )
+
+    //this.labReportServices.formData.LogId=this.LogId;
+    //filling the form with test names
+
 
   }
 
@@ -80,5 +91,4 @@ export class LabReportComponent implements OnInit {
     console.log("updated")
     }
   
-
 }

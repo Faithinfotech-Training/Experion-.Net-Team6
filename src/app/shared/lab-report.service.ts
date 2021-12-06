@@ -14,8 +14,9 @@ export class LabReportService {
 
 
   formData: LabReport = new LabReport;
-  generatedResults: GeneratedFormView[]; 
+  generatedResults: GeneratedFormView[];
   testDetails: PrescriptionTest;
+  staffId:number;
 
   constructor(private httpClient: HttpClient, public patientService: PatientService) { }
 
@@ -25,7 +26,7 @@ export class LabReportService {
 
   getReportFormView(LogId: number): Observable<any> {
     return this.httpClient.get(environment.apiUrl + "/api/labtest/GetFormView/" + LogId)
-  } 
+  }
 
   getGeneratedReport() {
     return this.httpClient.get(environment.apiUrl + "/api/labreport/VM")
@@ -38,25 +39,35 @@ export class LabReportService {
     return this.httpClient.get(environment.apiUrl + "/api/labtest/" + LogId)
   }
 
-  updatePrescriptionTest(LogId: number):Observable<any>{
+  updatePrescriptionTest(LogId: number): Observable<any> {
     //console.log("inside services");
     //console.log(environment.apiUrl + "/api/labtest/" + LogId);
     return this.httpClient.get(environment.apiUrl + "/api/labtest/updatestatus/" + LogId)
   }
 
-  updateLabReportTable(LabReportId:number):Observable<any>{
-    return this.httpClient.delete(environment.apiUrl+"/api/labreport/"+LabReportId);
+  updateLabReportTable(LabReportId: number): Observable<any> {
+    return this.httpClient.delete(environment.apiUrl + "/api/labreport/" + LabReportId);
   }
 
-  emailReport(LabReportId:number):Observable<any>{
-    return this.httpClient.get(environment.apiUrl+"/api/labreport/labid/"+LabReportId);
-    
+  emailReport(LabReportId: number): Observable<any> {
+    return this.httpClient.get(environment.apiUrl + "/api/email/sendmail/" + LabReportId);
+
   }
-getlabreportbyreportid(reportid:number){
-  return this.httpClient.get(environment.apiUrl + "/api/labreport/labid/"+reportid)
-  .toPromise().then(
-    Response => this.generatedResults = Response as GeneratedFormView[]
-  )
-}
+  getlabreportbyreportid(reportid: number) {
+    return this.httpClient.get(environment.apiUrl + "/api/labreport/labid/" + reportid)
+      .toPromise().then(
+        Response => this.generatedResults = Response as GeneratedFormView[]
+      )
+  }
+
+  getStaffId(userName:string):Observable<any>{
+   // return this.httpClient.get(environment.apiUrl+"/api/staff/getstaffid/"+userName).toPromise().then(
+   //   Response=>this.staffId=Response as number
+   // )
+    return this.httpClient.get(environment.apiUrl+"/api/staff/getstaffid/"+userName);
+    //console.log("StaffID:"+id);
+
+    //return id;
+  }
 
 }

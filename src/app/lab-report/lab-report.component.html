@@ -12,7 +12,7 @@
             <label>Patient Name</label>
             <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
                 [(ngModel)]="labReportServices.formData.PatientId"
-                [ngClass]="{'is-invalid':PatientId.touched && PatientId.invalid}">
+                [ngClass]="{'is-invalid':PatientId.touched && PatientId.invalid}" >
                 <option disabled>Select Patient</option>
                 <option *ngFor="let p of patientService.patients1" value="{{p.PatientId}}">{{p.PatientName}}</option>
             </select>
@@ -23,14 +23,16 @@
         </div>
         <!--StaffId-->
         <div class="form-group mt-2">
-            <label>Staff </label>
+            <label>Staff ID: </label>
+            <input type="number" class="form-control" name="StaffId" #StaffId="ngModel"
+            [(ngModel)]="labReportServices.formData.StaffId" placeholder="" readonly>
 
-            <select name="StaffId" id="StaffId" class="form-control" #StaffId="ngModel" required
+            <!-- <select name="StaffId" id="StaffId" class="form-control" #StaffId="ngModel" required
                 [(ngModel)]="labReportServices.formData.StaffId"
                 [ngClass]="{'is-invalid':StaffId.touched && StaffId.invalid}">
                 <option disabled>Select Staff</option>
                 <option *ngFor="let p of adminServices.staff" value="{{p.StaffId}}">{{p.StaffName}}</option>
-            </select>
+            </select> -->
         </div>
         <div class="validation-error" *ngIf="StaffId.touched && StaffId.invalid">
             <div *ngIf="StaffId.errors.required"> StaffId is required

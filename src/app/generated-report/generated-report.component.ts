@@ -46,7 +46,7 @@ role=localStorage.getItem('ACCESS_ROLE');
     this.labReportService.emailReport(LabReportId).subscribe(
       (result)=>{
         console.log(result);
-        this.toastrService.success("Report Generated Successfuly!");
+        this.toastrService.success("Report Sent Successfuly!");
       }
     )
   }

@@ -28,7 +28,7 @@
                 <th>Test Two</th>
                 <th> Result</th>
                 <th>Test Three</th>
-                <th> Result</th>      
+                <th> Result</th>
                 <th *ngIf="role=='3'">Action</th>
 
             </tr>
@@ -49,13 +49,15 @@
                 <td>{{l.ObservedResultThree}}</td>
 
                 <ng-template [ngIf]="role==3">
-                <td>
-                    <button (click)="updateReport(l.LogId,l.LabReportId)" class="btn btn-outline-danger"
-                        style="width: 100%;">Edit</button>
-                    &nbsp; <button (click)="generatepdf(l.LabReportId)" class="btn btn-outline-danger"
-                        style="width: 100%;">ViewlabReport</button>
-                </td>
-            </ng-template>
+                    <td>
+                        <button (click)="updateReport(l.LogId,l.LabReportId)" class="btn btn-outline-danger"
+                            style="width: 50%;">Edit</button>
+                        <button (click)="generatepdf(l.LabReportId)" class="btn btn-outline-danger "
+                            style="width: 50%;">PDF</button>
+                        <button (click)="emailLabReport(l.LabReportId)" class="btn btn-outline-danger mt-1"
+                            style="width: 100%;">Email Report</button>
+                    </td>
+                </ng-template>
             </tr>
 
         </tbody>
