@@ -1,3 +1,8 @@
+<div class="container">
+<button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
+    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button><br>&nbsp;
+<button style="width: 7em; float: left;"  class="btn btn-primary form-control" [routerLink]="['/frontoffice']">
+        <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button>
 <form name="patform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
     <div class="container mt-3" style="width: 30em;">
         <!--patient id-->
@@ -50,7 +55,7 @@
     <!--Email ID-->
     <div class="form-group">
 
-        <label><b>EmailId</b></label>
+        <label><b>Email Id</b></label>
         <input type="email" name="EmailId" #EmailId="ngModel" [ngModel]="patientService.formData.EmailId"
             class="form-control" placeholder="Enter EmailId" minlength="1" maxlength="35" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  required
             [ngClass]="{'is-invalid':EmailId.touched && EmailId.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
@@ -121,16 +126,15 @@
                 </div>
             </div>
         </div>
-        <br>
         <!--Is Active-->
         <div class="form-group">
             <div class="form-check">
-                <label class="form-check-label"><b>Is active</b> </label>
-                <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
+               <!--<label class="form-check-label"><b>Is active</b> </label>-->
+                <input type="hidden" name="IsActive" id="IsActive" #IsActive="ngModel"
                     [(ngModel)]="patientService.formData.IsActive" class="form-check-input">
             </div>
         </div>
-        <br>
+    
         <!--submit button-->
         <br>
         <div class="form-group">
@@ -142,3 +146,4 @@
     </div>
 
 </form>
+</div>

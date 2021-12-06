@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { PatientService } from 'src/app/shared/patient.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-patient',
@@ -15,15 +16,20 @@ export class PatientComponent implements OnInit {
   PatientId: number;
   patient: Patient = new Patient();
   Id: number;
+  myModel : boolean
 
-  constructor(
+  constructor(public authService:AuthService,
     public patientService: PatientService,
     private router: Router,
     private route: ActivatedRoute,
     private toasterService: ToastrService) { }
 
   ngOnInit(): void {
+    
+    //window.location.reload();
     this.Id = this.route.snapshot.params['patId'];
+    //this.myModel=true;
+    this.patientService.formData.IsActive=true;
     if (this.Id != 0 || this.Id != null) {
       
       this.patientService.getPatientById(this.Id).subscribe(
@@ -36,9 +42,11 @@ export class PatientComponent implements OnInit {
       );
 
     }
-
-
   }
+  logOut(){
+      this.authService.logOut();      
+    } 
+  
   onSubmit(form?: NgForm) {
     console.log(form.value);
     let Id = this.patientService.formData.PatientId;
@@ -81,6 +89,7 @@ export class PatientComponent implements OnInit {
         console.log(result);
         this.resetForm(form);
         this.toasterService.success('Patient Updated successfully');
+       
 
       }
     )
