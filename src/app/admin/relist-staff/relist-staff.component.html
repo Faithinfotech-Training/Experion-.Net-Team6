@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="header">
+        <h3>Non Activated Staff-List</h3>
+        <!--Search funciotnality-->
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search" [(ngModel)]="filter1">
+        </div>
+    </div>
+    <br>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Staff ID</th>
+                <th>Staff Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>Contact Number</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let data of this.adminService.staff | filter: filter1">
+                <ng-template [ngIf]="data.IsActive==false">
+                <td>{{data.StaffId}}</td>
+                <td>{{data.StaffName}}</td>
+                <td>{{data.StaffAge}}</td>
+                <td>{{data.StaffGender}}</td>
+                <td>{{data.StaffDateofBirth | date:'dd-MM-yyyy'}}</td>
+                <td>{{data.StaffContactNo}}</td>
+                <td>{{data.StaffLocation}}</td>
+                <td style=" width: 6em;">
+                    <button (click)="updateStaff(data.StaffId)" class="btn btn-outline-danger"
+                        style="width: 100%;">Edit</button><br><br>
+                        <button (click)="ReActivateStaff(data.StaffId)" class="btn btn-outline-danger"
+                        style="width: 100%;">Re Activate</button>
+                    </td>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <!--Pagination should be added here-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="header">
+        <h3>Non Activated Doctor List</h3>
+        <!--Search funciotnality-->
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search" [(ngModel)]="filter2">
+        </div>
+    </div>
+    <br>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Doctor ID</th>
+                <th>Doctor Name</th>
+                <th>Doctor Qualification</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>Contact No</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let data of this.adminService.doctors | filter: filter2">
+                <ng-template [ngIf]="data.IsActive==false">
+                    <td>{{data.DoctorId}}</td>
+                    <td>{{data.DoctorName}}</td>
+                    <td>{{data.DoctorQualification}}</td>
+                    <td>{{data.DoctorAge}}</td>
+                    <td>{{data.DoctorGender}}</td>
+                    <td>{{data.DoctorDateofBirth}}</td>
+                    <td>{{data.DoctorContactNo}}</td>
+                    <td>{{data.DoctorLocation}}</td>
+                    <td style="width: 6em;">
+                        <button (click)="updatedoctor(data.DoctorId)" class="btn btn-outline-danger"
+                            style="width: 100%;">Edit</button><br><br>
+                            <button (click)="ReActivatedoc(data.DoctorId)" class="btn btn-outline-danger"
+                            style="width: 100%; ">Re-Activate</button><br>
+                            
+                    </td>
+                </ng-template>
+            </tr>
+            
+        </tbody>
+    </table>
+    <div class="footer">
+        <!--Pagination should be added here-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+</div>
