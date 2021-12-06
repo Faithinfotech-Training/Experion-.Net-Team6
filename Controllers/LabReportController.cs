@@ -126,6 +126,27 @@ namespace cmsRestApi.Controllers
             }
         }
         #endregion
+        #region get Lab report by report Id
+[HttpGet("labid/{id}")]
+//[Route("GetLabReport/{id}")]
+public async Task<IActionResult> GetLabReportByReportId(int id)
+        {
+            try
+            {
+                var report = await repository.GetLabReportByReportId(id);
+                if (report == null)
+                {
+                    return NotFound();
+                }
+                return Ok(report);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
+
 
 
     }

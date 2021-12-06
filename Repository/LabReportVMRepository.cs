@@ -188,22 +188,7 @@ namespace cmsRestApi.Repository
         #endregion
 
       
-        #region delete a lab report
-public async Task<int> DeleteLabReport(int id)
-        {
-            if (db != null)
-            {
-                var itemToRemove = db.TblLabReport.SingleOrDefault(x => x.LabReportId == id); //returns a single item. if (itemToRemove != null)
-                {
-                    db.TblLabReport.Remove(itemToRemove);
-                    await db.SaveChangesAsync();
-                    return id;
-                }
-                return 0;
-            }
-            return 0;
-        }
-        #endregion
+
 
 
     }
