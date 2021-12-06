@@ -1,0 +1,10 @@
+.form-control{
+    box-shadow: 10px 5px 5px rgb(152, 173, 212);
+}
+
+
+button{
+    background-color: #2297a0;
+    border: 1px solid rgb(255, 255, 255);
+    font-size: 1.3em;
+}

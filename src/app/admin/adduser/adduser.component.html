@@ -1,0 +1,93 @@
+<form name="userform" autocomplete="off" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="form-control">
+        <div class="container mt-5" style="width: 30em;">
+            <!--User ID-->
+            <input type="number" name="UserId" [(ngModel)]="adminService.userData.UserId">
+            <!--User Name-->
+            <div class="form-gorup">
+                <label><b>Enter a Username for the new Staff !</b></label>
+                <input type="text" name="UserName" #UserName="ngModel" [(ngModel)]="adminService.userData.UserName"
+                    class="form-control" placeholder="Enter Username" minlength="4" maxlength="12" required
+                    [ngClass]="{ 'is-invalid' : UserName.touched && UserName.invalid }" />
+                <div class="validation-error" *ngIf="UserName.touched && UserName.invalid">
+                    <div *ngIf="UserName.errors.required">
+                        
+                    </div>
+                    <div *ngIf="UserName.errors.minlength && UserName.errors.maxlength">
+                        Username shouldbe minimum of four and maximum of twelve in length
+                    </div>
+                </div>
+            </div>
+
+            <!--User Password-->
+            <div class="form-gorup">
+                <label><b>Enter Password !</b></label>
+                <input type="password" name="Password" #Password="ngModel" [(ngModel)]="adminService.userData.Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    class="form-control" placeholder="Enter Password" minlength="8" maxlength="16" required
+                    [ngClass]="{ 'is-invalid' : Password.touched && Password.invalid }" />
+                <div class="validation-error" *ngIf="Password.touched && Password.invalid">
+                    <div *ngIf="Password.errors.required">Palease enter the password</div>
+                    <div *ngIf="Password.errors.pattern">"Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"</div>
+                </div>
+            </div>
+
+            <!--User Password Confirmation
+            <div class="form-gorup">
+                <label><b>Confirm Password !</b></label>
+                <input type="password" name="Password2" #Password2="ngModel" [(ngModel)]="this.confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    class="form-control" placeholder="Enter Password" minlength="8" maxlength="16" required
+                    [ngClass]="{ 'is-invalid' : Password2.touched && Password2.invalid }" />
+                <div class="validation-error" *ngIf="Password2.touched && Password2.invalid">
+                    <div *ngIf="Password2.errors.required">Palease enter the password</div>
+                    <div *ngIf="Password2.errors.pattern">"Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"</div>
+                    <div *ngIf="Password2 != adminService.userData.password">Password doesnot amtch</div>
+                </div>
+            </div> -->
+
+            <div class="form-group">
+                <label class="col-md-4"><b>Role Assigned</b></label>
+                <select name="roleId" id="RoleId" #RoleId="ngModel" [(ngModel)]="adminService.userData.RoleId"
+                    class="form-control" required [ngClass]="{ 'is-invalid' : RoleId.touched && RoleId.invalid } ">
+                    <option value=0 disabled>Select the role to be assigned</option>
+                    <option value=1>Admin</option>
+                    <option value=2>Front Desk</option>
+                    <option value=3>Doctor</option>
+                    <option value=4>Lab Technician</option>
+
+
+
+                </select>
+                <div class="validation-error" *ngIf="RoleId.touched && RoleId.invalid">
+                    <div *ngIf="RoleId.errors.required"> Appropriate role should be asssigned.
+
+                    </div>
+                </div>
+            </div>
+
+            <!--IsActive-->
+            <br>
+            <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label"><b>IsActive</b></label>
+                    <input type="checkbox" name="IsActive" id="IsActive" [(ngModel)]="adminService.userData.IsActive"
+                        class="form-check-input" checked>
+
+                </div>
+
+            </div>
+            <br>
+
+
+
+
+            <!--Submit Button-->
+            <br>
+            <div class="form-group">
+                <button type="submit" [disabled]="!(form.valid && form.dirty)"
+                    class="btn btn-lg btn-primary form-control">Submit</button>
+
+            </div>
+
+        </div>
+    </div>
+</form>

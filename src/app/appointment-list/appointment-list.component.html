@@ -21,28 +21,36 @@
                     <td>Action</td>
                 </tr>
 
-            </thead> 
-            <tbody> 
+            </thead>
+            <tbody>
                 <tr *ngFor="let app of appservice.appointment ">
-                    
-                    <ng-template [ngIf]="app.IsActive">
-                        
-                        <td>{{app.AppointmentId}}</td>
-                        <td>{{app.PatientId}}</td>
-                        <td>{{app.PatientName}}</td>
-                        <td>{{app.DateofAppointment |date: 'dd-MM-yyyy'}}</td>
-                        <td>{{app.Age}}</td>
-                        <td>{{app.Gender}}</td>
-                        <td>{{app.IsActive}}</td>
+                    <ng-template [ngIf]="compareDate(app.DateofAppointment)">
+                        <ng-template [ngIf]="app.IsActive">
 
-                        <td>
-                            <button class="btn btn-sm btn-outline-danger" (click)="patientlog(app.PatientId)">View
-                                PastRecord</button>
-                            &nbsp;<button class="btn btn-info" style="margin-left: 10px;"  (click)="addpatientlog(app.AppointmentId)">Add Log</button>
-                            &nbsp;<button class="btn btn-info" style="margin-left: 10px;"  (click)="addPayment(app.AppointmentId)">Add Bill</button>
-                        </td>
-                    
-                </ng-template>
+                            <td>{{app.AppointmentId}}</td>
+                            <td>{{app.PatientId}}</td>
+                            <td>{{app.PatientName}}</td>
+                            <td>{{app.DateofAppointment |date: 'dd-MM-yyyy'}}</td>
+                            <td>{{app.Age}}</td>
+                            <td>{{app.Gender}}</td>
+                            <td>{{app.IsActive}}</td>
+
+                            <td>
+                                <ng-template [ngIf]="role == '2'">
+                                    <button class="btn btn-sm btn-outline-danger"
+                                        (click)="patientlog(app.PatientId)">View
+                                        PastRecord</button>
+                                    &nbsp;<button class="btn btn-info" style="margin-left: 10px;"
+                                        (click)="addpatientlog(app.AppointmentId)">Add Log</button>
+                                </ng-template>
+                                <ng-template [ngIf]="role == '4'">
+                                    &nbsp;<button class="btn btn-info" style="margin-left: 10px;"
+                                        (click)="addPayment(app.AppointmentId)">Add Bill</button>
+                                    </ng-template>
+                            </td>
+                       
+                    </ng-template>
+                    </ng-template>
                 </tr>
             </tbody>
         </table>

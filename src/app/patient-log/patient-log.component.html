@@ -1,7 +1,7 @@
 <div class="container">
     <div class="patientdetails" *ngFor="let patientlog of this.patientlogservice.patientlog">
         <h3>Medical History</h3>
-
+        <h4>{{patientlog.DateofAppointment| date:'dd-MM-yyyy'}}</h4>
         <table class="table table-bordered table-hover">
             <thead>
                 <th>Medicine</th>
@@ -9,19 +9,19 @@
             </thead>
             <tbody>
                 <tr *ngIf=patientlog.MedicineOne>
-                    <td >{{patientlog.MedicineOne}}</td>
+                    <td>{{patientlog.MedicineOne}}</td>
                     <td>{{patientlog.MedicineOneDosage}}</td>
                 </tr>
                 <tr *ngIf=patientlog.MedicineTwo>
-                    <td >{{patientlog.MedicineTwo}}</td>
+                    <td>{{patientlog.MedicineTwo}}</td>
                     <td>{{patientlog.MedicineTwoDosage}}</td>
                 </tr>
-                <tr  *ngIf=patientlog.MedicineThree>
-                    <td >{{patientlog.MedicineThree}}</td>
+                <tr *ngIf=patientlog.MedicineThree>
+                    <td>{{patientlog.MedicineThree}}</td>
                     <td>{{patientlog.MedicineThreeDosage}}</td>
                 </tr>
-                <tr  *ngIf=patientlog.MedicineFour>
-                    <td >{{patientlog.MedicineFour}}</td>
+                <tr *ngIf=patientlog.MedicineFour>
+                    <td>{{patientlog.MedicineFour}}</td>
                     <td>{{patientlog.MedicineThreeDosage}}</td>
                 </tr>
 
@@ -48,14 +48,16 @@
             <h6>Previous notes and Observations</h6>
             <h6>Note: {{patientlog.Notes}}</h6>
             <h6>Observations: {{patientlog.Observations}}</h6>
-        </div> 
+        </div>
 
 
     </div>
     <div class="patientdetails" *ngFor="let lab of this.patientlogservice.labreport">
         <table class="table table-bordered table-hover">
+            <h4>{{lab.DateOfAppointment | date:'dd-MM-yyyy'}}</h4>
             <thead>
-                <th>Tests Prescribed</th><th>Results</th>
+                <th>Tests Prescribed</th>
+                <th>Results</th>
             </thead>
             <tbody>
                 <tr *ngIf=lab.TestOneName>
@@ -72,7 +74,7 @@
                 </tr>
 
             </tbody>
-            </table>
+        </table>
     </div>
 
 </div>
