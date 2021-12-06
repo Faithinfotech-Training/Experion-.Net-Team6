@@ -41,6 +41,7 @@ import { HomeComponent } from './home/home.component';
 import { DatePipe } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RelistStaffComponent } from './admin/relist-staff/relist-staff.component';
 import { LabreportpdfComponent } from './labreportpdf/labreportpdf.component';
 
 @NgModule({
@@ -75,6 +76,7 @@ import { LabreportpdfComponent } from './labreportpdf/labreportpdf.component';
     EventComponent,
     EventlistComponent,
     HomeComponent,
+    RelistStaffComponent,
     LabreportpdfComponent
   ],
   imports: [

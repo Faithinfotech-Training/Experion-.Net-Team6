@@ -25,4 +25,18 @@ export class DoctorListComponent implements OnInit {
   updatedoctor(Id: number){
     this.router.navigate(['add-doctor',Id, 0]);
   }
+
+  Deletedoctor(Id:number){
+    if (confirm("The Doctor info and access will be archived !")) {
+      this.adminService.getdoctor(Id).subscribe(
+        (result) => {
+          result.IsActive = false;
+          this.adminService.updatedoctor(result).subscribe(
+            (result) => console.log("activated")
+          )
+          window.location.reload()
+        }
+      )
+    }
+  }
 }

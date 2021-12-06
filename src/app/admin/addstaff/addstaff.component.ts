@@ -16,6 +16,7 @@ export class AddstaffComponent implements OnInit {
 
   Id: number;
   UId: number;
+  CheckActive: boolean;
 
   constructor(
     public adminService: AdminService,
@@ -52,6 +53,7 @@ export class AddstaffComponent implements OnInit {
           let formatedDate: any = datePipe.transform(data.StaffDateofBirth, 'yyyy-MM-dd');
           data.StaffDateofBirth = formatedDate;
           this.adminService.StaffData = data;
+          this.CheckActive = data.IsActive;
           console.log(this.adminService.StaffData)
         
 
@@ -59,8 +61,11 @@ export class AddstaffComponent implements OnInit {
         error => console.log(error)
       );
     }
+
+    console.log(this.CheckActive);
   }
 
+  
 
   onSubmit(form?: NgForm) {
     console.log(form.value);
@@ -88,7 +93,7 @@ export class AddstaffComponent implements OnInit {
 
   insertstaff(form: NgForm) {
     console.log("50%");
-    console.log(form.value);
+    form.value.IsActive = true;
     this.adminService.insertstaff(form.value).subscribe(
 
       (result) => {
@@ -104,6 +109,7 @@ export class AddstaffComponent implements OnInit {
 
   updatestaff(form: NgForm) {
     console.log("50%");
+    form.value.IsActive = this.CheckActive
     this.adminService.updatestaff(form.value).subscribe(
       (result) => {
         console.log(result);
