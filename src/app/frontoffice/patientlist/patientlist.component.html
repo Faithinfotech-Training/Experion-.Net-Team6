@@ -48,7 +48,7 @@
             
             <tr
                 *ngFor="let pat of this.patientService.patients | filter: filter ">
-                <ng-template [ngIf]="pat.IsActive==true">
+                <ng-template [ngIf]="pat.IsActive==null">
                 <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
                 <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
                 <td (click)="populateForm(pat)">{{pat.Age}}</td>

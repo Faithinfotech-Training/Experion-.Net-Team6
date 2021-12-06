@@ -122,15 +122,16 @@
             </div>
         </div>
         <br>
-        <!--Is Active-->
+        <!--Is Active
         <div class="form-group">
             <div class="form-check">
-                <label class="form-check-label"><b>Is active</b> </label>
-                <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
-                    [(ngModel)]="patientService.formData.IsActive" class="form-check-input">
+               <label class="form-check-label"><b>Is active</b> </label>
+                <input type="hidden" name="IsActive" id="IsActive" #IsActive="ngModel"
+                    [(ngModel)]="patientService.formData.IsActive" class="form-check-input" checked>
             </div>
         </div>
-        <br>
+        <br>-->
+    
         <!--submit button-->
         <br>
         <div class="form-group">
