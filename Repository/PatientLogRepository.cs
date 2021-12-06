@@ -57,20 +57,17 @@ namespace cmsRestApi.Repository
             if (db != null)
             {
                 //joining and getting 
-                return await (from patient in db.TblPatient
-                              from doctor in db.TblDoctor
+                return await (
                               from appointment in db.TblAppointment
-                              from log in db.TblPatientLog
-                              from medicine in db.TblPrescriptionMedicine
-                              from test in db.TblPrescriptionTest
-                              from spec in db.TblSpecialization
+                              join doctor in db.TblDoctor on appointment.DoctorId equals doctor.DoctorId
+                              join patient in db.TblPatient on appointment.PatientId equals patient.PatientId
                               where patient.PatientId == id
-                              where appointment.PatientId == patient.PatientId
-                              where appointment.DoctorId == doctor.DoctorId
-                              where doctor.DoctorSpecializationId == spec.SpecializationId
-                              where log.AppointmentId == appointment.AppointmentId
-                              where medicine.LogId == log.LogId
-                              where test.LogId == log.LogId
+                              join log in db.TblPatientLog on appointment.AppointmentId equals log.AppointmentId
+                              join medicine in db.TblPrescriptionMedicine on log.LogId equals medicine.LogId into LogMedicineDetails
+                              from n in LogMedicineDetails.DefaultIfEmpty()
+                              join test in db.TblPrescriptionTest on log.LogId equals test.LogId into LogTestDetails
+                              from m in LogTestDetails.DefaultIfEmpty()
+
                               select new PatientLogViewModel
                               {
                                   PatientId = patient.PatientId,
@@ -82,21 +79,20 @@ namespace cmsRestApi.Repository
                                   EmergencyContact = patient.EmergencyContact,
                                   IsActive = patient.IsActive,
                                   DoctorName = doctor.DoctorName,
-                                  SpecializationName = spec.SpecializationName,
                                   DateofAppointment = appointment.DateofAppointment,
                                   Notes = log.Notes,
                                   Observations = log.Observations,
-                                  MedicineOne = medicine.MedicineOneId,
-                                  MedicineTwo = medicine.MedicineTwo,
-                                  MedicineThree = medicine.MedicineThree,
-                                  MedicineFour = medicine.MedicineFour,
-                                  MedicineOneDosage=medicine.MedicineOneDosage,
-                                  MedicineTwoDosage=medicine.MedicineTwoDosage,
-                                  MedicineThreeDosage=medicine.MedicineThreeDosage,
-                                  MedicineFourDosage=medicine.MedicineFourDosage,
-                                  LabTestOne =test.TestOne,
-                                  LabTestTwo = test.TestTwo,
-                                  LabTestThree = test.TestThree
+                                  MedicineOne = n.MedicineOneId,
+                                  MedicineTwo = n.MedicineTwo,
+                                  MedicineThree = n.MedicineThree,
+                                  MedicineFour = n.MedicineFour,
+                                  MedicineOneDosage=n.MedicineOneDosage,
+                                  MedicineTwoDosage=n.MedicineTwoDosage,
+                                  MedicineThreeDosage=n.MedicineThreeDosage,
+                                  MedicineFourDosage=n.MedicineFourDosage,
+                                LabTestOne=m.TestOne,
+                                LabTestTwo=m.TestTwo,
+                                 LabTestThree=m.TestThree
 
                               }
                               ).ToListAsync();
