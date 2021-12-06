@@ -12,5 +12,7 @@ namespace cmsRestApi.Repository
         Task<TblStaff> GetStaffbyId(int id);
         Task<int> AddStaff(TblStaff staff);
         Task<int> UpdateStaff(TblStaff staff);
+
+        Task<List<TblStaff>> GetStaffId(string userName); 
     }
 }

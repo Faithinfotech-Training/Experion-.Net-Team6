@@ -108,5 +108,28 @@ namespace cmsRestApi.Controllers
             }
             return BadRequest();
         }
+
+        [HttpGet("getstaffid/{userName}")]
+        public async Task<IActionResult> GetStaffId(string userName)
+        {
+            if (userName!=null)
+            {
+                try
+                {
+                    var staffId=await staffRepository.GetStaffId(userName);
+                    var id = staffId[0].StaffId;
+                    return Ok(id);
+
+
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+
+            }
+            return BadRequest();
+        }
+
     }
 }

@@ -55,5 +55,23 @@ namespace cmsRestApi.Repository
             }
             return staff.StaffId;
         }
+
+        public async Task<List<TblStaff>> GetStaffId(string userName)
+        {
+            if (db != null)
+            {
+                return await (
+                                from user in db.TblUser
+                                from staff in db.TblStaff
+                                where user.UserName == userName
+                                where staff.UserId == user.UserId
+                                select new TblStaff
+                                {
+                                    StaffId = staff.StaffId
+                                }
+                    ).ToListAsync();
+            }
+            return null;
+        }
     }
 }
