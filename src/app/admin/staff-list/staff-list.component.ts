@@ -33,4 +33,17 @@ export class StaffListComponent implements OnInit {
     this.router.navigate(['add-staff', Id, 0]);
   }
 
+  DeleteStaff(Id:number){
+    if (confirm("The Staff data and access will be archived !")) {
+      this.adminService.getstaff(Id).subscribe(
+        (result) => {
+          result.IsActive = false;
+          this.adminService.updatestaff(result).subscribe(
+            (result) => console.log("deleted")
+          )
+          window.location.reload();
+        }
+      )
+    }
+  }
 }
