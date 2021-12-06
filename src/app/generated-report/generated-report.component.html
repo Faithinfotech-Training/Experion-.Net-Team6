@@ -35,7 +35,7 @@
         </thead>
         <tbody>
             <tr
-                *ngFor="let l of labReportService.generatedResults |filter:filter | paginate:{itemsPerPage:5,currentPage:page }">
+                *ngFor="let l of labReportService.generatedResults |filter:filter | paginate:{itemsPerPage:2,currentPage:page }">
                 <td>{{l.LogId}}</td>
                 <td>{{l.PatientName}}</td>
                 <td>{{l.DoctorName}}</td>
