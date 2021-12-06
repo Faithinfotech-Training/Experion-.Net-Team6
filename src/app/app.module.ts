@@ -42,6 +42,7 @@ import { DatePipe } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RelistStaffComponent } from './admin/relist-staff/relist-staff.component';
+import { LabreportpdfComponent } from './labreportpdf/labreportpdf.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { RelistStaffComponent } from './admin/relist-staff/relist-staff.componen
     EventComponent,
     EventlistComponent,
     HomeComponent,
-    RelistStaffComponent
+    RelistStaffComponent,
+    LabreportpdfComponent
   ],
   imports: [
     BrowserModule,

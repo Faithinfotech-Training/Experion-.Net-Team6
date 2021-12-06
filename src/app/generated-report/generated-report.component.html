@@ -1,5 +1,5 @@
 <div class="container">
-    <h5>Signed in as: {{loggedUser}}</h5> 
+    <h5>Signed in as: {{loggedUser}}</h5>
 
 </div>
 
@@ -17,25 +17,25 @@
     <br>
     <table class="table table-bordered table-striped">
         <thead>
-            <tr >
+            <tr>
                 <th>Report ID</th>
                 <th>Patiet Name</th>
                 <th>Doctor Name</th>
                 <th>Staff Name</th>
                 <th>Date</th>
                 <th>Test One</th>
-                <th>Observed Result</th>
+                <th> Result</th>
                 <th>Test Two</th>
-                <th>Observed Result</th>
+                <th> Result</th>
                 <th>Test Three</th>
-                <th>Observed Result</th>
-                <th>Action</th>
+                <th> Result</th>
+                <th *ngIf="role=='3'">Action</th>
 
             </tr>
         </thead>
         <tbody>
-            <tr  *ngFor="let l of labReportService.generatedResults |filter:filter | paginate:{itemsPerPage:5,currentPage:page }"
-                   >
+            <tr
+                *ngFor="let l of labReportService.generatedResults |filter:filter | paginate:{itemsPerPage:5,currentPage:page }">
                 <td>{{l.LogId}}</td>
                 <td>{{l.PatientName}}</td>
                 <td>{{l.DoctorName}}</td>
@@ -43,13 +43,21 @@
                 <td>{{l.DateOfAppointment | date:'dd/MM/yyyy'}}</td>
                 <td>{{l.TestOneName}}</td>
                 <td>{{l.ObservedResultOne}}</td>
-                <td >{{l.TestTwoName}}</td>
-                <td >{{l.ObservedResultTwo}}</td>
-                <td >{{l.TestThreeName}}</td>
-                <td >{{l.ObservedResultThree}}</td>
-                <td>
-                                        <button (click)="updateReport(l.LogId,l.LabReportId)" class="btn btn-outline-danger" style="width: 100%;">Edit</button>
-                </td>
+                <td>{{l.TestTwoName}}</td>
+                <td>{{l.ObservedResultTwo}}</td>
+                <td>{{l.TestThreeName}}</td>
+                <td>{{l.ObservedResultThree}}</td>
+
+                <ng-template [ngIf]="role==3">
+                    <td>
+                        <button (click)="updateReport(l.LogId,l.LabReportId)" class="btn btn-outline-danger"
+                            style="width: 50%;">Edit</button>
+                        <button (click)="generatepdf(l.LabReportId)" class="btn btn-outline-danger "
+                            style="width: 50%;">PDF</button>
+                        <button (click)="emailLabReport(l.LabReportId)" class="btn btn-outline-danger mt-1"
+                            style="width: 100%;">Email Report</button>
+                    </td>
+                </ng-template>
             </tr>
 
         </tbody>

@@ -1,5 +1,9 @@
-
+<div class="container dashboard-link">
+    <button style="width: 7em; float: right;" class="btn btn-primary form-control" [routerLink]="['/admin']">
+        <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button>
+</div>
 <div class="container">
+   
 <form name="doctorform" autocomplete="off" #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="form-control">
         <div class="container mt-3" style="width: 30em;">

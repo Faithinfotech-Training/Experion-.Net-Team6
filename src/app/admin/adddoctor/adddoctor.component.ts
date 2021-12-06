@@ -82,6 +82,7 @@ export class AdddoctorComponent implements OnInit {
       (result) => {
         console.log(result);
         this.resetForm(form);
+        this.toasterService.success("Doctor details Added");
       }
     )
     window.location.reload();
@@ -94,6 +95,7 @@ export class AdddoctorComponent implements OnInit {
       (result) => {
         console.log(result);
         this.resetForm(form);
+        this.toasterService.success("Doctor Details Updated");
       }
     )
   }

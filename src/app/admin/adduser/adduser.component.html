@@ -7,7 +7,7 @@
             <div class="form-gorup">
                 <label><b>Enter a Username for the new Staff !</b></label>
                 <input type="text" name="UserName" #UserName="ngModel" [(ngModel)]="adminService.userData.UserName"
-                    class="form-control" placeholder="Enter Username" minlength="6" maxlength="12" required
+                    class="form-control" placeholder="Enter Username" minlength="4" maxlength="12" required
                     [ngClass]="{ 'is-invalid' : UserName.touched && UserName.invalid }" />
                 <div class="validation-error" *ngIf="UserName.touched && UserName.invalid">
                     <div *ngIf="UserName.errors.required">
