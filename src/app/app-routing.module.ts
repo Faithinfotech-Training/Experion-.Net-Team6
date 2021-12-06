@@ -74,7 +74,7 @@ const routes: Routes = [
   { path: 'events', component: EventlistComponent },
   { path: 'payment-list', component: ViewpaymentComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'relist-staff', component: RelistStaffComponent }
+  { path: 'relist-staff', component: RelistStaffComponent },
   { path: 'reportpdf/:ReportId', component: LabreportpdfComponent }
 
 
