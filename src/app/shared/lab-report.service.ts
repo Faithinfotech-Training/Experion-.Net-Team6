@@ -47,6 +47,11 @@ export class LabReportService {
   updateLabReportTable(LabReportId:number):Observable<any>{
     return this.httpClient.delete(environment.apiUrl+"/api/labreport/"+LabReportId);
   }
-
+getlabreportbyreportid(reportid:number){
+  return this.httpClient.get(environment.apiUrl + "/api/labreport/labid/"+reportid)
+  .toPromise().then(
+    Response => this.generatedResults = Response as GeneratedFormView[]
+  )
+}
 
 }

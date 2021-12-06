@@ -1,0 +1,41 @@
+
+<div class="container" id="contentToConvert" *ngFor="let lab of labreportservice.generatedResults">
+
+    <div class="container">
+        <div class="heading">
+          <h1 style="text-align: center; color: #2297a0; font-weight: 700;">  I Clinic,Kochi Kerala</h1>
+        </div>
+    </div>
+    <br>
+    <br>
+    <h3>Name:{{lab.PatientName}}</h3>
+    <h6>Date:{{lab.DateOfAppointment | date: 'dd-MM-yyyy'}}</h6>
+    <h6>Doctor Name:{{lab.DoctorName}}</h6>
+
+    <table class="table table-bordered table-hover">
+      
+        <thead>
+            <th>Tests Prescribed</th>
+            <th>Results</th>
+        </thead>
+        <tbody>
+            <tr *ngIf=lab.TestOneName>
+                <td>{{lab.TestOneName}}</td>
+                <td>{{lab.ObservedResultOne}}</td>
+            </tr>
+            <tr *ngIf=lab.TestTwoName>
+                <td>{{lab.TestTwoName}}</td>
+                <td>{{lab.ObservedResultTwo}}</td>
+            </tr>
+            <tr *ngIf=lab.TestThreeName>
+                <td>{{lab.TestThreeName}}</td>
+                <td>{{lab.ObservedResultThree}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <button (click)="captureScreen() ">Generate Pdf</button>
+</div>

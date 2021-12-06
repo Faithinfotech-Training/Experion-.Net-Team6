@@ -41,6 +41,7 @@ import { HomeComponent } from './home/home.component';
 import { DatePipe } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LabreportpdfComponent } from './labreportpdf/labreportpdf.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EventsComponent,
     EventComponent,
     EventlistComponent,
-    HomeComponent
+    HomeComponent,
+    LabreportpdfComponent
   ],
   imports: [
     BrowserModule,

@@ -38,7 +38,7 @@ export class PrescriptionMedicineComponent implements OnInit {
       (result) => {
         console.log(result);
         this.addTest(this.id);
-        this.toasterService.success("Notes and Observations Added");
+        this.toasterService.success("Medicine added");
       }
     );
   }

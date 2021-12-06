@@ -98,8 +98,8 @@ export class AddstaffComponent implements OnInit {
 
       }
     )
-    window.location.reload();
-    this.router.navigate(["/admin"]);
+  //  window.location.reload();
+   // this.router.navigate(["/admin"]);
   }
 
   updatestaff(form: NgForm) {
