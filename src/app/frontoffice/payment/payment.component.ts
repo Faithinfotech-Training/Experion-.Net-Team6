@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {PaymentService} from "src/app/shared/payment.service"
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-payment',
@@ -14,7 +15,7 @@ export class PaymentComponent implements OnInit {
 
   AId:number;
 
-  constructor(
+  constructor(public authService:AuthService,
     private router: Router,
     public paymentService: PaymentService,
     private route: ActivatedRoute,
@@ -25,6 +26,7 @@ export class PaymentComponent implements OnInit {
     this.AId = this.route.snapshot.params['AId'];
 
     this.paymentService.paymentData.PaymentId = this.AId;
+    this.paymentService.paymentData.IsActive=true;
 
     if (this.AId != 0 || this.AId != null) {
       //getEmployee
@@ -38,6 +40,9 @@ export class PaymentComponent implements OnInit {
       form.resetForm();
     }
   }
+  logOut(){
+    this.authService.logOut();      
+  } 
 
   onSubmit(form?: NgForm){
     console.log("payment inserting to db");

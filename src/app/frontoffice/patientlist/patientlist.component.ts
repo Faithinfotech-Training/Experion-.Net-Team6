@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppointmentService } from 'src/app/shared/appointment.service';
+import { AuthService } from 'src/app/shared/auth.service';
 import { Patient } from 'src/app/shared/patient';
 import { PatientService } from 'src/app/shared/patient.service';
 
@@ -16,7 +17,7 @@ export class PatientlistComponent implements OnInit {
   filter : string;
   route: any;
 
-  constructor(public patientService:PatientService,private router:Router) { }
+  constructor(public authService:AuthService,public patientService:PatientService,private router:Router) { }
   role=localStorage.getItem('ACCESS_ROLE');
   ngOnInit(): void {
    
@@ -36,6 +37,9 @@ onclick(patientId: number){
  console.log(patientId);
  this.router.navigate(['addpatient', patientId]);
  
+} 
+logOut(){
+  this.authService.logOut();      
 } 
 
 updateStatus(PatientId: number){
