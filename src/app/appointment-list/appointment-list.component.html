@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let app of appservice.appointment ">
-                    <ng-template [ngIf]="compareDate(app.DateofAppointment)">
+                    <ng-template [ngIf]="compareDate(app.DateofAppointment) ">
                         <ng-template [ngIf]="app.IsActive">
 
                             <!-- <td>{{app.AppointmentId}}</td> -->
