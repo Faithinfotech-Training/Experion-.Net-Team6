@@ -15,6 +15,7 @@ export class AdddoctorComponent implements OnInit {
 
   Id: number;
   UserId: number;
+  checkActive: boolean;
 
   constructor(
     public adminService: AdminService,
@@ -44,28 +45,33 @@ export class AdddoctorComponent implements OnInit {
           data.DoctorDateofBirth = formatedDate;
 
           this.adminService.formData = data;
+          this.checkActive = data.IsActive;
+
 
         },
         error => console.log(error)
       );
     }
-    
+
   }
 
   onSubmit(form?: NgForm) {
     console.log(form.value);
     let Id = this.adminService.formData.DoctorId;
+    
 
     if (Id == 0 || Id == null) {
+      form.value.IsActive = true;
       console.log("inserting record...");
       this.insertdoctor(form);
     }
     else {
+      form.value.IsActive = this.checkActive;
       console.log("updating record..");
       this.updatedoctor(form);
 
     }
-   // this.router.navigateByUrl('doctor-list');
+    // this.router.navigateByUrl('doctor-list');
   }
 
   //Clear all contents at loading
@@ -85,7 +91,7 @@ export class AdddoctorComponent implements OnInit {
         this.toasterService.success("Doctor details Added");
       }
     )
-    window.location.reload();
+    //window.location.reload();
     //his.router.navigate(["/admin"]);
   }
 

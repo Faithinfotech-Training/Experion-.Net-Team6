@@ -11,6 +11,7 @@ import { AdminService } from 'src/app/shared/admin.service';
 export class AdduserComponent implements OnInit {
 
   UId: number;  //id of user table
+  checkActive: boolean;
 
 
   confirmPassword: string
@@ -26,8 +27,10 @@ export class AdduserComponent implements OnInit {
 
     if (this.UId != null) {
       this.adminService.getUser(this.UId).subscribe(
-        data =>
-          this.adminService.userData = data
+        data => {
+          this.adminService.userData = data;
+          this.checkActive = data.IsActive;
+        }
       )
     }
   }
@@ -41,6 +44,7 @@ export class AdduserComponent implements OnInit {
 
   onSubmit(form?: NgForm) {
     if (this.adminService.userData.UserId == 0 || this.adminService.userData.UserId == null) {
+      form.value.IsActive = true;
       console.log("submitted perfectly");
       this.AddUser(form);
       console.log(this.UId);
@@ -59,6 +63,7 @@ export class AdduserComponent implements OnInit {
       )
     }
     else {
+      form.value.IsActive = this.checkActive;
       this.PutUser(form);
       //this.router.navigate["/admin"];
     }

@@ -17,6 +17,7 @@ id:number;
   ngOnInit(): void {
     this.id=this.route.snapshot.params['LogId'];
     this.prescription.testform.LogId=this.id;
+    this.prescription.testform.IsActive=true;
   }
   
   onSubmit(form: NgForm) { 

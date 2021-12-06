@@ -1,3 +1,8 @@
+<div class="container dashboard-link">
+    <button style="width: 7em; float: right;" class="btn btn-primary form-control dash-button" [routerLink]="['/admin']">
+        <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button>
+</div>
+
 <div class="container">
     <div class="header">
         <h3>Doctor List and Information</h3>
@@ -36,11 +41,13 @@
                     <td>{{data.DoctorLocation}}</td>
                     <td style="width: 6em;">
                         <button (click)="updatedoctor(data.DoctorId)" class="btn btn-outline-danger"
-                            style="width: 100%;">Edit</button>
+                            style="width: 100%;">Edit</button><br><br>
+                        <button (click)="Deletedoctor(data.DoctorId)" class="btn btn-outline-danger"
+                            style="width: 100%;">Delete</button>
                     </td>
                 </ng-template>
             </tr>
-            
+
         </tbody>
     </table>
     <div class="footer">
