@@ -12,6 +12,7 @@ namespace cmsRestApi.Repository
         Task<List<LabReportViewModel>> GetAllLabReportVM();
 
         Task<List<LabReportViewModel>> GetLabReport(int id);
+        Task<List<LabReportViewModel>> GetLabReportByReportId(int id);
 
         Task<int> AddLabReport(TblLabReport report);
 
