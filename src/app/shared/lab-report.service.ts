@@ -48,5 +48,9 @@ export class LabReportService {
     return this.httpClient.delete(environment.apiUrl+"/api/labreport/"+LabReportId);
   }
 
+  emailReport(LabReportId:number):Observable<any>{
+    return this.httpClient.get(environment.apiUrl+"/api/labreport/labid/"+LabReportId);
+    
+  }
 
 }

@@ -24,11 +24,11 @@
                 <th>Staff Name</th>
                 <th>Date</th>
                 <th>Test One</th>
-                <th>Observed Result</th>
+                <th> Result</th>
                 <th>Test Two</th>
-                <th>Observed Result</th>
+                <th> Result</th>
                 <th>Test Three</th>
-                <th>Observed Result</th>
+                <th> Result</th>
                 <th>Action</th>
 
             </tr>
@@ -49,6 +49,7 @@
                 <td >{{l.ObservedResultThree}}</td>
                 <td>
                                         <button (click)="updateReport(l.LogId,l.LabReportId)" class="btn btn-outline-danger" style="width: 100%;">Edit</button>
+                                        <button (click)="emailLabReport(l.LabReportId)" class="btn btn-outline-danger mt-1" style="width: 100%;"> Email</button>
                 </td>
             </tr>
 
