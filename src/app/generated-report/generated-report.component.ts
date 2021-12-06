@@ -12,29 +12,34 @@ import { ToastrService } from 'ngx-toastr';
 export class GeneratedReportComponent implements OnInit {
 
 
-  page:number=1;
-  filter:string;
-  loggedUser=sessionStorage.getItem('userName')
-
+  page: number = 1;
+  filter: string;
+  loggedUser = sessionStorage.getItem('userName')
+role=localStorage.getItem('ACCESS_ROLE');
   constructor(public authService: AuthService, public labReportService: LabReportService,
     private router:Router,public toastrService:ToastrService) { }
 
   ngOnInit(): void {
     //Get all generated results
-    this.labReportService.getGeneratedReport(); 
+    this.labReportService.getGeneratedReport();
   }
 
-  logOut(){
-    this.authService.logOut();   
+  logOut() {
+    this.authService.logOut();
   }
 
-  updateReport(LogId:number,LabReportId:number){
+  updateReport(LogId: number, LabReportId: number) {
     this.labReportService.updateLabReportTable(LabReportId).subscribe(
-      (result)=>{
+      (result) => {
         console.log(result);
       }
     )
-    this.router.navigate(['report',LogId])
+    this.router.navigate(['report', LogId])
+  }
+
+  generatepdf(Id: number) {
+    console.log(Id);
+    this.router.navigate(['/reportpdf', Id]);
   }
 
   emailLabReport(LabReportId:number){

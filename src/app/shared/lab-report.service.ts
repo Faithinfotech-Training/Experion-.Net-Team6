@@ -52,5 +52,11 @@ export class LabReportService {
     return this.httpClient.get(environment.apiUrl+"/api/labreport/labid/"+LabReportId);
     
   }
+getlabreportbyreportid(reportid:number){
+  return this.httpClient.get(environment.apiUrl + "/api/labreport/labid/"+reportid)
+  .toPromise().then(
+    Response => this.generatedResults = Response as GeneratedFormView[]
+  )
+}
 
 }

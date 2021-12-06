@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Event } from 'src/app/shared/event';
 import { EventService } from 'src/app/shared/event.service';
 
@@ -18,7 +19,8 @@ export class EventComponent implements OnInit {
   constructor(
     public eventService: EventService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private toasterService: ToastrService) { }
 
   ngOnInit(): void {
    
@@ -64,6 +66,7 @@ export class EventComponent implements OnInit {
       (result) => {
         console.log(result);
         this.resetForm(form);
+        this.toasterService.success("Doctor Details Updated");
       }
     )
     window.location.reload();

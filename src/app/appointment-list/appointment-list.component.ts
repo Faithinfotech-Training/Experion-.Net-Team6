@@ -14,7 +14,7 @@ export class AppointmentListComponent implements OnInit {
   page: number = 1;
   today = new Date();
 
-  
+  role=localStorage.getItem('ACCESS_ROLE');
 
   constructor(public appservice: AppointmentService, public router: Router,public datepipe:DatePipe) { }
 
@@ -48,6 +48,10 @@ export class AppointmentListComponent implements OnInit {
        return true;
      }
      return false;
+  }
+
+  compareRole(){
+
   }
  
 
