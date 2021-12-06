@@ -34,6 +34,9 @@ export class DoctorListComponent implements OnInit {
           this.adminService.updatedoctor(result).subscribe(
             (result) => console.log("activated")
           )
+          this.adminService.deleteUser(result.UserId).subscribe(
+            (result) => console.log("user deactivated")
+          )
           window.location.reload()
         }
       )

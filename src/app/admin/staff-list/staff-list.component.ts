@@ -41,6 +41,9 @@ export class StaffListComponent implements OnInit {
           this.adminService.updatestaff(result).subscribe(
             (result) => console.log("deleted")
           )
+          this.adminService.deleteUser(result.UserId).subscribe(
+            (result) => console.group("user removed")
+          )
           window.location.reload();
         }
       )
