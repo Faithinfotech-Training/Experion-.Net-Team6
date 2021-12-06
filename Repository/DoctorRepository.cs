@@ -94,9 +94,6 @@ namespace cmsRestApi.Repository
                 doct.DoctorLocation = doctor.DoctorLocation;
                 doct.IsActive = doctor.IsActive;
                 await db.SaveChangesAsync();
-
-
-
                 return await db.TblDoctor.ToListAsync();
             }
             return null;

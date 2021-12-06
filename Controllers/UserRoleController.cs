@@ -28,7 +28,7 @@ namespace cmsRestApi.Controllers
         }
 
         //Get A User
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetAUser(int id)
         {
             try
