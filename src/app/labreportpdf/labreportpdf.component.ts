@@ -13,7 +13,8 @@ import { PatientlogService } from '../shared/patientlog.service';
 export class LabreportpdfComponent implements OnInit {
 
   constructor(public labreportservice:LabReportService,public route:ActivatedRoute) { }
-reportid:number;
+  reportid:number;
+  
   ngOnInit(): void {
     this.reportid=this.route.snapshot.params['ReportId'];
     this.labreportservice.getlabreportbyreportid(this.reportid);
