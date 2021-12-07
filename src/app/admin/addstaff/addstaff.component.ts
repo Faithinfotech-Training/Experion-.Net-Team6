@@ -32,6 +32,8 @@ export class AddstaffComponent implements OnInit {
     })
     this.adminService.StaffData.UserId = this.UId;
 
+    //take uid and id based on params
+
     if (this.Id == 0 || this.Id == null) {
       this.adminService.getUser(this.UId).subscribe(
         data => {
@@ -91,6 +93,14 @@ export class AddstaffComponent implements OnInit {
     }
   }
 
+  //disabling manual date entry
+
+  disableDate(){
+    return false;
+  }
+
+  //staff insertion
+
   insertstaff(form: NgForm) {
     console.log("50%");
     form.value.IsActive = true;
@@ -106,6 +116,8 @@ export class AddstaffComponent implements OnInit {
   //  window.location.reload();
    // this.router.navigate(["/admin"]);
   }
+
+//staff updastion
 
   updatestaff(form: NgForm) {
     console.log("50%");

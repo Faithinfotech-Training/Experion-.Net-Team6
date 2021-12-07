@@ -27,11 +27,14 @@
                 <div class="form-gorup">
                     <label>Full Name of Staff</label>
                     <input type="text" name="StaffName" #StaffName="ngModel"
-                        [(ngModel)]="adminService.StaffData.StaffName" class="form-control"
+                        [(ngModel)]="adminService.StaffData.StaffName" class="form-control" pattern="[a-zA-Z\s]+"
                         placeholder="Enter Full Name" minlength="06" maxlength="40" required
                         [ngClass]="{ 'is-invalid' : StaffName.touched && StaffName.invalid }" />
                     <div class="validation-error" *ngIf="StaffName.touched && StaffName.invalid">
                         <div *ngIf="StaffName.errors.required">Full Name is Required</div>
+                        <div *ngIf="StaffName.errors.pattern">
+                            Wrong Format
+                        </div>
                     </div>
                 </div>
 
@@ -98,7 +101,7 @@
                     <label>Date of Birth</label>
                     <input type="date" name="StaffDateofBirth" #StaffDateofBirth="ngModel"
                         [(ngModel)]="adminService.StaffData.StaffDateofBirth" class="form-control"
-                        placeholder="Enter Date Of Birth" max="2003-01-01" required
+                        placeholder="Enter Date Of Birth" min="1940-01-01" max="2003-01-01" required (keydown)="disableDate()"
                         [ngClass]="{ 'is-invalid' : StaffDateofBirth.touched && StaffDateofBirth.invalid }">
                     <div class="validation-error" *ngIf="StaffDateofBirth.touched && StaffDateofBirth.invalid">
                         <div *ngIf="StaffDateofBirth.errors.required"> Date Of Birth is required
@@ -124,12 +127,6 @@
                         <div *ngIf="StaffContactNo.errors.minlength">
                             Contact Number is Incomplete
                         </div>
-                        <div *ngIf="StaffContactNo.errors.pattern">
-                            Wrong Contact Number format
-                        </div>
-                        <div *ngIf="StaffContactNo.errors.minlength">
-                            Contact Number is Incomplete
-                        </div>
                     </div>
                 </div>
 
@@ -137,11 +134,14 @@
                 <div class="form-gorup">
                     <label>Location</label>
                     <input name="StaffLocation" #StaffLocation="ngModel"
-                        [(ngModel)]="adminService.StaffData.StaffLocation" class="form-control"
+                        [(ngModel)]="adminService.StaffData.StaffLocation" class="form-control" pattern="[a-zA-Z\s]+"
                         placeholder="Enter Location" minlength="3" maxlength="40" required
                         [ngClass]="{ 'is-invalid' : StaffLocation.touched && StaffLocation.invalid }" />
                     <div class="validation-error" *ngIf="StaffLocation.touched && StaffLocation.invalid">
                         <div *ngIf="StaffLocation.errors.required">Location is Required</div>
+                        <div *ngIf="StaffLocation.errors.pattern">
+                            Wrong Format
+                        </div>
                     </div>
                 </div>
 

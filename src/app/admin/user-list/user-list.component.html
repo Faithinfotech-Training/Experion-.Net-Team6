@@ -1,5 +1,5 @@
 <div class="container dashboard-link">
-    <button style="width: 7em; float: right;" class="btn btn-primary form-control dash-button" [routerLink]="['/admin']">
+    <button style="width: 7em; float: right;" class="btn btn-primary form-control dash-button"  [routerLink]="['/admin']">
         <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button>
 </div>
 
@@ -33,11 +33,9 @@
                     <td *ngIf="data.RoleId==3">Lab Technician</td>
                     <td *ngIf="data.RoleId==4">Front Desk</td>
                     <td style="width: 14em;">
-                        <button (click)="updateUser(data.UserId)" class="btn btn-outline-danger"
-                            style="width: 46%;">Edit</button>
+                        <button (click)="updateUser(data.UserId)" class="btn" 
+                            style="width: 90%; background-color: #2297a0; color:white">Edit</button>
                         &nbsp;
-                        <button (click)="deleteUser(data.UserId)" class="btn btn-outline-danger"
-                            style="width: 46%;">Delete</button>
                     </td>
                 </ng-template>
             </tr>

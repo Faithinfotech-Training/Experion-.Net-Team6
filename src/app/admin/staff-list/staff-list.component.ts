@@ -27,11 +27,13 @@ export class StaffListComponent implements OnInit {
   }
 
 
- 
+ //to update the staff
 
   updateStaff(Id: number) {
     this.router.navigate(['add-staff', Id, 0]);
   }
+
+  //to delete the staff
 
   DeleteStaff(Id:number){
     if (confirm("The Staff data and access will be archived !")) {

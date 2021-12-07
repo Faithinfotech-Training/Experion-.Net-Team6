@@ -42,6 +42,8 @@ export class AdduserComponent implements OnInit {
     }
   }
 
+  //submission and proper routing
+
   onSubmit(form?: NgForm) {
     if (this.adminService.userData.UserId == 0 || this.adminService.userData.UserId == null) {
       form.value.IsActive = true;
@@ -69,6 +71,7 @@ export class AdduserComponent implements OnInit {
     }
 
   }
+  //adding user
 
   AddUser(form: NgForm) {
     console.log("working");
@@ -93,6 +96,8 @@ export class AdduserComponent implements OnInit {
     console.log("completed");
   }
 
+  //updating the user
+
   PutUser(form: NgForm) {
     console.log("updating");
     this.adminService.updateUser(form.value).subscribe(
@@ -102,6 +107,7 @@ export class AdduserComponent implements OnInit {
       }
     )
   }
+  
 
 
 

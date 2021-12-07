@@ -28,11 +28,14 @@
             <div class="form-gorup">
                 <label><b>Full Name of Doctor</b></label>
                 <input type="text" name="DoctorName" #DoctorName="ngModel"
-                    [(ngModel)]="adminService.formData.DoctorName" class="form-control"
+                    [(ngModel)]="adminService.formData.DoctorName" class="form-control" pattern="[a-zA-Z\s]+"
                     placeholder="Enter Full name of the doctor" minlength="04" maxlength="40" required
                     [ngClass]="{ 'is-invalid' : DoctorName.touched && DoctorName.invalid }" />
                 <div class="validation-error" *ngIf="DoctorName.touched && DoctorName.invalid">
                     <div *ngIf="DoctorName.errors.required">Full Name is Required</div>
+                    <div *ngIf="DoctorName.errors.pattern">
+                        Wrong Format
+                    </div>
                 </div>
             </div>
 
@@ -118,7 +121,7 @@
                 <label><b>Date of Birth</b></label>
                 <input type="date" name="DoctorDateofBirth" #DoctorDateofBirth="ngModel"
                     [(ngModel)]="adminService.formData.DoctorDateofBirth" class="form-control"
-                    placeholder="Enter Date Of Birth" required max="1999-01-01"
+                    placeholder="Enter Date Of Birth" required max="1999-01-01" (keydown)="disableDate()"
                     [ngClass]="{ 'is-invalid' : DoctorDateofBirth.touched && DoctorDateofBirth.invalid }">
                 <div class="validation-error" *ngIf="DoctorDateofBirth.touched && DoctorDateofBirth.invalid">
                     <div *ngIf="DoctorDateofBirth.errors.required"> Date Of Birth is required
@@ -131,11 +134,14 @@
             <!--Staff Name-->
             <div class="form-gorup">
                 <label><b>Location</b></label>
-                <input type="text" name="DoctorLocation" #DoctorLocation="ngModel"
+                <input type="text" name="DoctorLocation" #DoctorLocation="ngModel" pattern="[a-zA-Z\s]+"
                     [(ngModel)]="adminService.formData.DoctorLocation" class="form-control" placeholder="Enter Location"
                     required [ngClass]="{ 'is-invalid' : DoctorLocation.touched && DoctorLocation.invalid }" />
                 <div class="validation-error" *ngIf="DoctorLocation.touched && DoctorLocation.invalid">
                     <div *ngIf="DoctorLocation.errors.required">Location is Required</div>
+                    <div *ngIf="DoctorLocation.errors.pattern">
+                        Wrong Format
+                    </div>
                 </div>
             </div>
 

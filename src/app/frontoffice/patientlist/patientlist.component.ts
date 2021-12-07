@@ -49,6 +49,7 @@ export class PatientlistComponent implements OnInit {
         (result) => {
 
           console.log(result);
+          this.toasterService.success('Patient Deleted successfully');
 
         }
 
