@@ -71,6 +71,7 @@ export class LabReportComponent implements OnInit {
     )
     this.toastrService.success("Report Generated Successfuly!");
     this.resetForm(form);
+    //window.location.reload();
     this.router.navigate(['/lab']);
   }
 

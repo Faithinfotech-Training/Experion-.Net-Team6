@@ -11,11 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class GeneratedReportComponent implements OnInit {
 
-
+  //declaring variables
   page: number = 1;
   filter: string;
   loggedUser = sessionStorage.getItem('userName')
-role=localStorage.getItem('ACCESS_ROLE');
+  role=localStorage.getItem('ACCESS_ROLE');
+
+  //constructor injection
   constructor(public authService: AuthService, public labReportService: LabReportService,
     private router:Router,public toastrService:ToastrService) { }
 
