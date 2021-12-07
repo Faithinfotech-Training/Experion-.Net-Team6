@@ -41,7 +41,7 @@
             class="form-control" placeholder="Observations" required
             [ngClass]="{'is-invalid': Observations.touched && Observations.invalid}" ></textarea>
           </div>
-          <div class="form-group">
+          <div class="form-group" hidden>
               <div class="form-check"><br>
                   <label class="form-check-label" name="IsActive" #IsActive="ngModel" [(ngModel)]="appointmentservice.logForm.IsActive">Is active </label>
                   <input type="checkbox" name="IsActive" id="IsActive" 
@@ -50,8 +50,8 @@
           </div>
           <br>
           <div class="form-group">
-              <button type="submit" [disabled]="!(form.valid && form.dirty)" style="margin-bottom: 0.4em; width: 30%; height: 3em;"
-                  class="btn btn-sm btn-info form-control"><i class="fa fa-pencil"></i>Add Prescription</button>
+              <button type="submit" [disabled]="!(form.valid && form.dirty)" style="width: 10em; float: left; color: black;"
+                  class="form-control"><i class="fa fa-pencil"></i>Add Prescription</button>
           
           </div>
       

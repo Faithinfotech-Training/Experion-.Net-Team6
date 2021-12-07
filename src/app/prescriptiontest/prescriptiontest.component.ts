@@ -23,6 +23,7 @@ id:number;
   onSubmit(form: NgForm) { 
     console.log(form.value);
     this.addTest(form);
+    this.router.navigateByUrl('appointmentlist');
     //insert   
   }
 

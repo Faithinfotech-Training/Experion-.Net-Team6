@@ -57,23 +57,24 @@
 
     <!-- Section: Contact v.3 -->
     <section class="contact-section my-5" *ngFor="let app of eventservice.events">
+      <ng-template [ngIf]="app.IsActive">
       <!-- Form with header -->
       <div class="card">
         <!-- Grid row -->
         <div class="row">
-          <div class="col-lg-4"></div>
           <!-- Grid column -->
-          <div class="col-lg-4">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
             <div class="card-body contact text-center h-100 white-text">
-              <table>
+              <table style="text-align: center;">
                 <thead>
-                  <th><i class="fa fa-calendar"></i>{{app.EventName}}</th>
+                  <th><i class="fa fa-calendar" style="color: whitesmoke; padding: 1em;"></i>{{app.EventName}}</th>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr >
                     <td>{{app.EventDate| date:'dd-MM-yyyy'}}</td>
                   </tr>
-                  <tr>
+                  <tr style="padding-left: 6em;">
                     <td>{{app.EventDecription}}</td>
                   </tr>
                 </tbody>
@@ -88,7 +89,7 @@
 
       </div>
       <!-- Form with header -->
-
+    </ng-template>
     </section>
     <!-- Section: Contact v.3 -->
 

@@ -3,12 +3,12 @@
 
 </div>
 
-<button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
-    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button>
+<button style="width: 110px; float: right; background-color: #2297a0;" class="btn btn-primary form-control" (click)="logOut()">
+    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255); "></i> Log Out</button>
 <br>
 <br>
 <hr>
-
+<!--List of generated reports-->
 <div class="container">
     <div class="form-group">
         <input class="form-control" type="text" placeholder="Search here..." style="width: 300px;" [(ngModel)]="filter">
@@ -35,7 +35,7 @@
         </thead>
         <tbody>
             <tr
-                *ngFor="let l of labReportService.generatedResults |filter:filter | paginate:{itemsPerPage:2,currentPage:page }">
+                *ngFor="let l of labReportService.generatedResults |filter:filter | paginate:{itemsPerPage:5,currentPage:page }">
                 <td>{{l.LogId}}</td>
                 <td>{{l.PatientName}}</td>
                 <td>{{l.DoctorName}}</td>
@@ -48,14 +48,14 @@
                 <td>{{l.TestThreeName}}</td>
                 <td>{{l.ObservedResultThree}}</td>
 
-                <ng-template [ngIf]="role==3">
+                <ng-template [ngIf]="role==3"><!--Only visible to lab technician-->
                     <td>
-                        <button (click)="updateReport(l.LogId,l.LabReportId)" class="btn btn-outline-danger"
-                            style="width: 50%;">Edit</button>
-                        <button (click)="generatepdf(l.LabReportId)" class="btn btn-outline-danger "
-                            style="width: 50%;">PDF</button>
-                        <button (click)="emailLabReport(l.LabReportId)" class="btn btn-outline-danger mt-1"
-                            style="width: 100%;">Email Report</button>
+                        <button (click)="updateReport(l.LogId,l.LabReportId)" class="btn "
+                            style="width: 47%;margin-right: 2px; background-color: #2297a0; color: white;">Edit</button>
+                        <button (click)="generatepdf(l.LabReportId)" class="btn  "
+                            style="width: 47%;background-color: #2297a0; color: white;">PDF</button>
+                        <button (click)="emailLabReport(l.LabReportId)" class="btn mt-1"
+                            style="width: 100%;background-color: #2297a0; color: white;">Email Report</button>
                     </td>
                 </ng-template>
             </tr>

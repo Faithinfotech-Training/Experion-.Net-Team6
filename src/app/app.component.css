@@ -11,10 +11,12 @@ header{
 
 .footer{
     text-align: center;
-    margin-top: 4em;
+    margin-top: 10em;
 }
 
-
+.body{
+    background-color: #e9f0f1;
+}
 
 table{
     border: 3px solid #5aadb8;
