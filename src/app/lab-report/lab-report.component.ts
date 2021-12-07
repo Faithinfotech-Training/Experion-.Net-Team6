@@ -34,8 +34,7 @@ export class LabReportComponent implements OnInit {
     //getting all staffs
     this.adminServices.getallStaff();
     this.LogId=this.route.snapshot.params['LogId'];
-    //get staff Id
-    //var staffId=this.labReportServices.getSyaffId(this.loggedUser);
+    //populating form details
     this.labReportServices.getReportFormView(this.LogId).subscribe(
       data=>{console.log(data);
         this.labReportServices.formData = Object.assign({}, data);

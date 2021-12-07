@@ -27,12 +27,6 @@
             <input type="number" class="form-control" name="StaffId" #StaffId="ngModel"
             [(ngModel)]="labReportServices.formData.StaffId" placeholder="" readonly>
 
-            <!-- <select name="StaffId" id="StaffId" class="form-control" #StaffId="ngModel" required
-                [(ngModel)]="labReportServices.formData.StaffId"
-                [ngClass]="{'is-invalid':StaffId.touched && StaffId.invalid}">
-                <option disabled>Select Staff</option>
-                <option *ngFor="let p of adminServices.staff" value="{{p.StaffId}}">{{p.StaffName}}</option>
-            </select> -->
         </div>
         <div class="validation-error" *ngIf="StaffId.touched && StaffId.invalid">
             <div *ngIf="StaffId.errors.required"> StaffId is required
@@ -40,9 +34,9 @@
         </div>
         <!--LogId-->
         <div class="form-group mt-2">
-            <label>Log Id</label>
+            <label hidden>Log Id</label>
             <input type="number" class="form-control" name="LogId" #LogId="ngModel"
-                [(ngModel)]="labReportServices.formData.LogId" value="LogId" placeholder="" readonly>
+                [(ngModel)]="labReportServices.formData.LogId" value="LogId" placeholder="" hidden>
         </div>
         <div class="validation-error" *ngIf="LogId.touched && StaffId.invalid">
             <div *ngIf="LogId.errors.required"> LogId is required

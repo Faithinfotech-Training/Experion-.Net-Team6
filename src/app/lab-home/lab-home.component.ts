@@ -14,6 +14,7 @@ export class LabHomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  //logout function
   logOut(){
     this.authService.logOut();
   }
