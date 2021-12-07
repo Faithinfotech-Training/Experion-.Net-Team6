@@ -1,28 +1,32 @@
-<div class="container">
+<div class="container" style="margin-right: 5em;">
+  <button style="width: 10em; float: right;" class="btn btn-primary form-control" [routerLink]="['/appointmentlist']">
+    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i>View Appointments</button>
+</div>
+<div class="container" >
 <h2>Patient Log Form</h2>
 </div>
 
 <form>
     <form name="logform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
-        <div class="form-control"> 
-        <div class="container mt-3" style="width: 30em;"> 
+        <div class="form-control"  style="border:0px;"> 
+        <div class="container" style="width: 30em;" > 
           <div class="form-group">
             <input type="text" name="PatientId" #PatientId="ngModel" [(ngModel)]="appointmentservice.logForm.PatientId"
             class="form-control" placeholder="PatientId" minlength="10" maxlength="25" required
-            [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" readonly/>
+            [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" readonly hidden/>
 
           </div>
        
           <div class="form-group">
             <input type="text" name="DoctorId" #DoctorId="ngModel" [(ngModel)]="appointmentservice.logForm.DoctorId"
             class="form-control" placeholder="DoctorId" minlength="10" maxlength="25" required
-            [ngClass]="{'is-invalid': DoctorId.touched && DoctorId.invalid}" readonly/>
+            [ngClass]="{'is-invalid': DoctorId.touched && DoctorId.invalid}" readonly hidden/>
           </div>
 
           <div class="form-group">
             <input type="text" name="AppointmentId" #AppointmentId="ngModel" [(ngModel)]="appointmentservice.logForm.AppointmentId"
             class="form-control" placeholder="AppointmentId" minlength="10" maxlength="25" required
-            [ngClass]="{'is-invalid': AppointmentId.touched && AppointmentId.invalid}" readonly/>
+            [ngClass]="{'is-invalid': AppointmentId.touched && AppointmentId.invalid}" readonly hidden/>
           </div>
           <div class="form-group">
             <input type="text" name="Notes" #Notes="ngModel" [(ngModel)]="appointmentservice.logForm.Notes"
@@ -48,7 +52,6 @@
           <div class="form-group">
               <button type="submit" [disabled]="!(form.valid && form.dirty)" style="margin-bottom: 0.4em; width: 30%; height: 3em;"
                   class="btn btn-sm btn-info form-control"><i class="fa fa-pencil"></i>Add Prescription</button>
-                  <hr>
           
           </div>
       

@@ -1,4 +1,9 @@
 <div class="container">
+<button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
+    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button><br>&nbsp;
+    <button style="width: 7em; float:inline-start; " class="btn btn-primary form-control" [routerLink]="['/frontoffice']">
+        <i class="fa fa-share-square fa-1x" ></i> Dashboard</button><br>
+<div class="container">
     <div class="header">
         <h5 class="text-center"
             style="color: darkblue; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
@@ -16,9 +21,9 @@
     <table class="table table-bordered table-striped" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
         <thead>
             <tr>
-                <th>
+                <!--<th>
                     PatientId
-                </th>
+                </th>-->
                 <th>
                     PatientName
                 </th>
@@ -49,7 +54,7 @@
             <tr
                 *ngFor="let pat of this.patientService.patients | filter: filter ">
                 <ng-template [ngIf]="pat.IsActive==true">
-                <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
+                <!--<td (click)="populateForm(pat)">{{pat.PatientId}}</td>-->
                 <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
                 <td (click)="populateForm(pat)">{{pat.Age}}</td>
                 <td (click)="populateForm(pat)">{{pat.Gender}}</td>
@@ -89,4 +94,5 @@
         <pagination-controls (pageChange)="page=($event)"></pagination-controls>
 
     </div>
+</div>
 </div>

@@ -1,5 +1,8 @@
 <div class="container">
-
+  <div class="container" style="margin-right: 5em;">
+    <button style="width: 10em;" class="btn btn-primary form-control" [routerLink]="['/appointmentlist']">
+      <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i>View Appointments</button>
+  </div>
   <form name="logform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
 
 
@@ -8,7 +11,7 @@
         <h3>Medicine Prescriptions</h3>
         <div class="form-group">
           <input type="text" name="LogId" #LogId="ngModel" [(ngModel)]="prescription.medicineform.LogId"
-            class="form-control" placeholder="LogId" minlength="3" maxlength="25" required readonly />
+            class="form-control" placeholder="LogId" minlength="3" maxlength="25" required readonly hidden/>
 
         </div>
 

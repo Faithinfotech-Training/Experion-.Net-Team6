@@ -10,7 +10,7 @@
         <div class="container mt-3" style="width: 30em;"> 
           <div class="form-group">
             <input type="text" name="LogId" #LogId="ngModel" [(ngModel)]="prescription.testform.LogId"
-            class="form-control" placeholder="LogId" minlength="3" maxlength="25" required readonly/>
+            class="form-control" placeholder="LogId" minlength="3" maxlength="25" required readonly hidden/>
 
           </div>
        
@@ -33,10 +33,10 @@
           
           <!--Is Active-->
           <div class="form-group">
-              <div class="form-check"><br>
+              <div class="form-check" hidden><br>
                   <label class="form-check-label">Is active </label>
                   <input type="checkbox" name="IsActive" id="IsActive" name="IsActive" #IsActive="ngModel" [(ngModel)]="prescription.testform.IsActive"
-                     class="form-check-input" checked>
+                     class="form-check-input" >
               </div>
           </div>
       

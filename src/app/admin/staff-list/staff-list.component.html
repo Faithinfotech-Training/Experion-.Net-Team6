@@ -1,3 +1,8 @@
+<div class="container dashboard-link">
+    <button style="width: 7em; float: right;" class="btn btn-primary form-control dash-button" [routerLink]="['/admin']">
+        <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button>
+</div>
+
 <div class="container">
     <div class="header">
         <h3>Staff List and Information</h3>
@@ -25,16 +30,18 @@
             <tr
                 *ngFor="let data of this.adminService.staff | filter: filter | paginate: {itemsPerPage:10, currentPage: page}">
                 <ng-template [ngIf]="data.IsActive==true">
-                <td>{{data.StaffId}}</td>
-                <td>{{data.StaffName}}</td>
-                <td>{{data.StaffAge}}</td>
-                <td>{{data.StaffGender}}</td>
-                <td>{{data.StaffDateofBirth | date:'dd-MM-yyyy'}}</td>
-                <td>{{data.StaffContactNo}}</td>
-                <td>{{data.StaffLocation}}</td>
-                <td style=" width: 6em;">
-                    <button (click)="updateStaff(data.StaffId)" class="btn btn-outline-danger"
-                        style="width: 100%;">Edit</button>
+                    <td>{{data.StaffId}}</td>
+                    <td>{{data.StaffName}}</td>
+                    <td>{{data.StaffAge}}</td>
+                    <td>{{data.StaffGender}}</td>
+                    <td>{{data.StaffDateofBirth | date:'dd-MM-yyyy'}}</td>
+                    <td>{{data.StaffContactNo}}</td>
+                    <td>{{data.StaffLocation}}</td>
+                    <td style=" width: 6em;">
+                        <button (click)="updateStaff(data.StaffId)" class="btn btn-outline-danger"
+                            style="width: 100%;">Edit</button><br><br>
+                        <button (click)="DeleteStaff(data.StaffId)" class="btn btn-outline-danger"
+                            style="width: 100%;">Delete</button>
                     </td>
                 </ng-template>
             </tr>

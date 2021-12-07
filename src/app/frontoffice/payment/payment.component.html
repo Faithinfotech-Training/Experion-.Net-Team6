@@ -1,3 +1,8 @@
+
+<button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
+    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button><br>&nbsp;
+    <button style="width: 7em; float:inline-start; " class="btn btn-primary form-control" [routerLink]="['/frontoffice']">
+        <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button><br>
 <form name="paymentform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
     <div class="form-control">
         <div class="container mt-3" style="width: 30em;">
@@ -58,8 +63,8 @@
             <!--Is Active-->
             <div class="form-group">
                 <div class="form-check">
-                    <label class="form-check-label"><b>Is active</b> </label>
-                    <input type="checkbox" name="IsActive" checked id="IsActive" #IsActive="ngModel"
+                    <!--<label class="form-check-label"><b>Is active</b> </label>-->
+                    <input type="hidden" name="IsActive" checked id="IsActive" #IsActive="ngModel"
                         [(ngModel)]="paymentService.paymentData.IsActive" class="form-check-input">
                 </div>
             </div>

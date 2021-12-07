@@ -29,6 +29,7 @@ import { UserListComponent } from './admin/user-list/user-list.component';
 import { EventlistComponent } from './events/eventlist/eventlist.component';
 import { EventComponent } from './events/event/event.component';
 import { HomeComponent } from './home/home.component';
+import { RelistStaffComponent } from './admin/relist-staff/relist-staff.component';
 import { LabreportpdfComponent } from './labreportpdf/labreportpdf.component';
 
 const routes: Routes = [
@@ -73,6 +74,7 @@ const routes: Routes = [
   { path: 'events', component: EventlistComponent },
   { path: 'payment-list', component: ViewpaymentComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'relist-staff', component: RelistStaffComponent },
   { path: 'reportpdf/:ReportId', component: LabreportpdfComponent }
 
 

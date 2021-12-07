@@ -42,8 +42,9 @@
                         readonly="readonly">
                         <option value=0 disabled>Select Role for the staff</option>
                         <option value=1>Admin</option>
-                        <option value=2>Front Desk</option>
-                        <option value=4>Lab Technician</option>
+                        <option value=3>Lab Technician</option>
+                        <option value=4>Front Desk</option>
+                       
 
 
 
@@ -150,9 +151,9 @@
                 <br>
                 <div class="form-group">
                     <div class="form-check">
-                        <label class="form-check-label">IsActive</label>
+                        <label class="form-check-label"></label>
                         <input type="checkbox" name="IsActive" id="IsActive"
-                            [(ngModel)]="adminService.formData.IsActive" class="form-check-input" checked>
+                            [(ngModel)]="adminService.formData.IsActive" class="form-check-input" checked hidden>
 
                     </div>
 
