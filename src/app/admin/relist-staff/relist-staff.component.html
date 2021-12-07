@@ -1,5 +1,6 @@
 <div class="container dashboard-link">
-    <button style="width: 7em; float: right;" class="btn btn-primary form-control dash-button" [routerLink]="['/admin']">
+    <button style="width: 7em; float: right;" class="btn btn-primary form-control dash-button"
+        [routerLink]="['/admin']">
         <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button>
 </div>
 
@@ -27,21 +28,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr
-                *ngFor="let data of this.adminService.staff | filter: filter1">
+            <tr *ngFor="let data of this.adminService.staff | filter: filter1">
                 <ng-template [ngIf]="data.IsActive==false">
-                <td>{{data.StaffId}}</td>
-                <td>{{data.StaffName}}</td>
-                <td>{{data.StaffAge}}</td>
-                <td>{{data.StaffGender}}</td>
-                <td>{{data.StaffDateofBirth | date:'dd-MM-yyyy'}}</td>
-                <td>{{data.StaffContactNo}}</td>
-                <td>{{data.StaffLocation}}</td>
-                <td style=" width: 6em;">
-                    <button (click)="updateStaff(data.StaffId)" class="btn btn-outline-danger"
-                        style="width: 100%;">Edit</button><br><br>
+                    <td>{{data.StaffId}}</td>
+                    <td>{{data.StaffName}}</td>
+                    <td>{{data.StaffAge}}</td>
+                    <td>{{data.StaffGender}}</td>
+                    <td>{{data.StaffDateofBirth | date:'dd-MM-yyyy'}}</td>
+                    <td>{{data.StaffContactNo}}</td>
+                    <td>{{data.StaffLocation}}</td>
+                    <td style=" width: 6em;">
+                        <button (click)="updateStaff(data.StaffId)" class="btn"
+                            style="width: 100%; background-color: #2297a0; color: white;">Edit</button><br><br>
                         <button (click)="ReActivateStaff(data.StaffId)" class="btn btn-outline-danger"
-                        style="width: 100%;">Re Activate</button>
+                            style="width: 100%;">Re Activate</button>
                     </td>
                 </ng-template>
             </tr>
@@ -79,8 +79,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr
-                *ngFor="let data of this.adminService.doctors | filter: filter2">
+            <tr *ngFor="let data of this.adminService.doctors | filter: filter2">
                 <ng-template [ngIf]="data.IsActive==false">
                     <td>{{data.DoctorId}}</td>
                     <td>{{data.DoctorName}}</td>
@@ -91,15 +90,15 @@
                     <td>{{data.DoctorContactNo}}</td>
                     <td>{{data.DoctorLocation}}</td>
                     <td style="width: 6em;">
-                        <button (click)="updatedoctor(data.DoctorId)" class="btn btn-outline-danger"
-                            style="width: 100%;">Edit</button><br><br>
-                            <button (click)="ReActivatedoc(data.DoctorId)" class="btn btn-outline-danger"
+                        <button (click)="updatedoctor(data.DoctorId)" class="btn"
+                            style="width: 100%; background-color: #2297a0; color: white;">Edit</button><br><br>
+                        <button (click)="ReActivatedoc(data.DoctorId)" class="btn btn-outline-danger"
                             style="width: 100%; ">Re-Activate</button><br>
-                            
+
                     </td>
                 </ng-template>
             </tr>
-            
+
         </tbody>
     </table>
     <div class="footer">

@@ -81,6 +81,11 @@ export class AdddoctorComponent implements OnInit {
     }
   }
 
+  //disabling manual date
+  disableDate(){
+    return false;
+  }
+
   insertdoctor(form: NgForm) {
     console.log("50%");
     console.log(form.value);

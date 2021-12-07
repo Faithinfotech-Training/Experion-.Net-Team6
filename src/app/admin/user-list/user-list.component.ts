@@ -21,9 +21,13 @@ export class UserListComponent implements OnInit {
     this.adminService.getAllUser();
   }
 
+//to update the user
+
   updateUser(userId: number) {
     this.router.navigate(['/add-user', userId]);
   }
+
+  //to delete the user
 
   deleteUser(userId: number) {
     if (confirm("Are you sure you want to delete?")) {
@@ -38,6 +42,8 @@ export class UserListComponent implements OnInit {
     }window.location.reload();
 
   }
+
+  
 
 
 

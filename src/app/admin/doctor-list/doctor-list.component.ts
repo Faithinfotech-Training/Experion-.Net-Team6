@@ -22,9 +22,13 @@ export class DoctorListComponent implements OnInit {
     this.adminService.getalldoctor();
   }
 
+  //updating doctor
+
   updatedoctor(Id: number){
     this.router.navigate(['add-doctor',Id, 0]);
   }
+
+  //deleting doctor
 
   Deletedoctor(Id:number){
     if (confirm("The Doctor info and access will be archived !")) {
