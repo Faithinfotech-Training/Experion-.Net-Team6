@@ -1,7 +1,7 @@
 <div class="container">
     <div class="patientdetails" *ngFor="let patientlog of this.patientlogservice.patientlog">
         <h3>Medical History</h3>
-        <h4>{{patientlog.DateofAppointment| date:'dd-MM-yyyy'}}</h4>
+        <h6>{{patientlog.DateofAppointment| date:'dd-MM-yyyy'}}</h6>
         <table class="table table-bordered table-hover">
             <thead>
                 <th>Medicine</th>
@@ -54,7 +54,7 @@
     </div>
     <div class="patientdetails" *ngFor="let lab of this.patientlogservice.labreport">
         <table class="table table-bordered table-hover">
-            <h4>{{lab.DateOfAppointment | date:'dd-MM-yyyy'}}</h4>
+            <h6>{{lab.DateOfAppointment | date:'dd-MM-yyyy'}}</h6>
             <thead>
                 <th>Tests Prescribed</th>
                 <th>Results</th>

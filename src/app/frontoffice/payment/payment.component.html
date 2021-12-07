@@ -1,8 +1,7 @@
-
 <button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
     <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button><br>&nbsp;
-    <button style="width: 7em; float:inline-start; " class="btn btn-primary form-control" [routerLink]="['/frontoffice']">
-        <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button><br>
+<button style="width: 7em; float:inline-start; " class="btn btn-primary form-control" [routerLink]="['/frontoffice']">
+    <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button><br>
 <form name="paymentform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
     <div class="form-control">
         <div class="container mt-3" style="width: 30em;">
@@ -15,9 +14,9 @@
             <div class="form-group">
 
                 <label>Payment Date</label>
-                <input type="date" name="PaymentDate" id="PaymentDate" #PaymentDate="ngModel"
-                    [ngModel]="paymentService.paymentData.PaymentDate" class="form-control" required
-                    [ngClass]="{'is-invalid':PaymentDate.touched && PaymentDate.invalid}"
+                <input type="date" name="PaymentDate" id="PaymentDate" #PaymentDate="ngModel" (keydown)="disableDate()"
+                    [ngModel]="paymentService.paymentData.PaymentDate" class="form-control" required min="2021-12-07"
+                    max="2022-12-12" [ngClass]="{'is-invalid':PaymentDate.touched && PaymentDate.invalid}"
                     style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
                 <div class="validation-error" *ngIf="PaymentDate.touched && PaymentDate.invalid">
 
@@ -27,7 +26,7 @@
             </div>
 
             <!--Appointment Id-->
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label>Appointment Id</label>
                 <input type="number" name="AppointmentId" #AppointmentId="ngModel"
                     style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" pattern="[0-9]+"
@@ -43,20 +42,25 @@
                     </div>
                 </div>
             </div>
-
+            <!--Amount-->
             <div class="form-group">
                 <label>Amount</label>
                 <input type="number" name="Amount" #Amount="ngModel"
                     style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" pattern="[0-9]+"
                     [(ngModel)]="paymentService.paymentData.Amount" class="form-control"
-                    placeholder="Enter the total payment" required
-                    [ngClass]="{ 'is-invalid' : Amount.touched && Amount.invalid }" />
+                    placeholder="Enter the total payment" required onKeyPress="if(this.value.length>5) return false;"
+                    min="1" max="6" [ngClass]="{ 'is-invalid' : Amount.touched && Amount.invalid }" />
                 <div class="validation-error" *ngIf="Amount.touched && Amount.invalid">
                     <div *ngIf="Amount.errors.required"> Specify the amount
 
                     </div>
                     <div *ngIf="Amount.errors.pattern">
                         Specify the amount
+                    </div>
+                    <div *ngIf="Amount.errors.pattern">
+
+                        Wrong amount format
+
                     </div>
                 </div>
             </div>

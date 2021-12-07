@@ -32,7 +32,12 @@ export class AppointmentComponent implements OnInit {
   }
   logOut(){
     this.authService.logOut();      
-  } 
+  }
+  disableDate(){
+
+    return false;
+
+  }
   onSubmit(form): void {
     console.log(form.value);
     let addId = this.appoiService.formData1.AppointmentId;

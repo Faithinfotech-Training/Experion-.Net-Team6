@@ -54,8 +54,8 @@
     <div class="form-group">
 
         <label><b>Date Of Appointment</b></label>
-        <input type="date" name="DateofAppointment" id="DateofAppointment" #DateofAppointment="ngModel"
-            [ngModel]="appoiService.formData1.DateofAppointment" class="form-control" required min="2021-12-03" max="2022-12-02"
+        <input type="date" name="DateofAppointment" id="DateofAppointment" #DateofAppointment="ngModel" (keydown)="disableDate()"
+            [ngModel]="appoiService.formData1.DateofAppointment" class="form-control" required min="2021-12-07" max="2022-12-12"
             [ngClass]="{'is-invalid':DateofAppointment.touched && DateofAppointment.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"/>
         <div class="validation-error" *ngIf="DateofAppointment.touched && DateofAppointment.invalid">
 

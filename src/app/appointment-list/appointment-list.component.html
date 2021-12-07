@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="container" style="margin-right: 5em;">
-        <button style="width: 10em;" class="btn btn-primary form-control" [routerLink]="['/doctor']">
+    <div class="container" style="margin-right: 5em; float: right;">
+        <button style="width: 10em;height: 4em; float: right;" class="btn btn-primary form-control" [routerLink]="['/doctor']">
           <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i>Dashboard</button>
       </div>
     <div class="header">
@@ -15,20 +15,18 @@
         <table class=" table  table-responsive table-bordered ">
             <thead>
                 <tr>
-                    <!-- <td>ID</td> -->
-                    <!-- <td>PatientId</td> -->
+                   
                     <td>Patient Name</td>
                     <td>Date of Appointment</td>
                     <td>Age</td>
                     <td>Gender</td>
-                    <td>IsActive</td>
                     <td>Action</td>
                 </tr>
 
             </thead>
             <tbody>
                 <tr *ngFor="let app of appservice.appointment ">
-                    <ng-template [ngIf]="compareDate(app.DateofAppointment) ">
+                    <ng-template [ngIf]="compareDate(app.DateofAppointment) && comparedoctor(app.DoctorId) ">
                         <ng-template [ngIf]="app.IsActive">
 
                             <!-- <td>{{app.AppointmentId}}</td> -->
@@ -37,7 +35,6 @@
                             <td>{{app.DateofAppointment |date: 'dd-MM-yyyy'}}</td>
                             <td>{{app.Age}}</td>
                             <td>{{app.Gender}}</td>
-                            <td>{{app.IsActive}}</td>
 
                             <td>
                                 <ng-template [ngIf]="role == '2'">

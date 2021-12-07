@@ -42,6 +42,11 @@ export class PaymentComponent implements OnInit {
   }
   logOut(){
     this.authService.logOut();      
+  }
+  disableDate(){
+
+    return false;
+
   } 
 
   onSubmit(form?: NgForm){
