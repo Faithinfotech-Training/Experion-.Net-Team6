@@ -1,7 +1,8 @@
 <div class="container">
 <button style="width: 110px; float: right;" class="btn btn-primary form-control" (click)="logOut()">
     <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Log Out</button><br>&nbsp;
-    <button style="width: 7em; float:inline-start; " class="btn btn-primary form-control" [routerLink]="['/frontoffice']">
+    <br>
+    <button style="width: 7em; float:right; width: 10em; " class="btn btn-primary form-control" [routerLink]="['/frontoffice']">
         <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button><br>
 <form name="appform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
   <div class="form-control"> 
@@ -75,7 +76,7 @@
     <br>
     <div class="form-group">
         <button type="submit" [disabled]="!(form.valid && form.dirty)"
-            class="btn btn-lg btn-primary form-control" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">Add Appointment</button>
+            class="btn btn-lg  form-control" style="box-shadow: 8px 5px 5px rgb(152, 173, 212);">Add Appointment</button>
     </div>
 </div>
 </div>

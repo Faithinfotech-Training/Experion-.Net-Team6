@@ -3,3 +3,16 @@ button:hover {
     -moz-transform: scale(1.1);
     -o-transform: scale(1.1);
 }
+button{	
+    background-color: #3c94a0;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(247, 243, 243);
+
+}
+
+button:hover{
+background-color:#99dadf;
+color: #373d3d;
+border: #99dadf;
+
+}

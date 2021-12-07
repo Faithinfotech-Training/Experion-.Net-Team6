@@ -16,6 +16,19 @@ a.btn {
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;
 }
+button{	
+        background-color: #3c94a0;
+        border: 1px solid rgb(255, 255, 255);
+        color: rgb(247, 243, 243);
+    
+    }
+    
+button:hover{
+    background-color:#99dadf;
+    color: #373d3d;
+    border: #99dadf;
+    
+}
 th{
     background-color: #2297a0;
     color: white;
@@ -27,5 +40,5 @@ table{
 }
 table thead{
     background-color: #5aadb8;
-    border: 3px solid #363b3b;
+    border: 3px solid #599c9c;
 }
