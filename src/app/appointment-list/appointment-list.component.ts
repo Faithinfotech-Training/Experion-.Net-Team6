@@ -31,19 +31,22 @@ export class AppointmentListComponent implements OnInit {
     console.log(log);
     this.appservice.logForm = log;
   }
+  //view tha past log
   patientlog(patientid: number) {
     console.log(patientid);
     this.router.navigate(['patientlog', patientid]);
   }
+  //add prescriptions and data
   addpatientlog(id: number) {
     console.log(id);
     this.router.navigate(['patientlogform', id]);
   }
+  //for payment by frontoffice
   addPayment(id: number) {
     console.log(id);
     this.router.navigate(['payment', id]);
   }
-
+//date wise validation dor showing todays appointments
   compareDate(date: string) {
     var latestDate = this.datepipe.transform(this.today, 'yyyy-MM-ddT00:00:00');
     console.log(date);
@@ -53,7 +56,7 @@ export class AppointmentListComponent implements OnInit {
     }
     return false;
   }
-
+//validating the doctor who is logged in
   loginuser(username: string) {
     this.loginservice.getDoctorId(username).subscribe(
       data => {
