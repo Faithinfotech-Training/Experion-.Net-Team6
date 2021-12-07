@@ -23,7 +23,18 @@ body{
     }
     button{
     height:50px;	
+        background-color: #3c94a0;
+        border: 1px solid rgb(255, 255, 255);
+        color: rgb(247, 243, 243);
+    
     }
+    
+button:hover{
+    background-color:#99dadf;
+    color: #373d3d;
+    border: #99dadf;
+    
+}
     .sideline:before,
     .sideline:after {
         content: '';
