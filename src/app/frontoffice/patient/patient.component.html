@@ -22,6 +22,11 @@
 
                 <div *ngIf="PatientName.errors.required">
                     Full Name is required</div>
+                    <div *ngIf="PatientName.errors.pattern">
+
+                        Wrong Name format
+
+                    </div>
             </div>
         </div>
    
@@ -37,6 +42,11 @@
 
             <div *ngIf="Age.errors.required">
                 Age is required</div>
+                <div *ngIf="Age.errors.pattern">
+
+                    Wrong age format
+
+                </div>
         </div>
     </div><br>
     <!--Location-->
@@ -44,12 +54,17 @@
 
         <label><b>Location</b></label>
         <input type="text" name="Location" #Location="ngModel" [ngModel]="patientService.formData.Location"
-            class="form-control" placeholder="Enter Location" minlength="1" maxlength="25" required
+            class="form-control" placeholder="Enter Location" minlength="1" maxlength="25" required pattern="[A-Za-z]{1,32}"
             [ngClass]="{'is-invalid':Location.touched && Location.invalid}" style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
         <div class="validation-error" *ngIf="Location.touched && Location.invalid">
 
             <div *ngIf="Location.errors.required">
                 Location is required</div>
+                <div *ngIf="Location.errors.pattern">
+
+                    Wrong Location format
+
+                </div>
         </div>
     </div><br>
     <!--Email ID-->

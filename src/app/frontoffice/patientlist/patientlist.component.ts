@@ -11,50 +11,51 @@ import { PatientService } from 'src/app/shared/patient.service';
   styleUrls: ['./patientlist.component.css']
 })
 export class PatientlistComponent implements OnInit {
-  page:number =1;
+  page: number = 1;
   PatientId: number;
-  Id:number;
-  filter : string;
+  Id: number;
+  filter: string;
   route: any;
 
-  constructor(public authService:AuthService,public patientService:PatientService,private router:Router) { }
-  role=localStorage.getItem('ACCESS_ROLE');
+  constructor(public authService: AuthService, public patientService: PatientService, private router: Router) { }
+  role = localStorage.getItem('ACCESS_ROLE');
   ngOnInit(): void {
-   
-    this.patientService.bindPatient();
-    }
 
-    patientlog(patientid: number) {
-      console.log(patientid);
-      this.router.navigate(['patientlog', patientid]);
-    }
+    this.patientService.bindPatient();
+  }
+
+  patientlog(patientid: number) {
+    console.log(patientid);
+    this.router.navigate(['patientlog', patientid]);
+  }
   /*populateForm(pat: Patient){
     console.log(pat);
     this.patientService.formData1=Object.assign({} ,pat);
  }*/
- //update a patient through routing
-onclick(patientId: number){
- console.log(patientId);
- this.router.navigate(['addpatient', patientId]);
- 
-} 
-logOut(){
-  this.authService.logOut();      
-} 
+  //update a patient through routing
+  onclick(patientId: number) {
+    console.log(patientId);
+    this.router.navigate(['addpatient', patientId]);
 
-updateStatus(PatientId: number){
-
-    this.patientService.updatePatientByActive(PatientId).subscribe(
-
-      (result)=>{
-
-        console.log(result);
-
-      }
-
-    )
-   window.location.reload();
   }
-  
- 
+  logOut() {
+    this.authService.logOut();
+  }
+
+  updateStatus(PatientId: number) {
+    if (confirm("The patient data will be removed ! Are you sure?")) {
+      this.patientService.updatePatientByActive(PatientId).subscribe(
+
+        (result) => {
+
+          console.log(result);
+
+        }
+
+      )
+      window.location.reload();
+    }
+  }
+
+
 }
