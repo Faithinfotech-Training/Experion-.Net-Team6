@@ -41,7 +41,7 @@
             class="form-control" placeholder="Observations" required
             [ngClass]="{'is-invalid': Observations.touched && Observations.invalid}" ></textarea>
           </div>
-          <div class="form-group">
+          <div class="form-group" hidden>
               <div class="form-check"><br>
                   <label class="form-check-label" name="IsActive" #IsActive="ngModel" [(ngModel)]="appointmentservice.logForm.IsActive">Is active </label>
                   <input type="checkbox" name="IsActive" id="IsActive" 
