@@ -42,10 +42,22 @@ export class RelistStaffComponent implements OnInit {
       this.adminService.getdoctor(Id).subscribe(
         (result) => {
           result.IsActive = true;
+          var uId = result.UserId;
           this.adminService.updatedoctor(result).subscribe(
-            (result) => console.log("activated")
+            (result) => {
+              console.log("activated")
+              this.adminService.getUser(uId).subscribe(
+                (result) => {
+                  result.IsActive = true;
+                  this.adminService.updateUser(result).subscribe(
+                    (result) => console.log("User reactivated")
+                  )
+                  window.location.reload()
+                }
+              )
+            }
           )
-          window.location.reload()
+
         }
       )
     }
@@ -64,14 +76,27 @@ export class RelistStaffComponent implements OnInit {
       this.adminService.getstaff(Id).subscribe(
         (result) => {
           result.IsActive = true;
+          var uId = result.UserId;
           this.adminService.updatestaff(result).subscribe(
-            (result) => console.log("activated")
+            (result) => {
+              console.log("activated")
+              this.adminService.getUser(uId).subscribe(
+                (result) => {
+                  console.log("User reactivating progress")
+                  result.IsActive = true;
+                  this.adminService.updateUser(result).subscribe(
+                    (result) => console.log("User re-activated")
+                  )
+                  window.location.reload();
+                }
+              )
+            }
           )
-          window.location.reload();
+          
         }
       )
     }
   }
-    
+
 
 }
